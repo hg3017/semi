@@ -11,31 +11,31 @@ public class MypageController {
     @GetMapping("/commentList")
     public String commentList() {
         System.out.println("mypage/commentList---------------------------------------------");
-        return "/mypage/commentList";
+        return "/mypage/mypageComment";
     }
 
     @GetMapping("/eventList")
     public String eventList() {
         System.out.println("mypage/eventList---------------------------------------------");
-        return "/mypage/eventList";
+        return "/mypage/mypageEvent";
     }
 
-    @GetMapping("/mainpage")
+    @GetMapping("/scrapList")
     public String mainpage() {
-        System.out.println("mypage/mainpage---------------------------------------------");
-        return "/mypage/mainpage";
+        System.out.println("mypage/scrap---------------------------------------------");
+        return "/mypage/scrap";
     }
 
-    @GetMapping("/mypage")
+    @GetMapping("/profile")
     public String mypage() {
-        System.out.println("mypage/mypage---------------------------------------------");
-        return "/mypage/mypage";
+        System.out.println("mypage/profile---------------------------------------------");
+        return "/mypage/mypageProfile";
     }
 
     @GetMapping("/writeList")
     public String writeList() {
-        System.out.println("mypage/writeList---------------------------------------------");
-        return "/mypage/writeList";
+        System.out.println("mypage/write---------------------------------------------");
+        return "/mypage/mypageWrite";
     }
 
 

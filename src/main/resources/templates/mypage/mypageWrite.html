@@ -1,6 +1,8 @@
 <!DOCTYPE html>
+<link rel="stylesheet" href="/css/mypage/writeList.css" />
 <html lang="ko" xmlns:th="http://www.thymeleaf.org">
-<link rel="stylesheet" href="/css/mainpage.css" />
+
+
 
 <th:block th:insert="~{/fragments :: header}"></th:block>
 
@@ -49,29 +51,21 @@
                   </a>
                 </li>
                 <li>
-                  <a href="/mypage">
+                  <a href="/profile">
                     <span>프로필 관리</span>
                   </a>
                 </li>
               </ul>
             </div>
-            <div class="panel-tab" style="border-top: none">
-              <ul>
-                <li class="on">
-                  <a href="javascript:void(0)">전체 <span>(0)</span></a>
-                </li>
-              </ul>
-            </div>
-            <div class="my-scrap-wrap">
-              <div class="non-scrap">
-                <p>
-                  <img src="/image/il_scrap_my.png" alt="" />
-                </p>
-                <p>마음에 드는 레시피와 이야기를 스크랩 해보세요!</p>
+
+            <div class="my-list-wrap">
+              <div class="non-list">
+                <p>나만의 요리 레시피나 요리 고민을 나눠 보세요!</p>
                 <div id="btn-box" class="center">
-                  <a href="/recipe-lab/list/recipe" class="btn_md">
-                    요리연구소 구경하기
-                  </a>
+                  <a href="/cooking/write" class="btn_md">요리해요 작성하기</a>
+                  <a href="/counseling/write" class="btn_md"
+                    >고민있어요 작성하기</a
+                  >
                 </div>
               </div>
             </div>
@@ -80,7 +74,7 @@
       </div>
     </div>
   </body>
-<th:block th:insert="~{/fragments :: footer}"></th:block>
 
+  <th:block th:insert="~{/fragments :: footer}"></th:block>
 
 </html>

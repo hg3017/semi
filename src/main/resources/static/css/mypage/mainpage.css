@@ -1,0 +1,93 @@
+@import 'mypageCommon.css';
+
+.panel-tab {
+  margin-bottom: 50px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.panel-tab ul {
+  overflow-y: hidden;
+  display: flex;
+  align-items: center;
+  padding: 20px 0;
+  list-style: none;
+  margin: 0;
+}
+
+.panel-tab li {
+  margin-right: 42px;
+  list-style: none;
+}
+
+.panel-tab li a {
+  position: relative;
+  color: #999;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.panel-tab li.on a {
+  position: relative;
+  color: #111;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.panel-tab li.on a span {
+  color: #15a775;
+}
+
+.panel-tab li.on a:after {
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #15a775;
+  content: '';
+}
+
+.my-scrap-wrap .non-scrap {
+  padding: 123px 0;
+}
+
+.my-scrap-wrap .non-scrap p {
+  margin-bottom: 20px;
+  color: #999;
+  font-size: 18px;
+  text-align: center;
+}
+
+.my-scrap-wrap .non-scrap p img {
+  height: 30px;
+}
+
+.my-scrap-wrap .non-scrap p + #btn-box {
+  margin-top: 40px;
+}
+
+#btn-box.center {
+  text-align: center;
+}
+
+#btn_box [class*='btn'] {
+  margin-right: 13px;
+}
+
+#btn_box [class*='btn']:last-child {
+  margin-right: 0;
+}
+
+.btn_md {
+  display: inline-block;
+  padding: 14px 24px;
+  color: #15a775;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 38px;
+  border: solid 2px #15a775;
+  box-sizing: border-box;
+  transition: all 0.2s;
+  text-decoration: none;
+}

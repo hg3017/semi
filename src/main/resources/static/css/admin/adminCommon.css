@@ -1,0 +1,196 @@
+[id*='mypage'] {
+  display: flex;
+  min-height: 100vh;
+  justify-content: center;
+}
+
+[id*='mypage'] .mypage-cont {
+  width: 100%;
+  max-width: 1440px;
+  padding: 200px 30px 100px;
+  transition: max-width 0.4s;
+}
+
+.mypage-tab {
+  margin-bottom: 48px;
+}
+
+.mypage-tab ul {
+  /* overflow: hidden; */
+  display: flex;
+  padding: 0;
+  border: solid 1px #e5e5e5;
+  border-radius: 10px;
+  list-style: none;
+}
+
+.mypage-tab ul li {
+  position: relative;
+  width: 100%;
+  border-right: solid 1px #e5e5e5;
+}
+
+.mypage-tab ul li a {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 20px 0;
+  font-size: 18px;
+  font-weight: bold;
+  color: #222;
+  text-decoration: none;
+}
+
+.mypage-tab ul li.on a,
+.mypage-tab ul li:hover a {
+  color: #fff;
+  background-color: #15a775;
+  transition: all 0.2s;
+}
+
+.mypage-tab ul li.on:after {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-bottom-width: 0;
+  border-top-color: #15a775;
+  transform: translateX(-50%);
+  content: '';
+}
+
+.mypage-tab ul li:first-child a {
+  border-radius: 10px 0 0 10px;
+}
+
+.mypage_tab ul li:last-child a {
+  border-radius: 0 10px 10px 0;
+}
+
+/*  아마도 공통부분  */
+/*  아마도 공통부분  */
+/*  아마도 공통부분  */
+/*  아마도 공통부분  */
+/*  아마도 공통부분  */
+
+[id*=search] .search-box {
+  display: flex;
+  align-items: center;
+  margin-bottom: 36px;
+}
+
+[id*=search] .search-box .select {
+  position: relative;
+  margin-right: 15px;
+}
+
+[id*=search] .search-box .select p {
+  position: relative;
+  width: 150px;
+  height: 74px;
+  padding: 0 40px;
+  font-size: 20px;
+  font-weight: 800;
+  line-height: calc(5rem - 6px);
+  border-radius: 46px;
+  border: solid 3px #e5e5e5;
+  cursor: pointer;
+}
+
+[id*=search] .search-box .select p:after {
+  position: absolute;
+  top: 50%;
+  right: 2.188rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  background-image: url(/images/common/ic_down.png);
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: 100% auto;
+  transform: translateY(-50%);
+  content: '';
+}
+
+.my-list-wrap .non-list {
+  padding: 123px 0;
+}
+
+[id*=search] .search-box .select ul {
+  overflow: hidden;
+  flex-flow: column;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 150px;
+  height: 0;
+  padding: 0 24px;
+  border-radius: 24px;
+  box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.16);
+  background-color: #fff;
+  transition: all 0.2s;
+  z-index: 10;
+}
+
+[id*=search] .search-box .select ul li {
+  width: 100%;
+  height: 250px;
+  padding: 0 24px;
+  list-style: none;
+}
+
+[id*=search] .search-box .search {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+[id*=search] .search-box .search input {
+  width: calc(100% - 170px);
+  height: 80px;
+  margin-right: 10px;
+  padding: 0 40px;
+  font-size: 20px;
+  font-weight: bold;
+  border: none;
+  outline: none;
+  border-radius: 46px 0 0 46px;
+  background-color: #f3f3f3;
+}
+
+[id*=search] .search-box .search button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 170px;
+  height: 80px;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 500;
+  border-radius: 0 46px 46px 0;
+  background-color: #15a775;
+  border: 0;
+}
+
+
+.my-list-wrap .non-list {
+  padding: 123px 0;
+}
+
+.my-list-wrap .non-list p {
+  margin-bottom: 20px;
+  color: #999;
+  font-size: 18px;
+  text-align: center;
+}
+
+.my-list-wrap .non-list p img {
+  height: 30px;
+}
+
+.my-list-wrap .non-list p + #btn-box {
+  margin-top: 40px;
+}
