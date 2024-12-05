@@ -15,14 +15,14 @@
   padding: 78px 0;
   background: #eff9ef;
   height: 305px;
-  background-image: url(../images/common/bg_pattern_green.png) no-repeat 100% / 100%;
+  background-image: url(/images/common/bg_pattern_green.png) no-repeat 100% / 100%;
 }
-.view_title .inner {
+.sub_view_wrap .view_title .inner {
   width: 100%;
   max-width: 720px;
   margin: 0 auto;
 }
-.view_title .label {
+.sub_view_wrap .view_title .label {
   display: inline-block;
   margin-bottom: 10px;
   padding: 5px 9px;
@@ -31,11 +31,11 @@
   background: var(--point-color1);
   border-radius: 5px;
 }
-.view_title h3 {
+.sub_view_wrap .view_title h3 {
   font-size: 48px;
   font-weight: 800;
 }
-.view_title .date {
+.sub_view_wrap .view_title .date {
   color: #666;
   margin-top: 30px;
 }
@@ -49,15 +49,15 @@
   margin-bottom: 50px;
   text-align: center;
 }
-.view_cont_title h4 {
+.sub_view_cont .view_cont_title h4 {
   font-size: 26px;
   font-weight: 800;
 }
-.view_cont_title p {
+.sub_view_cont .view_cont_title p {
   font-size: 18px;
   margin-top: 16px;
 }
-.view_intro {
+.sub_view_cont .view_intro {
   margin-bottom: 120px;
 }
 
@@ -68,12 +68,12 @@
   z-index: 1;
 }
 
-.main_swiper_wrap .swiper {
+.sub_view_cont .main_swiper_wrap .swiper {
   width: 100%;
   height: 100%;
 }
 
-.swiper-slide {
+.sub_view_cont .main_swiper_wrap .swiper-slide {
   text-align: center;
   font-size: 18px;
   background: #fff;
@@ -82,7 +82,7 @@
   align-items: center;
 }
 
-.swiper-slide img {
+.sub_view_cont .main_swiper_wrap .swiper-slide img {
   display: block;
   width: 100%;
   height: 100%;
@@ -90,24 +90,24 @@
   border-radius: 10px;
 }
 
-.swiper {
+.sub_view_cont .swiper {
   width: 100%;
   height: 300px;
   margin-left: auto;
   margin-right: auto;
 }
 
-.swiper-slide {
+.sub_view_cont .swiper-slide {
   background-size: cover;
   background-position: center;
 }
 
-.main_swiper_wrap {
+.sub_view_cont .main_swiper_wrap {
   height: 80%;
   width: 100%;
 }
 
-.thumb_swiper_wrap {
+.sub_view_cont .thumb_swiper_wrap {
   height: 20%;
   box-sizing: border-box;
   padding: 20px 0;
@@ -115,7 +115,7 @@
   margin: 0 50px;
 }
 
-.thumb_swiper_wrap .swiper-slide {
+.sub_view_cont .thumb_swiper_wrap .swiper-slide {
   width: 25%;
   height: 100%;
   opacity: 0.4;
@@ -130,7 +130,7 @@
 .swiper_head .swiper-button-next,
 .swiper_head .swiper-button-prev  {
   top: 26px;
-  width: 45px; 
+  width: 45px;
   height: 45px;
   border: 1px solid #666;
   background: url(/images/common/ic_left_g.png) no-repeat 50% / 60%;
@@ -140,7 +140,7 @@
 .swiper_head .step-button-prev {
   transform: rotate(180deg);
 } */
-.swiper-slide img {
+.sub_view_cont .swiper-slide img {
   display: block;
   width: 100%;
   height: 100%;
@@ -155,17 +155,17 @@
   padding: 30px 125px;
   background: #f9f9f9;
 }
-.recipe_time ul {
+.recipe_intro .recipe_time ul {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-.recipe_time li {
+.recipe_intro .recipe_time li {
   display: flex;
   align-items: center;
   font-weight: 700;
 }
-.recipe_time p {
+.recipe_intro .recipe_time p {
   display: block;
   position: relative;
 }
@@ -188,7 +188,7 @@
   margin-left: -40px;
   width: 32px;
   height: 35px;
-  
+
   background: url(/images/common/ic_serv.png) no-repeat 100% / 100%;
 }
 .recipe_time .prep::after {
@@ -200,7 +200,7 @@
   margin-left: -40px;
   width: 32px;
   height: 35px;
-  
+
   background: url(/images/common/ic_prep.png) no-repeat 100% / 100%;
 }
 .recipe_time .cook::after {
@@ -243,7 +243,7 @@
   align-items: center;
   font-size: 18px;
   font-weight: 700;
-} 
+}
 .ingred span {
   font-size: 14px;
   margin-left: 7px;
@@ -344,7 +344,7 @@
   text-align: right;
   height: 10px;
   margin-bottom: 30px;
-  position: absolute; 
+  position: absolute;
   top: 0; /* top 대신 bottom을 사용 */
 }
 
@@ -377,7 +377,7 @@
   height: 100%;
 }
 
-.swiper-slide {
+.sub_sw_wrap .swiper-slide {
   text-align: center;
   font-size: 18px;
   background: #fff;
@@ -386,7 +386,7 @@
   align-items: center;
 }
 
-.swiper-slide img {
+.sub_sw_wrap .swiper-slide img {
   display: block;
   width: 100%;
   height: 100%;
@@ -395,14 +395,14 @@
   margin-top: 30px;
 }
 
-.swiper {
+.sub_sw_wrap .swiper {
   width: 100%;
   height: 300px;
   margin-left: auto;
   margin-right: auto;
 }
 
-.swiper-slide {
+sub_sw_wrap .swiper-slide {
   background-size: cover;
   background-position: center;
 }
@@ -521,28 +521,28 @@
   margin-bottom: 24px;
   font-size: 18px;
 }
-.total h4 {
+.comment_wrap .total h4 {
   font-weight: 800;
   margin-right: 5px;
 }
-.total span {
+.comment_wrap .total span {
   color: #15a775;
   font-weight: 800;
 }
 
-.com_login {
+.comment_wrap .com_login {
   display: flex;
   align-items: center;
   margin-bottom: 28px;
 }
-.com_login .profile {
+.comment_wrap .com_login .profile {
   position: relative;
   overflow: hidden;
   width: 35px;
   height: 35px;
   margin-right: 15px;
 }
-.com_login .loginFirst {
+.comment_wrap .com_login .loginFirst {
   border: 1px solid #e5e5e5;
   border-radius: 8px;
   background: #f9f9f9;
@@ -551,35 +551,35 @@
   font-size: 12px;
   color: #999;
 }
-.loginFirst a {
+.comment_wrap .loginFirst a {
   color: #111;
   text-decoration: underline;
   text-underline-position: under;
   padding-bottom: 20px;
 }
 
-.com_box {
+.comment_wrap .com_box {
   display: flex;
   align-items: center;
   margin-top: 24px;
 }
-.com_box .profile {
+.comment_wrap .com_box .profile {
   position: relative;
   overflow: hidden;
   width: 35px;
   height: 35px;
   margin-right: 15px;
 }
-.com_box .cmt {
+.comment_wrap .com_box .cmt {
   position: relative;
   width: 100%;
 }
-.cmt .name {
+.comment_wrap .cmt .name {
   margin-bottom: 8px;
   font-size: 13px;
   display: flex;
 }
-.cmt .name .date {
+.comment_wrap .cmt .name .date {
   position: relative;
   margin-left: 10px;
   padding-left: 10px;
@@ -587,7 +587,7 @@
   font-size: 13px;
 }
 
-.cmt .name .date::before {
+.comment_wrap .cmt .name .date::before {
   position: absolute;
   content: '';
   left: 0;
@@ -597,7 +597,7 @@
   background: #c4c4c4;
   transform: translateY(-50%);
 }
-.cmt .text {
+.comment_wrap .cmt .text {
   margin-bottom: 8px;
   font-size: 13px;
   color: #666;
