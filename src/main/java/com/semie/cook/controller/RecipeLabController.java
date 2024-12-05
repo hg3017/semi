@@ -20,9 +20,9 @@ public class RecipeLabController {
         return "/recipeLab/solution";
     }
 
-    @GetMapping("/archive")
+    @GetMapping("/archive_rep")
     public String archive() {
         System.out.println("recipe_lab/archive-----------------------------------------------");
-        return "/recipeLab/archive";
+        return "/recipeLab/archive_rep";
     }
 }
