@@ -1,220 +1,237 @@
-:root {
-  --point-color1: #0bab6d;
-  --point-color2: #fb9622;
-  --gray-500: #111;
-  --gray-600: #000;
-}
-
-
 .lab_inner {
-  /* max-width: 1556px; */
-  max-width: 1600px;
-  margin: 0 auto;
-  padding: 200px 30px 100px;
+    /* max-width: 1556px; */
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 200px 30px 100px;
 }
+
 .tit_sec {
-  /* max-width: 1496px; */
-  margin-bottom: 30px;
+    /* max-width: 1496px; */
+    margin-bottom: 30px;
 
 }
+
 .tit_sec h3 {
-  font-size: 60px;
-  font-weight: 900;
+    font-size: 60px;
+    font-weight: 900;
 }
 
 .tap_wrap {
-  position: relative;
-  overflow: hidden;
-  margin-bottom: 30px;
-  border-radius: 50px;
-  border: 1px solid #e5e5e5;
-  
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 30px;
+    border-radius: 50px;
+    border: 1px solid #e5e5e5;
+
 }
+
 .tap_wrap::after {
-  position: absolute;
-  content: '';
-  top: 0;
-  left: 50%;
-  width: 1px;
-  height: 100%;
-  background: #e5e5e5;
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 50%;
+    width: 1px;
+    height: 100%;
+    background: #e5e5e5;
 }
-.tap_wrap ul{
-  display: flex;
+
+.tap_wrap ul {
+    display: flex;
 }
-.tap_wrap ul>li{
-  width: 100%;
+
+.tap_wrap ul > li {
+    width: 100%;
 }
-.tap_wrap ul>li>a {
-  display: block;
-  width: 100%;
-  padding: 22px 0;
-  color: #999;
-  font-size: 22px;
-  text-align: center;
+
+.tap_wrap ul > li > a {
+    display: block;
+    width: 100%;
+    padding: 22px 0;
+    color: #999;
+    font-size: 22px;
+    text-align: center;
 }
-.tap_wrap ul>li.on a {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #111;
-  background-color: #fff9e2;
+
+.tap_wrap ul > li.on a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #111;
+    background-color: #fff9e2;
 }
+
 .tap_wrap li.on a::before {
-  content: '';
-  display: inline-block;
-  width: 30px;
-  height: 30px;
-  background: url(../images/common/ic_star_pink.png) no-repeat 100% / 100%;
+    content: '';
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background: url(../images/common/ic_star_pink.png) no-repeat 100% / 100%;
 }
 
 .keyword_wrap {
-  margin-bottom: 30px;
+    margin-bottom: 30px;
 }
+
 .key_tit {
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
 }
+
 .key_tit h4 {
-  font-size: 20px;
-  font-weight: bold;
+    font-size: 20px;
+    font-weight: bold;
 }
+
 .key_tit img {
-  margin-right: 10px;
+    margin-right: 10px;
 }
 
 .key_list ul {
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
 }
-.key_list ul>li {
-  margin: 14px 16px 0 0;
+
+.key_list ul > li {
+    margin: 14px 16px 0 0;
 }
-.key_list ul>li>a {
-  display: block;
-  padding: 6px 16px;
-  color: #666;
-  font-size: 18px;
-  border-radius: 18px;
-  background-color: #f3f3f3;
+
+.key_list ul > li > a {
+    display: block;
+    padding: 6px 16px;
+    color: #666;
+    font-size: 18px;
+    border-radius: 18px;
+    background-color: #f3f3f3;
 }
+
 .key_list li.on a {
-  color: #fff;
-  background-color: #15a775;
+    color: #fff;
+    background-color: #15a775;
 }
 
 .k_line {
-  width: 100%;
-  height: 1px;
-  margin: 37px 0 50px;
-  background-color: #e5e5e5;
+    width: 100%;
+    height: 1px;
+    margin: 37px 0 50px;
+    background-color: #e5e5e5;
 }
 
 .main_detail .inner {
-  max-width: 1496px;
-  margin: 0 auto;
+    max-width: 1496px;
+    margin: 0 auto;
 }
+
 .main_detail .filter {
-  margin-bottom: 30px;
+    margin-bottom: 30px;
 }
+
 .main_detail .filter ul {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
 }
-.main_detail .filter ul>li {
-  display: inline-flex;
-  align-items: center;
-  position: relative;
+
+.main_detail .filter ul > li {
+    display: inline-flex;
+    align-items: center;
+    position: relative;
 }
+
 .main_detail .filter li::after {
-  content: '';
-  width: 4px;
-  height: 4px;
-  margin: 8px;
-  border-radius: 100%;
-  background-color: #c4c4c4;
+    content: '';
+    width: 4px;
+    height: 4px;
+    margin: 8px;
+    border-radius: 100%;
+    background-color: #c4c4c4;
 }
+
 .main_detail .filter li:last-of-type::after {
-  display: none;
+    display: none;
 }
-.main_detail .filter li>a {
-  color: #c4c4c4;
+
+.main_detail .filter li > a {
+    color: #c4c4c4;
 }
+
 .main_detail .filter li.on a {
-  color: #111;
-  font-weight: 600;
-  margin-left: 20px;
+    color: #111;
+    font-weight: 600;
+    margin-left: 20px;
 }
+
 .main_detail .filter li.on a::after {
-  content: '';
-  display: block;
-  width: 20px;
-  height: 20px;
-  position: absolute;
-  top: 50%; 
-  margin-left: -20px;
-  transform: translateY(-50%); 
-  background: url(../images/common/ckeck.svg) no-repeat center;
+    content: '';
+    display: block;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 50%;
+    margin-left: -20px;
+    transform: translateY(-50%);
+    background: url(../images/common/ckeck.svg) no-repeat center;
 }
+
 /* .main_detail .tag_wrap {
   
   position: relative;
   margin: 0 auto;
 } */
 .main_detail .tag_area {
-  display: flex;
-  flex-wrap: wrap;
-  width: calc(100% + 32px);
-  margin-left: -16px;
+    display: flex;
+    flex-wrap: wrap;
+    width: calc(100% + 32px);
+    margin-left: -16px;
 }
 
 .main_detail .tag_item {
-  /* display: inline-block; */
-  position: relative;
-  width: calc(25% - 32px);
-  margin: 0 16px 60px;
-  box-sizing: border-box;
+    /* display: inline-block; */
+    position: relative;
+    width: calc(25% - 32px);
+    margin: 0 16px 60px;
+    box-sizing: border-box;
 }
+
 .main_detail .img_wrap {
-  position: relative;
-  overflow: hidden;
-  border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
 }
 
 .main_detail .txt_wrap {
-  padding: 20px 0px 32px;
+    padding: 20px 0 32px;
 }
 
 .main_detail .txt_wrap h4 {
-  font-size: 22px;
-  font-weight: bold;
-  margin-bottom: 12px;
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 12px;
 }
 
-.main_detail .hash_wrap  {
-  display: flex;
+.main_detail .hash_wrap {
+    display: flex;
 }
+
 .main_detail .hash_wrap li {
-  margin-bottom: 6px;
-  margin-right: 10px;
-  color: #15a775;
-  font-size: 16px;
-  font-weight: 500;
-  
+    margin-bottom: 6px;
+    margin-right: 10px;
+    color: #15a775;
+    font-size: 16px;
+    font-weight: 500;
+
 
 }
 
 .main_detail .hash_wrap li::before {
-  content: '#';
+    content: '#';
 }
 
 .main_detail .scrap {
-  position: absolute;
-  top: 24px;
-  right: 24px;
-  width: 36px;
-  height: 36px;
-  text-indent: -9999px;
-  background: url(../images/common/ic_scrap.png) no-repeat 100% / 100%;
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    width: 36px;
+    height: 36px;
+    text-indent: -9999px;
+    background: url(../images/common/ic_scrap.png) no-repeat 100% / 100%;
 }

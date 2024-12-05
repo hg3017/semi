@@ -1,128 +1,133 @@
 #guide .guide_inner {
-  margin: 0 auto;
-  max-width: 1556px;
-  padding: 200px 30px 100px;
+    margin: 0 auto;
+    max-width: 1556px;
+    padding: 200px 30px 100px;
 }
+
 #guide .guide_title {
-  margin-bottom: 30px;
+    margin-bottom: 30px;
 }
-#guide .guide_title h3{
-  font-size: 60px;
-  color: #000;
-  font-weight: 900;
+
+#guide .guide_title h3 {
+    font-size: 60px;
+    color: #000;
+    font-weight: 900;
 }
 
 #guide .guide_menu {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 20px;
-  position: relative;
-  color: #c4c4c4;
-  font-weight: 500;
-  margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 20px;
+    position: relative;
+    color: #c4c4c4;
+    font-weight: 500;
+    margin-bottom: 20px;
 }
 
 /* 온클릭시 체크가 나와야함 */
-#guide .guide_menu li::before{
-  content: '';
-  position: absolute;
-  right: 180px;
-  top: 0;
-  width: 16px;
-  height: 16px;
-  background: url(/images/common/ckeck.svg) no-repeat 50% 50%;
+#guide .guide_menu li::before {
+    content: '';
+    position: absolute;
+    right: 180px;
+    top: 0;
+    width: 16px;
+    height: 16px;
+    background: url(/images/common/ckeck.svg) no-repeat 50% 50%;
 }
 
-#guide .guide_menu li>a {
-  position: relative;
+#guide .guide_menu li > a {
+    position: relative;
 }
-#guide .guide_menu li + li>a::after {
-  content: '';
-  position: absolute;
-  left: -12px;
-  top: 8px;
-  width: 5px;
-  height: 5px;
-  border-radius: 100%;
-  background: #c4c4c4;
+
+#guide .guide_menu li + li > a::after {
+    content: '';
+    position: absolute;
+    left: -12px;
+    top: 8px;
+    width: 5px;
+    height: 5px;
+    border-radius: 100%;
+    background: #c4c4c4;
 }
 
 #guide .guide_wrap ul {
-  display: flex;
-  flex-wrap: wrap;
-  width: calc(100% + 34px);
-  margin-left: -17px;
+    display: flex;
+    flex-wrap: wrap;
+    width: calc(100% + 34px);
+    margin-left: -17px;
 }
 
 #guide .guide_wrap ul li {
-  overflow: hidden;
-  position: relative;
-  width: calc(33.33% - 34px);
-  margin: 0 17px 34px;
-  height: 575px;
-  border-radius: 24px;
-  box-shadow: 3px 3px 15px 0 rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    position: relative;
+    width: calc(33.33% - 34px);
+    margin: 0 17px 34px;
+    height: 575px;
+    border-radius: 24px;
+    box-shadow: 3px 3px 15px 0 rgba(0, 0, 0, 0.1);
 }
 
 #guide .guide_wrap ul li .thumb {
-  display: flex;
-  justify-content: space-between;
-  position: absolute;
-  bottom: 0;
-  left: 17px;
-  width: 100%;
-  height: 172px;
-  padding: 20px;
-  box-sizing: border-box;
-  background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    bottom: 0;
+    left: 17px;
+    width: 100%;
+    height: 172px;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #fff;
 }
+
 #guide .guide_wrap ul li .thumb li {
-  overflow: hidden;
-  position: relative;
-  width: 132px;
-  height: 132px;
-  border-radius: 10px;
-  margin: 0;
+    overflow: hidden;
+    position: relative;
+    width: 132px;
+    height: 132px;
+    border-radius: 10px;
+    margin: 0;
 }
+
 #guide .guide_wrap ul li .thumb li img {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transform: translate(-50%, -50%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
 }
 
 #guide .guide_wrap ul li .thumb li .more_detail {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  color: #fff;
-  font-size: 16px;
-  font-weight: 500;
-  background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 #guide .guide_wrap ul li .picture {
-  overflow: hidden;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 10;
-  transition: all 0.4s ease-out;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    transition: all 0.4s ease-out;
 }
 
 #guide .guide_wrap ul li .picture img {
-  position: absolute;
+    position: absolute;
     top: 50%;
     left: 50%;
     width: 120%;
@@ -133,50 +138,51 @@
 }
 
 #guide .guide_wrap ul li:hover .picture {
-  height: 403px;
-  width: 100%;
+    height: 403px;
+    width: 100%;
 }
 
 #guide .guide_wrap ul li .picture p {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  padding: 52px 40px;
-  color: #fff;
-  font-size: 30px;
-  font-weight: 800;
-  word-wrap: break-word;
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.4) 87%, rgba(0, 0, 0, 0.6));
-  transition: all 1s;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 52px 40px;
+    color: #fff;
+    font-size: 30px;
+    font-weight: 800;
+    word-wrap: break-word;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.4) 87%, rgba(0, 0, 0, 0.6));
+    transition: all 1s;
 }
 
 #guide .guide_wrap ul li .picture p .num {
-  display: block;
-  width: 60px;
-  margin-top: 20px;
-  padding: 6px 0;
-  color: #fff;
-  font-size: 24px;
-  font-weight: 800;
-  text-align: center;
-  white-space: nowrap;
-  border-radius: 25px;
-  background-color: rgba(255, 255, 255, 0.25);
+    display: block;
+    width: 60px;
+    margin-top: 20px;
+    padding: 6px 0;
+    color: #fff;
+    font-size: 24px;
+    font-weight: 800;
+    text-align: center;
+    white-space: nowrap;
+    border-radius: 25px;
+    background-color: rgba(255, 255, 255, 0.25);
 }
+
 #guide .guide_wrap ul li .picture p .num::before {
-  content: "+";
+    content: "+";
 }
 
 #guide .guide_wrap ul li .picture .guide_tip {
-  position: absolute;
+    position: absolute;
     bottom: 0;
     left: 0;
     width: calc(100% - 80px);
     height: 79px;
     margin: 0 40px 34px;
-    padding: 34px 0 0; 
+    padding: 34px 0 0;
     color: #fff;
     font-size: 18px;
     border-top: 1px solid rgba(255, 255, 255, 0.6);
@@ -192,6 +198,6 @@
 }
 
 #guide .guide_wrap ul li:hover .picture .guide_tip {
-  opacity: 0;
-  transition: all 0s;
+    opacity: 0;
+    transition: all 0s;
 }
