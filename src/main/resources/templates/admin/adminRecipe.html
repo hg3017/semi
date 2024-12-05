@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" href="/css/admin/recipe.css" />
+
+
+<th:block th:insert="~{/fragments :: header}"></th:block>
+
+  <body>
+    <div id="container">
+      <div id="wrap" data-menu="4">
+        <div id="mypage">
+          <div class="mypage-cont">
+            <div class="mypage-tab">
+              <ul>
+                <li class="on">
+                  <a href="/admin/guide">
+                    <span>요리초보가이드</span>
+                  </a>
+                </li>
+                <li class="">
+                  <a href="/admin/recipe">
+                    <span>요리연구소-레시피</span>
+                  </a>
+                </li>
+                <li class="">
+                  <a href="/admin/solution">
+                    <span>요리연구소-솔루션</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="/admin/cooking">
+                    <span>요리해요-요리해요</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="/admin/counseling">
+                    <span>요리해요-고민있어요</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="/admin/wow">
+                    <span>이벤트</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="/admin/user">
+                    <span>회원관리</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+
+        </div>
+      </div>
+    </div>
+  </body>
+
+<th:block th:insert="~{/fragments :: footer}"></th:block>
+
+</html>

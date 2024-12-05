@@ -1,0 +1,41 @@
+@import 'adminCommon.css';
+
+.my-list-wrap .non-list p {
+  margin-bottom: 20px;
+  color: #999;
+  font-size: 18px;
+  text-align: center;
+}
+
+.my-list-wrap .non-list p img {
+  height: 30px;
+}
+
+.my-list-wrap .non-list p + #btn-box {
+  margin-top: 40px;
+}
+
+#btn-box.center {
+  text-align: center;
+}
+
+#btn-box [class*='btn'] {
+  margin-right: 13px;
+}
+
+#btn-box [class*='btn']:last-child {
+  margin-right: 0;
+}
+
+.btn_md {
+  display: inline-block;
+  padding: 14px 24px;
+  color: #15a775;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 38px;
+  border: solid 2px #15a775;
+  box-sizing: border-box;
+  transition: all 0.2s;
+  text-decoration: none;
+}

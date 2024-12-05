@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" href="/css/admin/wow.css" />
+
+
+<th:block th:insert="~{/fragments :: header}"></th:block>
+
+  <body>
+    <div id="container">
+      <div id="wrap" data-menu="4">
+        <div id="mypage">
+          <div class="mypage-cont">
+            <div class="mypage-tab">
+              <ul>
+                <li class="on">
+                  <a href="/admin/guide">
+                    <span>요리초보가이드</span>
+                  </a>
+                </li>
+                <li class="">
+                  <a href="/admin/recipe">
+                    <span>요리연구소-레시피</span>
+                  </a>
+                </li>
+                <li class="">
+                  <a href="/admin/solution">
+                    <span>요리연구소-솔루션</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="/admin/cooking">
+                    <span>요리해요-요리해요</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="/admin/counseling">
+                    <span>요리해요-고민있어요</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="/admin/wow">
+                    <span>이벤트</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="/admin/user">
+                    <span>회원관리</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <div id="search">
+              <form id="sFrm" method="POST" onsubmit="return false;">
+                <div class="search-box">
+                  <input type="hidden" name="t" value="">
+                  <div class="select">
+                    <p>전체</p>
+                    <ul>
+                      <li class="" data-type="a"><a href="javascript:void(0)">전체</a></li>
+                      <li class="" data-type="t"><a href="javascript:void(0)">제목&amp;내용만</a></li>
+                      <li class="" data-type="m"><a href="javascript:void(0)">재료만</a></li>
+                      <li class="" data-type="h"><a href="javascript:void(0)">해시태그만</a></li>
+                    </ul>
+                  </div>
+                  <div class="search">
+                    <input type="text" name="q" value="" placeholder="어떤 요리가 궁금하신가요?">
+                    <button id="btnSearch" type="button">검색</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+<th:block th:insert="~{/fragments :: footer}"></th:block>
+
+</html>
