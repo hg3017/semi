@@ -1,129 +1,127 @@
 #header {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100px;
-    z-index: 9999;
-    border-bottom: 1px solid #15a775;
-    background: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 90px;
+  z-index: 9999;
+  border-bottom: 1px solid #15a775;
+  background: #fff;
+  box-shadow:0 0 10px rgba(0,0,0,.1) ;
 }
-
 #header.fixed {
-    background: #fff;
+  background: #fff;
 }
 
 #header .inner {
-    max-width: 1800px;
-    margin: 0 auto;
-    height: 100px;
-    display: flex;
-    position: relative;
-    justify-content: center;
+  max-width: 1850px;
+  margin: 0 auto;
+  height: 90px;
+  display: flex;
+  position: relative;
+  justify-content: center;
 }
-
 #header .logo {
-    left: 80px;
-    position: absolute;
-    width: 100px;
-    align-items: center;
-    height: 100px;
-    top: 10px;
-    z-index: 10;
+  left: 80px;
+  position: absolute;
+  width: 90px;
+  align-items: center;
+  height: 70px;
+  top: 10px;
+  z-index: 10;
 }
 
 #header .gnb {
-    display: flex;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0 40px;
+}
+#header .gnb>li {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 90px;
+}
+#header .gnb>li>a {
+  /* position: relative; */
+  font-size: 18px;
+  font-weight: 900;
+}
+#header .gnb>.gnb_star::after {
+  content: '';
+  display: flex;
+  width: 22px;
+  height: 22px;
+  margin: 0 10px;
+  transition: all 0.2s;
+  background: url(/images/common/ic_star.png) no-repeat 100% / cover;
+  position: absolute;
+  top:48%;
+  left: 100%;
+  transform:translateY(-50%);
 }
 
-#header .gnb > li {
-    position: relative;
-    padding: 0 65px 0 0;
-    align-items: center;
-    justify-content: center;
+#header .gnb>li:hover .depth2 {
+  max-height: 100px;
+  padding:10px;
+  opacity: 1;
 }
-
-#header .gnb > li > a {
-    display: flex;
-    line-height: 100px;
-    position: relative;
-    font-size: 18px;
-    font-weight: 900;
-}
-
-#header .gnb > li::after {
-    content: '';
-    position: absolute;
-    right: 25px;
-    top: 39px;
-    width: 20px;
-    height: 20px;
-    transition: all 0.2s;
-    background: url(/images/common/ic_star.png) no-repeat 100% / cover;
-}
-
-
-#header .gnb > li:hover .depth2 {
-    max-height: 100px;
-    padding: 10px;
-    opacity: 1;
-}
-
 #header .gnb .depth2 {
-    position: absolute;
-    top: 100%;
-    right: 25%;
-    width: 115px;
-    z-index: 10;
-    display: block;
-    padding: 0;
-    max-height: 0;
-    overflow: hidden;
-    opacity: 0;
-    transition: all 0.2s;
-    border: 1px solid #15a775;
-    border-top: none;
-    background: #fff;
-    border-radius: 0 0 10px 10px;
+  position: absolute;
+  top: 100%;
+  width: 115px;
+  z-index: 10;
+  display: block;
+  padding:0;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: all 0.2s;
+  border: 1px solid #15a775;
+  border-top: none;
+  background: #fff;
+  border-radius: 0 0 10px 10px;
 }
 
 #header .gnb .depth2 li + li {
-    margin-top: 12px;
+  margin-top: 12px;
 }
-
 #header .gnb .depth2 a {
-    font-size: 18px;
-    color: #222;
-    display: block;
-    text-align: left;
-    padding-left: 10px;
-    word-break: keep-all;
-    line-height: 1.5;
+  font-size: 18px;
+  color: #222;
+  display: block;
+  text-align: left;
+  padding-left: 10px;
+  word-break: keep-all;
+  line-height: 1.5;
 }
 
 #header .btn_wrap {
-    position: absolute;
-    right: 80px;
-    top: 30px;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    gap: 0 20px;
-    z-index: 10;
-    font-weight: 900;
-    font-size: 18px;
+  position: absolute;
+  right:90px;
+  top: 30px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  z-index: 10;
 }
 
+#header .login_btn {
+  color: #000;
+  font-weight: 500;
+}
 #header .search_btn {
-    width: 35px;
-    height: 35px;
+  width: 30px;
+  height: 30px;
+  margin-left: 10px;
 }
 
 #header .sitemap_btn {
-    display: none;
+  display: none;
 }
 
 #header .menu_wrap {
-    display: none;
+  display: none;
 }
