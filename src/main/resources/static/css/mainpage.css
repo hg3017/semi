@@ -1,186 +1,186 @@
 [id*='mypage'] {
-  display: flex;
-  min-height: 100vh;
+    display: flex;
+    min-height: 100vh;
 }
 
 [id*='mypage'] .mypage-bg {
-  width: 488px;
-  min-height: 100vh;
-  margin-right: 70px;
-  background-color: #eff9ef;
+    width: 488px;
+    min-height: 100vh;
+    margin-right: 70px;
+    background-color: #eff9ef;
 }
 
 [id*='mypage'] aside {
-  display: flex;
-  align-items: center;
-  flex-flow: column;
-  position: fixed;
-  top: 190px;
-  left: 0;
-  width: 488px;
+    display: flex;
+    align-items: center;
+    flex-flow: column;
+    position: fixed;
+    top: 190px;
+    left: 0;
+    width: 488px;
 }
 
 [id*='mypage'] aside .profile {
-  text-align: center;
-  margin-bottom: 40px;
+    text-align: center;
+    margin-bottom: 40px;
 }
 
 [id*='mypage'] aside .profile .name:after {
-  color: #111;
-  content: ' 님';
+    color: #111;
+    content: ' 님';
 }
 
 [id*='mypage'] aside .profile .img {
-  overflow: hidden;
-  position: relative;
-  width: 136px;
-  height: 136px;
-  margin: 0 auto 24px;
-  border-radius: 100%;
+    overflow: hidden;
+    position: relative;
+    width: 136px;
+    height: 136px;
+    margin: 0 auto 24px;
+    border-radius: 100%;
 }
 
 [id*='mypage'] aside .profile .img img {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transform: translate(-50%, -50%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
 }
 
 [id*='mypage'] aside .profile .name {
-  margin-bottom: 24px;
-  font-size: 24px;
-  font-weight: bold;
-  color: #15a775;
+    margin-bottom: 24px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #15a775;
 }
 
 [id*='mypage'] aside .profile-btn a {
-  padding: 7px 16px;
-  color: #999;
-  font-size: 16px;
-  font-weight: 500;
-  border-radius: 5px;
-  border: solid 1px #c4c4c4;
+    padding: 7px 16px;
+    color: #999;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 5px;
+    border: solid 1px #c4c4c4;
 }
 
 [id*='mypage'] .mypage-cont {
-  width: 100%;
-  max-width: 1120px;
-  padding: 200px 30px 100px;
-  transition: max-width 0.4s;
+    width: 100%;
+    max-width: 1120px;
+    padding: 200px 30px 100px;
+    transition: max-width 0.4s;
 }
 
 .mypage-tab {
-  margin-bottom: 48px;
+    margin-bottom: 48px;
 }
 
 .mypage-tab ul {
-  /* overflow: hidden; */
-  display: flex;
-  padding: 0;
-  border: solid 1px #e5e5e5;
-  border-radius: 10px;
-  list-style: none;
+    /* overflow: hidden; */
+    display: flex;
+    padding: 0;
+    border: solid 1px #e5e5e5;
+    border-radius: 10px;
+    list-style: none;
 }
 
 .mypage-tab ul li {
-  position: relative;
-  width: 100%;
-  border-right: solid 1px #e5e5e5;
+    position: relative;
+    width: 100%;
+    border-right: solid 1px #e5e5e5;
 }
 
 .mypage-tab ul li a {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  padding: 20px 0;
-  font-size: 18px;
-  font-weight: bold;
-  color: #222;
-  text-decoration: none;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 20px 0;
+    font-size: 18px;
+    font-weight: bold;
+    color: #222;
+    text-decoration: none;
 }
 
 .mypage-tab ul li.on a,
 .mypage-tab ul li:hover a {
-  color: #fff;
-  background-color: #15a775;
-  transition: all 0.2s;
+    color: #fff;
+    background-color: #15a775;
+    transition: all 0.2s;
 }
 
 .mypage-tab ul li.on:after {
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  width: 0;
-  height: 0;
-  border: 10px solid transparent;
-  border-bottom-width: 0;
-  border-top-color: #15a775;
-  transform: translateX(-50%);
-  content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border: 10px solid transparent;
+    border-bottom-width: 0;
+    border-top-color: #15a775;
+    transform: translateX(-50%);
+    content: '';
 }
 
 .mypage-tab ul li:first-child a {
-  border-radius: 10px 0 0 10px;
+    border-radius: 10px 0 0 10px;
 }
 
 .mypage_tab ul li:last-child a {
-  border-radius: 0 10px 10px 0;
+    border-radius: 0 10px 10px 0;
 }
 
 .mypage-tab ul li a:before {
-  display: inline-block;
-  width: 2.25rem;
-  height: 2.25rem;
-  background-repeat: no-repeat;
-  background-position: 0 0;
-  background-size: 100% auto;
-  transition: all 0.2s;
-  content: '';
+    display: inline-block;
+    width: 2.25rem;
+    height: 2.25rem;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    background-size: 100% auto;
+    transition: all 0.2s;
+    content: '';
 }
 
 .mypage-tab ul li:nth-of-type(1) a:before {
-  background-image: url(/image/ic_my_1.svg);
+    background-image: url(/image/ic_my_1.svg);
 }
 
 .mypage-tab ul li:nth-of-type(1).on a:before {
-  background-image: url(/image/ic_my_line_1.svg);
+    background-image: url(/image/ic_my_line_1.svg);
 }
 
 .mypage-tab ul li:nth-of-type(2) a:before {
-  background-image: url(/image/ic_my_2.svg);
+    background-image: url(/image/ic_my_2.svg);
 }
 
 .mypage-tab ul li:nth-of-type(2).on a:before {
-  background-image: url(/image/ic_my_line_2.svg);
+    background-image: url(/image/ic_my_line_2.svg);
 }
 
 .mypage-tab ul li:nth-of-type(3) a:before {
-  background-image: url(/image/ic_my_3.svg);
+    background-image: url(/image/ic_my_3.svg);
 }
 
 .mypage-tab ul li:nth-of-type(3).on a:before {
-  background-image: url(/image/ic_my_line_3.svg);
+    background-image: url(/image/ic_my_line_3.svg);
 }
 
 .mypage-tab ul li:nth-of-type(4) a:before {
-  background-image: url(/image/ic_my_4.svg);
+    background-image: url(/image/ic_my_4.svg);
 }
 
 .mypage-tab ul li:nth-of-type(4).on a:before {
-  background-image: url(/image/ic_my_line_4.svg);
+    background-image: url(/image/ic_my_line_4.svg);
 }
 
 .mypage-tab ul li:nth-of-type(5) a:before {
-  background-image: url(/image/ic_my_5.svg);
+    background-image: url(/image/ic_my_5.svg);
 }
 
 .mypage-tab ul li:nth-of-type(5).on a:before {
-  background-image: url(/image/ic_my_line_5.svg);
+    background-image: url(/image/ic_my_line_5.svg);
 }
 
 /*  아마도 공통부분  */
@@ -190,93 +190,93 @@
 /*  아마도 공통부분  */
 
 .panel-tab {
-  margin-bottom: 50px;
-  border-bottom: 1px solid #e5e5e5;
+    margin-bottom: 50px;
+    border-bottom: 1px solid #e5e5e5;
 }
 
 .panel-tab ul {
-  overflow-y: hidden;
-  display: flex;
-  align-items: center;
-  padding: 20px 0;
-  list-style: none;
-  margin: 0;
+    overflow-y: hidden;
+    display: flex;
+    align-items: center;
+    padding: 20px 0;
+    list-style: none;
+    margin: 0;
 }
 
 .panel-tab li {
-  margin-right: 42px;
-  list-style: none;
+    margin-right: 42px;
+    list-style: none;
 }
 
 .panel-tab li a {
-  position: relative;
-  color: #999;
-  text-decoration: none;
-  font-size: 18px;
+    position: relative;
+    color: #999;
+    text-decoration: none;
+    font-size: 18px;
 }
 
 .panel-tab li.on a {
-  position: relative;
-  color: #111;
-  font-weight: bold;
-  text-decoration: none;
-  font-size: 18px;
+    position: relative;
+    color: #111;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 18px;
 }
 
 .panel-tab li.on a span {
-  color: #15a775;
+    color: #15a775;
 }
 
 .panel-tab li.on a:after {
-  position: absolute;
-  bottom: -20px;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background-color: #15a775;
-  content: '';
+    position: absolute;
+    bottom: -20px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #15a775;
+    content: '';
 }
 
 .my-scrap-wrap .non-scrap {
-  padding: 123px 0;
+    padding: 123px 0;
 }
 
 .my-scrap-wrap .non-scrap p {
-  margin-bottom: 20px;
-  color: #999;
-  font-size: 18px;
-  text-align: center;
+    margin-bottom: 20px;
+    color: #999;
+    font-size: 18px;
+    text-align: center;
 }
 
 .my-scrap-wrap .non-scrap p img {
-  height: 30px;
+    height: 30px;
 }
 
 .my-scrap-wrap .non-scrap p + #btn-box {
-  margin-top: 40px;
+    margin-top: 40px;
 }
 
 #btn-box.center {
-  text-align: center;
+    text-align: center;
 }
 
 #btn_box [class*='btn'] {
-  margin-right: 13px;
+    margin-right: 13px;
 }
 
 #btn_box [class*='btn']:last-child {
-  margin-right: 0;
+    margin-right: 0;
 }
 
 .btn_md {
-  display: inline-block;
-  padding: 14px 24px;
-  color: #15a775;
-  font-size: 1rem;
-  font-weight: 600;
-  border-radius: 38px;
-  border: solid 2px #15a775;
-  box-sizing: border-box;
-  transition: all 0.2s;
-  text-decoration: none;
+    display: inline-block;
+    padding: 14px 24px;
+    color: #15a775;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 38px;
+    border: solid 2px #15a775;
+    box-sizing: border-box;
+    transition: all 0.2s;
+    text-decoration: none;
 }

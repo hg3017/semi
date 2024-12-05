@@ -1,139 +1,139 @@
 body {
-  min-width: 280px;
-  margin: 0;
-  font-size: 1em;
-  font-family: 'SUIT', 'Malgun Gothic', '맑은 고딕', sans-serif;
+    min-width: 280px;
+    margin: 0;
+    font-size: 1em;
+    font-family: 'SUIT', 'Malgun Gothic', '맑은 고딕', sans-serif;
 }
 
 .main {
-  display: block;
-  overflow: hidden;
-  padding-top: 60px;
-  color: #424242;
-  font-size: 16px;
-  line-height: 1.6;
-  outline: none;
-  justify-content: center;
+    display: block;
+    overflow: hidden;
+    padding-top: 60px;
+    color: #424242;
+    font-size: 16px;
+    line-height: 1.6;
+    outline: none;
+    justify-content: center;
 }
 
 .l-wrap-8 {
-  max-width: 900px;
-  margin-left: auto;
-  margin-right: auto;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .container {
-  width: 50%;
-  padding: 6rem 25%;
+    width: 50%;
+    padding: 6rem 25%;
 }
 
 .page-title {
-  color: #0a0a0a;
-  font-size: 36px;
-  font-weight: 700;
-  line-height: 1.4;
-  text-align: center;
-  white-space: nowrap;
+    color: #0a0a0a;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1.4;
+    text-align: center;
+    white-space: nowrap;
 }
 
 .page-desc {
-  margin-top: 20px;
-  margin-bottom: 40px;
-  text-align: center;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    text-align: center;
 }
 
 .btn {
-  position: relative;
-  box-sizing: border-box;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 48px;
-  border: 0;
-  border-radius: 8px;
-  background-color: #424242;
-  color: #fff;
-  font-size: 16px;
-  font-weight: 500;
-  text-align: center;
-  text-decoration: none;
-  line-height: 1.6;
-  letter-spacing: 0;
-  vertical-align: middle;
-  transition: all 0.2s ease-out;
-  white-space: nowrap;
+    position: relative;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 48px;
+    border: 0;
+    border-radius: 8px;
+    background-color: #424242;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+    text-align: center;
+    text-decoration: none;
+    line-height: 1.6;
+    letter-spacing: 0;
+    vertical-align: middle;
+    transition: all 0.2s ease-out;
+    white-space: nowrap;
 }
 
 .hr-block {
-  margin-top: 24px;
+    margin-top: 24px;
 }
 
 .hr-block-title {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: nowrap;
-  color: #737373;
-  font-size: 14px;
-  white-space: nowrap;
-  margin-left: 2px;
-  margin-right: 2px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    color: #737373;
+    font-size: 14px;
+    white-space: nowrap;
+    margin-left: 2px;
+    margin-right: 2px;
 }
 
 .hr-block-title::before,
 .hr-block-title::after {
-  content: '';
-  display: block;
-  width: 40%;
-  height: 1px;
-  border-bottom: 1px solid #ccc;
+    content: '';
+    display: block;
+    width: 40%;
+    height: 1px;
+    border-bottom: 1px solid #ccc;
 }
 
 .hr-block-title::before {
-  margin-right: 20px;
+    margin-right: 20px;
 }
 
 .hr-block-title::after {
-  margin-left: 20px;
+    margin-left: 20px;
 }
 
 .hr-block-title + .btn {
-  margin-top: 2rem;
+    margin-top: 2rem;
 }
 
 .hr-block-title {
-  margin-top: 20px;
+    margin-top: 20px;
 }
 
 .btn-kakao-talk {
-  background-color: #fee500;
-  color: #424242;
+    background-color: #fee500;
+    color: #424242;
 }
 
 .btn-kakao-talk::before {
-  background-image: url(/image/kakao-talk.svg);
+    background-image: url(/image/kakao-talk.svg);
 }
 
 .btn-naver {
-  color: #fff;
-  background-color: #03c75a;
-  margin-top: 10px;
+    color: #fff;
+    background-color: #03c75a;
+    margin-top: 10px;
 }
 
 .btn-naver::before {
-  background-image: url(/image/naver.svg);
+    background-image: url(/image/naver.svg);
 }
 
 .btn-kakao-talk::before,
 .btn-naver::before {
-  content: '';
-  font-size: 12px;
-  width: 2em;
-  height: 2em;
-  margin-right: 0.75em;
-  background-repeat: no-repeat;
-  background-size: 100%;
+    content: '';
+    font-size: 12px;
+    width: 2em;
+    height: 2em;
+    margin-right: 0.75em;
+    background-repeat: no-repeat;
+    background-size: 100%;
 }
