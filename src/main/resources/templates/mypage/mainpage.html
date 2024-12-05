@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" href="/css/mainpage.css" />
+
+<th:block th:insert="~{/fragments :: header}"></th:block>
+
+  <body>
+    <div id="container">
+      <div id="wrap" data-menu="4">
+        <div id="mypage">
+          <aside>
+            <div class="profile">
+              <div class="img">
+                <img src="/image/profile.png" alt="" />
+              </div>
+              <div class="name text-point">박종윤</div>
+              <div class="introduce">소개글이 없습니다.</div>
+            </div>
+            <div class="profile-btn">
+              <a href="/logout">로그아웃</a>
+              <a
+                href="https://member.sempio.com/account/toInfo?uip=211.217.101.176"
+                >회원정보 수정</a
+              >
+            </div>
+          </aside>
+          <div class="mypage-bg"></div>
+          <div class="mypage-cont">
+            <div class="mypage-tab">
+              <ul>
+                <li class="on">
+                  <a href="/mypage/scrapList">
+                    <span>스크랩한 글</span>
+                  </a>
+                </li>
+                <li class="">
+                  <a href="/mypage/writeList">
+                    <span>내가 쓴 글</span>
+                  </a>
+                </li>
+                <li class="">
+                  <a href="/mypage/commentList">
+                    <span>나의 댓글</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="/mypage/eventList">
+                    <span>이벤트 참여내역</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="/mypage">
+                    <span>프로필 관리</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div class="panel-tab" style="border-top: none">
+              <ul>
+                <li class="on">
+                  <a href="javascript:void(0)">전체 <span>(0)</span></a>
+                </li>
+              </ul>
+            </div>
+            <div class="my-scrap-wrap">
+              <div class="non-scrap">
+                <p>
+                  <img src="/image/il_scrap_my.png" alt="" />
+                </p>
+                <p>마음에 드는 레시피와 이야기를 스크랩 해보세요!</p>
+                <div id="btn-box" class="center">
+                  <a href="/recipe-lab/list/recipe" class="btn_md">
+                    요리연구소 구경하기
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+<th:block th:insert="~{/fragments :: footer}"></th:block>
+
+
+</html>

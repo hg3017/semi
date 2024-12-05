@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" href="/css/commentList.css" />
+
+<th:block th:insert="~{/fragments :: header}"></th:block>
+  <body>
+    <div id="container">
+      <div id="wrap" data-menu="4">
+        <div id="mypage">
+          <aside>
+            <div class="profile">
+              <div class="img">
+                <img src="/image/profile.png" alt="" />
+              </div>
+              <div class="name text-point">박종윤</div>
+              <div class="introduce">소개글이 없습니다.</div>
+            </div>
+            <div class="profile-btn">
+              <a href="/logout">로그아웃</a>
+              <a
+                href="https://member.sempio.com/account/toInfo?uip=211.217.101.176"
+                >회원정보 수정</a
+              >
+            </div>
+          </aside>
+          <div class="mypage-bg"></div>
+          <div class="mypage-cont">
+            <div class="mypage-tab">
+              <ul>
+                <li class="on">
+                  <a href="/mypage/scrapList">
+                    <span>스크랩한 글</span>
+                  </a>
+                </li>
+                <li class="">
+                  <a href="/mypage/writeList">
+                    <span>내가 쓴 글</span>
+                  </a>
+                </li>
+                <li class="">
+                  <a href="/mypage/commentList">
+                    <span>나의 댓글</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="/mypage/eventList">
+                    <span>이벤트 참여내역</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="/mypage">
+                    <span>프로필 관리</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <div class="my-list-wrap">
+              <div class="non-list">
+                <p>요리생활을 더 풍성하게 만들어주는 이벤트에 참여해 보세요</p>
+                <div id="btn-box" class="center">
+                  <a href="/cooking/write" class="btn_md">WOW이벤트 구경가기</a>
+                </div>
+              </div>
+              <!-- <div class="total">총 <span class="text-point">1</span>개</div>
+              <ul class="my_list">
+                <li>
+                  <a
+                    href="/recipe-lab/archive/the-secret-to-cleaning-a-microwave"
+                  >
+                    <div class="top">
+                      <span class="label orange">솔루션</span>
+                      <p class="tit">
+                        <span>원글 | 전자레인지 청소법의 비밀</span>
+                        청소를 자주 잊어버리는데, 이 글 덕분에 다시 한번 청소를
+                        해야겠어요.
+                      </p>
+                    </div>
+                    <div class="bottom">
+                      <span class="date">2024.12.02 14:56</span>
+                    </div>
+                  </a>
+                </li>
+
+                <li>
+                  <a
+                    href="/recipe-lab/archive/the-secret-to-cleaning-a-microwave"
+                  >
+                    <div class="top">
+                      <span class="label orange">솔루션</span>
+                      <p class="tit">
+                        <span>원글 | 전자레인지 청소법의 비밀</span>
+                        청소를 자주 잊어버리는데, 이 글 덕분에 다시 한번 청소를
+                        해야겠어요.
+                      </p>
+                    </div>
+                    <div class="bottom">
+                      <span class="date">2024.12.02 14:56</span>
+                    </div>
+                  </a>
+                </li>
+
+                <li>
+                  <a
+                    href="/recipe-lab/archive/the-secret-to-cleaning-a-microwave"
+                  >
+                    <div class="top">
+                      <span class="label orange">솔루션</span>
+                      <p class="tit">
+                        <span>원글 | 전자레인지 청소법의 비밀</span>
+                        청소를 자주 잊어버리는데, 이 글 덕분에 다시 한번 청소를
+                        해야겠어요.
+                      </p>
+                    </div>
+                    <div class="bottom">
+                      <span class="date">2024.12.02 14:56</span>
+                    </div>
+                  </a>
+                </li>
+              </ul> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+<th:block th:insert="~{/fragments :: footer}"></th:block>
+
+</html>

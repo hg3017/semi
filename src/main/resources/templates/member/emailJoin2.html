@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+  <svg
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns="http://www.w3.org/2000/svg"
+    class="svg"
+    aria-hidden="true"
+    width="15"
+    height="15"
+  >
+    <defs>
+      <symbol id="icon-checked" viewBox="0 0 15 15">
+        <path d="M14.5 3.29L6.9 13 1.5 7l1.62-1.29 3.64 4L13 2z"></path>
+      </symbol>
+    </defs>
+  </svg>
+  <link rel="stylesheet" href="/css/emailJoin2.css" />
+
+  <th:block th:insert="~{/fragments :: header}"></th:block>
+  <body>
+    <main id="main" class="main login">
+      <div class="l-wrap-8">
+        <div class="container">
+          <h1 class="page-title">회원가입</h1>
+
+          <form
+            class="form join-form"
+            id="join-form"
+            action="/join/by-email"
+            method="post"
+            novalidate
+          >
+            <fieldset>
+              <legend>기본정보</legend>
+
+              <div class="form-g">
+                <label for="username" class="label">아이디(이메일)</label>
+                <input
+                  type="email"
+                  id="username"
+                  readonly
+                  name="username"
+                  placeholder="아이디(이메일)"
+                  spellcheck="false"
+                  class="input-block"
+                  aria-required="true"
+                />
+              </div>
+
+              <div class="form-g">
+                <label for="password" class="label"> 비밀번호 </label>
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  placeholder="비밀번호"
+                  required
+                  class="input-block"
+                  aria-required="true"
+                />
+                <ul class="password-strength">
+                  <li class="">
+                    대문자 포함
+                    <span class="marker">
+                      <svg class="svg" aria-hidden="true">
+                        <use xlink:href="#icon-checked"></use>
+                      </svg>
+                    </span>
+                  </li>
+                  <li class="">
+                    특수문자 포함
+                    <span class="marker">
+                      <svg class="svg" aria-hidden="true">
+                        <use xlink:href="#icon-checked"></use>
+                      </svg>
+                    </span>
+                  </li>
+                  <li class="">
+                    8-20 자 이내
+                    <span class="marker">
+                      <svg class="svg" aria-hidden="true">
+                        <use xlink:href="#icon-checked"></use>
+                      </svg>
+                    </span>
+                  </li>
+                </ul>
+                <div
+                  class="messages"
+                  data-msg-required="비밀번호를 입력해주세요."
+                  data-msg-type="비밀번호를 형식에 맞게 입력해주세요."
+                  hidden=""
+                ></div>
+              </div>
+
+              <div class="form-g">
+                <label for="rePassword" class="label">비밀번호 확인</label>
+                <input
+                  type="password"
+                  id="rePassword"
+                  name="rePassword"
+                  class="input-block"
+                  placeholder="비밀번호를 한 번 더 입력해주세요."
+                  required=""
+                  aria-required="true"
+                />
+                <div
+                  class="messages"
+                  data-msg-required="비밀번호 확인을 입력해주세요."
+                  data-msg-equality="비밀번호가 일치하지 않습니다."
+                  hidden=""
+                ></div>
+              </div>
+
+              <div class="form-g">
+                <label for="name" class="label">이름</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  class="input-block"
+                  placeholder="이름을 입력해주세요."
+                  spellcheck="false"
+                  autocomplete="name"
+                  required=""
+                  aria-required="true"
+                  minlength="2"
+                  maxlength="20"
+                />
+                <div
+                  class="messages"
+                  data-msg-required="이름을 입력해주세요."
+                  data-msg-type="한글 또는 영문을 2자에서 20자까지 입력 가능합니다."
+                  hidden=""
+                ></div>
+              </div>
+
+              <div class="form-g">
+                <label for="mobile" class="label">휴대폰 번호</label>
+                <input
+                  type="tel"
+                  id="mobile"
+                  name="mobile"
+                  class="input-block"
+                  placeholder="하이픈(-) 없이 숫자만 입력해주세요."
+                  autocomplete="tel"
+                  inputmode="numeric"
+                  required=""
+                  aria-required="true"
+                />
+                <div
+                  class="messages"
+                  data-msg-required="휴대폰 번호를 입력해주세요."
+                  data-msg-type="유효한 휴대폰 번호를 입력해주세요."
+                  hidden=""
+                ></div>
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <div class="fieldset-header">
+                <legend>약관동의</legend>
+                <div class="form-g">
+                  <span class="checkbox">
+                    <input
+                      type="checkbox"
+                      id="agreeAll"
+                      name=""
+                      class="checkbox__input"
+                    />
+                    <label for="agreeAll" class="checkbox__label">
+                      <span class="checkbox__text">전체 동의 (선택 포함)</span>
+                    </label>
+                  </span>
+                </div>
+              </div>
+              <ul class="agree-list">
+                <li class="item">
+                  <div class="form-g">
+                    <span class="checkbox">
+                      <input
+                        type="checkbox"
+                        id="fourteen"
+                        name="fourteen"
+                        required=""
+                        aria-required="true"
+                        class="checkbox__input"
+                      />
+                      <label for="fourteen" class="checkbox__label">
+                        <span class="checkbox__text">
+                          [필수] 만 14세 이상 입니다.
+                        </span>
+                      </label>
+                    </span>
+                    <div
+                      class="messages"
+                      data-msg-required="만 14세 이상 여부에 동의하셔야 가입이 가능합니다."
+                      hidden=""
+                    ></div>
+                  </div>
+                </li>
+                <li class="item">
+                  <div class="form-g">
+                    <span class="checkbox">
+                      <input
+                        type="checkbox"
+                        id="policy"
+                        name="policy"
+                        required=""
+                        aria-required="true"
+                        class="checkbox__input"
+                      />
+                      <label for="policy" class="checkbox__label">
+                        <span class="checkbox__text">
+                          [필수]
+                          <a
+                            href="/legal/terms-and-condition"
+                            target="_blank"
+                            title="새창 열기"
+                            rel="noopener noreferrer"
+                            >이용약관</a
+                          >
+                          확인
+                        </span>
+                      </label>
+                    </span>
+                    <div
+                      class="messages"
+                      data-msg-required="필수 약관에 동의하셔야 가입이 가능합니다."
+                      hidden=""
+                    ></div>
+                  </div>
+                </li>
+                <li class="item">
+                  <div class="form-g">
+                    <span class="checkbox">
+                      <input
+                        type="checkbox"
+                        id="privacy"
+                        name="privacy"
+                        required=""
+                        aria-required="true"
+                        class="checkbox__input"
+                      />
+                      <label for="privacy" class="checkbox__label">
+                        <span class="checkbox__text">
+                          [필수]
+                          <a
+                            href="/legal/privacy-policy"
+                            target="_blank"
+                            title="새창 열기"
+                            rel="noopener noreferrer"
+                            >개인정보처리방침</a
+                          >
+                          확인
+                        </span>
+                      </label>
+                    </span>
+                    <div
+                      class="messages"
+                      data-msg-required="필수 약관에 동의하셔야 가입이 가능합니다."
+                      hidden=""
+                    ></div>
+                  </div>
+                </li>
+                <li class="item">
+                  <div class="form-g">
+                    <span class="checkbox">
+                      <input
+                        type="checkbox"
+                        id="mail"
+                        name="mail"
+                        class="checkbox__input"
+                      />
+                      <label for="mail" class="checkbox__label">
+                        <span class="checkbox__text"
+                          >[선택] 광고성메세지 수신 동의</span
+                        >
+                      </label>
+                    </span>
+                  </div>
+                </li>
+              </ul>
+              <div class="box-info">
+                <ul class="ul">
+                  <li>회원 탈퇴 시까지 회원으로서 자격이 유지됩니다.</li>
+                  <li>
+                    광고성메세지 수신에 동의하지 않더라도, 이벤트 당첨 안내 등
+                    원활한 서비스 이용과 관련된 메시지는 발송됩니다.
+                  </li>
+                </ul>
+              </div>
+            </fieldset>
+
+            <div class="func">
+              <button type="submit" class="btn">회원가입</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </main>
+  </body>
+  <th:block th:insert="~{/fragments :: footer}"></th:block>

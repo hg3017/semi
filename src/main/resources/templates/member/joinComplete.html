@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" href="/css/joinComplete.css" />
+
+<th:block th:insert="~{/fragments :: header}"></th:block>
+
+  <body>
+    <main id="main" class="main login">
+      <div class="l-wrap-8">
+        <div class="container">
+          <h1 class="page-title">회원가입 완료</h1>
+          <p class="page-desc">
+            샘표의 다양한 서비스를 바로 이용하실 수 있습니다.
+          </p>
+
+          <div class="hr-block">
+            <h2 class="hr-block-title">소셜미디어 계정으로 로그인</h2>
+          </div>
+          <p class="page-desc">test123@gmail.com</p>
+
+          <div class="form_func">
+            <button id="formSubmitBtn" type="button" class="btn">로그인</button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+
+<th:block th:insert="~{/fragments :: footer}"></th:block>
+
+</html>

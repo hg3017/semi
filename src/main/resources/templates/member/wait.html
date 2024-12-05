@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" href="/css/wait.css" />
+
+<th:block th:insert="~{/fragments :: header}"></th:block>
+
+  <body>
+    <main id="main" class="main login">
+      <div class="l-wrap-8">
+        <div class="container">
+          <h1 class="page-title">이메일 인증 요청</h1>
+          <p class="page-desc">
+            등록하신 메일 주소로 인증메일을 발송했습니다.
+            <br />
+            이메일을 확인하신 후, 이메일에 포함된 인증 링크를 클릭하시면 이메일
+            인증이 완료됩니다.
+          </p>
+        </div>
+      </div>
+    </main>
+  </body>
+
+<th:block th:insert="~{/fragments :: footer}"></th:block>
+
+</html>

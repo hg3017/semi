@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{/layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <main id="container" class="container" layout:fragment="content">
+        <div id="guide_detail" class="section">
+            <div class="detail_bg">
+                <img src="/images/guide1.jpg" alt="배경">
+            </div>
+            <div class="detail_control">
+                <div class="detail_left">
+                    <a href="/guide/list" class="detail_btn">목록으로</a>
+                </div>
+                <!--<div class="detail_right">
+                    <button type="button" class="scrap">스크랩</button>
+                    <div class="share_wrap">
+                        <button type="button" class="share">공유하기</button>
+                        <ul class="share_btn">
+                            <li class="close">
+                                <span>공유</span>
+                                <button type="button">X</button>
+                            </li>
+                            <li>
+                                <a href="#" class="share_kakao_btn">
+                                    <img src="/images/common/ic_kakao2.png" alt="카카오">
+                                    <span>카카오톡</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="copy_clip_btn">
+                                    <img src="/images/common/ic_url.png" alt="카카오">
+                                    <span>URL복사</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>-->
+                <div th:replace="~{/fragments :: share('1111111111111111')}"></div>
+            </div>
+            <div class="detail_wrap">
+                <div class="detail_con">
+                    <div class="detail_title">
+                        <h3>
+                            냉장고를 열었더니<br>
+                            남은 '무'가 있다.
+                        </h3>
+                        <p>
+                            커다란 '무' 하나 사면,<br>
+                            다 먹지 못하고 버리게 되는 분, 손!
+                            <br>
+                            <br>
+                            냉장고 속 방치된 무, <br>
+                            쉽고 맛있게 요리하고 <br>
+                            올바르게 손질, 보관하는 방법도 챙겨가세요!
+                        </p>
+                        <div class="guide_tag">
+                            <span class="tag">#무</span>
+                            <span class="tag">#냉털</span>
+                        </div>
+                    </div>
+                    <ul class="tag_list hash_list">
+                        <li>
+                            <a href="/recipe_lab/archive">
+                                <div class="detail_img">
+                                    <img src="/images/guide1.jpg" alt="디테일">
+                                </div>
+                                <div class="detail_text">
+                                    <h4>가장 맛있는 무 고르기</h4>
+                                    <p>한국 사람들이 많이 먹는 대표 채소, 무</p>
+                                </div>
+                                <ul class="hash_wrap">
+                                   <li>#무</li>
+                                   <li>#김치</li>
+                                </ul>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="detail_img">
+                                    <img src="/images/guide1.jpg" alt="디테일">
+                                </div>
+                                <div class="detail_text">
+                                    <h4>가장 맛있는 무 고르기</h4>
+                                    <p>한국 사람들이 많이 먹는 대표 채소, 무</p>
+                                </div>
+                                <ul class="hash_wrap">
+                                    <li>#무</li>
+                                    <li>#김치</li>
+                                </ul>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="detail_img">
+                                    <img src="/images/guide1.jpg" alt="디테일">
+                                </div>
+                                <div class="detail_text">
+                                    <h4>가장 맛있는 무 고르기</h4>
+                                    <p>한국 사람들이 많이 먹는 대표 채소, 무</p>
+                                </div>
+                                <ul class="hash_wrap">
+                                    <li>#무</li>
+                                    <li>#김치</li>
+                                </ul>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="detail_img">
+                                    <img src="/images/guide1.jpg" alt="디테일">
+                                </div>
+                                <div class="detail_text">
+                                    <h4>가장 맛있는 무 고르기</h4>
+                                    <p>한국 사람들이 많이 먹는 대표 채소, 무</p>
+                                </div>
+                            </a>
+                            <ul class="tag_wrap">
+                                <li>
+                                    <span>준비시간</span>
+                                    25분
+                                </li>
+                                <li>
+                                    <span>조리시간</span>
+                                    5분
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="detail_img">
+                                    <img src="/images/guide1.jpg" alt="디테일">
+                                </div>
+                                <div class="detail_text">
+                                    <h4>가장 맛있는 무 고르기</h4>
+                                    <p>한국 사람들이 많이 먹는 대표 채소, 무</p>
+                                </div>
+                            </a>
+                            <ul class="tag_wrap">
+                                <li>
+                                    <span>준비시간</span>
+                                    25분
+                                </li>
+                                <li>
+                                    <span>조리시간</span>
+                                    5분
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="detail_img">
+                                    <img src="/images/guide1.jpg" alt="디테일">
+                                </div>
+                                <div class="detail_text">
+                                    <h4>가장 맛있는 무 고르기</h4>
+                                    <p>한국 사람들이 많이 먹는 대표 채소, 무</p>
+                                </div>
+                            </a>
+                            <ul class="tag_wrap">
+                                <li>
+                                    <span>준비시간</span>
+                                    25분
+                                </li>
+                                <li>
+                                    <span>조리시간</span>
+                                    5분
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="detail_img">
+                                    <img src="/images/guide1.jpg" alt="디테일">
+                                </div>
+                                <div class="detail_text">
+                                    <h4>가장 맛있는 무 고르기</h4>
+                                    <p>한국 사람들이 많이 먹는 대표 채소, 무</p>
+                                </div>
+                            </a>
+                            <ul class="tag_wrap">
+                                <li>
+                                    <span>준비시간</span>
+                                    25분
+                                </li>
+                                <li>
+                                    <span>조리시간</span>
+                                    5분
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="detail_img">
+                                    <img src="/images/guide1.jpg" alt="디테일">
+                                </div>
+                                <div class="detail_text">
+                                    <h4>가장 맛있는 무 고르기</h4>
+                                    <p>한국 사람들이 많이 먹는 대표 채소, 무</p>
+                                </div>
+                            </a>
+                            <ul class="tag_wrap">
+                                <li>
+                                    <span>준비시간</span>
+                                    25분
+                                </li>
+                                <li>
+                                    <span>조리시간</span>
+                                    5분
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

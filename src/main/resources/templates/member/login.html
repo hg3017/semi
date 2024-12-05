@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" href="/css/login.css" />
+<th:block th:insert="~{/fragments :: header}"></th:block>
+
+  <body>
+    <main id="main" class="main login">
+      <div class="l-wrap-8">
+        <div class="container">
+          <h1 class="page-title">로그인</h1>
+          <form class="form login_form" id="requored-form" action="/login">
+            <div class="form-g">
+              <input
+                type="email"
+                id="username"
+                name="username"
+                placeholder="아이디 또는 이메일주소"
+                class="input-block"
+              />
+            </div>
+            <div class="form-g">
+              <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="비밀번호"
+                class="input-block"
+              />
+            </div>
+
+            <div class="form_func">
+              <button id="formSubmitBtn" type="button" class="btn">
+                로그인
+              </button>
+            </div>
+          </form>
+
+          <div class="login_guide">
+            <a href="/join" class="small-link">회원가입</a>
+            <a href="/find/account" class="small-link">로그인 정보 찾기</a>
+          </div>
+
+          <div class="hr-block">
+            <h2 class="hr-block-title">소셜미디어 계정으로 로그인</h2>
+            <a href="/login/sns/kakao" class="btn btn-kakao-talk">
+              카카오 계정으로 로그인
+            </a>
+            <a href="/login/sns/naver" class="btn btn-naver">
+              네이버 계정으로 로그인
+            </a>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+
+<th:block th:insert="~{/fragments :: footer}"></th:block>

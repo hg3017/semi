@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+  <link rel="stylesheet" href="/css/join.css" />
+
+  <th:block th:insert="~{/fragments :: header}"></th:block>
+
+  <body>
+    <main id="main" class="main login">
+      <div class="l-wrap-8">
+        <div class="container">
+          <h1 class="page-title">회원가입</h1>
+          <p class="page-desc">함께 하는 순간을 기다리고 있었습니다 :-)</p>
+
+          <div class="form_func">
+            <button id="formSubmitBtn" type="button" class="btn">
+              이메일 주소로 회원가입
+            </button>
+          </div>
+
+          <div class="hr-block">
+            <h2 class="hr-block-title">소셜미디어 계정으로 로그인</h2>
+            <a href="/login/sns/kakao" class="btn btn-kakao-talk">
+              카카오 계정으로 로그인
+            </a>
+            <a href="/login/sns/naver" class="btn btn-naver">
+              네이버 계정으로 로그인
+            </a>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+
+  <th:block th:insert="~{/fragments :: footer}"></th:block>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<th:block th:insert="~{/fragments :: header}"></th:block>
+<div id="skip_navi">
+    <a href="#container">본문바로가기</a>
+</div>
+<div id="wrap" class="archive_wrap">
+    <main id="container" class="container">
+        <section class="sub_view_wrap">
+            <div class="view_title">
+                <div class="inner">
+                    <span class="label">솔루션</span>
+                    <h3>무 손질 &amp; 보관법</h3>
+                    <p class="date">2024.12.04 08:00</p>
+                </div>
+            </div>
+        </section>
+        <div class="solution_view_cont">
+            <div class="solution_view_title">
+                <h4>팔뚝만한 무, 어떻게 손질하고 보관할까?</h4>
+                <p>올바르게 손질하고, 보관하는 법 함께 알아볼까요?</p>
+            </div>
+            <div class="solution_intro">
+                <div class="sol_editor">
+                    <div class="solution_scrap_line"></div>
+                    <h3>부위별로 맛이 다른 무</h3>
+                    <p class="tit">
+                        무는 부위별로 맛의 특징이 달라<br>
+                        요리에 따라 부위를 달리 활용하면<br>
+                        무의 식감과 향미를 더 다양하게 즐길 수 있어요.
+                    </p>
+                    <img src="/images/archive1.jpg" alt="무다">
+                    <p>
+                        싱싱한 무를 골라, 부위별로 알맞게 활용하는 방법<br>
+                        궁금하다면?
+                        <a href="#">
+                            <👉🏻클릭>
+                        </a>
+                        <br>
+                        <br>
+                        싱싱한 무를 골랐다면,<br>
+                        어떻게 무를 보관하고, 손질하는지 알려드릴게요!
+                    </p>
+                    <div class="head_line"></div>
+                    <h4>무 보관법</h4>
+                    <p>
+                        1) 줄기는 제거해 주세요.
+                    </p>
+                    <img src="/images/archive2.jpg" alt="무커트">
+                    <p>
+                        잎이나 줄기가 달린 무를 산 경우,<br>
+                        <b>줄기를 잘라 보관</b>
+                        하는것이 좋아요.
+                    </p>
+                    <h6>
+                        &#42; 줄기 부위 특성상 빨리 무르기 때문이에요.
+                    </h6>
+                    <p>
+                        2) 통무는 신문지에 돌돌 말아 보관해 주세요.
+                    </p>
+                    <video autoplay playsinline muted loop src="/images/video/moo.mp4"></video>
+                    <img src="/images/archive3.jpg" alt="신문지 무">
+                    <p>
+                        통무는 <b> 세척하지않고 </b> 신문지에 싸서, 비닐에 넣은후,<br>
+                        냉장(0~4&#8451;) 보관 해 주세요.
+                    </p>
+                    <h6 style="color: #ec7878; font-weight:500;">
+                        Tip. 두세 겹의 신문지를 대각선으로 깔고 무를 돌돌 말면 쉽게 말 수 있어요!
+                    </h6>
+                    <p>
+                        3) 쓰고 남은 무는 키친타올로 감싸기
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+
+<th:block th:insert="~{/fragments :: footer}"></th:block>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" href="/css/emailJoin.css" />
+<th:block th:insert="~{/fragments :: header}"></th:block>
+
+  <body>
+    <main id="main" class="main login">
+      <div class="l-wrap-8">
+        <div class="container">
+          <h1 class="page-title">이메일 확인</h1>
+
+          <form class="form email-form" id="requored-form" action="/login">
+            <div class="form-g">
+              <label for="email" class="label"> 아이디(이메일) </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="이메일을 입력해주세요"
+                class="input-block"
+                spellcheck="false"
+                autocapitalize="email"
+                required 
+                aria-required="true"
+              />
+            </div>
+            <div class="messages" data-msg-required="이메일을 입력해주세요." data-msg-type="이메일을 형식에 맞게 입력해주세요.(3글자에서 40글자까지 입력 가능합니다.)" hidden></div>
+            <button type="submit" class="btn">
+              확인하기
+            </button>
+          </form>
+        </div>
+      </div>
+    </main>
+  </body>
+
+<th:block th:insert="~{/fragments :: footer}"></th:block>
