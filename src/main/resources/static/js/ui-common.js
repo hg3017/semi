@@ -48,167 +48,186 @@ window.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-
-    const header = document.querySelector('#header');
     // 헤더 스크롤시 스타일 변경
-    window.addEventListener('scroll', function () {
+      window.addEventListener('scroll', function () {
         let _scrollY = this.scrollY;
 
         if (_scrollY > 50) {
-            header.classList.add('fixed');
+          header.classList.add('fixed');
         } else {
-            header.classList.remove('fixed');
+          header.classList.remove('fixed');
         }
-    });
+      });
 
-    // 메인 요리가이드
-    let progressLine = document.querySelector('.progress-line .progress');
-    let pauseButton = document.querySelector('.pause');
+      document
+        .querySelector('#header .sitemap_btn')
+        .addEventListener('click', function () {
+          this.classList.toggle('on');
+          document.querySelector('#header .menu_wrap').classList.toggle('on');
+        });
 
-    let mainslider = new Swiper('.main_slider .swiper', {
+      document.querySelectorAll('#header .menu>li>a').forEach((v) => {
+        v.addEventListener('click', function (e) {
+          e.preventDefault();
+          v.parentElement.classList.toggle('on');
+        });
+      });
+
+      // 메인 요리가이드
+      let progressLine = document.querySelector('.progress-line .progress');
+
+      let mainslider = new Swiper('.main_slider .swiper', {
         loop: true,
         speed: 3000,
         slidesPerView: 'auto',
         centeredSlides: true,
         spaceBetween: 50,
         autoplay: {
-            delay: 3000,
-            disableOnInteraction: false,
-        },
-        scrollbar: {
-            el: '.swiper-scrollbar',
+          delay: 3000,
+          disableOnInteraction: false,
         },
         pagination: {
-            el: '.main_slider .swiper-pagination',
-            clickable: false,
-            type: 'custom',
-            renderCustom: function (swiper, current, total) {
-                return `<span class="current">${
-                    current < 10 ? '0' + current : current
-                }</span><span class="total">${total < 10 ? '0' + total : total}</span>`;
-            },
+          el: '.main_slider .swiper-pagination',
+          type: 'progressbar',
         },
         navigation: {
-            nextEl: '.main_slider .swiper-button-next',
-            prevEl: '.main_slider .swiper-button-prev',
+          nextEl: '.main_slider .swiper-button-next',
+          prevEl: '.main_slider .swiper-button-prev',
         },
         on: {
-            autoplayTimeLeft(s, time, progress) {
-                // progressLine이 존재하면 progress 업데이트
-                if (progressLine) {
-                    let progressValue = 1 - progress;
-                    // width 값을 progress에 맞게 설정
-                    progressLine.style.width = `${progressValue * 100}%`;
-                }
-            },
+          activeIndexChange: function () {
+            const cIdx = this.realIndex + 1;
+            // realIndex는 0부터 시작
+            // current-num 클래스에 해당하는 요소 텍스트 업데이트
+            document.querySelector('.current-num').textContent = '0' + cIdx;
+          },
+          init: function () {
+            // 페이지 로드 시 전체 슬라이드 수 업데이트
+            const totalSlides = this.slides.length;
+            document.querySelector('.all-num').textContent = '0' + totalSlides;
+          },
         },
-    });
+      });
 
-    // 메인 요리가이드 pause 버튼 클릭 이벤트
-    if (pauseButton) {
-        pauseButton.addEventListener('click', function () {
-            console.log('Pause button clicked');
+      // 메인 요리가이드 pause 버튼 클릭 이벤트
+      document
+        .querySelector('.main_slider .pause')
+        .addEventListener('click', function () {
+          // autoplay가 실행 중인지를 확인하고, 실행 중이면 멈추고, 멈춰 있으면 시작
+          if (mainslider.autoplay.running) {
+            mainslider.autoplay.stop();
+          } else {
+            mainslider.autoplay.start();
+          }
+          this.classList.toggle('on');
 
-            if (mainslider.autoplay.running) {
-                mainslider.autoplay.stop();
-                pauseButton.classList.add('paused');
-                console.log('Autoplay stopped');
-            } else {
-                mainslider.autoplay.start();
-                pauseButton.classList.remove('paused');
-                console.log('Autoplay started');
-            }
+          // 버튼에 'play' 클래스를 토글
         });
-    } else {
-        console.log('Pause button not found'); // 버튼이 없는 경우 확인
-    }
 
-    // 메인 요리가이드 더보기 버튼
-    document
+      // 메인 요리가이드 더보기 버튼
+      document
         .querySelector('.main_slider .button')
         .addEventListener('click', function () {
-            this.classList.toggle('on');
-            document.querySelector('.main_slider .guide_wrap').classList.toggle('on');
-            // document.body.classList.toggle('on');
+          this.classList.toggle('on');
+          document.querySelector('.main_slider .guide_wrap').classList.toggle('on');
+          // document.body.classList.toggle('on');
         });
 
-    document
+      document
         .querySelector('.main_slider .closebtn')
         .addEventListener('click', function () {
-            // e.preventDefault();
-            document.querySelector('.main_slider .guide_wrap').classList.remove('on');
-            document.body.classList.remove('on');
+          // e.preventDefault();
+          document.querySelector('.main_slider .guide_wrap').classList.remove('on');
+          document.body.classList.remove('on');
         });
 
-
-    // 메인 요리연구소 탭메뉴
-    document.querySelectorAll('.main_lab .tabmenu li>a').forEach(function (item) {
+      // 메인 요리연구소 탭메뉴
+      document.querySelectorAll('.main_lab .tabmenu li>a').forEach(function (item) {
         item.addEventListener('click', function (e) {
-            // 기본 링크 동작 방지
-            e.preventDefault();
-            // 모든 li에서 'on' 클래스 제거
-            document.querySelectorAll('.main_lab .tabmenu li').forEach(function (li) {
-                li.classList.remove('on');
-            });
-            // 클릭된 li에 'on' 클래스 추가
-            this.parentElement.classList.add('on');
+          // 기본 링크 동작 방지
+          e.preventDefault();
+          // 모든 li에서 'on' 클래스 제거
+          document.querySelectorAll('.main_lab .tabmenu li').forEach(function (li) {
+            li.classList.remove('on');
+          });
+          // 클릭된 li에 'on' 클래스 추가
+          this.parentElement.classList.add('on');
         });
-    });
+      });
 
-    // 메인 요리연구소
-    let mainlab = new Swiper('.main_lab .swiper', {
-        loop: true,
-        slidesPerView: '4',
-        navigation: {
-            nextEl: '.main_lab .swiper-button-next',
-            prevEl: '.main_lab .swiper-button-prev',
-        },
-    });
-
-    // 메인 요리해요
-    let maincook = new Swiper('.main_cook .swiper', {
+      // 메인 요리연구소
+      let mainlab = new Swiper('.main_lab .swiper', {
         loop: true,
         speed: 2000,
-        slidesPerView: 3,
-        centeredSlides: true,
-        pagination: {
-            el: '.main_cook .swiper-pagination',
-            type: 'progressbar',
-        },
+        slidesPerView: 4,
+        slidesPerGroup: 4,
         navigation: {
-            nextEl: '.main_cook .swiper-button-next',
-            prevEl: '.main_cook .swiper-button-prev',
+          nextEl: '.main_lab .swiper-button-next',
+          prevEl: '.main_lab .swiper-button-prev',
         },
-    });
+      });
 
-    // 메인 이벤트
-    let mainbnlist = new Swiper('.main_bnlist .swiper', {
+      // 메인 요리해요
+      let maincook = new Swiper('.main_cook .swiper-container.middle', {
         loop: true,
-        slidesPerView: '1',
+        speed: 1000,
+        //loopedSlides: 3,
         centeredSlides: false,
-        spaceBetween: 0,
+        spaceBetween: 50,
+        // autoplay: {
+        //   delay: 3000,
+        //   disableOnInteraction: false,
+        // },
+        navigation: {
+          nextEl: '.main_cook .swiper-button-next',
+          prevEl: '.main_cook .swiper-button-prev',
+        },
+      });
+
+      let maincooklr = new Swiper(
+        '.main_cook .swiper-container.left, .main_cook .swiper-container.right',
+        {
+          loop: true,
+          speed: 1000,
+          slidesPerView: 2,
+          //loopedSlides: 3,
+          centeredSlides: false,
+          // observer: true,            // DOM 변화 감지 활성화
+          // observeParents: true,      // 부모 요소 변화도 감지
+          // observeSlideChildren: true, // 슬라이드 내부 자식 요소 변화도 감지
+        }
+      );
+      maincook.controller.control = maincooklr;
+
+      // 메인 이벤트
+      let mainbnlist = new Swiper('.main_bnlist .swiper', {
+        loop: true,
+        speed: 1000,
+        slidesPerView: 1,
+        centeredSlides: false,
         pagination: {
-            el: '.main_bnlist .swiper-pagination',
-            clickable: true,
-            type: 'fraction',
-            formatFractionCurrent: function (num) {
-                return num < 10 ? +num : num;
-            },
-            formatFractionTotal: function (num) {
-                return num < 10 ? +num : num;
-            },
-            renderFraction: function (currentClass, totalClass) {
-                return (
-                    //prettier-ignore
-                    '<span class="' + currentClass + '"></span><span class="' + totalClass + '"></span>'
-                );
-            },
+          el: '.main_bnlist .swiper-pagination',
+          clickable: true,
+          type: 'fraction',
+          formatFractionCurrent: function (num) {
+            return num < 10 ? +num : num;
+          },
+          formatFractionTotal: function (num) {
+            return num < 10 ? +num : num;
+          },
+          renderFraction: function (currentClass, totalClass) {
+            return (
+              //prettier-ignore
+              '<span class="' + currentClass + '"></span><span class="' + totalClass + '"></span>'
+            );
+          },
         },
         navigation: {
-            nextEl: '.main_bnlist .swiper-button-next',
-            prevEl: '.main_bnlist .swiper-button-prev',
+          nextEl: '.main_bnlist .swiper-button-next',
+          prevEl: '.main_bnlist .swiper-button-prev',
         },
-    });
+      });
+
 
 
 // 탭버튼
