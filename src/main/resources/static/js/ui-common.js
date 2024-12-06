@@ -258,4 +258,54 @@ window.addEventListener('DOMContentLoaded', function () {
         });
     });
 
+   // 레시피 스와이퍼
+    var swiper = new Swiper(".sub_view_cont .thumb_swiper_wrap", {
+      spaceBetween: 10,
+      slidesPerView: 4,
+      freeMode: true,
+      watchSlidesProgress: true,
+    });
+    var swiper2 = new Swiper(".sub_view_cont .main_swiper_wrap", {
+      spaceBetween: 50,
+      navigation: {
+        nextEl: ".sub_view_cont .swiper-button-next",
+        prevEl: ".sub_view_cont .swiper-button-prev",
+      },
+      thumbs: {
+        swiper: swiper,
+      },
+    });
+
+  // 스탭 스와이퍼
+    var swiper = new Swiper(".sub_sw_wrap .step2_swiper_wrap", {
+      spaceBetween: 10,
+      slidesPerView: 4,
+      freeMode: true,
+      watchSlidesProgress: true,
+    });
+    var swiper2 = new Swiper(".sub_sw_wrap .step_swiper_wrap", {
+      spaceBetween: 50,
+      navigation: {
+        nextEl: ".sub_sw_wrap .step-button-next",
+        prevEl: ".sub_sw_wrap .step-button-prev",
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      thumbs: {
+        swiper: swiper,
+      },
+    });
+
+    //  요리연구소 상세(레시피)
+    let StagList = new Swiper('.S_tagList .swiper', {
+    loop: true,
+    slidesPerView: '4',
+    navigation: {
+        nextEl: '.S_tagList .swiper-button-next',
+        prevEl: '.S_tagList .swiper-button-prev',
+    },
+  });
+
 });

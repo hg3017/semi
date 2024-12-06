@@ -20,9 +20,21 @@ public class RecipeLabController {
         return "/recipeLab/solution";
     }
 
+//    @GetMapping("/counseling")
+//    public String counseling() {
+//        System.out.println("recipe_lab/counseling---------------------------------------------");
+//        return "/recipe_lab/counseling";
+//    }
+//
+//    @GetMapping("/cooking")
+//    public String cooking() {
+//        System.out.println("recipe_lab/cooking---------------------------------------------");
+//        return "/recipe_lab/cooking";
+//    }
+
     @GetMapping("/archive_rep")
     public String archive() {
         System.out.println("recipe_lab/archive-----------------------------------------------");
-        return "/recipeLab/archive_rep";
+        return "/recipe_lab/archive_rep";
     }
 }
