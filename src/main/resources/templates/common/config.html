@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head th:fragment="config">
+
+<head th:fragment="config(extraCssFiles)">
+<!--<head th:fragment="config">-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- 오픈그라프 -->
@@ -27,11 +29,25 @@
     <link rel="stylesheet" href="/css/archive.css">
     <link rel="stylesheet" href="/css/archive_rep.css">
     <link rel="stylesheet" href="/css/solution.css">
+<!--    <link rel="stylesheet" href="/css/mypage/commentList.css" />-->
+
+  <th:block th:if="${extraCssFiles}">
+    <th:block th:each="cssFile : ${extraCssFiles}">
+      <link rel="stylesheet" th:href="@{/css/{cssFile}(cssFile=${cssFile})}" />
+    </th:block>
+  </th:block>
 
     <!-- js common -->
     <script src="/js/swiper-bundle.min.js"></script>
     <script src="/js/aos.js"></script>
     <!-- js -->
-    <script src="/js/ui-common.js"></script>
+<!--    <script src="/js/ui-common.js"></script>-->
+
+    <th:block th:if="${extraJsFiles}">
+      <th:block th:each="jsFile : ${extraJsFiles}">
+        <script th:src="@{/js/{jsFile}(jsFile=${jsFile})}"></script>
+      </th:block>
+    </th:block>
+
 
 </head>

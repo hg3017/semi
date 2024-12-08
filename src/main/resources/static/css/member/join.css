@@ -72,7 +72,7 @@
 }
 
 .btn-kakao-talk::before {
-  background-image: url(/image/kakao-talk.svg);
+  background-image: url(/images/kakao-talk.svg);
 }
 
 .btn-naver {
@@ -82,7 +82,7 @@
 }
 
 .btn-naver::before {
-  background-image: url(/image/naver.svg);
+  background-image: url(/images/naver.svg);
 }
 
 .btn-kakao-talk::before,

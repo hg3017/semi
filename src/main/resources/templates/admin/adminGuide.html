@@ -1,11 +1,16 @@
 <!DOCTYPE html>
-<html lang="ko" xmlns:th="http://www.thymeleaf.org">
-<link rel="stylesheet" href="/css/admin/guide.css" />
+<!--<link rel="stylesheet" href="/css/admin/guide.css" />-->
 
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{/layout}">
 
-<th:block th:insert="~{/fragments :: header}"></th:block>
-
-  <body>
+<head th:replace="~{/common/config :: config(extraCssFiles=${cssFiles})}">
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<main layout:fragment="content">
     <div id="container">
       <div id="wrap" data-menu="4">
         <div id="mypage">
@@ -53,8 +58,6 @@
         </div>
       </div>
     </div>
-  </body>
-
-<th:block th:insert="~{/fragments :: footer}"></th:block>
+</main>
 
 </html>

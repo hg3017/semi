@@ -1,14 +1,20 @@
 <!DOCTYPE html>
-<html lang="ko" xmlns:th="http://www.thymeleaf.org">
-<link rel="stylesheet" href="/css/recipe_lab.css">
+<!--<link rel="stylesheet" href="/css/recipe_lab.css">-->
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{/layout}">
 
-    <th:block th:insert="~{/fragments :: header}"></th:block>
+<head th:replace="~{/common/config :: config(extraCssFiles=${cssFiles})}">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
     <body>
     <div id="skip_navi">
         <a href="#container">본문바로가기</a>
     </div>
     <div id="wrap">
-        <main id="lab_container" class="container">
+        <main id="lab_container" class="container" layout:fragment="content">
             <div class="lab_inner">
                 <div class="tit_sec">
                     <h3>요리연구소</h3>

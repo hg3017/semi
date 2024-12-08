@@ -1,5 +1,9 @@
 <!DOCTYPE html>
-<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<!--<link rel="stylesheet" href="/css/member/emailJoinDetail.css" />-->
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{/layout}">
   <svg
     xmlns:xlink="http://www.w3.org/1999/xlink"
     xmlns="http://www.w3.org/2000/svg"
@@ -14,11 +18,14 @@
       </symbol>
     </defs>
   </svg>
-  <link rel="stylesheet" href="/css/member/emailJoin2.css" />
 
-  <th:block th:insert="~{/fragments :: header}"></th:block>
-  <body>
-    <main id="main" class="main login">
+  <head th:replace="~{/common/config :: config(extraCssFiles=${cssFiles})}">
+    <meta charset="UTF-8">
+    <title>Title</title>
+  </head>
+
+
+    <main id="main" class="main login" layout:fragment="content">
       <div class="l-wrap-8">
         <div class="container">
           <h1 class="page-title">회원가입</h1>
@@ -298,5 +305,3 @@
         </div>
       </div>
     </main>
-  </body>
-  <th:block th:insert="~{/fragments :: footer}"></th:block>

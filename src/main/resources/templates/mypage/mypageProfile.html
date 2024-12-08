@@ -1,18 +1,22 @@
 <!DOCTYPE html>
-<html lang="ko" xmlns:th="http://www.thymeleaf.org">
-<link rel="stylesheet" href="/css/mypage/mainpage.css" />
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{/layout}">
 
+<head th:replace="~{/common/config :: config(extraCssFiles=${cssFiles})}">
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
 
-<th:block th:insert="~{/fragments :: header}"></th:block>
-
-  <body>
+<main layout:fragment="content">
     <div id="container">
       <div id="wrap" data-menu="4">
         <div id="mypage">
           <aside>
             <div class="profile">
               <div class="img">
-                <img src="/image/profile.png" alt="" />
+                <img src="/images/profile.png" alt="" />
               </div>
               <div class="name text-point">박종윤</div>
               <div class="introduce">소개글이 없습니다.</div>
@@ -30,27 +34,27 @@
             <div class="mypage-tab">
               <ul>
                 <li class="on">
-                  <a href="/mypage/scrapList">
+                  <a href="/mypage/scrap">
                     <span>스크랩한 글</span>
                   </a>
                 </li>
                 <li class="">
-                  <a href="/mypage/writeList">
+                  <a href="/mypage/mypageWrite">
                     <span>내가 쓴 글</span>
                   </a>
                 </li>
                 <li class="">
-                  <a href="/mypage/commentList">
+                  <a href="/mypage/mypageComment">
                     <span>나의 댓글</span>
                   </a>
                 </li>
                 <li>
-                  <a href="/mypage/eventList">
+                  <a href="/mypage/mypageEvent">
                     <span>이벤트 참여내역</span>
                   </a>
                 </li>
                 <li>
-                  <a href="/profile">
+                  <a href="/mypage/mypageProfile">
                     <span>프로필 관리</span>
                   </a>
                 </li>
@@ -455,8 +459,7 @@
         </div>
       </div>
     </div>
-  </body>
+</main>
 
-<th:block th:insert="~{/fragments :: footer}"></th:block>
 
 </html>
