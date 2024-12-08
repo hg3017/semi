@@ -1,11 +1,20 @@
 <!DOCTYPE html>
+<!--<link rel="stylesheet" href="/css/member/login.css" />-->
 
-<html lang="ko" xmlns:th="http://www.thymeleaf.org">
-<link rel="stylesheet" href="/css/member/login.css" />
-<th:block th:insert="~{/fragments :: header}"></th:block>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{/layout}">
 
-  <body>
-    <main id="main" class="main login">
+<head th:replace="~{/common/config :: config(extraCssFiles=${cssFiles})}">
+
+
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+
+
+    <main id="main" class="main login" layout:fragment="content">
       <div class="l-wrap-8">
         <div class="container">
           <h1 class="page-title">로그인</h1>
@@ -37,7 +46,7 @@
           </form>
 
           <div class="login_guide">
-            <a href="/join" class="small-link">회원가입</a>
+            <a href="/member/join" class="small-link">회원가입</a>
             <a href="/find/account" class="small-link">로그인 정보 찾기</a>
           </div>
 
@@ -53,6 +62,5 @@
         </div>
       </div>
     </main>
-  </body>
 
-<th:block th:insert="~{/fragments :: footer}"></th:block>
+

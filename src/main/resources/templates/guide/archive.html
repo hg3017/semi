@@ -3,11 +3,12 @@
       xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{/layout}">
-<head>
+
+<head th:replace="~{/common/config :: config(extraCssFiles=${cssFiles})}">
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
-<body>
+
     <main id="container" class="container" layout:fragment="content">
         <div id="guide_detail" class="section">
             <div class="detail_bg">
@@ -41,7 +42,7 @@
                         </ul>
                     </div>
                 </div>-->
-                <div th:replace="~{/fragments :: share}"></div>
+<!--                <div th:replace="~{/fragments :: share}"></div>-->
             </div>
             <div class="detail_wrap">
                 <div class="detail_con">
@@ -220,5 +221,5 @@
             </div>
         </div>
     </main>
-</body>
+
 </html>

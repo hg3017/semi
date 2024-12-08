@@ -1,22 +1,29 @@
 package com.semie.cook.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.util.List;
 
 @Controller
 @RequestMapping("/recipe_lab")
 public class RecipeLabController {
 
     @GetMapping("/list")
-    public String list() {
+    public String list(Model model) {
         System.out.println("recipe_lab/list---------------------------------------------");
+        model.addAttribute("cssFiles", List.of("cooking.css"));
+        model.addAttribute("extraJsFiles", List.of("member.js"));
         return "/recipeLab/recipe_lab";
     }
 
     @GetMapping("/solution")
-    public String solution() {
+    public String solution(Model model) {
         System.out.println("recipe_lab/solution---------------------------------------------");
+        model.addAttribute("cssFiles", List.of("cooking.css"));
+        model.addAttribute("extraJsFiles", List.of("member.js"));
         return "/recipeLab/solution";
     }
 
@@ -33,8 +40,10 @@ public class RecipeLabController {
 //    }
 
     @GetMapping("/archive_rep")
-    public String archive() {
+    public String archive(Model model) {
         System.out.println("recipe_lab/archive-----------------------------------------------");
-        return "/recipe_lab/archive_rep";
+        model.addAttribute("cssFiles", List.of("cooking.css"));
+        model.addAttribute("extraJsFiles", List.of("member.js"));
+        return "/recipeLab/archive_rep";
     }
 }
