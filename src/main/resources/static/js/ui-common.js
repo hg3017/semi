@@ -327,4 +327,18 @@ window.addEventListener('DOMContentLoaded', function () {
     },
   });
 
+  // 이벤트페이지 탭메뉴
+    document.querySelectorAll('.main_event .filter li>a').forEach(function (item) {
+      item.addEventListener('click', function (e) {
+        // 기본 링크 동작 방지
+        e.preventDefault();
+        // 모든 li에서 'on' 클래스 제거
+        document.querySelectorAll('.main_event .filter li').forEach(function (li) {
+          li.classList.remove('on');
+        });
+        // 클릭된 li에 'on' 클래스 추가
+        this.parentElement.classList.add('on');
+      });
+    });
+
 });
