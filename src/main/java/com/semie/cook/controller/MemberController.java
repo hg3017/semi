@@ -1,6 +1,8 @@
 package com.semie.cook.controller;
 
 
+import com.semie.cook.service.MemberService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,6 +14,9 @@ import org.springframework.ui.Model;
 @Controller
 @RequestMapping("/member")
 public class MemberController {
+
+    @Autowired
+    private MemberService memberService;
 
     @GetMapping("/emailJoin")
     public String emailJoin(Model model) {
@@ -49,6 +54,8 @@ public class MemberController {
     public String solution(Model model) {
         System.out.println("member/login---------------------------------------------");
         model.addAttribute("cssFiles", List.of("member/login.css"));
+
+        System.out.println(memberService.findAll());
 
         return "/member/login";
     }
