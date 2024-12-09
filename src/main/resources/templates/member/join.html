@@ -3,16 +3,17 @@
 <html lang="ko"
       xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{/layout}">
+      layout:decorate="~{/layout}"
+      layout:fragment="content">
 
 
-  <head th:replace="~{/common/config :: config(extraCssFiles=${cssFiles})}">
+  <head>
     <meta charset="UTF-8">
     <title>Title</title>
 
   </head>
 
-  <main id="main" class="main login" layout:fragment="content">
+  <main id="main" class="main login">
       <div class="l-wrap-8">
         <div class="container">
           <h1 class="page-title">회원가입</h1>

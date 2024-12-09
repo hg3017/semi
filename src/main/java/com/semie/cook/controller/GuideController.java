@@ -14,16 +14,12 @@ public class GuideController {
     @GetMapping("/list")
     public String list(Model model) {
         System.out.println("Guide/list---------------------------------------------");
-        model.addAttribute("cssFiles", List.of("cooking.css"));
-        model.addAttribute("extraJsFiles", List.of("member.js"));
         return "/guide/list";
     }
 
     @GetMapping("/guide_archive")
     public String archive(Model model) {
         System.out.println("guide/guide_archive---------------------------------------------");
-        model.addAttribute("cssFiles", List.of("cooking.css"));
-        model.addAttribute("extraJsFiles", List.of("member.js"));
         return "/guide/guide_archive";
     }
 }
