@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.List;
 
 @Controller
-@RequestMapping("/recipe_lab")
+@RequestMapping("/recipeLab")
 public class RecipeLabController {
 
     @GetMapping("/list")
