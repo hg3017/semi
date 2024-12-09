@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.List;
 
 @Controller
-@RequestMapping("/recipe_lab")
+@RequestMapping("/recipeLab")
 public class RecipeLabController {
 
     @GetMapping("/list")
@@ -18,6 +18,10 @@ public class RecipeLabController {
         model.addAttribute("extraJsFiles", List.of("member.js"));
         return "/recipeLab/recipe_lab";
     }
+
+
+
+
 
     @GetMapping("/solution")
     public String solution(Model model) {
