@@ -1,5 +1,4 @@
 #container {
-#container {
   padding-top:120px;
 }
 
@@ -35,7 +34,7 @@
 .main_slider .swiper_txt p {
   font-size: 24px;
   font-weight: 900;
-  color: #0bab6d;
+  color: var(--point-color1);
   padding: 15px 20px 0;
 }
 .main_slider .swiper_title h2 {
@@ -48,7 +47,7 @@
   height: 70px;
   margin-top: 30px;
   line-height: 60px;
-  background-color: #0bab6d;
+  background-color: var(--point-color1);
   border: none;
   display: inline-flex;
   border-radius: 35px;
@@ -456,25 +455,24 @@ display: block;
   margin-bottom: 50px;
 }
 .main_lab .title_top .btn {
-  width: 130px;
-  height: 50px;
-  margin-top: 14px;
+  width: 122px;
+  height: 55px;
+  margin: 15px 10px 0 0;
   background: none;
   padding: 16px 24px;
   justify-content: center;
   border: solid 1px #d4d4d4;
   border-radius: 30px;
-  display: inline-flex;
   align-items: center;
   font-size: 18px;
-  gap: 0 10px;
-  margin-right: 10px;
+  font-weight: 500;
 }
 .main_lab .title_top .btn::after {
   content: '';
   width: 16px;
   height: 16px;
   background: url(/images/common/ic_right.png) no-repeat 0 0 / 100%;
+  margin-left: 8px;
 }
 
 .main_lab .tabmenu {
@@ -509,8 +507,8 @@ display: block;
 .main_lab .tabmenu li.on a::before {
   content: '';
   display: block;
-  width: 33px;
-  height: 33px;
+  /* width: 33px;
+  height: 33px; */
   position: absolute;
   transform: translateY(-100%);
   background: url(/images/common/ic_star_pink.png) no-repeat 0 0 / 100%;
@@ -949,25 +947,24 @@ display: block;
   font-weight: 900;
 }
 .main_bnlist .swiper_title .btn {
-  width: 130px;
-  height: 50px;
-  margin-top: 5px;
+  width: 122px;
+  height: 55px;
+  margin: 15px 0 0 15px;
   background: none;
   padding: 16px 24px;
   justify-content: center;
   border: solid 1px #d4d4d4;
   border-radius: 30px;
-  display: inline-flex;
   align-items: center;
   font-size: 18px;
-  gap: 0 10px;
-  margin-left: 15px;
+  font-weight: 500;
 }
 .main_bnlist .swiper_title .btn::after {
   content: '';
   width: 16px;
   height: 16px;
   background: url(/images/common/ic_right.png) no-repeat 0 0 / 100%;
+  margin-left: 8px;
 }
 
 .main_bnlist .swiper-wrapper {
