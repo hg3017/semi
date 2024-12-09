@@ -2,13 +2,15 @@
 <html lang="ko"
       xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{/layout}">
-<head th:replace="~{/common/config :: config(extraCssFiles=${cssFiles})}">
+      layout:decorate="~{/layout}"
+      layout:fragment="content">
+
+<head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
-<main id="container" class="main_container" layout:fragment="content">
+<main id="container" class="main_container">
     <!-- 요리초보가이드 -->
     <section class="main_slider">
         <div class="inner">
