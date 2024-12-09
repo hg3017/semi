@@ -50,6 +50,7 @@ public class RecipeLabController {
     @GetMapping("/archive_sol")
     public String archive_sol(Model model) {
         System.out.println("recipe_lab/archive_sol-----------------------------------------------");
+        model.addAttribute("cssFiles", List.of("archive.css"));
         return "/recipeLab/archive_sol";
     }
 }

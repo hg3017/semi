@@ -10,7 +10,7 @@ import java.util.List;
 public class MainController {
 
     @GetMapping("/")
-    public String home(Model model) {
+    public String main(Model model) {
         System.out.println("---------------------------------------------");
         model.addAttribute("cssFiles", List.of("cooking.css"));
         model.addAttribute("extraJsFiles", List.of("member.js"));
