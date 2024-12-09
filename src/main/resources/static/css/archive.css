@@ -383,15 +383,15 @@
 
 /*recipe_lab archive css*/
 
-.sub_view_wrap {
+.sol_view_wrap {
     margin: 0 auto;
+    padding: 90px 0 0;
 }
 
-.sub_view_wrap .view_title {
-    /* position: relative; */
-    padding: 78px 0;
-    height: 305px;
-    background: #fff9e2 url(/images/bg_pattern_orange.png) no-repeat;
+.sol_view_wrap .view_title {
+    /*padding: 78px 0;*/
+    /*height: 305px;*/
+    background: #fff9e2 url(/images/bg_pattern_orange.png) no-repeat 100% / 100%;
 }
 
 .view_title .inner {

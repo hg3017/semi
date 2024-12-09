@@ -19,11 +19,11 @@ public class GuideController {
         return "/guide/list";
     }
 
-    @GetMapping("/archive")
+    @GetMapping("/guide_archive")
     public String archive(Model model) {
-        System.out.println("Guide/archive---------------------------------------------");
+        System.out.println("guide/guide_archive---------------------------------------------");
         model.addAttribute("cssFiles", List.of("cooking.css"));
         model.addAttribute("extraJsFiles", List.of("member.js"));
-        return "/guide/archive";
+        return "/guide/guide_archive";
     }
 }

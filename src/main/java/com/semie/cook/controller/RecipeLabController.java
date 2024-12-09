@@ -46,4 +46,10 @@ public class RecipeLabController {
         model.addAttribute("extraJsFiles", List.of("member.js"));
         return "/recipeLab/archive_rep";
     }
+
+    @GetMapping("/archive_sol")
+    public String archive_sol(Model model) {
+        System.out.println("recipe_lab/archive_sol-----------------------------------------------");
+        return "/recipeLab/archive_sol";
+    }
 }
