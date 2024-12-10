@@ -475,23 +475,23 @@ display: block;
   margin-left: 8px;
 }
 
-.main_lab .tabmenu {
+.main_lab .filter {
   padding-bottom: 20px;
   border-bottom: 1px solid #e5e5e5;
   margin: 0 10px;
 }
 
-.main_lab .tabmenu ul {
+.main_lab .filter ul {
   display: flex;
   font-size: 24px;
 }
 
-.main_lab .tabmenu ul>li {
+.main_lab .filter ul>li {
   display: inline-flex;
   align-items: center;
 }
 
-.main_lab .tabmenu .li::after {
+.main_lab .filter .li::after {
   content: "";
   width: 6px;
   height: 6px;
@@ -500,15 +500,15 @@ display: block;
   background-color: #d4d4d4;
 }
 
-.main_lab .tabmenu li.on a {
+.main_lab .filter li.on a {
   color: #111;
   font-weight: 500;
 }
-.main_lab .tabmenu li.on a::before {
+.main_lab .filter li.on a::before {
   content: '';
   display: block;
-  /* width: 33px;
-  height: 33px; */
+  width: 33px;
+  height: 33px;
   position: absolute;
   transform: translateY(-100%);
   background: url(/images/common/ic_star_pink.png) no-repeat 0 0 / 100%;
