@@ -8,10 +8,8 @@
 
 .sub_view_wrap {
   margin: 0 auto;
-  padding: 105px 0 0;
 }
 .sub_view_wrap .view_title {
-  /* height: 305px; */
   background: url(../images/common/bg_pattern_green.png) no-repeat 100% / 100% #eff9ef;
 }
 .view_title {
