@@ -899,66 +899,66 @@ caption.nohead {
 
 /* 게시판 페이징 */
 .board_pagination {
-    display: flex;
-    justify-content: center;
-    margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
 }
-
 .board_pagination [class*=paging] {
-    height: 32px;
-    width: 32px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  height: 32px;
+  width: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-
 .board_pagination [class*=paging]::after {
-    content: '';
-    width: 14px;
-    height: 12px;
-    /*background: url(../images/page_two.svg) no-repeat;*/
-}
+  content: '';
+  width: 20px;
+  height: 20px;
+  background: url(/images/common/ic_right.png) no-repeat 100% / 100%;
 
+  transform: rotate(180deg);
+}
 .board_pagination .prev_paging {
-    margin-right: 20px;
+  margin-right: 20px;
 }
-
 .board_pagination .prev_paging::after {
-    width: 7px;
-    background-image: url(../images/page_one.svg) no-repeat;
+  width: 20px;
+  background-image: url(/images/common/all-p-arrow-r.png) no-repeat 100% / 100%;
 }
-
 .board_pagination .next_paging {
-    transform: rotate(180deg);
-}
+  transform: rotate(180deg);
 
-.board_pagination .next_paging::after {
-    background-image: url(../images/page_one.svg) no-repeat;
-    width: 7px;
 }
-
-.board_pagination .last_paging {
-    transform: rotate(180deg);
+/* .board_pagination .next_paging::after {
+  background-image:  url(../images/common/all-p-arrow-l.png) no-repeat 100% / 100%;
+  width: 20px;
+  border: 1px solid red;
 }
+ .board_pagination .last_paging {
+  transform: rotate(180deg);
+  border: 1px solid red;
+}  */
 
 .board_pagination .num {
-    height: 32px;
-    width: 32px;
-    line-height: 32px;
-    text-align: center;
-    font-size: 17px;
-    border-radius: 50%;
-    color: #999;
+  height: 32px;
+  width: 32px;
+  line-height: 32px;
+  text-align: center;
+  font-size: 17px;
+  /* border-radius: 50%; */
+  color: #999;
+  font-weight: 600;
 }
-
 .board_pagination .num.active {
-    background: var(--point-color1);
-    border-color: var(--point-color1);
-    color: #fff;
+  /* background: var(--point-color1);
+  border-color: var(--point-color1); */
+  color: var(--point-color1);
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
 }
-
 .board_pagination .next_paging {
-    margin-left: 20px;
+  margin-left: 20px;
 }
 
 
