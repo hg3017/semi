@@ -914,7 +914,7 @@ caption.nohead {
   content: '';
   width: 20px;
   height: 20px;
-  background: url(../images/common/ic_right.png) no-repeat 100% / 100%;
+  background: url(/images/common/ic_right.png) no-repeat 100% / 100%;
 
   transform: rotate(180deg);
 }
@@ -923,7 +923,7 @@ caption.nohead {
 }
 .board_pagination .prev_paging::after {
   width: 20px;
-  background-image:  url(../images/common/all-p-arrow-r.png) no-repeat 100% / 100%;
+  background-image: url(/images/common/all-p-arrow-r.png) no-repeat 100% / 100%;
 }
 .board_pagination .next_paging {
   transform: rotate(180deg);
