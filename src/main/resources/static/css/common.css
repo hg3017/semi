@@ -916,7 +916,7 @@ caption.nohead {
     content: '';
     width: 14px;
     height: 12px;
-    background: url(../images/page_two.svg) no-repeat;
+    /*background: url(../images/page_two.svg) no-repeat;*/
 }
 
 .board_pagination .prev_paging {

@@ -18,26 +18,23 @@ public class RecipeLabController {
     }
 
 
-
-
-
     @GetMapping("/solution")
     public String solution(Model model) {
         System.out.println("recipe_lab/solution---------------------------------------------");
         return "/recipeLab/solution";
     }
 
-//    @GetMapping("/counseling")
-//    public String counseling() {
-//        System.out.println("recipe_lab/counseling---------------------------------------------");
-//        return "/recipe_lab/counseling";
-//    }
-//
-//    @GetMapping("/cooking")
-//    public String cooking() {
-//        System.out.println("recipe_lab/cooking---------------------------------------------");
-//        return "/recipe_lab/cooking";
-//    }
+    @GetMapping("/counseling")
+    public String counseling(Model model) {
+        System.out.println("recipe_lab/counseling---------------------------------------------");
+        return "/recipeLab/counseling";
+    }
+
+    @GetMapping("/cooking")
+    public String cooking(Model model) {
+        System.out.println("recipe_lab/cooking---------------------------------------------");
+        return "/recipeLab/cooking";
+    }
 
     @GetMapping("/archive_rep")
     public String archive(Model model) {
