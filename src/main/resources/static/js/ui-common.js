@@ -110,50 +110,41 @@ window.addEventListener('DOMContentLoaded', function () {
       });
 
       // 메인 요리가이드 pause 버튼 클릭 이벤트
-      document
-        .querySelector('.main_slider .pause')
-        .addEventListener('click', function () {
-          // autoplay가 실행 중인지를 확인하고, 실행 중이면 멈추고, 멈춰 있으면 시작
-          if (mainslider.autoplay.running) {
-            mainslider.autoplay.stop();
-          } else {
-            mainslider.autoplay.start();
+      document.addEventListener('DOMContentLoaded', function () {
+          const pauseButton = document.querySelector('.main_slider .pause');
+          if (pauseButton) {
+            pauseButton.addEventListener('click', function () {
+              if (mainslider.autoplay.running) {
+                mainslider.autoplay.stop();
+              } else {
+                mainslider.autoplay.start();
+              }
+              this.classList.toggle('on');
+            });
           }
-          this.classList.toggle('on');
-
-          // 버튼에 'play' 클래스를 토글
         });
 
       // 메인 요리가이드 더보기 버튼
-      document
-        .querySelector('.main_slider .button')
-        .addEventListener('click', function () {
-          this.classList.toggle('on');
-          document.querySelector('.main_slider .guide_wrap').classList.toggle('on');
-          // document.body.classList.toggle('on');
+      document.addEventListener('DOMContentLoaded', function () {
+          const button = document.querySelector('.main_slider .button');
+          const closeButton = document.querySelector('.main_slider .closebtn');
+          const guideWrap = document.querySelector('.main_slider .guide_wrap');
+
+          if (button && guideWrap) {
+            button.addEventListener('click', function () {
+              this.classList.toggle('on');
+              guideWrap.classList.toggle('on');
+            });
+          }
+
+          if (closeButton && guideWrap) {
+            closeButton.addEventListener('click', function () {
+              guideWrap.classList.remove('on');
+              document.body.classList.remove('on');
+            });
+          }
         });
 
-      document
-        .querySelector('.main_slider .closebtn')
-        .addEventListener('click', function () {
-          // e.preventDefault();
-          document.querySelector('.main_slider .guide_wrap').classList.remove('on');
-          document.body.classList.remove('on');
-        });
-
-      // 메인 요리연구소 탭메뉴
-      document.querySelectorAll('.main_lab .tabmenu li>a').forEach(function (item) {
-        item.addEventListener('click', function (e) {
-          // 기본 링크 동작 방지
-          e.preventDefault();
-          // 모든 li에서 'on' 클래스 제거
-          document.querySelectorAll('.main_lab .tabmenu li').forEach(function (li) {
-            li.classList.remove('on');
-          });
-          // 클릭된 li에 'on' 클래스 추가
-          this.parentElement.classList.add('on');
-        });
-      });
 
       // 메인 요리연구소
       let mainlab = new Swiper('.main_lab .swiper', {
@@ -262,13 +253,13 @@ window.addEventListener('DOMContentLoaded', function () {
         });
     });
     // 필터
-    document.querySelectorAll('.main_detail .filter li>a').forEach(function (item) {
+    document.querySelectorAll('.filter li>a').forEach(function (item) {
         item.addEventListener('click', function (e) {
             // 기본 링크 동작 방지
             e.preventDefault();
 
             // 모든 li에서 'on' 클래스 제거
-            document.querySelectorAll('.main_detail .filter li').forEach(function (li) {
+            document.querySelectorAll('.filter li').forEach(function (li) {
                 li.classList.remove('on');
             });
 
@@ -326,19 +317,5 @@ window.addEventListener('DOMContentLoaded', function () {
         prevEl: '.S_tagList .swiper-button-prev',
     },
   });
-
-  // 이벤트페이지 탭메뉴
-    document.querySelectorAll('.main_event .filter li>a').forEach(function (item) {
-      item.addEventListener('click', function (e) {
-        // 기본 링크 동작 방지
-        e.preventDefault();
-        // 모든 li에서 'on' 클래스 제거
-        document.querySelectorAll('.main_event .filter li').forEach(function (li) {
-          li.classList.remove('on');
-        });
-        // 클릭된 li에 'on' 클래스 추가
-        this.parentElement.classList.add('on');
-      });
-    });
 
 });
