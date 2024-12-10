@@ -3,14 +3,15 @@
 <html lang="ko"
       xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{/layout}">
+      layout:decorate="~{/layout}"
+      layout:fragment="content">
 
-<head th:replace="~{/common/config :: config(extraCssFiles=${cssFiles})}">
+<head>
   <meta charset="UTF-8">
   <title>Title</title>
 </head>
 
-  <main layout:fragment="content">
+  <main>
     <div id="container" >
       <div id="wrap" data-menu="4">
         <div id="mypage">

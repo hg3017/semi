@@ -3,9 +3,10 @@
 <html lang="ko"
       xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{/layout}">
+      layout:decorate="~{/layout}"
+      layout:fragment="content">
 
-<head th:replace="~{/common/config :: config(extraCssFiles=${cssFiles})}">
+<head>
   <meta charset="UTF-8">
   <title>Title</title>
 </head>
@@ -15,7 +16,7 @@
   <a href="#container">본문바로가기</a>
 </div>
 <div id="wrap">
-  <main id="lab_container" class="container" layout:fragment="content">
+  <main id="lab_container" class="container">
     <div class="tit_sec">
       <h3>요리해요</h3>
     </div>

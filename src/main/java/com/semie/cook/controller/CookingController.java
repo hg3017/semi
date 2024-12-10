@@ -14,16 +14,12 @@ public class CookingController {
     @GetMapping("/cooking")
     public String list(Model model) {
         System.out.println("cooking/list---------------------------------------------");
-        model.addAttribute("cssFiles", List.of("cooking.css"));
-        model.addAttribute("extraJsFiles", List.of("member.js"));
         return "cooking/cooking";
     }
 
     @GetMapping("/counseling")
     public String counseling(Model model) {
         System.out.println("cooking/counseling---------------------------------------------");
-        model.addAttribute("cssFiles", List.of("counseling.css"));
-        model.addAttribute("extraJsFiles", List.of("member.js"));
         return "/cooking/counseling";
     }
 }

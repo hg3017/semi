@@ -2,21 +2,20 @@
 <html lang="ko"
       xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{/layout}">
+      layout:decorate="~{/layout}"
+      layout:fragment="content">
 
-<head th:replace="~{/common/config :: config(extraCssFiles=${cssFiles})}">
-
+<head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 
 <body>
-<th:block th:insert="~{/fragments :: header}"></th:block>
 <div id="skip_navi">
     <a href="#container">본문바로가기</a>
 </div>
 <div id="wrap" class="archive_wrap">
-    <main id="container" class="container" layout:fragment="content">
+    <main id="container" class="container">
         <section class="sub_view_wrap">
             <div class="view_title">
                 <div class="inner">
@@ -87,6 +86,5 @@
     </main>
 </div>
 
-<th:block th:insert="~{/fragments :: footer}"></th:block>
 </body>
 </html>

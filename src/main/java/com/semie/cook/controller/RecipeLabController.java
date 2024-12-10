@@ -14,8 +14,6 @@ public class RecipeLabController {
     @GetMapping("/list")
     public String list(Model model) {
         System.out.println("recipe_lab/list---------------------------------------------");
-        model.addAttribute("cssFiles", List.of("cooking.css"));
-        model.addAttribute("extraJsFiles", List.of("member.js"));
         return "/recipeLab/recipe_lab";
     }
 
@@ -26,8 +24,6 @@ public class RecipeLabController {
     @GetMapping("/solution")
     public String solution(Model model) {
         System.out.println("recipe_lab/solution---------------------------------------------");
-        model.addAttribute("cssFiles", List.of("cooking.css"));
-        model.addAttribute("extraJsFiles", List.of("member.js"));
         return "/recipeLab/solution";
     }
 
@@ -46,15 +42,12 @@ public class RecipeLabController {
     @GetMapping("/archive_rep")
     public String archive(Model model) {
         System.out.println("recipe_lab/archive-----------------------------------------------");
-        model.addAttribute("cssFiles", List.of("cooking.css"));
-        model.addAttribute("extraJsFiles", List.of("member.js"));
         return "/recipeLab/archive_rep";
     }
 
     @GetMapping("/archive_sol")
     public String archive_sol(Model model) {
         System.out.println("recipe_lab/archive_sol-----------------------------------------------");
-        model.addAttribute("cssFiles", List.of("archive.css"));
         return "/recipeLab/archive_sol";
     }
 }

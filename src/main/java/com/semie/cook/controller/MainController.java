@@ -12,8 +12,6 @@ public class MainController {
     @GetMapping("/")
     public String main(Model model) {
         System.out.println("---------------------------------------------");
-//        model.addAttribute("cssFiles", List.of("cooking.css"));
-//        model.addAttribute("extraJsFiles", List.of("member.js"));
         return "main";
     }
 }
