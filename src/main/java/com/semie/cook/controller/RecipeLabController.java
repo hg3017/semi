@@ -50,4 +50,8 @@ public class RecipeLabController {
         System.out.println("recipe_lab/archive_sol-----------------------------------------------");
         return "/recipeLab/archive_sol";
     }
+
+
+
+
 }
