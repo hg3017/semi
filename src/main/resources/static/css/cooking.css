@@ -65,20 +65,20 @@
   display: inline-block;
   width: 30px;
   height: 30px;
-  background: url(../images/common/ic_star_pink.png) no-repeat 100% / 100%;
+  background: url(/images/common/ic_star_pink.png) no-repeat 100% / 100%;
 }
-.food_wrap {
+.cook_food_wrap {
   position: relative;
   margin-bottom: 50px;
   display: flex;
   overflow: hidden;
 }
-.food_wrap img {
+.cook_food_wrap img {
   position: relative;
   margin-left: 50px;
   z-index: 10;
 }
-.foodBtn_wrap {
+.cook_food_wrap .foodBtn_wrap {
   position: absolute;
   background: #fbb9bf;
   display: flex;
@@ -90,22 +90,22 @@
   bottom: 0;
   border-radius: 10px;
 }
-.foodBtn_wrap p {
+.cook_food_wrap .foodBtn_wrap p {
   font-size: 24px;
   font-weight: 700;
   padding-left: 20px;
 }
-.foodBtn_wrap span {
+.cook_food_wrap .foodBtn_wrap span {
   font-size: 18px;
   font-weight: normal;
 }
-.foodBtn_wrap a {
+.cook_food_wrap .foodBtn_wrap a {
   position: relative;
   color: #fff;
   display: flex;
   padding-right: 20px;
 }
-.foodBtn_wrap a::before {
+.cook_food_wrap .foodBtn_wrap a::before {
   position: absolute;
   content: '';
   top: 50%;
@@ -115,7 +115,7 @@
   transform: translateY(-50%);
   background: rgba(255, 255, 255, 0.6);
 }
-.foodBtn_wrap img {
+.cook_food_wrap .foodBtn_wrap img {
   margin-left: 10px;
 }
 
@@ -164,7 +164,7 @@
   top: 50%;
   margin-left: -20px;
   transform: translateY(-50%);
-  background: url(../images/common/ckeck.svg) no-repeat center;
+  background: url(/images/common/ckeck.svg) no-repeat center;
 }
 /* .main_detail .tag_wrap {
 
@@ -227,7 +227,7 @@
   width: 36px;
   height: 36px;
   text-indent: -9999px;
-  background: url(../images/common/ic_scrap.png) no-repeat 100% / 100%;
+  background: url(/images/common/ic_scrap.png) no-repeat 100% / 100%;
 }
 
 

@@ -1,12 +1,10 @@
 .lab_inner {
-    /* max-width: 1556px; */
     max-width: 1600px;
     margin: 0 auto;
     padding: 200px 30px 100px;
 }
 
 .tit_sec {
-    /* max-width: 1496px; */
     margin-bottom: 30px;
 
 }
@@ -65,7 +63,7 @@
     display: inline-block;
     width: 30px;
     height: 30px;
-    background: url(../images/common/ic_star_pink.png) no-repeat 100% / 100%;
+    background: url(/images/common/ic_star_pink.png) no-repeat 100% / 100%;
 }
 
 .keyword_wrap {
@@ -169,14 +167,9 @@
     top: 50%;
     margin-left: -20px;
     transform: translateY(-50%);
-    background: url(../images/common/ckeck.svg) no-repeat center;
+    background: url(/images/common/ckeck.svg) no-repeat center;
 }
 
-/* .main_detail .tag_wrap {
-  
-  position: relative;
-  margin: 0 auto;
-} */
 .main_detail .tag_area {
     display: flex;
     flex-wrap: wrap;
@@ -246,5 +239,5 @@
     width: 36px;
     height: 36px;
     text-indent: -9999px;
-    background: url(../images/common/ic_scrap.png) no-repeat 100% / 100%;
+    background: url(/images/common/ic_scrap.png) no-repeat 100% / 100%;
 }
