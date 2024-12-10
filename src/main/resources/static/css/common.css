@@ -912,12 +912,12 @@ caption.nohead {
     align-items: center;
 }
 
-.board_pagination [class*=paging]::after {
+/* .board_pagination [class*=paging]::after {
     content: '';
     width: 14px;
     height: 12px;
     background: url(../images/page_two.svg) no-repeat;
-}
+} */
 
 .board_pagination .prev_paging {
     margin-right: 20px;
