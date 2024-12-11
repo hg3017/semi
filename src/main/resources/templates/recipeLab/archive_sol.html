@@ -3,7 +3,7 @@
       xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{/layout}"
-      layout:fragment="content">
+      layout:fragment="content" xmlns="http://www.w3.org/1999/html">
 
 <head>
     <meta charset="UTF-8">
@@ -11,12 +11,12 @@
 </head>
 
 <body>
-<div id="skip_navi">
-    <a href="#container">본문바로가기</a>
+<div class="share_control">
+    <button class="scrap" type="button"><i></i><span>스크랩</span></button>
 </div>
 <div id="wrap" class="archive_wrap">
-    <main id="container" class="container">
-        <section class="sub_view_wrap">
+    <main id="sol_container" class="container">
+        <section class="sol_view_wrap">
             <div class="view_title">
                 <div class="inner">
                     <span class="label">솔루션</span>
@@ -80,8 +80,78 @@
                     <p>
                         3) 쓰고 남은 무는 키친타올로 감싸기
                     </p>
+                    <img src="/images/archive4.jpg" alt="신문지 무">
+                    <p>
+                        쓰고 남은 무는 키친타올로 감싸 <br>
+                        잘린면의 <b>수분을 흡수</b> 시켜 비닐에 넣어 보관해요.
+                    </p>
+                    <div class="solution_line"></div>
+                    <h5>📍 왜 세척하지 않고, 보관할까? </h5>
+                    <p>세척한 무는 <u>자연 왁스층이 없어져</u> <br>수분이 빠져나가 신선도가 떨어지고, <br><u>표면의 물기로 곰팡이</u>가 생기기 쉬워져요.<br><br></p>
+                    <h5>📍 겨울철 베란다에 보관했더니, 무가 얼어버렸다? </h5>
+                    <p>무가 얼면 <b>세포벽이 손상</b>돼 <br>해동 후에는 <u>물렁물렁해지거나 물기가 많아</u>질 수 있어요. <br><br>이로 인해 생무와는 질감과 맛이 달라지죠.</p>
+                    <img src="/images/archive5.jpg" alt="신문지 무">
+                    <p>
+                        만약 무가 얼어버렸다면, 요리에 이렇게 활용해 보세요!<br><br>
+                    👉🏻국물 요리<br>
+                    <p>언 무는 <b>부드러워서</b> 국물에 잘 어울려요.<br>
+                    국(<a href="#">뭇국</a>)이나 찌개 등 국물 요리에 넣어<br>
+                    무를 부드럽게 익혀보세요.<br><br>
+                    👉🏻조림 요리<br>
+                    언 무는 <b>양념이 속까지 잘 배어들어</b> 조림 요리에 넣으면<br>
+                    부드럽고 깊은 맛을 더해줘요.<br>
+                    무조림, <a href="#">갈치조림</a> 등 조림 요리에도 활용해보세요.<br><br>
+                    </p>
+                    <div class="head_line"></div>
+                    <h4>무 손질법</h4>
+                    <p>
+                        무를 잘 보관했다면<br>
+                        요리 전, 맛있게 손질해야겠죠?<br><br>
+                    </p>
+                    <p style="font-weight: 900">
+                        1) 껍질, 제거할까 말까?
+                    </p>
+                    <img src="/images/archive6.jpg" alt="신문지 무">
+                    <p>
+                        ✅ 그대로 사용하기 <Br>
+                        껍질에는 <u>섬유소</u>와 <u>항산화 성분</u>이 풍부하고,<br>
+                        알싸한 <u>매운맛이 집중</u>되어 있어
+                        잘 씻어 그대로 활용해도 좋아요.<br><br>
+
+                        하지만 <u>농약이나 불순물</u>이 있을 수 있기 때문에<br>
+                        <b style="color: red; text-decoration: none;"> 깨끗하게 씻는 것이 중요</b>해요.<br><br>
+                        ✅ 껍질 제거하기<br>
+                        농약 및 불순물을 확실히 제거하고 싶다면<br>
+                        껍질을 벗기는 것이 안전하겠죠.<br><br>
+                        조금 더 부드러운 식감을 내고,<br>
+                        <u>알싸한 매운맛이 줄어들 수 있어요.</u>
+                    </p>
+                    <video autoplay playsinline muted loop src="/images/video/moo2.mp4" style="padding: 30px 0;"></video>
+                    <p>
+                        무를 도마에 올린 후,<br>
+                        감자 칼을 이용해 세로결대로 벗겨주면<br>
+                        쉽게 벗길 수 있답니다!<br><br>
+                    </p>
+                    <p style="font-weight: 900">
+                        2) 뿌리털은 어떡하지?
+                    </p>
+                    <p>
+                        무의 뿌리털에는 미생물이 많기 때문에,<br>
+                        뿌리는 제거해 주는 것이 좋아요.
+                    </p>
+                    <video autoplay playsinline muted loop src="/images/video/moo3.mp4" style="padding-top: 30px;"></video>
+                    <div class="solution_line"></div>
+                    <p style="text-align: center;">
+                        깨끗하게 무를 세척했다면<br>
+                        요리 용도에 맞게 썰어 볼까요? 😊 <br>
+                        <a href="#"><👉🏻6가지 무 썰기></a>
+                    </p>
                 </div>
             </div>
+            <div th:replace="~{/fragments :: tag}"></div>
+            <div th:replace="~{/fragments :: comment}"></div>
+            <div th:replace="~{/fragments :: tagList}"></div>
+            <div th:replace="~{/fragments :: list}"></div>
         </div>
     </main>
 </div>
