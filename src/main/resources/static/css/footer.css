@@ -73,7 +73,7 @@
     transition: all 0.2s;
 }
 
-#footer .address_area.on .address_wrap {
+#footer .address_area.on > .address_wrap {
     display: block;
     transition: all 0.5s;
 }
@@ -136,7 +136,7 @@
     border-radius: 36px;
     font-weight: 500;
     position: relative;
-    z-index: 1;
+    z-index: 50;
     border: 1px solid var(--gray-500);
 }
 
@@ -166,11 +166,14 @@
     border: 1px solid #d9d9d9;
     background-color: #fff;
     transition: height 0.2s, visibility 0.2s;
+    z-index: 30;
+    /*display: none;*/
 }
 
-#footer .sitemap.on .sitelist {
+#footer .sitemap.on > .sitelist {
     height: 208px;
     visibility: visible;
+    /*display: block;*/
 }
 
 #footer .sitemap .sitelist ul {

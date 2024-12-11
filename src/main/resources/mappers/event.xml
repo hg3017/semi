@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.semie.cook.mapper.EventMapper">
+    <sql id="page1">
+        WITH QDATA AS (
+    </sql>
+    <sql id="page2">
+        )
+        SELECT xx.*
+          FROM (
+               SELECT /*+ALL_ROWS*/ ROW_NUMBER() OVER(ORDER BY yy.EVENT_ID DESC) rn
+                    , yy.*
+                 FROM QDATA yy
+               ) xx
+         WHERE rn BETWEEN #{start} AND #{end}
+    </sql>
+
+
+    <select id="selectAll" parameterType="com.semie.cook.common.Pagination" resultType="eventDTO">
+        <include refid="page1" />
+        select * from event
+        <include refid="page2" />
+    </select>
+
+    <select id="totalEvent" resultType="int">
+        select count(*) from event
+    </select>
+</mapper>
