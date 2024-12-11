@@ -114,28 +114,28 @@
     background-color: #e5e5e5;
 }
 
-.main_detail .inner {
+.main_rep_detail .inner {
     max-width: 1496px;
     margin: 0 auto;
 }
 
-.main_detail .filter {
+.main_rep_detail .filter {
     margin-bottom: 30px;
 }
 
-.main_detail .filter ul {
+.main_rep_detail .filter ul {
     display: flex;
     align-items: center;
     justify-content: flex-end;
 }
 
-.main_detail .filter ul > li {
+.main_rep_detail .filter ul > li {
     display: inline-flex;
     align-items: center;
     position: relative;
 }
 
-.main_detail .filter li::after {
+.main_rep_detail .filter li::after {
     content: '';
     width: 4px;
     height: 4px;
@@ -144,21 +144,21 @@
     background-color: #c4c4c4;
 }
 
-.main_detail .filter li:last-of-type::after {
+.main_rep_detail .filter li:last-of-type::after {
     display: none;
 }
 
-.main_detail .filter li > a {
+.main_rep_detail .filter li > a {
     color: #c4c4c4;
 }
 
-.main_detail .filter li.on a {
+.main_rep_detail .filter li.on a {
     color: #111;
     font-weight: 600;
     margin-left: 20px;
 }
 
-.main_detail .filter li.on a::after {
+.main_rep_detail .filter li.on a::after {
     content: '';
     display: block;
     width: 20px;
@@ -170,14 +170,14 @@
     background: url(/images/common/ckeck.svg) no-repeat center;
 }
 
-.main_detail .tag_area {
+.main_rep_detail .rep_tag_area {
     display: flex;
     flex-wrap: wrap;
     width: calc(100% + 32px);
     margin-left: -16px;
 }
 
-.main_detail .tag_item {
+.main_rep_detail .rep_tag_area .tag_item {
     /* display: inline-block; */
     position: relative;
     width: calc(25% - 32px);
@@ -185,27 +185,27 @@
     box-sizing: border-box;
 }
 
-.main_detail .img_wrap {
+.main_rep_detail .rep_tag_area .img_wrap {
     position: relative;
     overflow: hidden;
     border-radius: 20px;
 }
 
-.main_detail .txt_wrap {
+.main_rep_detail .rep_tag_area .txt_wrap {
     padding: 20px 0 32px;
 }
 
-.main_detail .txt_wrap h4 {
+.main_rep_detail .rep_tag_area .txt_wrap h4 {
     font-size: 22px;
     font-weight: bold;
     margin-bottom: 12px;
 }
 
-.main_detail .time_wrap {
+.main_rep_detail .rep_tag_area .time_wrap {
     display: flex;
 }
 
-.main_detail .time_wrap li {
+.main_rep_detail .rep_tag_area .time_wrap li {
     margin-right: 10px;
     padding: 10px 18px;
     font-size: 14px;
@@ -213,7 +213,7 @@
     background: #f3f3f3;
 }
 
-.main_detail .time_wrap span {
+.main_rep_detail .rep_tag_area .time_wrap span {
     position: relative;
     margin-right: 10px;
     padding-right: 10px;
@@ -221,7 +221,7 @@
 
 }
 
-.main_detail .time_wrap span::after {
+.main_rep_detail .rep_tag_area .time_wrap span::after {
     content: '';
     position: absolute;
     right: 0;
@@ -232,7 +232,7 @@
     transform: translateY(-50%);
 }
 
-.main_detail .scrap {
+.main_rep_detail .rep_scrap {
     position: absolute;
     top: 24px;
     right: 24px;
