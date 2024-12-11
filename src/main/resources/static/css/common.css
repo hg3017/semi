@@ -1,5 +1,5 @@
 @font-face {
-  font-family: 'SUITVariable';
+  font-family: 'SUIT';
   font-style: normal;
   font-weight: 200;
   src: url(../fonts/SUITVariable-Regular.eot);
@@ -1176,6 +1176,24 @@ caption.nohead {
 [class*='animate_fade'].on {
     opacity: 1;
     transform: translate(0, 0) rotate(0);
+}
+
+.progress {
+    position: fixed;
+    top: 90px;
+    left: 0;
+    width: 100%;
+    height: 4px;
+}
+.progress .bar {
+  width: 0%;
+  height: inherit;
+  position: absolute;
+  z-index: 100;
+  background-color: #15a775;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+  transition: width 300ms;
 }
 
 /********** 공통스타일 끝  **********/

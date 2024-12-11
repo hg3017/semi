@@ -8,7 +8,7 @@
 <header id="header" th:fragment="header">
     <div class="inner">
         <h1 class="logo">
-            <a href="index.html">
+            <a href="/">
                 <img src="/images/common/logo.svg" alt="세미네부엌">
                 <span class="blind">세미네부엌</span>
             </a>
@@ -16,30 +16,30 @@
         <nav class="gnb_wrap">
             <ul class="gnb">
                 <li class="gnb_star">
-                    <a href="#">요리초보가이드</a>
+                    <a href="/guide/list">요리초보가이드</a>
                 </li>
                 <li class="gnb_star">
                     <a href="#">요리연구소</a>
                     <ul class="depth2">
-                        <li><a href="/recipeLab/recipe_lab">레시피</a></li>
-                        <li><a href="/company/philosophy">솔루션</a></li>
+                        <li><a href="/recipeLab/list">레시피</a></li>
+                        <li><a href="/recipeLab/solution">솔루션</a></li>
                     </ul>
                 </li>
                 <li class="gnb_star">
                     <a href="#">요리해요</a>
                     <ul class="depth2">
-                        <li><a href="/esg/esg">요리해요</a></li>
-                        <li><a href="/esg/eco">고민있어요</a></li>
+                        <li><a href="/recipeLab/cooking">요리해요</a></li>
+                        <li><a href="/recipeLab/counseling">고민있어요</a></li>
                     </ul>
                 </li>
                 <li>
-                    <a href="#">WOW이벤트</a>
+                    <a href="/event/list">WOW이벤트</a>
                 </li>
             </ul>
         </nav>
         <div class="btn_wrap">
-            <a class="login_btn" href="#">로그인</a>
-            <a class="search_btn"><img src="/images/common/ic_search.png" alt="검색"></a>
+            <a class="login_btn" href="/member/login">로그인</a>
+            <a class="search_btn" href="#"><img src="/images/common/ic_search.png" alt="검색"></a>
             <button type="button" class="sitemap_btn">
                 <span class="blind">사이트맵 열기</span>
                 <i></i>
@@ -55,24 +55,24 @@
             </div>
             <ul class="menu">
                 <li>
-                    <a href="#">요리초보가이드</a>
+                    <a href="/guide/list">요리초보가이드</a>
                 </li>
                 <li>
-                    <a href="view.html" class="menu_ic">요리연구소</a>
+                    <a href="#" class="menu_ic">요리연구소</a>
                     <ul class="depth2">
-                        <li><a href="/products/sampleCheck.do">레시피</a></li>
-                        <li><a href="/products/sampleCheck.do">솔루션</a></li>
+                        <li><a href="/recipeLab/list">레시피</a></li>
+                        <li><a href="/recipeLab/counseling">솔루션</a></li>
                     </ul>
                 </li>
                 <li>
                     <a href="#" class="menu_ic">요리해요</a>
                     <ul class="depth2">
-                        <li><a href="investment/inquiry.do">요리해요</a></li>
-                        <li><a href="investment/inquiry.do">고민있어요</a></li>
+                        <li><a href="/recipeLab/cooking">요리해요</a></li>
+                        <li><a href="/recipeLab/counseling">고민있어요</a></li>
                     </ul>
                 </li>
                 <li>
-                    <a href="#" class="menu_ic">WOW이벤트</a>
+                    <a href="/event/list" class="menu_ic">WOW이벤트</a>
                 </li>
             </ul>
         </div>
