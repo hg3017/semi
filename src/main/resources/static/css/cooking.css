@@ -119,24 +119,24 @@
   margin-left: 10px;
 }
 
-.main_detail .inner {
+.main_cook_detail .inner {
   max-width: 1496px;
   margin: 0 auto;
 }
-.main_detail .filter {
+.main_cook_detail .filter {
   margin-bottom: 30px;
 }
-.main_detail .filter ul {
+.main_cook_detail .filter ul {
   display: flex;
   align-items: center;
   justify-content: flex-end;
 }
-.main_detail .filter ul>li {
+.main_cook_detail .filter ul>li {
   display: inline-flex;
   align-items: center;
   position: relative;
 }
-.main_detail .filter li::after {
+.main_cook_detail .filter li::after {
   content: '';
   width: 4px;
   height: 4px;
@@ -144,18 +144,18 @@
   border-radius: 100%;
   background-color: #c4c4c4;
 }
-.main_detail .filter li:last-of-type::after {
+.main_cook_detail .filter li:last-of-type::after {
   display: none;
 }
-.main_detail .filter li>a {
+.main_cook_detail .filter li>a {
   color: #c4c4c4;
 }
-.main_detail .filter li.on a {
+.main_cook_detail .filter li.on a {
   color: #111;
   font-weight: 600;
   margin-left: 20px;
 }
-.main_detail .filter li.on a::after {
+.main_cook_detail .filter li.on a::after {
   content: '';
   display: block;
   width: 20px;
@@ -166,32 +166,28 @@
   transform: translateY(-50%);
   background: url(/images/common/ckeck.svg) no-repeat center;
 }
-/* .main_detail .tag_wrap {
 
-  position: relative;
-  margin: 0 auto;
-} */
-.main_detail .tag_area {
+.main_cook_detail .cook_area {
   display: flex;
   flex-wrap: wrap;
   width: calc(100% + 32px);
   margin-left: -16px;
 }
 
-.main_detail .tag_item {
+.main_cook_detail .cook_item {
   /* display: inline-block; */
   position: relative;
   width: calc(25% - 32px);
   margin: 0 16px 60px;
   box-sizing: border-box;
 }
-.main_detail .img_wrap {
+.main_cook_detail .img_wrap {
   position: relative;
   overflow: hidden;
   border-radius: 20px;
 }
 
-.main_detail .info_wrap {
+.main_cook_detail .info_wrap {
   margin-top: 18px;
   height: 26px;
   font-size: 14px;
@@ -213,14 +209,14 @@
   background: #c4c4c4;
 }
 
-.main_detail .txt_wrap {
+.main_cook_detail .txt_wrap {
   padding: 16px 0px;
 }
-.main_detail .txt_wrap h4 {
+.main_cook_detail .txt_wrap h4 {
   font-size: 18px;
 }
 
-.main_detail .scrap {
+.main_cook_detail .scrap {
   position: absolute;
   top: 24px;
   right: 24px;
