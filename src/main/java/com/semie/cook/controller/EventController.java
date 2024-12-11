@@ -9,10 +9,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/event")
 public class EventController {
 
-    @GetMapping("/event")
+    @GetMapping("/list")
     public String list(Model model) {
-        System.out.println("event/event---------------------------------------------");
-        return "/event/event";
+        System.out.println("event/list---------------------------------------------");
+        return "/event/list";
     }
 
     @GetMapping("/event_archive")
