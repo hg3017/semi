@@ -1,0 +1,78 @@
+:root {
+  --point-color1: #0bab6d;
+  --point-color2: #fb9622;
+  --gray-500: #111;
+  --gray-600: #000;
+}
+
+.cook_view_wrap {
+  margin: 0 auto;
+  padding: 90px 0 0;
+}
+.cook_view_wrap .cook_title {
+  background: url(../images/common/bg_pattern_green.png) no-repeat 100% / 100% #fff3f3;
+}
+.cook_title {
+  position: relative;
+  padding: 78px 0;
+}
+.cook_title .inner {
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+}
+.cook_title .label {
+  display: inline-block;
+  margin-bottom: 10px;
+  padding: 5px 9px;
+  color: #fff;
+  font-weight: 600;
+  background: #f999a1;
+  border-radius: 5px;
+}
+.cook_title h3 {
+  font-size: 48px;
+  font-weight: 800;
+}
+.cook_title .date {
+  color: #666;
+  margin-top: 30px;
+}
+
+.cook_view_cont .inner {
+  margin: 0 auto;
+  padding: 60px 0;
+  max-width: 720px;
+}
+.cook_view_cont .cook_txt_wrap {
+  margin-bottom: 50px;
+}
+.cook_txt_wrap p {
+  font-size: 18px;
+  margin-top: 16px;
+}
+.view_intro {
+  margin-bottom: 120px;
+}
+
+.cook_view_cont .main_swiper_wrap {
+  position: relative;
+  padding: 0 45px;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.cook_view_cont .main_swiper_wrap .swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.cook_view_cont .swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
