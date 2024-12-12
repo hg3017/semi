@@ -317,6 +317,9 @@
     transition: height 0.4s;
     font-weight: 500;
 }
+.event_archive .event_notice_content .btn_arrow.on {
+    height: 780px;
+}
 .event_archive .event_notice_content li::before {
     content: "";
     position: absolute;
@@ -333,10 +336,10 @@
     padding-left: 13px;
     color: #999;
 }
-.event_archive .event_notice_func {
-    text-align: center;
+.event_archive .event_notice_btn {
+    align-items: center;
 }
-.event_archive .event_notice_func .btn_arrow {
+.event_archive .btn_arrow {
     width: 122px;
     height: 55px;
     margin: 15px 0 0 15px;
@@ -349,7 +352,7 @@
     font-size: 18px;
     font-weight: 500;
 }
-.event_archive .event_notice_func .btn_arrow::after {
+.event_archive .btn_arrow::after {
     content: '';
     display: inline-block;
     position: relative;
