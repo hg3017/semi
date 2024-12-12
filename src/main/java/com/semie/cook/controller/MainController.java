@@ -14,4 +14,10 @@ public class MainController {
         System.out.println("---------------------------------------------");
         return "main";
     }
+
+    @GetMapping("/search")
+    public String search(Model model) {
+        System.out.println("search---------------------------------------------");
+        return "search";
+    }
 }

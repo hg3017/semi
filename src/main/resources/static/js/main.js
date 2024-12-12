@@ -1,6 +1,6 @@
  window.addEventListener('DOMContentLoaded', function () {
  // 메인 요리가이드
-      let progressLine = document.querySelector('.progress-line .progress');
+//     let progressLine = document.querySelector('.progress-line .progress');
 
       let mainslider = new Swiper('.main_slider .swiper', {
         loop: true,
