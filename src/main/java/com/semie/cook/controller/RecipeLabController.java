@@ -52,4 +52,7 @@ public class RecipeLabController {
         return "/recipeLab/archive_cook";
     }
 
+
+
+
 }
