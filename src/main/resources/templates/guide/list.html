@@ -16,11 +16,19 @@
             <div class="guide_title">
                 <h3>요리초보가이드</h3>
             </div>
-            <ul class="guide_menu">
-                <li><a href="#" target="_blank" title="최신">최신순</a></li>
-                <li><a href="#" target="_blank" title="조회">조회순</a></li>
-                <li><a href="#" target="_blank" title="스크랩">스크랩순</a></li>
-            </ul>
+            <div class="filter">
+                <ul>
+                    <li class="on">
+                        <a href="#">최신순</a>
+                    </li>
+                    <li>
+                        <a href="#">조회순</a>
+                    </li>
+                    <li>
+                        <a href="#">스크랩순</a>
+                    </li>
+                </ul>
+            </div>
             <div class="guide_wrap">
                 <ul>
                     <li>
@@ -337,6 +345,7 @@
                     </li>
                 </ul>
             </div>
+            <div th:replace="~{/fragments :: pagination}"></div>
         </div>
     </div>
 </main>
