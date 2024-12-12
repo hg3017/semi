@@ -5,16 +5,14 @@
       layout:decorate="~{/layout}"
       layout:fragment="content">
 
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+<head layout:fragment="config">
+    <title>Event</title>
+    <link rel="stylesheet" href="/css/event.css">
 </head>
 <body>
 <main id="container_event" class="container">
     <section class="event_archive">
-        <div class="progress">
-            <div class="bar"></div>
-        </div>
+        <div th:fragment="scroll"></div>
         <div class="inner">
             <div class="title">
                 <div class="label_list">
@@ -66,7 +64,7 @@
                         <strong>🎁 창의적인 요리를 만든 상위 2명에게는 샘표마켓 상품권 2만원권을 추가로 드려요!</strong>
                     </div>
                     <div class="event_info_wrap">
-                        <h5 class="h4">이벤트 참여 안내</h5>
+                        <h5>이벤트 참여 안내</h5>
                         <dl class="event_info">
                             <div class="event_info_item">
                                 <dt class="event_info_dt">진행일자</dt>
@@ -81,7 +79,7 @@
                             </div>
                             <div class="event_info_item">
                                 <dt class="event_info_dt">이벤트 경품</dt>
-                                <dd class="event_info_dd" id="data1">
+                                <dd class="event_info_dd">
                                     <ul>
                                         <li>집밥 필수템 꾸러미(30명)</li>
                                     </ul>
@@ -106,21 +104,13 @@
                     <div class="event_tip">
                         <div class="left">
                             <p class="h">새미’s 당첨 🍯꿀TIP!</p>
-                            <div>
-                                <div class="evenet-tip">
-                                    <div>
-                                        <ul>
-                                            <li>이벤트 참여하기에 등록해야 이벤트 신청이 완료됩니다!</li>
-                                            <li>요리와 관련된 에피소드도 함께 공유할수록 당첨확률 Up!</li>
-                                            <li>댓글 소통이 활발할수록 샘표 마켓 상품권 2만원권에 가까워집니다 ♥️</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
+                            <ul>
+                                <li>이벤트 참여하기에 등록해야 이벤트 신청이 완료됩니다!</li>
+                                <li>요리와 관련된 에피소드도 함께 공유할수록 당첨확률 Up!</li>
+                                <li>댓글 소통이 활발할수록 샘표 마켓 상품권 2만원권에 가까워집니다 ♥️</li>
+                            </ul>
                         </div>
-                        <div>
-                            <img src="/images/il_samie_tip.png" alt="" class="image">
-                        </div>
+                        <img src="/images/il_samie_tip.png" alt="" class="image">
                     </div>
                     <div class="event_notice">
                         <h4 class="event_notice_title">주의사항</h4>
@@ -141,7 +131,7 @@
                             <li>즐요클럽은 내부 기준에 의해 각 테마별 100명 , 총 400명이 선정될 예정이며 즐요클럽에 선정되었을 경우, 반드시 링크를 통한 즐요클럽팩 구매와 미션 참여를 이행하여야 합니다.</li>
                             <li>즐요클럽 선정 이후, 즐요클럽팩 구매가 일어나지 않거나 즐요클럽팩 구매 후, 미션참여를 하지 않은 경우 추후 이벤트 참여 등에 불이익이 있을 수 있으며 구매한 즐요클럽팩은 반환 및 비용 청구 등이 있을 수 있습니다.</li>
                         </ul>
-                        <div class="event_notice_func">
+                        <div class="event_notice_btn">
                             <button type="button" class="btn_arrow">더보기</button>
                         </div>
                     </div>
@@ -164,7 +154,7 @@
                 </div>
             </div>
             <div class="m-mt">
-                <a href="list.html" class="m-btn">목록으로</a>
+                <a href="/event/list" class="m-btn">목록으로</a>
             </div>
         </div>
     </section>

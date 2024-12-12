@@ -17,7 +17,6 @@ public class RecipeLabController {
         return "/recipeLab/recipe_lab";
     }
 
-
     @GetMapping("/solution")
     public String solution(Model model) {
         System.out.println("recipeLab/solution---------------------------------------------");

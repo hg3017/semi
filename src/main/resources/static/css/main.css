@@ -142,6 +142,9 @@
 .main_slider .swiper-slide-active .txt_bt {
   opacity: 1;
 }
+.main_slider .swiper-slide p:before {
+  content: "+";
+}
 .main_slider .swiper-slide p {
   color: #fff;
   font-size: 48px;
