@@ -392,7 +392,104 @@
     background-color: #fff;
     z-index: 100;
 }
+.share_control button {
+    background: transparent;
+    border: none;
+}
+.share_control .scrap {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    width: 100%;
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-align: center;
+}
 
+.share_control .scrap.on i {
+    background-image: url(/images/common/ic_scrap_fill.png) ;
+}
+.share_control .scrap i {
+    display: inline-block;
+    width: 2.25rem;
+    height: 2.25rem;
+    background: transparent url(/images/common/share_mark.svg) no-repeat center / 100%;
+}
+.share_control .share_wrap {
+    position: relative;
+    margin-top: 1.25rem;
+}
+.share_control .share_wrap .share {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    width: 100%;
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-align: center;
+}
+.share_control .share_wrap .share i {
+    display: inline-block;
+    width: 2.25rem;
+    height: 2.25rem;
+    background: transparent url(/images/common/share.svg) no-repeat center / 100%;
+}
+.share_control .share_wrap .share_btn {
+    display: none;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    width: 174px;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    transform: translateX(-50%);
+}
+
+.share_control .share_wrap .share_btn.on {
+    display: flex;
+}
+.share_control .share_wrap .share_btn:before {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    border: 10px solid transparent;
+    border-bottom-color: #fff;
+    transform: translateX(-50%);
+    content: '';
+}
+.share_control .share_wrap .share_btn li.close {
+    width: 100%;
+    margin-top: -0.3125rem;
+    text-align: right;
+}
+.share_control .share_wrap .share_btn li.close span {
+    display: none;
+}
+.share_control .share_wrap .share_btn li.close button {
+    color: #999;
+    font-size: 1.1rem;
+}
+.share_control .share_wrap .share_btn li:not(.close) a {
+    display: inline-flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.325rem;
+    background-color: #f9f9f9;
+}
+.share_control .share_wrap .share_btn li:not(.close) a img {
+    max-width: 100%;
+}
+.share_control .share_wrap .share_btn li:not(.close) a span {
+    color: #666;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
 
 
 /*---------------------------------------------------------------------------*/
