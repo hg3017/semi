@@ -307,6 +307,9 @@
     height: 70px;
     background: linear-gradient(0deg, #fff 20%, rgba(255, 255, 255, 0));
 }
+.event_archive .event_notice.on .event_notice_content::before {
+    z-index:0;
+}
 .event_archive .event_notice_content {
     height: 200px;
     overflow: hidden;
@@ -317,8 +320,8 @@
     transition: height 0.4s;
     font-weight: 500;
 }
-.event_archive .event_notice_content .btn_arrow.on {
-    height: 780px;
+.event_archive .event_notice.on .event_notice_content {
+    height: 810px;
 }
 .event_archive .event_notice_content li::before {
     content: "";
@@ -337,7 +340,8 @@
     color: #999;
 }
 .event_archive .event_notice_btn {
-    align-items: center;
+    display: flex;
+    justify-content: center;
 }
 .event_archive .btn_arrow {
     width: 122px;
@@ -361,6 +365,9 @@
     top: 1px;
     background: url(/images/common/ic_down.png) no-repeat 0 0 / 100%;
     margin-left: 8px;
+}
+.event_archive .event_notice.on .btn_arrow::after {
+    rotate: 180deg;
 }
 
 .event_archive .event_apply {
