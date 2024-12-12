@@ -54,4 +54,14 @@ window.addEventListener('DOMContentLoaded', function () {
           },
         });
 
+
+
+     //레시피 상세
+      let CtagList = new Swiper('.C_tagList .swiper', {
+      slidesPerView: '4',
+      navigation: {
+          nextEl: '.C_tagList .swiper-button-next',
+          prevEl: '.C_tagList .swiper-button-prev',
+      },
+    });
 });

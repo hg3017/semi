@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{/layout}"
+      layout:fragment="content">
+
+<head>
+    <meta charset="UTF-8">
+    <title>RecipeLab</title>
+</head>
+<body>
+<main id="cooking_container" class="container">
+    <div th:replace="~{/fragments :: scroll}"></div>
+    </div>
+    <section class="cook_view_wrap">
+        <div class="cook_title">
+            <div class="inner">
+                <span class="label">요리해요</span>
+                <h3>연말 홈파티</h3>
+                <p class="date">2024.12.12 00:03</p>
+            </div>
+        </div>
+    </section>
+    <section class="cook_view_cont">
+        <div class="inner">
+            <div class="cook_txt_wrap">
+                <p>
+                    연말에는 집에서 홈파티로 오붓이 즐겨줘야하잖아요~?<br>
+                    테이블보도 크리스마스 분위기에 맞춰 깔아주고<br>
+                    잘 사용하지 않는 오븐도 돌려주었지요!<br>
+                    <br>
+                    메뉴는 로스트치킨과 연어파피요트, 리스샐러드와 어니언스프까지 총 4가지 준비해보았어요!<br>
+                    <br>
+                    <br>
+                    1.<br>
+                    오븐요리인 로스트치킨은 닭 안에 레몬과 갈릭버터 넣어주고<br>
+                    겉에도 바삭하게 갈릭버터 발라주었어요~<br>
+                    <br>
+                    오븐으로 굽는 요리라 어느정도 구워진 후<br>
+                    감자 파프리카 레몬 귤 등 다양한 채소도 구워주면 좋아요!<br>
+                    <br>
+                    하지만 처음 하는 요리다보니 생각보다 장시간이라 당황했고<br>
+                    겉부분이 마늘때문인지 타서 긁어내느라 애먹은건 안비밀이에요 ㅋㅋㅋㅋㅋㅋㅋ<br>
+                    <br>
+                    2.<br>
+                    연어파피요트는 에어프라이어로 조리했는데요<br>
+                    종이호일로 그릇을 만들어주고 양파를 깔아준뒤에<br>
+                    연어 새우 레몬 로즈마리 차례대로 올려주고<br>
+                    방울토마토 아스파라거스 브로콜리도 같이 구워주었어요!<br>
+                    <br>
+                    샐러드 다음으로 쉬웠던 요리임에도 비주얼 끝내주니<br>
+                    연어가 아니더라도 파피요트 요리는 해보시는거 적극 추천이요!<br>
+                    <br>
+                    3.<br>
+                    리스샐러드는 샐러드채소를 동그랗게 리스 모양으로 올려주고<br>
+                    방울토마토와 리코타치즈 올리브도 톡톡 올려주고<br>
+                    마무리로 치즈 갈갈해주면 끝!<br>
+                    <br>
+                    리스모양을 만들때 가운데 작은 그릇 놓고 둘러주면<br>
+                    손쉽게 리스모양이 만들어진답니다~<br>
+                    <br>
+                    4.<br>
+                    어니언스프는 양파만으로 끝내주는 스프가 만들어지는데요<br>
+                    장장 40분여동안 열심히 카라멜라이징을 해줘야한다지요..!<br>
+                    <br>
+                    이 과정은 전적으로 남편에게 맡겼어요ㅋㅋㅋ<br>
+                    저보다는 팔힘이 세잖아요~? 여러분들도 맡겨버리세요!<br>
+                    <br>
+                    완성후 치즈 올려 녹여주면 박수가 절로 나오는 맛이랍니다~<br>
+                    바게트 같이 준비해 찍먹해주면 끝내줄거같아요!<br>
+                    <br>
+                    이렇게 거하게 먹고 와인에 치즈파티도 즐겨주었어요~<br>
+                    <br>
+                    <br>
+                    아무래도 홈파티음식 준비하느라 시간이 다소 소요되지만<br>
+                    남편과 둘이서 같이 만들며 즐거운 추억이 생길수있으니<br>
+                    직접 요리하시면서 연말 홈파티 즐겨보시는건 어떠실까요~?<br>
+                    <br>
+                </p>
+            </div>
+            <div class="cook_img_wrap">
+                <img src="/images/arch_cook1.jpg" alt="">
+                <img src="/images/arch_cook2.jpg" alt="">
+            </div>
+            <div class="cook_tag_wrap">
+                <a href="#" class="c_tag">
+                    연말홈파티
+                </a>
+                <a href="#">
+                    낭만파티요리
+                </a>
+                <a href="#">
+                    연말홈파티
+                </a>
+                <a href="#">
+                    로스트치킨
+                </a>
+                <a href="#">
+                    연어파피요트
+                </a>
+                <a href="#">
+                    리스샐러드
+                </a>
+                <a href="#">
+                    어니언스프
+                </a>
+            </div>
+            <div class="c_comment_wrap">
+                <div class="total">
+                    <h4>댓글 </h4>
+                    <span>1</span>
+                </div>
+                <div class="com_login">
+                    <div class="profile">
+                        <img src="/images/common/profile.png" alt="">
+                    </div>
+                    <div class="loginFirst">
+                        <a href="#">로그인</a>
+                        하시고 댓글을 남겨보세요.
+                    </div>
+                </div>
+                <div class="com_box">
+                    <div class="profile">
+                        <img src="/images/common/profile.png" alt="">
+                    </div>
+                    <div class="cmt">
+                        <div class="name">
+                            <p>yoon's table</p>
+                            <span class="date">2024-11-08 21:29</span>
+                        </div>
+                        <div class="text">
+                            우와...............플레이팅 실력 넘 부럽습니닷<br>
+                            너무너무 예쁘고 먹음직스러워요!! 치즈 플래터까지 짱이에요😍<br>
+                            리스 샐러드도 완전 아이디어네요!!!
+
+                            <!-- <form>
+                              <div class="txtArea">
+                                <textarea id="txtBox" name="content" placeholder="내용을 입력하세요.">단백질 가득 너무 맛나겠어요!</textarea>
+                              </div>
+                            </form> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="com_blank">
+                    <p>여러분의 댓글을 기다리고 있어요 :)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="cook_profile_wrap">
+        <div class="inner">
+            <div class="text">
+                <p><strong class="point">yoon's table</strong> 님</p>
+                <span>
+                    소개글이 없습니다.
+                </span>
+            </div>
+            <div class="profile">
+                <img src="/images/common/profile.png" alt="">
+            </div>
+
+        </div>
+    </section>
+    <section class="C_tagList">
+        <div class="inner">
+            <div class="c_tit_wrap">
+                <h3 class="c_tit">
+                    <span class="point">
+                        yoon's table님
+                    </span>
+                    의 다른 글도 살펴보세요
+                </h3>
+                <div class="k_arrowbtn">
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                </div>
+                <div class="swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <a href="#">
+                                <div class="img_wrap">
+                                    <img src="/images/mainpage3.jpg" alt="">
+                                </div>
+                                <div class="s_text_wrap">
+                                    <h4>산뜻고소 참치마카로니샐러드</h4>
+                                    <p>산뜻한 채소와 쫀득한 참치, 마카로니로 색다르게!</p>
+                                </div>
+                                <ul class="s_time_wrap">
+                                    <li>
+                                        <span>준비시간</span> 25분
+                                    </li>
+                                    <li>
+                                        <span>조리시간</span> 5분
+                                    </li>
+                                </ul>
+                            </a>
+                            <div class="scrap">스크랩</div>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="#">
+                                <div class="img_wrap">
+                                    <img src="/images/mainpage4.jpg" alt="">
+                                </div>
+                                <div class="s_text_wrap">
+                                    <h4>산뜻고소 참치마카로니샐러드</h4>
+                                    <p>산뜻한 채소와 쫀득한 참치, 마카로니로 색다르게!</p>
+                                </div>
+                                <ul class="s_time_wrap">
+                                    <li>
+                                        <span>준비시간</span> 25분
+                                    </li>
+                                    <li>
+                                        <span>조리시간</span> 5분
+                                    </li>
+                                </ul>
+                            </a>
+                            <div class="scrap">스크랩</div>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="#">
+                                <div class="img_wrap">
+                                    <img src="/images/mainpage3.jpg" alt="">
+                                </div>
+                                <div class="s_text_wrap">
+                                    <h4>산뜻고소 참치마카로니샐러드</h4>
+                                    <p>산뜻한 채소와 쫀득한 참치, 마카로니로 색다르게!</p>
+                                </div>
+                                <ul class="s_time_wrap">
+                                    <li>
+                                        <span>준비시간</span> 25분
+                                    </li>
+                                    <li>
+                                        <span>조리시간</span> 5분
+                                    </li>
+                                </ul>
+                            </a>
+                            <div class="scrap">스크랩</div>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="#">
+                                <div class="img_wrap">
+                                    <img src="/images/mainpage4.jpg" alt="">
+                                </div>
+                                <div class="s_text_wrap">
+                                    <h4>산뜻고소 참치마카로니샐러드</h4>
+                                    <p>산뜻한 채소와 쫀득한 참치, 마카로니로 색다르게!</p>
+                                </div>
+                                <ul class="s_time_wrap">
+                                    <li>
+                                        <span>준비시간</span> 25분
+                                    </li>
+                                    <li>
+                                        <span>조리시간</span> 5분
+                                    </li>
+                                </ul>
+                            </a>
+                            <div class="scrap">스크랩</div>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="#">
+                                <div class="img_wrap">
+                                    <img src="/images/mainpage3.jpg" alt="">
+                                </div>
+                                <div class="s_text_wrap">
+                                    <h4>산뜻고소 참치마카로니샐러드</h4>
+                                    <p>산뜻한 채소와 쫀득한 참치, 마카로니로 색다르게!</p>
+                                </div>
+                                <ul class="s_time_wrap">
+                                    <li>
+                                        <span>준비시간</span> 25분
+                                    </li>
+                                    <li>
+                                        <span>조리시간</span> 5분
+                                    </li>
+                                </ul>
+                            </a>
+                            <div class="scrap">스크랩</div>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="#">
+                                <div class="img_wrap">
+                                    <img src="/images/mainpage4.jpg" alt="">
+                                </div>
+                                <div class="s_text_wrap">
+                                    <h4>산뜻고소 참치마카로니샐러드</h4>
+                                    <p>산뜻한 채소와 쫀득한 참치, 마카로니로 색다르게!</p>
+                                </div>
+                                <ul class="s_time_wrap">
+                                    <li>
+                                        <span>준비시간</span> 25분
+                                    </li>
+                                    <li>
+                                        <span>조리시간</span> 5분
+                                    </li>
+                                </ul>
+                            </a>
+                            <div class="scrap">스크랩</div>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="#">
+                                <div class="img_wrap">
+                                    <img src="/images/mainpage3.jpg" alt="">
+                                </div>
+                                <div class="s_text_wrap">
+                                    <h4>산뜻고소 참치마카로니샐러드</h4>
+                                    <p>산뜻한 채소와 쫀득한 참치, 마카로니로 색다르게!</p>
+                                </div>
+                                <ul class="s_time_wrap">
+                                    <li>
+                                        <span>준비시간</span> 25분
+                                    </li>
+                                    <li>
+                                        <span>조리시간</span> 5분
+                                    </li>
+                                </ul>
+                            </a>
+                            <div class="scrap">스크랩</div>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="#">
+                                <div class="img_wrap">
+                                    <img src="/images/mainpage4.jpg" alt="">
+                                </div>
+                                <div class="s_text_wrap">
+                                    <h4>산뜻고소 참치마카로니샐러드</h4>
+                                    <p>산뜻한 채소와 쫀득한 참치, 마카로니로 색다르게!</p>
+                                </div>
+                                <ul class="s_time_wrap">
+                                    <li>
+                                        <span>준비시간</span> 25분
+                                    </li>
+                                    <li>
+                                        <span>조리시간</span> 5분
+                                    </li>
+                                </ul>
+                            </a>
+                            <div class="scrap">스크랩</div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="back_wrap">
+        <div class="inner">
+            <div class="btn_box">
+                <a href="#" class="list_back">목록으로</a>
+            </div>
+        </div>
+    </section>
+</main>
+</body>
+</html>
