@@ -19,7 +19,20 @@
 
     <select id="selectAll" parameterType="com.semie.cook.common.Pagination" resultType="eventDTO">
         <include refid="page1" />
-        select * from event
+        select e.event_id
+        , e.event_name
+        , e.board_code
+        , e.desc_detail
+        , e.img_list_id
+        , e.tag_box_id
+        , e.create_date
+        , e.modify_date
+        , e.event_start
+        , e.event_end
+        , il.file_path
+        from event e
+        left outer join img_list il
+        on e.IMG_LIST_ID = il.IMG_LIST_ID
         <include refid="page2" />
     </select>
 
