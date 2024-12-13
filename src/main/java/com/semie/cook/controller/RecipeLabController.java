@@ -52,7 +52,11 @@ public class RecipeLabController {
         return "/recipeLab/archive_cook";
     }
 
-
+    @GetMapping("/archive_counsel")
+    public String archive_counsel(Model model) {
+        System.out.println("recipeLab/archive_counsel-----------------------------------------------");
+        return "/recipeLab/archive_counsel";
+    }
 
 
 }

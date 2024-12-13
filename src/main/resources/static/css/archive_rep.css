@@ -783,7 +783,7 @@
   z-index: 999;
 }
 
-
+// 목록버튼
 .back_wrap .inner {
   max-width: 1600px;
   margin: 0 auto;
@@ -802,4 +802,7 @@
   text-align: center;
   color: #15a775;
 }
-
+.back_wrap .list_back:hover {
+    color: #fff;
+    background: #15a775;
+}

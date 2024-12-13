@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{/layout}"
+      layout:fragment="content">
+
+<head>
+    <meta charset="UTF-8">
+    <title>RecipeLab</title>
+    <link rel="stylesheet" href="/css/archive_counsel.css">
+</head>
+<body>
+<main id="counsel_container" class="container">
+    <div th:replace="~{/fragments :: scroll}"></div>
+    </div>
+    <section class="counsel_view_wrap">
+        <div class="counsel_title">
+            <div class="inner">
+                <span class="label">고민있어요</span>
+                <h3>즐요클럽에 대해 여쭤봅니당^^</h3>
+                <p class="date">2024.09.05 07:42</p>
+            </div>
+        </div>
+    </section>
+    <section class="counsel_view_cont">
+        <div class="inner">
+            <div class="counsel_txt_wrap">
+                <p>
+                    보내주신 안내지에 플랫폼 요리가 첨부한 사진처럼 네가지가 소개되어 있거든요.  요리를 네가지 해야하는건 아니지요? 그 중 한가지를 선택해서 요리하면 되겠지요?^^
+                </p>
+            </div>
+            <div class="counsel_img_wrap">
+                <img src="/images/counsel_img.jpg" alt="">
+            </div>
+            <div class="counsel_tag_wrap">
+                <a href="#">
+                    얼은김치
+                </a>
+                <a href="#">
+                    김치
+                </a>
+            </div>
+            <div class="counsel_comment_wrap">
+                <div class="total">
+                    <h4>댓글 </h4>
+                    <span>1</span>
+                </div>
+                <div class="com_login">
+                    <div class="profile">
+                        <img src="/images/common/profile.png" alt="">
+                    </div>
+                    <div class="loginFirst">
+                        <a href="#">로그인</a>
+                        하시고 댓글을 남겨보세요.
+                    </div>
+                </div>
+                <div class="com_box">
+                    <div class="profile">
+                        <img src="/images/common/semiadmin.jpg" alt="">
+                    </div>
+                    <div class="cmt">
+                        <div class="name">
+                            <p>새미네부엌 </p>
+                            <span class="date">2024-09-05 11:26</span>
+                        </div>
+                        <div class="text">안녕하세요 :) 새미입니다!<br>
+
+                            <br>
+                            첨부된 QR코드 속, 다양한 레시피 중 원하시는 1가지만 선택해 요리해주시면됩니다! <br>
+                            QR코드는 소스 구분을 위해 4가지로 넣어둔 부분으로 <br>
+                            각 QR코드 살펴보신 후, 1가지 이상 선택해 요리 부탁드립니다. :) <br>
+
+                            <br>
+                            감사합니다.
+
+                        </div>
+                    </div>
+                </div>
+                <div class="com_blank">
+                    <p>여러분의 댓글을 기다리고 있어요 :)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="back_wrap">
+        <div class="inner">
+            <div class="btn_box">
+                <a href="#" class="list_back">목록으로</a>
+            </div>
+        </div>
+    </section>
+</main>
+</body>
+</html>
