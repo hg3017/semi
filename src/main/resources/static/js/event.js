@@ -1,5 +1,7 @@
 window.addEventListener('DOMContentLoaded', function () {
-    document.querySelector('.event_notice .btn_arrow').addEventListener('click', function () {
-        this.closest('.event_notice').classList.toggle('on');
+    document.body.addEventListener('click', function (event) {
+        if (event.target.matches('.event_notice .btn_arrow')) {
+            event.target.closest('.event_notice').classList.toggle('on');
+        }
     });
 });
