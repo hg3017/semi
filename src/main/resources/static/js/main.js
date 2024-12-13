@@ -56,6 +56,8 @@
           const closeButton = document.querySelector('.main_slider .closebtn');
           const guideWrap = document.querySelector('.main_slider .guide_wrap');
 
+          console.log("더보기버튼")
+
           if (button && guideWrap) {
             button.addEventListener('click', function () {
               this.classList.toggle('on');
