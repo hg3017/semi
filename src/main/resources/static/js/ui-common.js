@@ -26,6 +26,7 @@ window.addEventListener('DOMContentLoaded', function () {
     //         scrapButton.classList.toggle("on");
     //     });
     // }
+
     const scrapButtons = document.querySelectorAll(".scrap");
 
     // 각각의 버튼에 이벤트 리스너 추가
