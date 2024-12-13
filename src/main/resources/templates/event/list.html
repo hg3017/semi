@@ -27,7 +27,7 @@
                     <li class="event_item" th:each="event : ${list}">
                         <a href="/event/event_archive">
                             <div class="img_wrap">
-                                <img th:src="${'/images/' + event.poster}" alt="">
+                                <img th:src="${event.file_path}" alt="나와">
                             </div>
                             <div class="txt_wrap">
                                 <p class="tit" th:text="${event.event_name}"></p>

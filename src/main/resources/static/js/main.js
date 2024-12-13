@@ -51,27 +51,22 @@
         });
 
       // 메인 요리가이드 더보기 버튼
-      document.addEventListener('DOMContentLoaded', function () {
-          const button = document.querySelector('.main_slider .button');
-          const closeButton = document.querySelector('.main_slider .closebtn');
-          const guideWrap = document.querySelector('.main_slider .guide_wrap');
+      document
+          .querySelector('.main_slider .button')
+          .addEventListener('click', function () {
+            this.classList.toggle('on');
+            document.querySelector('.main_slider .guide_wrap').classList.toggle('on');
+            // document.body.classList.toggle('on');
+          });
 
-          console.log("더보기버튼")
+        document
+          .querySelector('.main_slider .closebtn')
+          .addEventListener('click', function () {
+            // e.preventDefault();
+            document.querySelector('.main_slider .guide_wrap').classList.remove('on');
+            document.body.classList.remove('on');
+          });
 
-          if (button && guideWrap) {
-            button.addEventListener('click', function () {
-              this.classList.toggle('on');
-              guideWrap.classList.toggle('on');
-            });
-          }
-
-          if (closeButton && guideWrap) {
-            closeButton.addEventListener('click', function () {
-              guideWrap.classList.remove('on');
-              document.body.classList.remove('on');
-            });
-          }
-        });
 
 
       // 메인 요리연구소
