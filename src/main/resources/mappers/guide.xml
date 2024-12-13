@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.semie.cook.mapper.GuideMapper">
+    <sql id="page1">
+        WITH QDATA AS (
+    </sql>
+    <sql id="page2">
+        )
+        SELECT xx.*
+        FROM (
+                 SELECT /*+ALL_ROWS*/ ROW_NUMBER() OVER(ORDER BY yy.NEWBIE_ID DESC) rn
+                    , yy.*
+                 FROM QDATA yy
+             ) xx
+        WHERE rn BETWEEN #{start} AND #{end}
+    </sql>
+
+
+    <select id="selectAll" parameterType="com.semie.cook.common.Pagination" resultType="GuideDTO">
+        <include refid="page1" />
+        SELECT DISTINCT
+        n.newbie_id,
+        n.board_code,
+        n.newbie_name,
+        n.newbie_desc,
+        n.tag_box_id,
+        n.img_list_id,
+        n.create_date,
+        (SELECT file_name
+        FROM imgs
+        WHERE master_no = n.newbie_id
+        AND order1 = 1) AS poster,
+        LISTAGG(
+        CASE
+        WHEN i.order1 != 1
+        THEN i.file_name
+        END, ',') WITHIN GROUP (ORDER BY i.order1)
+        OVER (PARTITION BY i.master_no) AS files
+        FROM newbie n
+        LEFT OUTER JOIN imgs i
+        ON n.newbie_id = i.master_no
+        <include refid="page2" />
+    </select>
+
+    <select id="totalGuide" resultType="int">
+        select count(*) from newbie
+    </select>
+</mapper>

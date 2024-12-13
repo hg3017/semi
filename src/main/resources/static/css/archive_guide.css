@@ -402,7 +402,14 @@
     border: solid 1px #e5e5e5;
     background-color: #fff;
     z-index: 100;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
 }
+
+.share_control.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
 .share_control button {
     background: transparent;
     border: none;

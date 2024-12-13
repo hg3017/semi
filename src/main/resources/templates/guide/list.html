@@ -31,322 +31,342 @@
             </div>
             <div class="guide_wrap">
                 <ul>
-                    <li>
+                    <li th:each="newbie : ${list}">
                         <a href="/guide/guide_archive">
                             <ul class="thumb">
-                                <li><img src="/images/guide1.jpg" alt="이미지"></li>
-                                <li><img src="/images/guide1.jpg" alt="이미지"></li>
-                                <li>
-                                    <img src="/images/guide1.jpg" alt="이미지">
-                                    <p class="more_detail">자세히 보기</p>
+                                <li th:if="${newbie.files != null}"
+                                    th:each="item : ${#strings.setSplit(newbie.files, ',')}"
+                                    >
+                                    <img th:src="@{'/images/' + ${item}}" alt="이미지">
                                 </li>
+                                <!--                                <li><img th:src="${newbie.files}" alt="이미지"></li>-->
+                                <!--                                <li><img th:src="${newbie.files}" alt="이미지"></li>-->
+                                <!--                                <li>-->
+                                <!--                                    <img th:src="${newbie.files}" alt="이미지">-->
+                                <!--                                    <p class="more_detail">자세히 보기</p>-->
+                                <!--                                </li>-->
+
+                                <!--                                <th:block th:if="${newbie.files != null}">-->
+                                <!--                                    <th:block th:each="item : ${#strings.split(newbie.files, ',')}">-->
+                                <!--                                        <li><img th:src="@{'/images/' + item}" alt="이미지"></li>-->
+                                <!--                                    </th:block>-->
+                                <!--                                </th:block>-->
+                                <!--                                <li th:each="item : ${newbie.files != null ? #strings.split(newbie.files, ',') : []}" th:text="${item}">-->
+
+                                <!--                                </li>-->
+<!--                                <th:block th:with="result=${#strings.split(newbie.files, ',')}">-->
+<!--                                    <th:block th:each="item : ${result}">-->
+<!--                                        <li><img th:src="${'/images/' + item}" alt="이미지"></li>-->
+<!--                                    </th:block>-->
+<!--                                </th:block>-->
+
                             </ul>
                             <div class="picture">
-                                <img src="/images/guide1.jpg" alt="이미지">
-                                <p class="guide_text">
-                                    냉장고를 열었더니
-                                    <br>
-                                    남은 '무'가 있다.
-                                    <span class="num">8</span>
+                                <img th:src="${'/images/' + newbie.poster}" alt="이미지">
+                                <p class="guide_text" th:utext="${newbie.newbie_name}">
+                                    <!--                                    냉장고를 열었더니-->
+                                    <!--                                    <br>-->
+                                    <!--                                    남은 '무'가 있다.-->
+                                    <!--                                    <span class="num">8</span>-->
                                 </p>
-                                <div class="guide_tip">
-                                    커다란 '무' 하나 사면,
-                                    <br>
-                                    다 먹지 못하고 버리게 되는 분, 손!
+                                <div class="guide_tip" th:utext="${newbie.newbie_desc}">
+                                    <!--                                    커다란 '무' 하나 사면,-->
+                                    <!--                                    <br>-->
+                                    <!--                                    다 먹지 못하고 버리게 되는 분, 손!-->
                                 </div>
                             </div>
                         </a>
                         <button class="scrap" type="button">스크랩</button>
                     </li>
-                    <li>
-                        <a href="#">
-                            <ul class="thumb">
-                                <li><img src="/images/guide1.jpg" alt="이미지"></li>
-                                <li><img src="/images/guide1.jpg" alt="이미지"></li>
-                                <li>
-                                    <img src="/images/guide1.jpg" alt="이미지">
-                                    <p class="more_detail">자세히 보기</p>
-                                </li>
-                            </ul>
-                            <div class="picture">
-                                <img src="/images/guide1.jpg" alt="이미지">
-                                <p class="guide_text">
-                                    냉장고를 열었더니
-                                    <br>
-                                    남은 '무'가 있다.
-                                    <span class="num">8</span>
-                                </p>
-                                <div class="guide_tip">
-                                    커다란 '무' 하나 사면,
-                                    <br>
-                                    다 먹지 못하고 버리게 되는 분, 손!
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <ul class="thumb">
-                                <li><img src="/images/guide1.jpg" alt="이미지"></li>
-                                <li><img src="/images/guide1.jpg" alt="이미지"></li>
-                                <li>
-                                    <img src="/images/guide1.jpg" alt="이미지">
-                                    <p class="more_detail">자세히 보기</p>
-                                </li>
-                            </ul>
-                            <div class="picture">
-                                <img src="/images/guide1.jpg" alt="이미지">
-                                <p class="guide_text">
-                                    냉장고를 열었더니
-                                    <br>
-                                    남은 '무'가 있다.
-                                    <span class="num">8</span>
-                                </p>
-                                <div class="guide_tip">
-                                    커다란 '무' 하나 사면,
-                                    <br>
-                                    다 먹지 못하고 버리게 되는 분, 손!
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <ul class="thumb">
-                                <li><img src="/images/guide1.jpg" alt="이미지"></li>
-                                <li><img src="/images/guide1.jpg" alt="이미지"></li>
-                                <li>
-                                    <img src="/images/guide1.jpg" alt="이미지">
-                                    <p class="more_detail">자세히 보기</p>
-                                </li>
-                            </ul>
-                            <div class="picture">
-                                <img src="/images/guide1.jpg" alt="이미지">
-                                <p class="guide_text">
-                                    냉장고를 열었더니
-                                    <br>
-                                    남은 '무'가 있다.
-                                    <span class="num">8</span>
-                                </p>
-                                <div class="guide_tip">
-                                    커다란 '무' 하나 사면,
-                                    <br>
-                                    다 먹지 못하고 버리게 되는 분, 손!
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <ul class="thumb">
-                                <li><img src="/images/guide1.jpg" alt="이미지"></li>
-                                <li><img src="/images/guide1.jpg" alt="이미지"></li>
-                                <li>
-                                    <img src="/images/guide1.jpg" alt="이미지">
-                                    <p class="more_detail">자세히 보기</p>
-                                </li>
-                            </ul>
-                            <div class="picture">
-                                <img src="/images/guide1.jpg" alt="이미지">
-                                <p class="guide_text">
-                                    냉장고를 열었더니
-                                    <br>
-                                    남은 '무'가 있다.
-                                    <span class="num">8</span>
-                                </p>
-                                <div class="guide_tip">
-                                    커다란 '무' 하나 사면,
-                                    <br>
-                                    다 먹지 못하고 버리게 되는 분, 손!
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <ul class="thumb">
-                                <li><img src="/images/guide1.jpg" alt="이미지"></li>
-                                <li><img src="/images/guide1.jpg" alt="이미지"></li>
-                                <li>
-                                    <img src="/images/guide1.jpg" alt="이미지">
-                                    <p class="more_detail">자세히 보기</p>
-                                </li>
-                            </ul>
-                            <div class="picture">
-                                <img src="/images/guide1.jpg" alt="이미지">
-                                <p class="guide_text">
-                                    냉장고를 열었더니
-                                    <br>
-                                    남은 '무'가 있다.
-                                    <span class="num">8</span>
-                                </p>
-                                <div class="guide_tip">
-                                    커다란 '무' 하나 사면,
-                                    <br>
-                                    다 먹지 못하고 버리게 되는 분, 손!
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <ul class="thumb">
-                                <li><img src="/images/guide1.jpg" alt="이미지"></li>
-                                <li><img src="/images/guide1.jpg" alt="이미지"></li>
-                                <li>
-                                    <img src="/images/guide1.jpg" alt="이미지">
-                                    <p class="more_detail">자세히 보기</p>
-                                </li>
-                            </ul>
-                            <div class="picture">
-                                <img src="/images/guide1.jpg" alt="이미지">
-                                <p class="guide_text">
-                                    냉장고를 열었더니
-                                    <br>
-                                    남은 '무'가 있다.
-                                    <span class="num">8</span>
-                                </p>
-                                <div class="guide_tip">
-                                    커다란 '무' 하나 사면,
-                                    <br>
-                                    다 먹지 못하고 버리게 되는 분, 손!
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <ul class="thumb">
-                                <li><img src="/images/guide1.jpg" alt="이미지"></li>
-                                <li><img src="/images/guide1.jpg" alt="이미지"></li>
-                                <li>
-                                    <img src="/images/guide1.jpg" alt="이미지">
-                                    <p class="more_detail">자세히 보기</p>
-                                </li>
-                            </ul>
-                            <div class="picture">
-                                <img src="/images/guide1.jpg" alt="이미지">
-                                <p class="guide_text">
-                                    냉장고를 열었더니
-                                    <br>
-                                    남은 '무'가 있다.
-                                    <span class="num">8</span>
-                                </p>
-                                <div class="guide_tip">
-                                    커다란 '무' 하나 사면,
-                                    <br>
-                                    다 먹지 못하고 버리게 되는 분, 손!
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <ul class="thumb">
-                                <li><img src="/images/guide1.jpg" alt="이미지"></li>
-                                <li><img src="/images/guide1.jpg" alt="이미지"></li>
-                                <li>
-                                    <img src="/images/guide1.jpg" alt="이미지">
-                                    <p class="more_detail">자세히 보기</p>
-                                </li>
-                            </ul>
-                            <div class="picture">
-                                <img src="/images/guide1.jpg" alt="이미지">
-                                <p class="guide_text">
-                                    냉장고를 열었더니
-                                    <br>
-                                    남은 '무'가 있다.
-                                    <span class="num">8</span>
-                                </p>
-                                <div class="guide_tip">
-                                    커다란 '무' 하나 사면,
-                                    <br>
-                                    다 먹지 못하고 버리게 되는 분, 손!
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <ul class="thumb">
-                                <li><img src="/images/guide1.jpg" alt="이미지"></li>
-                                <li><img src="/images/guide1.jpg" alt="이미지"></li>
-                                <li>
-                                    <img src="/images/guide1.jpg" alt="이미지">
-                                    <p class="more_detail">자세히 보기</p>
-                                </li>
-                            </ul>
-                            <div class="picture">
-                                <img src="/images/guide1.jpg" alt="이미지">
-                                <p class="guide_text">
-                                    냉장고를 열었더니
-                                    <br>
-                                    남은 '무'가 있다.
-                                    <span class="num">8</span>
-                                </p>
-                                <div class="guide_tip">
-                                    커다란 '무' 하나 사면,
-                                    <br>
-                                    다 먹지 못하고 버리게 되는 분, 손!
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <ul class="thumb">
-                                <li><img src="/images/guide1.jpg" alt="이미지"></li>
-                                <li><img src="/images/guide1.jpg" alt="이미지"></li>
-                                <li>
-                                    <img src="/images/guide1.jpg" alt="이미지">
-                                    <p class="more_detail">자세히 보기</p>
-                                </li>
-                            </ul>
-                            <div class="picture">
-                                <img src="/images/guide1.jpg" alt="이미지">
-                                <p class="guide_text">
-                                    냉장고를 열었더니
-                                    <br>
-                                    남은 '무'가 있다.
-                                    <span class="num">8</span>
-                                </p>
-                                <div class="guide_tip">
-                                    커다란 '무' 하나 사면,
-                                    <br>
-                                    다 먹지 못하고 버리게 되는 분, 손!
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <ul class="thumb">
-                                <li><img src="/images/guide1.jpg" alt="이미지"></li>
-                                <li><img src="/images/guide1.jpg" alt="이미지"></li>
-                                <li>
-                                    <img src="/images/guide1.jpg" alt="이미지">
-                                    <p class="more_detail">자세히 보기</p>
-                                </li>
-                            </ul>
-                            <div class="picture">
-                                <img src="/images/guide1.jpg" alt="이미지">
-                                <p class="guide_text">
-                                    냉장고를 열었더니
-                                    <br>
-                                    남은 '무'가 있다.
-                                    <span class="num">8</span>
-                                </p>
-                                <div class="guide_tip">
-                                    커다란 '무' 하나 사면,
-                                    <br>
-                                    다 먹지 못하고 버리게 되는 분, 손!
-                                </div>
-                            </div>
-                        </a>
-                    </li>
+                    <!--                    <li>-->
+                    <!--                        <a href="#">-->
+                    <!--                            <ul class="thumb">-->
+                    <!--                                <li><img src="/images/guide1.jpg" alt="이미지"></li>-->
+                    <!--                                <li><img src="/images/guide1.jpg" alt="이미지"></li>-->
+                    <!--                                <li>-->
+                    <!--                                    <img src="/images/guide1.jpg" alt="이미지">-->
+                    <!--                                    <p class="more_detail">자세히 보기</p>-->
+                    <!--                                </li>-->
+                    <!--                            </ul>-->
+                    <!--                            <div class="picture">-->
+                    <!--                                <img src="/images/guide1.jpg" alt="이미지">-->
+                    <!--                                <p class="guide_text">-->
+                    <!--                                    냉장고를 열었더니-->
+                    <!--                                    <br>-->
+                    <!--                                    남은 '무'가 있다.-->
+                    <!--                                    <span class="num">8</span>-->
+                    <!--                                </p>-->
+                    <!--                                <div class="guide_tip">-->
+                    <!--                                    커다란 '무' 하나 사면,-->
+                    <!--                                    <br>-->
+                    <!--                                    다 먹지 못하고 버리게 되는 분, 손!-->
+                    <!--                                </div>-->
+                    <!--                            </div>-->
+                    <!--                        </a>-->
+                    <!--                    </li>-->
+                    <!--                    <li>-->
+                    <!--                        <a href="#">-->
+                    <!--                            <ul class="thumb">-->
+                    <!--                                <li><img src="/images/guide1.jpg" alt="이미지"></li>-->
+                    <!--                                <li><img src="/images/guide1.jpg" alt="이미지"></li>-->
+                    <!--                                <li>-->
+                    <!--                                    <img src="/images/guide1.jpg" alt="이미지">-->
+                    <!--                                    <p class="more_detail">자세히 보기</p>-->
+                    <!--                                </li>-->
+                    <!--                            </ul>-->
+                    <!--                            <div class="picture">-->
+                    <!--                                <img src="/images/guide1.jpg" alt="이미지">-->
+                    <!--                                <p class="guide_text">-->
+                    <!--                                    냉장고를 열었더니-->
+                    <!--                                    <br>-->
+                    <!--                                    남은 '무'가 있다.-->
+                    <!--                                    <span class="num">8</span>-->
+                    <!--                                </p>-->
+                    <!--                                <div class="guide_tip">-->
+                    <!--                                    커다란 '무' 하나 사면,-->
+                    <!--                                    <br>-->
+                    <!--                                    다 먹지 못하고 버리게 되는 분, 손!-->
+                    <!--                                </div>-->
+                    <!--                            </div>-->
+                    <!--                        </a>-->
+                    <!--                    </li>-->
+                    <!--                    <li>-->
+                    <!--                        <a href="#">-->
+                    <!--                            <ul class="thumb">-->
+                    <!--                                <li><img src="/images/guide1.jpg" alt="이미지"></li>-->
+                    <!--                                <li><img src="/images/guide1.jpg" alt="이미지"></li>-->
+                    <!--                                <li>-->
+                    <!--                                    <img src="/images/guide1.jpg" alt="이미지">-->
+                    <!--                                    <p class="more_detail">자세히 보기</p>-->
+                    <!--                                </li>-->
+                    <!--                            </ul>-->
+                    <!--                            <div class="picture">-->
+                    <!--                                <img src="/images/guide1.jpg" alt="이미지">-->
+                    <!--                                <p class="guide_text">-->
+                    <!--                                    냉장고를 열었더니-->
+                    <!--                                    <br>-->
+                    <!--                                    남은 '무'가 있다.-->
+                    <!--                                    <span class="num">8</span>-->
+                    <!--                                </p>-->
+                    <!--                                <div class="guide_tip">-->
+                    <!--                                    커다란 '무' 하나 사면,-->
+                    <!--                                    <br>-->
+                    <!--                                    다 먹지 못하고 버리게 되는 분, 손!-->
+                    <!--                                </div>-->
+                    <!--                            </div>-->
+                    <!--                        </a>-->
+                    <!--                    </li>-->
+                    <!--                    <li>-->
+                    <!--                        <a href="#">-->
+                    <!--                            <ul class="thumb">-->
+                    <!--                                <li><img src="/images/guide1.jpg" alt="이미지"></li>-->
+                    <!--                                <li><img src="/images/guide1.jpg" alt="이미지"></li>-->
+                    <!--                                <li>-->
+                    <!--                                    <img src="/images/guide1.jpg" alt="이미지">-->
+                    <!--                                    <p class="more_detail">자세히 보기</p>-->
+                    <!--                                </li>-->
+                    <!--                            </ul>-->
+                    <!--                            <div class="picture">-->
+                    <!--                                <img src="/images/guide1.jpg" alt="이미지">-->
+                    <!--                                <p class="guide_text">-->
+                    <!--                                    냉장고를 열었더니-->
+                    <!--                                    <br>-->
+                    <!--                                    남은 '무'가 있다.-->
+                    <!--                                    <span class="num">8</span>-->
+                    <!--                                </p>-->
+                    <!--                                <div class="guide_tip">-->
+                    <!--                                    커다란 '무' 하나 사면,-->
+                    <!--                                    <br>-->
+                    <!--                                    다 먹지 못하고 버리게 되는 분, 손!-->
+                    <!--                                </div>-->
+                    <!--                            </div>-->
+                    <!--                        </a>-->
+                    <!--                    </li>-->
+                    <!--                    <li>-->
+                    <!--                        <a href="#">-->
+                    <!--                            <ul class="thumb">-->
+                    <!--                                <li><img src="/images/guide1.jpg" alt="이미지"></li>-->
+                    <!--                                <li><img src="/images/guide1.jpg" alt="이미지"></li>-->
+                    <!--                                <li>-->
+                    <!--                                    <img src="/images/guide1.jpg" alt="이미지">-->
+                    <!--                                    <p class="more_detail">자세히 보기</p>-->
+                    <!--                                </li>-->
+                    <!--                            </ul>-->
+                    <!--                            <div class="picture">-->
+                    <!--                                <img src="/images/guide1.jpg" alt="이미지">-->
+                    <!--                                <p class="guide_text">-->
+                    <!--                                    냉장고를 열었더니-->
+                    <!--                                    <br>-->
+                    <!--                                    남은 '무'가 있다.-->
+                    <!--                                    <span class="num">8</span>-->
+                    <!--                                </p>-->
+                    <!--                                <div class="guide_tip">-->
+                    <!--                                    커다란 '무' 하나 사면,-->
+                    <!--                                    <br>-->
+                    <!--                                    다 먹지 못하고 버리게 되는 분, 손!-->
+                    <!--                                </div>-->
+                    <!--                            </div>-->
+                    <!--                        </a>-->
+                    <!--                    </li>-->
+                    <!--                    <li>-->
+                    <!--                        <a href="#">-->
+                    <!--                            <ul class="thumb">-->
+                    <!--                                <li><img src="/images/guide1.jpg" alt="이미지"></li>-->
+                    <!--                                <li><img src="/images/guide1.jpg" alt="이미지"></li>-->
+                    <!--                                <li>-->
+                    <!--                                    <img src="/images/guide1.jpg" alt="이미지">-->
+                    <!--                                    <p class="more_detail">자세히 보기</p>-->
+                    <!--                                </li>-->
+                    <!--                            </ul>-->
+                    <!--                            <div class="picture">-->
+                    <!--                                <img src="/images/guide1.jpg" alt="이미지">-->
+                    <!--                                <p class="guide_text">-->
+                    <!--                                    냉장고를 열었더니-->
+                    <!--                                    <br>-->
+                    <!--                                    남은 '무'가 있다.-->
+                    <!--                                    <span class="num">8</span>-->
+                    <!--                                </p>-->
+                    <!--                                <div class="guide_tip">-->
+                    <!--                                    커다란 '무' 하나 사면,-->
+                    <!--                                    <br>-->
+                    <!--                                    다 먹지 못하고 버리게 되는 분, 손!-->
+                    <!--                                </div>-->
+                    <!--                            </div>-->
+                    <!--                        </a>-->
+                    <!--                    </li>-->
+                    <!--                    <li>-->
+                    <!--                        <a href="#">-->
+                    <!--                            <ul class="thumb">-->
+                    <!--                                <li><img src="/images/guide1.jpg" alt="이미지"></li>-->
+                    <!--                                <li><img src="/images/guide1.jpg" alt="이미지"></li>-->
+                    <!--                                <li>-->
+                    <!--                                    <img src="/images/guide1.jpg" alt="이미지">-->
+                    <!--                                    <p class="more_detail">자세히 보기</p>-->
+                    <!--                                </li>-->
+                    <!--                            </ul>-->
+                    <!--                            <div class="picture">-->
+                    <!--                                <img src="/images/guide1.jpg" alt="이미지">-->
+                    <!--                                <p class="guide_text">-->
+                    <!--                                    냉장고를 열었더니-->
+                    <!--                                    <br>-->
+                    <!--                                    남은 '무'가 있다.-->
+                    <!--                                    <span class="num">8</span>-->
+                    <!--                                </p>-->
+                    <!--                                <div class="guide_tip">-->
+                    <!--                                    커다란 '무' 하나 사면,-->
+                    <!--                                    <br>-->
+                    <!--                                    다 먹지 못하고 버리게 되는 분, 손!-->
+                    <!--                                </div>-->
+                    <!--                            </div>-->
+                    <!--                        </a>-->
+                    <!--                    </li>-->
+                    <!--                    <li>-->
+                    <!--                        <a href="#">-->
+                    <!--                            <ul class="thumb">-->
+                    <!--                                <li><img src="/images/guide1.jpg" alt="이미지"></li>-->
+                    <!--                                <li><img src="/images/guide1.jpg" alt="이미지"></li>-->
+                    <!--                                <li>-->
+                    <!--                                    <img src="/images/guide1.jpg" alt="이미지">-->
+                    <!--                                    <p class="more_detail">자세히 보기</p>-->
+                    <!--                                </li>-->
+                    <!--                            </ul>-->
+                    <!--                            <div class="picture">-->
+                    <!--                                <img src="/images/guide1.jpg" alt="이미지">-->
+                    <!--                                <p class="guide_text">-->
+                    <!--                                    냉장고를 열었더니-->
+                    <!--                                    <br>-->
+                    <!--                                    남은 '무'가 있다.-->
+                    <!--                                    <span class="num">8</span>-->
+                    <!--                                </p>-->
+                    <!--                                <div class="guide_tip">-->
+                    <!--                                    커다란 '무' 하나 사면,-->
+                    <!--                                    <br>-->
+                    <!--                                    다 먹지 못하고 버리게 되는 분, 손!-->
+                    <!--                                </div>-->
+                    <!--                            </div>-->
+                    <!--                        </a>-->
+                    <!--                    </li>-->
+                    <!--                    <li>-->
+                    <!--                        <a href="#">-->
+                    <!--                            <ul class="thumb">-->
+                    <!--                                <li><img src="/images/guide1.jpg" alt="이미지"></li>-->
+                    <!--                                <li><img src="/images/guide1.jpg" alt="이미지"></li>-->
+                    <!--                                <li>-->
+                    <!--                                    <img src="/images/guide1.jpg" alt="이미지">-->
+                    <!--                                    <p class="more_detail">자세히 보기</p>-->
+                    <!--                                </li>-->
+                    <!--                            </ul>-->
+                    <!--                            <div class="picture">-->
+                    <!--                                <img src="/images/guide1.jpg" alt="이미지">-->
+                    <!--                                <p class="guide_text">-->
+                    <!--                                    냉장고를 열었더니-->
+                    <!--                                    <br>-->
+                    <!--                                    남은 '무'가 있다.-->
+                    <!--                                    <span class="num">8</span>-->
+                    <!--                                </p>-->
+                    <!--                                <div class="guide_tip">-->
+                    <!--                                    커다란 '무' 하나 사면,-->
+                    <!--                                    <br>-->
+                    <!--                                    다 먹지 못하고 버리게 되는 분, 손!-->
+                    <!--                                </div>-->
+                    <!--                            </div>-->
+                    <!--                        </a>-->
+                    <!--                    </li>-->
+                    <!--                    <li>-->
+                    <!--                        <a href="#">-->
+                    <!--                            <ul class="thumb">-->
+                    <!--                                <li><img src="/images/guide1.jpg" alt="이미지"></li>-->
+                    <!--                                <li><img src="/images/guide1.jpg" alt="이미지"></li>-->
+                    <!--                                <li>-->
+                    <!--                                    <img src="/images/guide1.jpg" alt="이미지">-->
+                    <!--                                    <p class="more_detail">자세히 보기</p>-->
+                    <!--                                </li>-->
+                    <!--                            </ul>-->
+                    <!--                            <div class="picture">-->
+                    <!--                                <img src="/images/guide1.jpg" alt="이미지">-->
+                    <!--                                <p class="guide_text">-->
+                    <!--                                    냉장고를 열었더니-->
+                    <!--                                    <br>-->
+                    <!--                                    남은 '무'가 있다.-->
+                    <!--                                    <span class="num">8</span>-->
+                    <!--                                </p>-->
+                    <!--                                <div class="guide_tip">-->
+                    <!--                                    커다란 '무' 하나 사면,-->
+                    <!--                                    <br>-->
+                    <!--                                    다 먹지 못하고 버리게 되는 분, 손!-->
+                    <!--                                </div>-->
+                    <!--                            </div>-->
+                    <!--                        </a>-->
+                    <!--                    </li>-->
+                    <!--                    <li>-->
+                    <!--                        <a href="#">-->
+                    <!--                            <ul class="thumb">-->
+                    <!--                                <li><img src="/images/guide1.jpg" alt="이미지"></li>-->
+                    <!--                                <li><img src="/images/guide1.jpg" alt="이미지"></li>-->
+                    <!--                                <li>-->
+                    <!--                                    <img src="/images/guide1.jpg" alt="이미지">-->
+                    <!--                                    <p class="more_detail">자세히 보기</p>-->
+                    <!--                                </li>-->
+                    <!--                            </ul>-->
+                    <!--                            <div class="picture">-->
+                    <!--                                <img src="/images/guide1.jpg" alt="이미지">-->
+                    <!--                                <p class="guide_text">-->
+                    <!--                                    냉장고를 열었더니-->
+                    <!--                                    <br>-->
+                    <!--                                    남은 '무'가 있다.-->
+                    <!--                                    <span class="num">8</span>-->
+                    <!--                                </p>-->
+                    <!--                                <div class="guide_tip">-->
+                    <!--                                    커다란 '무' 하나 사면,-->
+                    <!--                                    <br>-->
+                    <!--                                    다 먹지 못하고 버리게 되는 분, 손!-->
+                    <!--                                </div>-->
+                    <!--                            </div>-->
+                    <!--                        </a>-->
+                    <!--                    </li>-->
                 </ul>
             </div>
-            <div th:replace="~{/fragments :: pagination}"></div>
+            <th:block th:utext="${paging}"></th:block>
         </div>
     </div>
 </main>

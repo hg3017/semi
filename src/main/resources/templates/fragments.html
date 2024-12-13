@@ -272,23 +272,17 @@
         </div>
     </div>
 </section>
-<section class="back_wrap" th:fragment="list">
+<section class="back_wrap" th:fragment="sol_list">
     <div class="inner">
         <div class="btn_box">
-            <a href="#" class="list_back">목록으로</a>
+            <a href="/recipeLab/solution" class="list_back">목록으로</a>
         </div>
     </div>
 </section>
 
 <div class="board_pagination_wrap" th:fragment="pagination">
     <div class="board_pagination">
-        <a href="#" class="prev_paging"><span class="blind">이전</span></a>
-        <span class="num active">1</span>
-        <a href="#" class="num">2</a>
-        <a href="#" class="num">3</a>
-        <a href="#" class="num">4</a>
-        <a href="#" class="num">5</a>
-        <a href="#" class="next_paging"><span class="blind">다음</span></a>
+        <th:block th:utext="${paging}"></th:block>
     </div>
 </div>
 <div class="progress" th:fragment="scroll">
@@ -477,5 +471,30 @@
             </div>
         </div>
     </div>
-</div></body>
+</div>
+<div class="share_control" th:fragment="shareControl">
+    <button type="button" class="scrap"><i></i><span>스크랩</span></button>
+    <div class="share_wrap">
+        <button type="button" class="share"><i></i><span>공유하기</span></button>
+        <ul class="share_btn">
+            <li class="close">
+                <span>공유</span>
+                <button type="button">X</button>
+            </li>
+            <li>
+                <a href="#" class="share_kakao_btn">
+                    <img src="/images/common/ic_kakao2.png" alt="카카오">
+                    <span>카카오톡</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="copy_clip_btn">
+                    <img src="/images/common/ic_url.png" alt="카카오">
+                    <span>URL복사</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+</body>
 </html>
