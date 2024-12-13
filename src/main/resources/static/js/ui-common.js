@@ -65,6 +65,25 @@ window.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+    // 스크랩,공유 스크롤 감지 조건부 숨김/보임
+    const shareControl = document.querySelector(".share_control");
+    const targetSection = document.querySelector(".share_control"); // 특정요소있을때만!
+
+    if(targetSection) {
+
+        window.addEventListener("scroll", function () {
+            const scrollPosition = window.scrollY; // 현재 스크롤 위치
+            const pageHeight = document.documentElement.scrollHeight - window.innerHeight; // 전체 스크롤 가능한 높이
+            const scrollThreshold = pageHeight * 0.9; // 90% 스크롤 위치
+
+            if (scrollPosition > scrollThreshold) {
+                shareControl.classList.add("hidden");
+            } else {
+                shareControl.classList.remove("hidden");
+            }
+        });
+    }
+
     // 헤더 스크롤시 스타일 변경
       window.addEventListener('scroll', function () {
         let _scrollY = this.scrollY;

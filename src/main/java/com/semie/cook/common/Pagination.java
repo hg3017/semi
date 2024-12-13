@@ -80,7 +80,7 @@ public class Pagination {
     public String paging(HttpServletRequest request) {
         StringBuilder sb = new StringBuilder();
 
-        sb.append("<div class=\"pagination\">");
+        sb.append("<div class=\"board_pagination_wrap\"><div class=\"board_pagination\">");
 
         // 첫페이지
         if (hasFirstPage) {
@@ -157,7 +157,7 @@ public class Pagination {
             sb.append("</a>");
         }
 
-        sb.append("</div>");
+        sb.append("</div></div>");
 
         return sb.toString();
     }

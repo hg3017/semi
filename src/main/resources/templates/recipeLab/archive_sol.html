@@ -12,30 +12,31 @@
 </head>
 
 <body>
-<div class="share_control">
-    <button type="button" class="scrap"><i></i><span>스크랩</span></button>
-    <div class="share_wrap">
-        <button type="button" class="share"><i></i><span>공유하기</span></button>
-        <ul class="share_btn">
-            <li class="close">
-                <span>공유</span>
-                <button type="button">X</button>
-            </li>
-            <li>
-                <a href="#" class="share_kakao_btn">
-                    <img src="/images/common/ic_kakao2.png" alt="카카오">
-                    <span>카카오톡</span>
-                </a>
-            </li>
-            <li>
-                <a href="#" class="copy_clip_btn">
-                    <img src="/images/common/ic_url.png" alt="카카오">
-                    <span>URL복사</span>
-                </a>
-            </li>
-        </ul>
-    </div>
-</div>
+<!--<div class="share_control">-->
+<!--    <button type="button" class="scrap"><i></i><span>스크랩</span></button>-->
+<!--    <div class="share_wrap">-->
+<!--        <button type="button" class="share"><i></i><span>공유하기</span></button>-->
+<!--        <ul class="share_btn">-->
+<!--            <li class="close">-->
+<!--                <span>공유</span>-->
+<!--                <button type="button">X</button>-->
+<!--            </li>-->
+<!--            <li>-->
+<!--                <a href="#" class="share_kakao_btn">-->
+<!--                    <img src="/images/common/ic_kakao2.png" alt="카카오">-->
+<!--                    <span>카카오톡</span>-->
+<!--                </a>-->
+<!--            </li>-->
+<!--            <li>-->
+<!--                <a href="#" class="copy_clip_btn">-->
+<!--                    <img src="/images/common/ic_url.png" alt="카카오">-->
+<!--                    <span>URL복사</span>-->
+<!--                </a>-->
+<!--            </li>-->
+<!--        </ul>-->
+<!--    </div>-->
+<!--</div>-->
+<div th:replace="~{/fragments :: shareControl}"></div>
 <div id="wrap" class="archive_wrap">
     <main id="sol_container" class="container">
         <div th:replace="~{/fragments :: scroll}"></div>
@@ -176,7 +177,7 @@
         </div>
         <div class="hr_line"></div>
         <div th:replace="~{/fragments :: tagList}"></div>
-        <div th:replace="~{/fragments :: list}"></div>
+        <div th:replace="~{/fragments :: sol_list}"></div>
     </main>
 </div>
 
