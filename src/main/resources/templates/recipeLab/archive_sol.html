@@ -7,7 +7,7 @@
 
 <head layout:fragment="config">
     <title>RecipeLab</title>
-    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/archive_guide.css">
     <link rel="stylesheet" href="/css/archive_rep.css">
 </head>
 
@@ -38,6 +38,7 @@
 </div>
 <div id="wrap" class="archive_wrap">
     <main id="sol_container" class="container">
+        <div th:replace="~{/fragments :: scroll}"></div>
         <section class="sol_view_wrap">
             <div class="view_title">
                 <div class="inner">
@@ -173,8 +174,9 @@
             <div th:replace="~{/fragments :: tag}"></div>
             <div th:replace="~{/fragments :: comment}"></div>
         </div>
-            <div th:replace="~{/fragments :: tagList}"></div>
-            <div th:replace="~{/fragments :: list}"></div>
+        <div class="hr_line"></div>
+        <div th:replace="~{/fragments :: tagList}"></div>
+        <div th:replace="~{/fragments :: list}"></div>
     </main>
 </div>
 
