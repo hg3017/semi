@@ -20,12 +20,28 @@ window.addEventListener('DOMContentLoaded', function () {
     });
 
     // 스크랩버튼 on
-    const scrapButton = document.querySelector(".scrap");
-    if (scrapButton) {
-        scrapButton.addEventListener("click", function () {
-            scrapButton.classList.toggle("on");
+    // const scrapButton = document.querySelector(".scrap");
+    // if (scrapButton) {
+    //     scrapButton.addEventListener("click", function () {
+    //         scrapButton.classList.toggle("on");
+    //     });
+    // }
+
+    const scrapButtons = document.querySelectorAll(".scrap");
+
+    // 각각의 버튼에 이벤트 리스너 추가
+    scrapButtons.forEach((button) => {
+        button.addEventListener("click", function () {
+            // 클릭된 버튼에만 .on 클래스 토글
+            button.classList.toggle("on");
+
+            if (button.classList.contains("on")) {
+                alert("스크랩되었습니다."); // 클래스가 추가되었을 때
+            } else {
+                alert("삭제되었습니다."); // 클래스가 제거되었을 때
+            }
         });
-    }
+    });
 
     // URL복사버튼 on
     // 공유 버튼
