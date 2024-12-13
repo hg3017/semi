@@ -123,14 +123,14 @@ window.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    //레시피 상세
-    let StagList = new Swiper('.S_tagList .swiper', {
-    slidesPerView: '4',
-    navigation: {
-        nextEl: '.S_tagList .swiper-button-next',
-        prevEl: '.S_tagList .swiper-button-prev',
-    },
-  });
+  //레시피 상세
+        let StagList = new Swiper('.S_tagList .swiper', {
+        slidesPerView: '4',
+        navigation: {
+            nextEl: '.S_tagList .swiper-button-next',
+            prevEl: '.S_tagList .swiper-button-prev',
+        },
+      });
 
 
   //스크롤 시 바 생성
