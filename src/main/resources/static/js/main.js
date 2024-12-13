@@ -5,7 +5,8 @@
       let mainslider = new Swiper('.main_slider .swiper', {
         loop: true,
         speed: 3000,
-        slidesPerView: 'auto',
+        slidesPerView: 3,
+        slidesPerGroup: 1,
         centeredSlides: true,
         spaceBetween: 50,
         autoplay: {

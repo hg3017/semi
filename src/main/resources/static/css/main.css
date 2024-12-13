@@ -1,3 +1,134 @@
+#header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 90px;
+  z-index: 9999;
+  border-bottom: 1px solid #15a775;
+  background: #fff;
+  box-shadow:0 0 10px rgba(0,0,0,.1) ;
+}
+#header.fixed {
+  background: #fff;
+}
+
+#header .inner {
+  max-width: 1850px;
+  margin: 0 auto;
+  height: 90px;
+  display: flex;
+  position: relative;
+  justify-content: center;
+}
+#header .logo {
+  left: 80px;
+  position: absolute;
+  width: 90px;
+  align-items: center;
+  height: 70px;
+  top: 10px;
+  z-index: 10;
+}
+
+#header .gnb {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0 40px;
+}
+#header .gnb>li {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 90px;
+}
+#header .gnb>li>a {
+  /* position: relative; */
+  font-size: 18px;
+  font-weight: 900;
+}
+#header .gnb>.gnb_star::after {
+  content: '';
+  display: flex;
+  width: 22px;
+  height: 22px;
+  margin: 0 10px;
+  transition: all 0.2s;
+  background: url(/images/common/ic_star.png) no-repeat 100% / cover;
+  position: absolute;
+  top:48%;
+  left: 100%;
+  transform:translateY(-50%);
+}
+
+#header .gnb>li:hover .depth2 {
+  max-height: 100px;
+  padding:10px;
+  opacity: 1;
+}
+#header .gnb .depth2 {
+  position: absolute;
+  top: 100%;
+  width: 115px;
+  z-index: 10;
+  display: block;
+  padding:0;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: all 0.2s;
+  border: 1px solid #15a775;
+  border-top: none;
+  background: #fff;
+  border-radius: 0 0 10px 10px;
+}
+
+#header .gnb .depth2 li + li {
+  margin-top: 12px;
+}
+#header .gnb .depth2 a {
+  font-size: 18px;
+  color: #000;
+  display: block;
+  text-align: center;
+  word-break: keep-all;
+  line-height: 1.5;
+  font-weight: 200;
+}
+
+#header .btn_wrap {
+  position: absolute;
+  right:90px;
+  top: 30px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  z-index: 10;
+}
+
+#header .login_btn {
+  color: #000;
+  font-weight: 500;
+}
+#header .search_btn {
+  width: 30px;
+  height: 30px;
+  margin-left: 10px;
+}
+
+#header .sitemap_btn {
+  display: none;
+}
+
+#header .menu_wrap {
+  display: none;
+}
+
+
+
+
 #container {
   padding-top:120px;
 }
@@ -78,7 +209,7 @@
   display: flex;
 }
 .main_slider .swiper-slide {
-  max-width: 500px;
+  max-width: 700px;
   height: 500px;
   display: flex;
   border-radius: 20px;
@@ -1016,4 +1147,206 @@ display: block;
 }
 .main_bnlist .swiper-pagination span + span::before {
   content: "/";
+}
+
+
+
+/* 다 합치면 지울것 */
+/* footer */
+#footer {
+    background: #f2f2f2;
+}
+
+#footer .inner {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 44px 112px;
+    height: auto;
+}
+
+#footer .menu {
+    display: flex;
+    gap: 21px;
+    margin-bottom: 36px;
+    font-weight: 500;
+}
+
+#footer .menu li > a {
+    position: relative;
+    color: #000;
+    font-size: 16px;
+}
+
+#footer .menu li + li ::after {
+    content: '';
+    position: absolute;
+    left: -12px;
+    top: 8px;
+    width: 5px;
+    height: 5px;
+    border-radius: 100%;
+    background: #c4c4c4;
+    display: inline-block;
+}
+
+#footer .toggle_btn {
+    border: none;
+    font-size: 16px;
+    gap: 0 5px;
+    background: none;
+    margin-bottom: 12px;
+    font-weight: 500;
+    color: #666;
+}
+
+#footer .toggle_btn span {
+    display: inline-block;
+    width: 1px;
+    height: 10px;
+    margin: 0 8px;
+    background: #666;
+}
+
+#footer .address_area {
+    overflow: hidden;
+}
+
+#footer .address_area .toggle_btn::after {
+    content: '';
+    background: url(/images/common/ic_down.png) no-repeat 50% 50% / auto 18px;
+    width: 12px;
+    height: 12px;
+    display: inline-block;
+    margin-left: 6px;
+}
+
+#footer .address_area.on .toggle_btn::after {
+    transform: rotate(180deg);
+    transition: all 0.2s;
+}
+
+#footer .address_area.on > .address_wrap {
+    display: block;
+    transition: all 0.5s;
+}
+
+#footer .address {
+    margin-bottom: 12px;
+}
+
+#footer .address_wrap {
+    display: none;
+}
+
+#footer .copyright {
+    font-size: 13px;
+    color: #c4c4c4;
+}
+
+#footer .ft_sns {
+    display: flex;
+    align-items: center;
+}
+
+#footer .award {
+    margin-right: 16px;
+    /*text-align: right;*/
+}
+
+#footer .sns a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 100%;
+    background-color: #e5e5e5;
+    margin-left: 10px;
+}
+
+/**/
+
+#footer .sitemap {
+    position: relative;
+    margin-left: 20px;
+}
+
+#footer .sitemap .sitemap_btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 210px;
+    padding: 14px 30px;
+    border-radius: 36px;
+    font-weight: 500;
+    position: relative;
+    z-index: 50;
+    border: 1px solid var(--gray-500);
+}
+
+#footer .sitemap .sitemap_btn::after {
+    content: '';
+    width: 16px;
+    height: 16px;
+    background: url(/images/common/ic_plus_b.png) no-repeat 0 0 / 100%;
+    transition: all 0.2s;
+}
+
+#footer .sitemap.on .sitemap_btn {
+    border: 1px solid var(--gray-500);
+    background: #fff;
+}
+
+#footer .sitemap .sitelist {
+    height: 208px;
+    width: 100%;
+    padding: 30px 20px 78px 29px;
+    overflow: hidden;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    border-radius: 36px 36px 23px 23px;
+    border: 1px solid #d9d9d9;
+    background-color: #fff;
+    z-index: 30;
+    display: none;
+}
+
+#footer .sitemap.on > .sitelist {
+    display: block;
+}
+
+#footer .sitemap .sitelist ul {
+    overflow-y: auto;
+    width: 100%;
+    height: 100%;
+}
+
+#footer .sitemap .sitelist ul li + li {
+    margin-top: 20px;
+}
+
+#footer .sitemap .sitelist ul li a {
+    font-weight: 500;
+}
+
+#footer .sitemap .sitelist ul li a:hover {
+    color: var(--point-color1);
+}
+
+#footer .top_wrap {
+    position: relative;
+    z-index: 100;
+}
+
+#footer .top_wrap .top_btn {
+    position: absolute;
+    top: 80px;
+    right: 0;
+    height: 48px;
+    width: 48px;
+    border-radius: 12px;
+    border: 1px solid #d4d4d4;
+    background: #fff url(/images/common/ic_top_btn.png) no-repeat 50% 50% / auto 14px;
 }
