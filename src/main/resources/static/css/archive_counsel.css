@@ -1,0 +1,211 @@
+:root {
+  --point-color1: #0bab6d;
+  --point-color2: #fb9622;
+  --gray-500: #111;
+  --gray-600: #000;
+}
+
+.counsel_view_wrap {
+  margin: 0 auto;
+  padding: 90px 0 0;
+}
+.counsel_view_wrap .counsel_title {
+  background: url(../images/common/bg_pattern_sky.png) no-repeat 100% / 100% #eef8ff;;
+}
+.counsel_title {
+  position: relative;
+  padding: 78px 0;
+}
+.counsel_title .inner {
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+}
+.counsel_title .label {
+  display: inline-block;
+  margin-bottom: 10px;
+  padding: 5px 9px;
+  color: #fff;
+  font-weight: 600;
+  background: #86caf3;;
+  border-radius: 5px;
+}
+.counsel_title h3 {
+  font-size: 48px;
+  font-weight: 800;
+}
+.counsel_title .date {
+  color: #666;
+  margin-top: 30px;
+}
+
+.counsel_view_cont .inner {
+  margin: 0 auto;
+  padding: 60px 0;
+  max-width: 720px;
+  border-bottom: 1px solid #e5e5e5;
+}
+.counsel_view_cont .counsel_txt_wrap {
+  margin: 0 auto;
+  padding-bottom: 50px;
+
+}
+.counsel_txt_wrap p {
+  font-size: 18px;
+  margin-top: 16px;
+  line-height: 1.6;
+}
+.counsel_img_wrap {
+   position: relative;
+   margin: 20px 0 20px;
+}
+.counsel_img_wrap img {
+    padding: 10px 0;
+}
+
+
+.counsel_tag_wrap {
+    margin-top: 120px;
+    line-height: 3;
+}
+.counsel_tag_wrap a {
+  margin: 0 8px 8px 0;
+  padding: 9px 19px;
+  color: #15a775;
+  border: solid 1px #d4d4d4;
+  border-radius: 20px;
+  text-align: center;
+  transition: all 0.1s;
+}
+
+.counsel_tag_wrap a::before {
+  content: '#';
+}
+.counsel_tag_wrap a:hover {
+  color: #fff;
+  border: #15a775;
+  background:#15a775
+}
+
+.counsel_comment_wrap {
+  margin-top: 30px;
+  padding-top: 30px;
+  border-top: 1px solid #e5e5e5;
+}
+.counsel_comment_wrap .total {
+  display: flex;
+  margin-bottom: 30px;
+  font-size: 22px;
+}
+.counsel_comment_wrap .total h4 {
+  font-weight: 800;
+  margin-right: 5px;
+}
+.counsel_comment_wrap .total span {
+  color: #15a775;
+  font-weight: 800;
+}
+
+.counsel_comment_wrap .com_login {
+  display: flex;
+  align-items: center;
+  margin-bottom: 36px;
+}
+.counsel_comment_wrap .com_login .profile {
+  position: relative;
+  overflow: hidden;
+  width: 42px;
+  height: 42px;
+  margin-right: 20px;
+}
+.counsel_comment_wrap .com_login .loginFirst {
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  background: #f9f9f9;
+  padding: 18px 30px;
+  width: 100%;
+  color: #999;
+}
+.counsel_comment_wrap .loginFirst a {
+  color: #111;
+  text-decoration: underline;
+  text-underline-position: under;
+  padding-bottom: 20px;
+}
+
+.counsel_comment_wrap .com_box {
+  display: flex;
+  align-items: flex-start;
+  margin-top: 30px;
+}
+.counsel_comment_wrap .com_box .profile {
+  position: relative;
+  overflow: hidden;
+  width: 42px;
+  height: 42px;
+  margin-right: 20px;
+  border-radius: 50%;
+}
+.counsel_comment_wrap .com_box .cmt {
+  position: relative;
+  width: 100%;
+}
+.counsel_comment_wrap .cmt .name {
+  margin-bottom: 10px;
+  display: flex;
+}
+.counsel_comment_wrap .cmt .name .date {
+  position: relative;
+  margin-left: 10px;
+  padding-left: 10px;
+  color: #999;
+  font-size: 14px;
+}
+
+.counsel_comment_wrap .cmt .name .date::before {
+  position: absolute;
+  content: '';
+  left: 0;
+  top: 50%;
+  width: 1.5px;
+  height: 9px;
+  background: #c4c4c4;
+  transform: translateY(-50%);
+}
+.counsel_comment_wrap .cmt .text {
+  margin-bottom: 10px;
+  color: #666;
+}
+.counsel_comment_wrap .com_blank {
+  margin: 60px 0;
+  color: #999;
+  text-align: center;
+  padding-bottom: 60px;
+  display:none;
+}
+
+
+.back_wrap .inner {
+  max-width: 1600px;
+  margin: 0 auto;
+}
+.back_wrap .btn_box {
+  position: relative;
+  margin-bottom: 143px;
+  text-align: center;
+}
+.back_wrap .list_back  {
+  position: relative;
+  padding: 24px 48px;
+  border: 2px solid #15a775;
+  border-radius: 40px;
+  font-size: 18px;
+  text-align: center;
+  color: #15a775;
+}
+.back_wrap .list_back:hover {
+    color: #fff;
+    background: #15a775;
+}
+
+

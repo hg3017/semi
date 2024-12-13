@@ -65,15 +65,15 @@
   margin-bottom: 120px;
 }*/
 
-.cook_sw_wrap {
+/*.cook_sw_wrap {
   margin: 0 auto;
-  /* padding: 105px 0 0; */
+  *//* padding: 105px 0 0; *//*
 }
 .cook_sw_wrap .inner {
   margin: 0 auto;
-  /* padding: 60px 0; */
+  *//* padding: 60px 0; *//*
   max-width: 720px;
-}
+}*/
 
 .cook_tag_wrap {
     margin-top: 120px;
@@ -392,6 +392,9 @@
   text-align: center;
   color: #15a775;
 }
-
+.back_wrap .list_back:hover {
+    color: #fff;
+    background: #15a775;
+}
 
 
