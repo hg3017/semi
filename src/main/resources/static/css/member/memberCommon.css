@@ -75,3 +75,22 @@ fieldset {
     padding: 0;
     border: 0;
 }
+
+.form-g.is-success input, .form-g.is-success select, .form-g.is-success textarea, .form-g.is-success .dropdown-selector, .form-g.is-success .ta-box {
+    border-color: #0e884f;
+}
+
+.form-g.is-error input, .form-g.is-error select, .form-g.is-error textarea, .form-g.is-error .dropdown-selector, .form-g.is-error .ta-box {
+    border-color: #d83120;
+
+}
+
+.form-g .success, .form-g .error {
+    display: block;
+    font-size: 14px;
+    margin-top: 7px;
+}
+
+.form-g .error {
+    color: #d83120;
+}

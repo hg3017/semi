@@ -169,7 +169,7 @@
     top: 50%;
     margin-left: -20px;
     transform: translateY(-50%);
-    background: url(../images/common/ckeck.svg) no-repeat center;
+    background: url(../images/common/check.svg) no-repeat center;
 }
 
 .main_sol .sol_area {
