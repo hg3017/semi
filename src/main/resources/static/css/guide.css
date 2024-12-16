@@ -127,7 +127,7 @@
     transform: translate(-50%, -50%);
 }
 
-#guide .guide_wrap ul li .thumb li .more_detail {
+#guide .guide_wrap ul li .thumb li:last-of-type .more_detail {
     display: flex;
     align-items: center;
     justify-content: center;

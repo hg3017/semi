@@ -10,13 +10,13 @@ import java.sql.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 public class GuideDTO {
-    private int newbie_id;
+    private int guide_id;
     private String board_code;
-    private String newbie_name;
-    private String newbie_desc;
-    private int tag_box_id;
-    private int img_list_id;
+    private String guide_name;
+    private String guide_desc;
     private Date create_date;
     private String poster;
     private String files;
+    private String file_path;
+    private String guide_detail;
 }
