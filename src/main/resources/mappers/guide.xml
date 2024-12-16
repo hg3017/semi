@@ -9,7 +9,7 @@
         )
         SELECT xx.*
         FROM (
-                 SELECT /*+ALL_ROWS*/ ROW_NUMBER() OVER(ORDER BY yy.NEWBIE_ID DESC) rn
+                 SELECT /*+ALL_ROWS*/ ROW_NUMBER() OVER(ORDER BY yy.GUIDE_ID ASC) rn
                     , yy.*
                  FROM QDATA yy
              ) xx
@@ -20,30 +20,38 @@
     <select id="selectAll" parameterType="com.semie.cook.common.Pagination" resultType="GuideDTO">
         <include refid="page1" />
         SELECT DISTINCT
-        n.newbie_id,
-        n.board_code,
-        n.newbie_name,
-        n.newbie_desc,
-        n.tag_box_id,
-        n.img_list_id,
-        n.create_date,
-        (SELECT file_name
-        FROM imgs
-        WHERE master_no = n.newbie_id
-        AND order1 = 1) AS poster,
+        g.guide_id,
+        g.board_code,
+        g.guide_name,
+        g.guide_desc,
+        g.create_date,
+        (SELECT file_path
+        FROM img_list
+        WHERE post_number = g.guide_id
+        AND img_priority = 1) AS poster,
         LISTAGG(
         CASE
-        WHEN i.order1 != 1
-        THEN i.file_name
-        END, ',') WITHIN GROUP (ORDER BY i.order1)
-        OVER (PARTITION BY i.master_no) AS files
-        FROM newbie n
-        LEFT OUTER JOIN imgs i
-        ON n.newbie_id = i.master_no
+        WHEN i.img_priority != 1
+        THEN i.file_path
+        END, ',') WITHIN GROUP (ORDER BY i.img_priority)
+        OVER (PARTITION BY i.post_number) AS files
+        FROM guide g
+        LEFT OUTER JOIN img_list i
+        ON g.guide_id = i.post_number
         <include refid="page2" />
     </select>
 
     <select id="totalGuide" resultType="int">
-        select count(*) from newbie
+        select count(*) from guide
+    </select>
+
+    <select id="selectById" resultType="guideDTO">
+        select g.*
+             , i.file_path
+          from guide g
+         inner join img_list i
+            on g.guide_id = i.post_number
+         where g.guide_id = #{guide_id}
+           and i.img_priority = 1
     </select>
 </mapper>

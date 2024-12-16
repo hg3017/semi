@@ -10,4 +10,5 @@ import java.util.List;
 public interface GuideMapper {
     List<GuideDTO> selectAll(Pagination pg);
     int totalGuide(Pagination pg);
+    GuideDTO selectById(int guide_id);
 }
