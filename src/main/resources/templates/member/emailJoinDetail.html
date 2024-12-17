@@ -35,7 +35,7 @@
           <form
             class="form join-form"
             id="join-form"
-            action="/join/by-email"
+            action="/member/joinComplete"
             method="post"
             novalidate
           >
@@ -182,7 +182,7 @@
               <div class="fieldset-header">
                 <legend>약관동의</legend>
                 <div class="form-g">
-                  <span class="checkbox" onclick="checkBoxSelectAll()">
+                  <span class="checkbox">
                     <input
                       type="checkbox"
                       id="agreeAll"
@@ -206,7 +206,7 @@
                         required=""
                         aria-required="true"
                         class="checkbox_input"
-                      />
+                        />
                       <label for="fourteen" class="checkbox_label">
                         <span class="checkbox_text">
                           [필수] 만 14세 이상 입니다.
@@ -217,7 +217,9 @@
                       class="messages"
                       data-msg-required="만 14세 이상 여부에 동의하셔야 가입이 가능합니다."
                       hidden=""
-                    ></div>
+                    >
+                      <small class="help-block error">만 14세 이상 여부에 동의하셔야 가입이 가능합니다.</small>
+                    </div>
                   </div>
                 </li>
                 <li class="item">
@@ -230,7 +232,8 @@
                         required=""
                         aria-required="true"
                         class="checkbox_input"
-                      />
+                        />
+
                       <label for="policy" class="checkbox_label">
                         <span class="checkbox_text">
                           [필수]
@@ -249,7 +252,9 @@
                       class="messages"
                       data-msg-required="필수 약관에 동의하셔야 가입이 가능합니다."
                       hidden=""
-                    ></div>
+                    >
+                      <small class="help-block error">필수 약관에 동의하셔야 가입이 가능합니다.</small>
+                    </div>
                   </div>
                 </li>
                 <li class="item">
@@ -262,7 +267,8 @@
                         required=""
                         aria-required="true"
                         class="checkbox_input"
-                      />
+                        />
+
                       <label for="privacy" class="checkbox_label">
                         <span class="checkbox_text">
                           [필수]
@@ -281,7 +287,9 @@
                       class="messages"
                       data-msg-required="필수 약관에 동의하셔야 가입이 가능합니다."
                       hidden=""
-                    ></div>
+                    >
+                      <small class="help-block error">필수 약관에 동의하셔야 가입이 가능합니다.</small>
+                    </div>
                   </div>
                 </li>
                 <li class="item">
@@ -314,7 +322,7 @@
             </fieldset>
 
             <div class="func">
-              <button type="submit" class="btn">회원가입</button>
+              <button type="button" class="btn" onclick="validateAndSignUp()">회원가입</button>
             </div>
           </form>
         </div>

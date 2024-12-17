@@ -72,8 +72,10 @@ function passwordRegex() {
 
     if( checkCount===3) {
         passwordELement.parentElement.classList.remove("is-error");
+        return true;
     } else {
         passwordELement.parentElement.querySelector('.messages').removeAttribute('hidden');
+        return false;
     }
 }
 
@@ -90,10 +92,12 @@ function rePasswordRegex() {
         console.log("repassword if문 통과실패." + repassword );
         repassword.parentElement.classList.add("is-error");
         repassword.parentElement.querySelector('.messages').removeAttribute('hidden');
+        return false;
     } else {
         console.log("repassword if문 통과." + repassword );
         repassword.parentElement.classList.remove("is-error");
         repassword.parentElement.querySelector('.messages').setAttribute('hidden', "");
+        return true;
     }
 }
 
@@ -107,10 +111,12 @@ function nameRegex() {
         console.log("정규식 검사 성공")
         memberName.parentElement.classList.remove("is-error");
         memberName.parentElement.querySelector('.messages').setAttribute('hidden', "");
+        return true;
     } else {
         console.log("정규식 검사 실패")
         memberName.parentElement.classList.add("is-error");
         memberName.parentElement.querySelector('.messages').removeAttribute('hidden');
+        return false;
     }
 }
 
@@ -124,38 +130,115 @@ function phoneRegex() {
         console.log("휴대폰번호 정규식 검사 성공")
         phoneNumber.parentElement.classList.remove("is-error");
         phoneNumber.parentElement.querySelector('.messages').setAttribute('hidden', "");
+        return true;
     } else {
         console.log("휴대폰번호 정규식 검사 실패")
         phoneNumber.parentElement.classList.add("is-error");
         phoneNumber.parentElement.querySelector('.messages').removeAttribute('hidden');
+        return false;
     }
 }
 
 // emailJoinDetail
-// 전체동의 체크박스 선택 시 체크박스 일괄 선택.
-function checkBoxSelectAll() {
-
-    const agreeAllCheckbox = document.querySelector('#agreeAll');
+// 전체동의 체크박스 클릭시 하위 체크박스 모두 선택
+// 하위 체크박스를 각자 클릭하여 모두 선택시 전체동의 체크박스 체크
+// 하위 체크박스중 하나이상 체크를 해제할 경우 전체동의 체크박스 체크 해제,
+// 하위 체크박스에 체크 해제시 빨간색 안내문구 표기.
+window.addEventListener('DOMContentLoaded', function () {
+    const agreeAllCheckbox = document.getElementById('agreeAll');
+    // const agreeAllCheckbox = document.querySelector('.fieldset-header .checkbox_input')
     const otherCheckboxes = document.querySelectorAll('.agree-list .checkbox_input');
 
-    agreeAllCheckbox.checked = !agreeAllCheckbox.checked;
+    if (agreeAllCheckbox) {
+        agreeAllCheckbox.addEventListener('click', function (e) {
+            e.stopPropagation();
 
-    // 전체 동의 체크박스를 클릭했을 때 하위 체크박스들도 체크 상태 변경
-    const isChecked = agreeAllCheckbox.checked;
+            const isChecked = this.checked;
 
-    otherCheckboxes.forEach(checkbox => {
-        checkbox.checked = isChecked;
-    });
+            otherCheckboxes.forEach(checkbox => {
+                checkbox.checked = isChecked;
+
+                // 체크박스 상태에 따라 is-error 클래스 추가/제거
+                const item = checkbox.parentElement.parentElement;
+                if (!isChecked) {
+                    item.classList.add("is-error");
+                    item.querySelector('.messages').removeAttribute('hidden');
+                } else {
+                    item.classList.remove("is-error");
+                    item.querySelector('.messages').setAttribute('hidden', "");
+                }
+            });
+
+            // otherCheckboxes.forEach(v => v.checked = this.checked);
+        });
+    }
+
+    if (otherCheckboxes) {
+        otherCheckboxes.forEach(box => {
+            box.addEventListener('click', function (e) {
+                e.stopPropagation();
+
+                // "전체 동의" 체크박스 상태 업데이트
+                agreeAllCheckbox.checked = [...otherCheckboxes].every(v => v.checked);
+
+                // 체크된 상태 확인 후 is-error 클래스 추가/제거
+                const item = box.parentElement.parentElement;
+                if (!box.checked) {
+                    item.classList.add("is-error");
+                    item.querySelector('.messages').removeAttribute('hidden');
+                } else {
+                    item.classList.remove("is-error");
+                    item.querySelector('.messages').setAttribute('hidden', "");
+                }
+
+                // agreeAllCheckbox.checked = [...otherCheckboxes].every(v => v.checked);
+            });
+        });
+    }
+});
+
+ 
+
+// 모든 사항이 다 입력되었을 때 회원가입.
+// 전체적인 정합성을 확인하여 회원가입을 실행
+// 지금 문제. 전체동의 컬럼에서 필수값만 선택되어도 회원가입이 가능해야함.
+function validateAndSignUp() {
+    const isPasswordValid = passwordRegex();
+    const isRePasswordValid = rePasswordRegex();
+    const isNameValid = nameRegex();
+    const isPhoneValid = phoneRegex();
+    const isAgreeAllChecked = document.querySelectorAll('.agree-list .checkbox_input').checked;
+    // const form = document.querySelectorAll('.agree-list');
+    // const requiredElements = form.querySelectorAll('[required]');
+    // const isAgreeAllChecked = document.getElementById('agreeAll').checked;
+
+    const requiredCheckboxes = document.querySelectorAll('.agree-list .checkbox_input[required]');
+    const isAllRequiredChecked = [...requiredCheckboxes].every(checkbox => checkbox.checked);
+
+    if (!isAllRequiredChecked) {
+        alert('필수 동의 항목에 모두 동의해주세요.');
+        return;
+    }
+
+    if (isPasswordValid && isRePasswordValid && isNameValid && isPhoneValid && isAllRequiredChecked) {
+        signUp();
+    } else {
+        alert('모든 필드를 올바르게 입력해 주세요.');
+    }
 }
 
-// emailJoinDetail
-// 체크박스 중 하나라도 선택되지 않으면 전체동의 체크 해제
+function signUp() {
+    // 회원가입 실행 로직을 여기에 작성
+    alert('회원가입이 완료되었습니다!');
+    window.location.href = '/member/joinComplete';
+}
 
-
-// emailJoinDetail
-// 체크 해제시 빨간색 안내문구 표기.
-
-
-// 모든 사항이 다 입력되었을 때 회원가입 승인 날아가도록 설정.
-
+//
+// alert('validateAndSignUp 클릭 성공');
+// console.log(isAgreeAllChecked + " isAgreeAllChecked")
+// console.log(isPhoneValid + " isPhoneValid")
+// console.log(isNameValid + " isNameValid")
+// console.log(isRePasswordValid + " isRePasswordValid")
+// console.log(isPasswordValid + " isPasswordValid")
+//
 
