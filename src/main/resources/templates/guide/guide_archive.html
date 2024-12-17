@@ -15,36 +15,14 @@
         <div class="detail_bg">
             <img th:src="@{'/images/' + ${guide.file_path}}" alt="배경">
         </div>
+
         <div class="detail_control">
             <div class="detail_left">
                 <a href="/guide/list" class="detail_btn">목록으로</a>
             </div>
-            <!--<div class="detail_right">
-                <button type="button" class="scrap">스크랩</button>
-                <div class="share_wrap">
-                    <button type="button" class="share">공유하기</button>
-                    <ul class="share_btn">
-                        <li class="close">
-                            <span>공유</span>
-                            <button type="button">X</button>
-                        </li>
-                        <li>
-                            <a href="#" class="share_kakao_btn">
-                                <img src="/images/common/ic_kakao2.png" alt="카카오">
-                                <span>카카오톡</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="copy_clip_btn">
-                                <img src="/images/common/ic_url.png" alt="카카오">
-                                <span>URL복사</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>-->
             <div th:replace="~{/fragments :: scrap}"></div>
         </div>
+
         <div class="detail_wrap">
             <div class="detail_con">
                 <div class="detail_title">
@@ -61,10 +39,10 @@
                     </div>
                 </div>
                 <ul class="tag_list hash_list">
-                    <li th:if="${guide.files != null}" th:each="item : ${#strings.setSplit(guide.files, ',')}">
+                    <li th:each="item : ${list}">
                         <a th:href="@{/recipeLab/archive_sol}">
                             <div class="detail_img">
-                                <img th:src="@{'/images/' + ${item}}" alt="디테일">
+                                <img th:src="@{'/images/' + ${item['FILE_PATH']}}" alt="디테일">
                             </div>
                             <div class="detail_text">
                                 <h4>가장 맛있는 무 고르기</h4>
@@ -72,8 +50,7 @@
                             </div>
                         </a>
                         <ul class="hash_wrap">
-                            <li>#무</li>
-                            <li>#김치</li>
+                            <li th:each="hash : ${item['TAG_NAME']}" th:text="${'#' + hash}"></li>
                         </ul>
                         <button class="scrap" type="button">스크랩</button>
                     </li>

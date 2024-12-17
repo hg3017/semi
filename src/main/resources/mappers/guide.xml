@@ -26,8 +26,9 @@
         g.guide_desc,
         g.create_date,
         (SELECT file_path
-        FROM img_list
-        WHERE post_number = g.guide_id
+        FROM img_list i
+        WHERE i.post_number = g.guide_id
+        AND i.board_id = g.board_id
         AND img_priority = 1) AS poster,
         LISTAGG(
         CASE
@@ -38,6 +39,7 @@
         FROM guide g
         LEFT OUTER JOIN img_list i
         ON g.guide_id = i.post_number
+        WHERE i.board_id = 1
         <include refid="page2" />
     </select>
 
@@ -52,8 +54,33 @@
         from guide g
                  inner join img_list i
                             on g.guide_id = i.post_number
-        where g.guide_id = 1
+        WHERE
+            1=1
           AND i.BOARD_ID = 1
           and i.img_priority = 1
+          and g.guide_id = #{guide_id}
+    </select>
+
+    <select id="selectGuide" resultType="HashMap">
+        SELECT
+            tb.TAG_NAME ,
+            tb.BOARD_ID ,
+            tb.POST_NUMBER ,
+            l.LAB_NAME ,
+            il.FILE_PATH ,
+            l.LAB_NAME_DESC ,
+            l.DESC_DETAIL
+        FROM
+            TAG_BOX tb INNER JOIN LAB l ON L.LAB_ID = TB.POST_NUMBER AND L.BOARD_ID = TB.BOARD_ID
+                       LEFT OUTER JOIN IMG_LIST il ON il.BOARD_ID = l.BOARD_ID AND il.POST_NUMBER = l.LAB_ID
+        WHERE
+            1=1
+          AND TB.TAG_NAME IN (
+            SELECT tb.TAG_NAME
+            FROM GUIDE g , TAG_BOX tb2
+            WHERE g.guide_id = tb2.post_number
+              AND g.board_id = tb2.board_id
+              AND g.guide_id = #{guide_id}
+        )
     </select>
 </mapper>
