@@ -40,7 +40,6 @@
         order by e.event_id desc
         <include refid="page2" />
     </select>
-
     <select id="totalEvent" resultType="int">
         select count(*) from event
     </select>
