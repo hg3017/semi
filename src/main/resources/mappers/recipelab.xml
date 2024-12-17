@@ -19,23 +19,44 @@
 
     <select id="selectAll" parameterType="com.semie.cook.common.Pagination" resultType="RecipeLabDTO">
         <include refid="page1" />
+--         SELECT l.LAB_ID
+--         , l.BOARD_ID
+--         , l.LAB_NAME
+--         , l.LAB_NAME_DESC
+--         , l.DESC_DETAIL
+--         , l.CREATE_DATE
+--         , l.MODIFY_DATE
+--         , il.FILE_PATH AS poster
+--         FROM LAB l
+--         LEFT OUTER JOIN IMG_LIST il
+--         ON l.LAB_ID = il.POST_NUMBER
+--         AND l.BOARD_ID = il.BOARD_ID
+--         AND il.IMG_PRIORITY = 1
+        SELECT DISTINCT
+        l.LAB_ID
+        , l.BOARD_ID
+        , l.LAB_NAME
+        , l.LAB_NAME_DESC
+        , l.DESC_DETAIL
+        , l.CREATE_DATE
+        , l.MODIFY_DATE
+        , (SELECT PREPARATION FROM LAB_DETAIL_INGREDIENT WHERE LAB_ID = l.LAB_ID AND ROWNUM = 1) PREPARATION
+        , (SELECT COOKINGTIME FROM LAB_DETAIL_INGREDIENT WHERE LAB_ID = l.LAB_ID AND ROWNUM = 1) COOKINGTIME
+        , (
         SELECT
-        l.lab_id,
-        l.board_id,
-        l.lab_name,
-        l.lab_name_desc,
-        l.desc_detail,
-        l.create_date,
-        l.modify_date,
-        (SELECT file_path
-        FROM img_list il
-        WHERE il.post_number = l.lab_id
-        and rownum=1
-        AND img_priority = 1) AS poster
-        FROM lab l
-        LEFT OUTER JOIN img_list i
-        ON l.lab_id = i.post_number
-        order by l.lab_id desc
+        FILE_PATH
+        FROM
+        IMG_LIST il
+        WHERE
+        1 = 1
+        AND il.POST_NUMBER = l.LAB_ID
+        AND il.BOARD_ID = l.BOARD_ID
+        AND ROWNUM = 1
+        AND IMG_PRIORITY = 1) AS POSTER
+        FROM LAB l
+        INNER JOIN IMG_LIST i
+        ON l.LAB_ID = i.POST_NUMBER
+        AND l.BOARD_ID = i.BOARD_ID
         <include refid="page2" />
     </select>
 
@@ -45,59 +66,57 @@
 
     <select id="selectById" resultType="RecipeLabDTO">
         SELECT distinct
-        l.*,
-        (SELECT file_path
-        FROM img_list
-        WHERE post_number = l.lab_id
-        and rownum=1
-        AND img_priority = 1) AS poster,
-        LISTAGG(
-        CASE
-        WHEN 1=1
-        THEN i.file_path
-        END, ',') WITHIN GROUP (ORDER BY i.img_priority)
-        OVER (PARTITION BY i.post_number) AS files
+            l.*,
+            (SELECT file_path
+             FROM img_list i
+             WHERE i.post_number = l.lab_id
+               and rownum=1
+               AND img_priority = 1) AS poster,
+            LISTAGG(
+                    CASE
+                        WHEN 1=1
+                            THEN i.file_path
+                        END, ',') WITHIN GROUP (ORDER BY i.img_priority)
+                    OVER (PARTITION BY i.post_number) AS files
         FROM lab l
-        inner JOIN img_list i
-        ON l.lab_id = i.post_number
-        where l.lab_id = #{lab_id}
-        order by l.lab_id desc
+                 inner JOIN img_list i
+                            ON l.lab_id = i.post_number
+                                AND l.board_id = i.board_id
+        where l.lab_id = 1
+        order by l.lab_id DESC
     </select>
     <select id="selectIngredientById" resultType="hashMap">
-        SELECT distinct
-        l.lab_id,
-        l.board_id,
-        l.lab_name,
-        l.lab_name_desc,
-        l.desc_detail,
-        l.create_date,
-        l.modify_date,
-        ldi.LAB_PRIORITY,
-        ldi.LAB_INGREDIENT_NAME ,
-        ldi.LAB_INGREDIENT_DETAIL ,
-        ldi.SERVINGS,
-        ldi.PREPARATION,
-        ldi.COOKINGTIME,
-        (
-        SELECT file_path
-        FROM img_list
-        WHERE
-        1=1
-        and post_number = l.lab_id
-        and rownum=1
-        AND img_priority = 1) AS poster,
-        LISTAGG(
-        CASE
-        WHEN 1=1
-        THEN i.file_path
-        END, ',') WITHIN GROUP (ORDER BY i.img_priority)
-        OVER (PARTITION BY i.post_number) AS files
-        FROM
-        lab l inner JOIN img_list i ON l.lab_id = i.post_number and l.board_id = i.board_id
-        inner join LAB_DETAIL_INGREDIENT ldi on l.lab_id = 1
-        where
-        1=1
-        order by
-        l.lab_id desc
+        SELECT DISTINCT l.LAB_ID
+                      , l.BOARD_ID
+                      , l.LAB_NAME
+                      , l.LAB_NAME_DESC
+                      , l.DESC_DETAIL
+                      , l.CREATE_DATE
+                      , l.MODIFY_DATE
+                      , ld.PREPARATION
+                      , ld.COOKINGTIME
+                      , ld.SERVINGS
+                      , ld.LAB_INGREDIENT_DETAIL
+                      , ld.LAB_INGREDIENT_NAME
+                      , (SELECT FILE_PATH
+                         FROM IMG_LIST il
+                         WHERE 1 = 1
+                           AND il.POST_NUMBER = l.LAB_ID
+                           AND il.board_id = l.BOARD_ID
+                           AND ROWNUM = 1
+                           AND IMG_PRIORITY = 1) AS              POSTER
+                      ,LISTAGG(
+                CASE
+                    WHEN ld.LAB_priority = 1
+                        THEN ld.LAB_INGREDIENT_detail
+                    WHEN ld.LAB_priority = 2
+                        THEN ld.LAB_INGREDIENT_detail
+                    WHEN ld.LAB_priority = 5
+                        THEN ld.LAB_INGREDIENT_detail
+                    END, ',') WITHIN GROUP (ORDER BY ld.LAB_priority)
+                OVER (PARTITION BY ld.LAB_INGREDIENT_NAME) AS files
+        FROM LAB l
+                 INNER JOIN LAB_DETAIL_INGREDIENT ld ON ld.LAB_ID = l.LAB_ID
+        WHERE l.LAB_ID = 2
     </select>
 </mapper>

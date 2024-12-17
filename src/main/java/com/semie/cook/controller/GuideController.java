@@ -35,6 +35,7 @@ public class GuideController {
     public String archive(@PathVariable int guideId, Model model) {
         System.out.println("guide/guide_archive---------------------------------------------" + guideId);
         model.addAttribute("guide", guideService.findById(guideId));
+        model.addAttribute("list", guideService.selectGuide(guideId));
         return "/guide/guide_archive";
     }
 }

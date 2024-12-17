@@ -77,15 +77,15 @@
                     <ul th:each="item : ${ldi}">
                         <li>
                             <p class="serv">인분 수</p>
-                            <span th:text="${item['SERVINGS']}">2인분</span>
+                            <span th:text="${item['SERVINGS'] + '인분'}"></span>
                         </li>
                         <li>
                             <p class="prep">준비시간</p>
-                            <span th:text="${item['PREPARATION']}">10분</span>
+                            <span th:text="${item['PREPARATION'] + '분'}"></span>
                         </li>
                         <li>
                             <p class="cook">조리시간</p>
-                            <span th:text="${item['COOKINGTIME']}">5분</span>
+                            <span th:text="${item['COOKINGTIME'] + '분'}"></span>
                         </li>
                     </ul>
                 </div>
@@ -93,7 +93,7 @@
                     <div class="ingred_inner">
                         <div class="ingred">
                             <div class="text_wrap">
-                                <p class="ingred_h">주재료 </p>
+                                <p class="ingred_h" th:text="${item['LAB_INGREDIENT_NAME']}></p>
                                 <span>Main Ingredient</span>
                             </div>
                             <ul class="ingred_item">
