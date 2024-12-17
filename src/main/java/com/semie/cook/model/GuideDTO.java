@@ -11,7 +11,7 @@ import java.sql.Date;
 @NoArgsConstructor
 public class GuideDTO {
     private int guide_id;
-    private String board_code;
+    private String board_id;
     private String guide_name;
     private String guide_desc;
     private Date create_date;
