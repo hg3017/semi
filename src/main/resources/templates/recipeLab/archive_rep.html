@@ -13,54 +13,59 @@
 <main id="rep_container" class="container">
     <div th:replace="~{/fragments :: scroll}"></div>
     <section class="sub_view_wrap">
-        <div class="view_title">
+        <div class="view_title" >
             <div class="inner">
                 <span class="label">레시피</span>
-                <h3>마라맛 에그인리얼헬</h3>
-                <p class="date">2024.12.03 08:00</p>
+                <h3 th:text="${lab.lab_name}"></h3>
+                <p th:text="${lab.create_date}" class="date"></p>
             </div>
         </div>
     </section>
     <section class="sub_view_cont">
         <div class="inner">
-            <div class="view_cont_title">
-                <h4>진짜 지옥을 보여줄게!</h4>
-                <p>마라맛 토마토소스에 달걀 퐁당!<br>색다른 맛으로 즐기는 에그인헬</p>
+            <div class="view_cont_title" >
+                <h4 th:text="${lab.lab_name_desc}"></h4>
+                <p th:utext="${lab.desc_detail}"></p>
             </div>
             <div class="view_intro">
                 <div class="editor">
                 </div>
             </div>
             <div class="main_swiper_wrap">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <img src="/images/sub_img1.jpg" alt="에그인리얼헬"/>
+                <div class="swiper-wrapper" >
+                    <div class="swiper-slide" th:if="${lab.files != null}"
+                         th:each="item : ${#strings.setSplit(lab.files, ',')}">
+                        <img th:src="@{'/images/' + ${item}}" alt="에그인리얼헬"/>
                     </div>
-                    <div class="swiper-slide">
-                        <img src="/images/sub_img2.jpg" alt="에그인리얼헬"/>
+                    <div class="swiper-slide" th:if="${lab.files != null}"
+                         th:each="item : ${#strings.setSplit(lab.files, ',')}">
+                        <img th:src="@{'/images/' + ${item}}" alt="에그인리얼헬"/>
                     </div>
-                    <div class="swiper-slide">
-                        <img src="/images/sub_img3.jpg" alt="에그인리얼헬"/>
+                    <div class="swiper-slide" th:if="${lab.files != null}"
+                         th:each="item : ${#strings.setSplit(lab.files, ',')}">
+                        <img th:src="@{'/images/' + ${item}}" alt="에그인리얼헬"/>
                     </div>
-                    <div class="swiper-slide">
-                        <img src="/images/sub_img4.jpg" alt="에그인리얼헬"/>
+                    <div class="swiper-slide" th:if="${lab.files != null}"
+                         th:each="item : ${#strings.setSplit(lab.files, ',')}">
+                        <img th:src="@{'/images/' + ${item}}" alt="에그인리얼헬"/>
                     </div>
                 </div>
             </div>
             <div class="thumb_swiper_wrap">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <img src="/images/sub_img1.jpg" alt="에그인리얼헬"/>
+                    <div class="swiper-slide"  th:if="${lab.files != null}"
+                         th:each="item : ${#strings.setSplit(lab.files, ',')}">
+                        <img th:src="@{'/images/' + ${item}}" alt="에그인리얼헬"/>
                     </div>
-                    <div class="swiper-slide">
-                        <img src="/images/sub_img2.jpg" alt="에그인리얼헬"/>
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="/images/sub_img3.jpg" alt="에그인리얼헬"/>
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="/images/sub_img4.jpg" alt="에그인리얼헬"/>
-                    </div>
+<!--                    <div class="swiper-slide">-->
+<!--                        <img th:src="${'/images/' + lab.poster}" alt="에그인리얼헬"/>-->
+<!--                    </div>-->
+<!--                    <div class="swiper-slide">-->
+<!--                        <img th:src="${'/images/' + lab.poster}" alt="에그인리얼헬"/>-->
+<!--                    </div>-->
+<!--                    <div class="swiper-slide">-->
+<!--                        <img th:src="${'/images/' + lab.poster}" alt="에그인리얼헬"/>-->
+<!--                    </div>-->
                     <div class="con_swiper_wrap">
                         <div class="swiper-button-next"></div>
                         <div class="swiper-button-prev"></div>

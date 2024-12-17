@@ -9,5 +9,7 @@ import java.util.List;
 @Mapper
 public interface RecipeLabMapper {
     List<RecipeLabDTO> selectAll(Pagination pg);
-    int totalEvent(Pagination pg);
+    int totalLab(Pagination pg);
+
+    RecipeLabDTO selectById(int lab_id);
 }

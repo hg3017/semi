@@ -19,23 +19,55 @@
 
     <select id="selectAll" parameterType="com.semie.cook.common.Pagination" resultType="RecipeLabDTO">
         <include refid="page1" />
-        select l.lab_id
-        , l.board_code
-        , l.lab_name
-        , l.lab_name_desc
-        , l.img_list_id
-        , l.tag_box_id
-        , l.create_date
-        , il.file_path
-        from lab l
-        left outer join img_list il
-        on l.lab_ID = il.IMG_LIST_ID
-        ;
+        SELECT
+        l.lab_id,
+        l.board_id,
+        l.lab_name,
+        l.lab_name_desc,
+        l.desc_detail,
+        l.create_date,
+        l.modify_date,
+        (SELECT file_path
+        FROM img_list il
+        WHERE il.post_number = l.lab_id
+        and rownum=1
+        AND img_priority = 1) AS poster
+        FROM lab l
+        LEFT OUTER JOIN img_list i
+        ON l.lab_id = i.post_number
+        order by l.lab_id desc
         <include refid="page2" />
     </select>
 
     <select id="totalLab" resultType="int">
-        select count(*) from LAB
+        select count(*) from lab
     </select>
 
+    <select id="selectById" resultType="RecipeLabDTO">
+<!--        select l.*-->
+<!--        , i.file_path-->
+<!--        from lab l-->
+<!--        inner join img_list i-->
+<!--        on l.lab_id = i.post_number-->
+<!--        where l.lab_id = #{lab_id}-->
+<!--        and i.img_priority = 1-->
+        SELECT distinct
+        l.*,
+        (SELECT file_path
+        FROM img_list
+        WHERE post_number = l.lab_id
+        and rownum=1
+        AND img_priority = 1) AS poster,
+        LISTAGG(
+        CASE
+        WHEN 1=1
+        THEN i.file_path
+        END, ',') WITHIN GROUP (ORDER BY i.img_priority)
+        OVER (PARTITION BY i.post_number) AS files
+        FROM lab l
+        inner JOIN img_list i
+        ON l.lab_id = i.post_number
+        where l.lab_id = #{lab_id}
+        order by l.lab_id desc
+    </select>
 </mapper>

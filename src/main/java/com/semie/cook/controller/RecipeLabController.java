@@ -1,19 +1,36 @@
 package com.semie.cook.controller;
 
+import com.semie.cook.common.Pagination;
+import com.semie.cook.service.GuideService;
+import com.semie.cook.service.RecipeLabService;
+import jakarta.servlet.http.HttpServletRequest;
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
 @Controller
+@RequiredArgsConstructor
 @RequestMapping("/recipeLab")
 public class RecipeLabController {
 
+   private final RecipeLabService recipeLabService;
+
     @GetMapping("/list")
-    public String list(Model model) {
+    public String list(HttpServletRequest request, @RequestParam(defaultValue = "1") int pageNum, Model model) {
+        Pagination pg = new Pagination();
+        pg.setPageNum(pageNum);
+
+        model.addAttribute("list", recipeLabService.findAll(pg));
+        model.addAttribute("paging", pg.paging(request));
         System.out.println("recipeLab/list---------------------------------------------");
+        System.out.println(" recipeLabService.findAll(pg)" +  recipeLabService.findAll(pg));
         return "/recipeLab/recipe_lab";
     }
 
@@ -35,8 +52,10 @@ public class RecipeLabController {
         return "/recipeLab/cooking";
     }
 
-    @GetMapping("/archive_rep")
-    public String archive(Model model) {
+    @GetMapping("/archive_rep/{labId}")
+    public String archive(@PathVariable int labId, Model model) {
+        model.addAttribute("lab", recipeLabService.selectById(labId));
+        System.out.println("selectById" + recipeLabService.selectById(labId));
         System.out.println("recipeLab/archive-----------------------------------------------");
         return "/recipeLab/archive_rep";
     }
