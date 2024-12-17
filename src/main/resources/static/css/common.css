@@ -335,7 +335,7 @@ input[type='checkbox']:checked + label::before {
 
 /* :has - ios 15.4부터 지원 */
 .checkbox:has(input[type='checkbox']:checked)::before {
-    background: url(../images/common/check.svg) no-repeat 50% 50% / 100%;
+    background: url(/images/common/check.svg) no-repeat 50% 50% / 100%;
 }
 
 /* radio 공통 */

@@ -64,6 +64,10 @@ legend {
   border-radius: 50%;
 }
 
+.password-strength li.is-active .marker {
+  border-color: #0e884f;
+}
+
 .password-strength .svg {
   position: absolute;
   top: 1px;
@@ -72,6 +76,12 @@ legend {
   height: 13px;
   fill: #999;
 }
+
+.password-strength li.is-active .svg {
+  fill: #0e884f;
+}
+
+
 
 fieldset + fieldset {
   margin-top: 40px;
