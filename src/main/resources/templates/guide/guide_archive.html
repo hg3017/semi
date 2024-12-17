@@ -48,22 +48,12 @@
         <div class="detail_wrap">
             <div class="detail_con">
                 <div class="detail_title">
-                    <h3 th:utext="${guide.guide_name}">
-<!--                        냉장고를 열었더니<br>-->
-<!--                        남은 '무'가 있다.-->
-                    </h3>
+                    <h3 th:utext="${guide.guide_name}"></h3>
                     <p>
-                        <span th:utext="${guide.guide_desc}">
-<!--                        커다란 '무' 하나 사면,<br>-->
-<!--                        다 먹지 못하고 버리게 되는 분, 손!-->
-                        </span>
+                        <span th:utext="${guide.guide_desc}"></span>
                         <br>
                         <br>
-                        <span th:utext="${guide.guide_detail}">
-<!--                            냉장고 속 방치된 무, <br>-->
-<!--                            쉽고 맛있게 요리하고 <br>-->
-<!--                            올바르게 손질, 보관하는 방법도 챙겨가세요!-->
-                        </span>
+                        <span th:utext="${guide.guide_detail}"></span>
                     </p>
                     <div class="guide_tag">
                         <span class="tag">#무</span>
@@ -71,10 +61,10 @@
                     </div>
                 </div>
                 <ul class="tag_list hash_list">
-                    <li>
-                        <a href="/recipeLab/archive_sol">
+                    <li th:if="${guide.files != null}" th:each="item : ${#strings.setSplit(guide.files, ',')}">
+                        <a th:href="@{/recipeLab/archive_sol}">
                             <div class="detail_img">
-                                <img src="/images/guide1.jpg" alt="디테일">
+                                <img th:src="@{'/images/' + ${item}}" alt="디테일">
                             </div>
                             <div class="detail_text">
                                 <h4>가장 맛있는 무 고르기</h4>
@@ -87,141 +77,141 @@
                         </ul>
                         <button class="scrap" type="button">스크랩</button>
                     </li>
-                    <li>
-                        <a href="#">
-                            <div class="detail_img">
-                                <img src="/images/guide1.jpg" alt="디테일">
-                            </div>
-                            <div class="detail_text">
-                                <h4>가장 맛있는 무 고르기</h4>
-                                <p>한국 사람들이 많이 먹는 대표 채소, 무</p>
-                            </div>
-                            <ul class="hash_wrap">
-                                <li>#무</li>
-                                <li>#김치</li>
-                            </ul>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <div class="detail_img">
-                                <img src="/images/guide1.jpg" alt="디테일">
-                            </div>
-                            <div class="detail_text">
-                                <h4>가장 맛있는 무 고르기</h4>
-                                <p>한국 사람들이 많이 먹는 대표 채소, 무</p>
-                            </div>
-                            <ul class="hash_wrap">
-                                <li>#무</li>
-                                <li>#김치</li>
-                            </ul>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <div class="detail_img">
-                                <img src="/images/guide1.jpg" alt="디테일">
-                            </div>
-                            <div class="detail_text">
-                                <h4>가장 맛있는 무 고르기</h4>
-                                <p>한국 사람들이 많이 먹는 대표 채소, 무</p>
-                            </div>
-                        </a>
-                        <ul class="tag_wrap">
-                            <li>
-                                <span>준비시간</span>
-                                25분
-                            </li>
-                            <li>
-                                <span>조리시간</span>
-                                5분
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <div class="detail_img">
-                                <img src="/images/guide1.jpg" alt="디테일">
-                            </div>
-                            <div class="detail_text">
-                                <h4>가장 맛있는 무 고르기</h4>
-                                <p>한국 사람들이 많이 먹는 대표 채소, 무</p>
-                            </div>
-                        </a>
-                        <ul class="tag_wrap">
-                            <li>
-                                <span>준비시간</span>
-                                25분
-                            </li>
-                            <li>
-                                <span>조리시간</span>
-                                5분
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <div class="detail_img">
-                                <img src="/images/guide1.jpg" alt="디테일">
-                            </div>
-                            <div class="detail_text">
-                                <h4>가장 맛있는 무 고르기</h4>
-                                <p>한국 사람들이 많이 먹는 대표 채소, 무</p>
-                            </div>
-                        </a>
-                        <ul class="tag_wrap">
-                            <li>
-                                <span>준비시간</span>
-                                25분
-                            </li>
-                            <li>
-                                <span>조리시간</span>
-                                5분
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <div class="detail_img">
-                                <img src="/images/guide1.jpg" alt="디테일">
-                            </div>
-                            <div class="detail_text">
-                                <h4>가장 맛있는 무 고르기</h4>
-                                <p>한국 사람들이 많이 먹는 대표 채소, 무</p>
-                            </div>
-                        </a>
-                        <ul class="tag_wrap">
-                            <li>
-                                <span>준비시간</span>
-                                25분
-                            </li>
-                            <li>
-                                <span>조리시간</span>
-                                5분
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <div class="detail_img">
-                                <img src="/images/guide1.jpg" alt="디테일">
-                            </div>
-                            <div class="detail_text">
-                                <h4>가장 맛있는 무 고르기</h4>
-                                <p>한국 사람들이 많이 먹는 대표 채소, 무</p>
-                            </div>
-                        </a>
-                        <ul class="tag_wrap">
-                            <li>
-                                <span>준비시간</span>
-                                25분
-                            </li>
-                            <li>
-                                <span>조리시간</span>
-                                5분
-                            </li>
-                        </ul>
-                    </li>
+<!--                    <li>-->
+<!--                        <a href="#">-->
+<!--                            <div class="detail_img">-->
+<!--                                <img src="/images/guide1.jpg" alt="디테일">-->
+<!--                            </div>-->
+<!--                            <div class="detail_text">-->
+<!--                                <h4>가장 맛있는 무 고르기</h4>-->
+<!--                                <p>한국 사람들이 많이 먹는 대표 채소, 무</p>-->
+<!--                            </div>-->
+<!--                            <ul class="hash_wrap">-->
+<!--                                <li>#무</li>-->
+<!--                                <li>#김치</li>-->
+<!--                            </ul>-->
+<!--                        </a>-->
+<!--                    </li>-->
+<!--                    <li>-->
+<!--                        <a href="#">-->
+<!--                            <div class="detail_img">-->
+<!--                                <img src="/images/guide1.jpg" alt="디테일">-->
+<!--                            </div>-->
+<!--                            <div class="detail_text">-->
+<!--                                <h4>가장 맛있는 무 고르기</h4>-->
+<!--                                <p>한국 사람들이 많이 먹는 대표 채소, 무</p>-->
+<!--                            </div>-->
+<!--                            <ul class="hash_wrap">-->
+<!--                                <li>#무</li>-->
+<!--                                <li>#김치</li>-->
+<!--                            </ul>-->
+<!--                        </a>-->
+<!--                    </li>-->
+<!--                    <li>-->
+<!--                        <a href="#">-->
+<!--                            <div class="detail_img">-->
+<!--                                <img src="/images/guide1.jpg" alt="디테일">-->
+<!--                            </div>-->
+<!--                            <div class="detail_text">-->
+<!--                                <h4>가장 맛있는 무 고르기</h4>-->
+<!--                                <p>한국 사람들이 많이 먹는 대표 채소, 무</p>-->
+<!--                            </div>-->
+<!--                        </a>-->
+<!--                        <ul class="tag_wrap">-->
+<!--                            <li>-->
+<!--                                <span>준비시간</span>-->
+<!--                                25분-->
+<!--                            </li>-->
+<!--                            <li>-->
+<!--                                <span>조리시간</span>-->
+<!--                                5분-->
+<!--                            </li>-->
+<!--                        </ul>-->
+<!--                    </li>-->
+<!--                    <li>-->
+<!--                        <a href="#">-->
+<!--                            <div class="detail_img">-->
+<!--                                <img src="/images/guide1.jpg" alt="디테일">-->
+<!--                            </div>-->
+<!--                            <div class="detail_text">-->
+<!--                                <h4>가장 맛있는 무 고르기</h4>-->
+<!--                                <p>한국 사람들이 많이 먹는 대표 채소, 무</p>-->
+<!--                            </div>-->
+<!--                        </a>-->
+<!--                        <ul class="tag_wrap">-->
+<!--                            <li>-->
+<!--                                <span>준비시간</span>-->
+<!--                                25분-->
+<!--                            </li>-->
+<!--                            <li>-->
+<!--                                <span>조리시간</span>-->
+<!--                                5분-->
+<!--                            </li>-->
+<!--                        </ul>-->
+<!--                    </li>-->
+<!--                    <li>-->
+<!--                        <a href="#">-->
+<!--                            <div class="detail_img">-->
+<!--                                <img src="/images/guide1.jpg" alt="디테일">-->
+<!--                            </div>-->
+<!--                            <div class="detail_text">-->
+<!--                                <h4>가장 맛있는 무 고르기</h4>-->
+<!--                                <p>한국 사람들이 많이 먹는 대표 채소, 무</p>-->
+<!--                            </div>-->
+<!--                        </a>-->
+<!--                        <ul class="tag_wrap">-->
+<!--                            <li>-->
+<!--                                <span>준비시간</span>-->
+<!--                                25분-->
+<!--                            </li>-->
+<!--                            <li>-->
+<!--                                <span>조리시간</span>-->
+<!--                                5분-->
+<!--                            </li>-->
+<!--                        </ul>-->
+<!--                    </li>-->
+<!--                    <li>-->
+<!--                        <a href="#">-->
+<!--                            <div class="detail_img">-->
+<!--                                <img src="/images/guide1.jpg" alt="디테일">-->
+<!--                            </div>-->
+<!--                            <div class="detail_text">-->
+<!--                                <h4>가장 맛있는 무 고르기</h4>-->
+<!--                                <p>한국 사람들이 많이 먹는 대표 채소, 무</p>-->
+<!--                            </div>-->
+<!--                        </a>-->
+<!--                        <ul class="tag_wrap">-->
+<!--                            <li>-->
+<!--                                <span>준비시간</span>-->
+<!--                                25분-->
+<!--                            </li>-->
+<!--                            <li>-->
+<!--                                <span>조리시간</span>-->
+<!--                                5분-->
+<!--                            </li>-->
+<!--                        </ul>-->
+<!--                    </li>-->
+<!--                    <li>-->
+<!--                        <a href="#">-->
+<!--                            <div class="detail_img">-->
+<!--                                <img src="/images/guide1.jpg" alt="디테일">-->
+<!--                            </div>-->
+<!--                            <div class="detail_text">-->
+<!--                                <h4>가장 맛있는 무 고르기</h4>-->
+<!--                                <p>한국 사람들이 많이 먹는 대표 채소, 무</p>-->
+<!--                            </div>-->
+<!--                        </a>-->
+<!--                        <ul class="tag_wrap">-->
+<!--                            <li>-->
+<!--                                <span>준비시간</span>-->
+<!--                                25분-->
+<!--                            </li>-->
+<!--                            <li>-->
+<!--                                <span>조리시간</span>-->
+<!--                                5분-->
+<!--                            </li>-->
+<!--                        </ul>-->
+<!--                    </li>-->
                 </ul>
             </div>
         </div>

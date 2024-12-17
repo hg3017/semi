@@ -21,7 +21,7 @@
         <include refid="page1" />
         SELECT DISTINCT
         g.guide_id,
-        g.board_code,
+        g.board_id,
         g.guide_name,
         g.guide_desc,
         g.create_date,
