@@ -4,6 +4,7 @@ function emailJoinHref() {
     window.location.href = '/member/emailJoin';
 }
 
+
 // emailJoin
 // 실행 시 이메일 정합성을 확인한 후 작성된 이메일을 가지고 /member/emailJoinDetail 로 이동합니다.
 function emailJoinDetailHref() {
