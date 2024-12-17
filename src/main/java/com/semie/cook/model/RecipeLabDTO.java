@@ -11,13 +11,13 @@ import java.util.Date;
 @NoArgsConstructor
 public class RecipeLabDTO {
     private int lab_id;
-    private String board_code;
+    private int board_id;
     private String lab_name;
     private String lab_name_desc;
     private String desc_detail;
-    private int img_list_id;
-    private int tag_box_id;
     private Date create_date;
     private Date modify_date;
+    private String poster;
     private String file_path;
+    private String files;
 }
