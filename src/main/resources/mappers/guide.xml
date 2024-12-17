@@ -46,23 +46,14 @@
     </select>
 
     <select id="selectById" resultType="guideDTO">
-        SELECT l.*,
-        (SELECT file_path
-        FROM img_list
-        WHERE post_number = l.lab_id
-        and rownum=1
-        AND img_priority = 1) AS poster,
-        LISTAGG(
-        CASE
-        WHEN i.img_priority != 1
-        THEN i.file_path
-        END, ',') WITHIN GROUP (ORDER BY i.img_priority)
-        OVER (PARTITION BY i.post_number) AS files
-        FROM lab l
-        inner JOIN img_list i
-        ON l.lab_id = i.post_number
-        where l.lab_id = #{lab_id}
-        order by l.lab_id desc
-        ;
+        SELECT
+            g.*
+             , i.file_path
+        from guide g
+                 inner join img_list i
+                            on g.guide_id = i.post_number
+        where g.guide_id = 1
+          AND i.BOARD_ID = 1
+          and i.img_priority = 1
     </select>
 </mapper>
