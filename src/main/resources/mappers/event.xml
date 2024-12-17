@@ -28,8 +28,9 @@
         e.event_start,
         e.event_end,
         (SELECT file_path
-        FROM img_list
-        WHERE POST_NUMBER = e.event_id
+        FROM img_list il
+        WHERE il.POST_NUMBER = e.event_id
+        AND il.board_id = e.BOARD_ID
         and rownum=1
         AND IMG_PRIORITY = 1) AS poster
         FROM event e
@@ -39,23 +40,23 @@
         order by e.event_id desc
         <include refid="page2" />
     </select>
-
     <select id="totalEvent" resultType="int">
         select count(*) from event
     </select>
 
     <select id="selectById" resultType="eventDTO">
         SELECT
-        e.*,
-        (SELECT file_path
-        FROM img_list
-        WHERE post_number = e.event_id
-        AND img_priority = 2) AS poster
+            e.*,
+            (SELECT file_path
+             FROM img_list il
+             WHERE il.post_number = e.event_id
+               AND il.board_id = e.board_id
+               AND img_priority = 2) AS poster
         FROM event e
-        inner JOIN img_list i
-        ON e.event_id = i.post_number
+                 inner JOIN img_list i
+                            ON e.event_id = i.post_number
         where e.event_id = #{event_id}
-        and rownum=1
+          and rownum=1
         order by e.event_id desc
     </select>
 
