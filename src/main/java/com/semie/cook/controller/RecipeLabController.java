@@ -1,6 +1,7 @@
 package com.semie.cook.controller;
 
 import com.semie.cook.common.Pagination;
+import com.semie.cook.model.Lab_detail_ingredientDTO;
 import com.semie.cook.service.GuideService;
 import com.semie.cook.service.RecipeLabService;
 import jakarta.servlet.http.HttpServletRequest;
@@ -55,6 +56,7 @@ public class RecipeLabController {
     @GetMapping("/archive_rep/{labId}")
     public String archive(@PathVariable int labId, Model model) {
         model.addAttribute("lab", recipeLabService.selectById(labId));
+        model.addAttribute("ldi", recipeLabService.selectIngredientById(labId));
         System.out.println("selectById" + recipeLabService.selectById(labId));
         System.out.println("recipeLab/archive-----------------------------------------------");
         return "/recipeLab/archive_rep";

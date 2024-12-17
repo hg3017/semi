@@ -20,4 +20,10 @@ public class RecipeLabDTO {
     private String poster;
     private String file_path;
     private String files;
+//    private int lab_priority;
+//    private String lab_ingredient_name;
+//    private String lab_ingredient_detail;
+//    private int servings;
+//    private int preparation;
+//    private int cookingtime;
 }
