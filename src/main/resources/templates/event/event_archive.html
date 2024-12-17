@@ -7,7 +7,7 @@
 
 <head layout:fragment="config">
     <title>Event</title>
-    <link rel="stylesheet" href="/css/event.css">
+    <link rel="stylesheet" href="/css/event/event.css">
 </head>
 <body>
 <main id="container_event" class="container">
@@ -19,11 +19,17 @@
                     <p class="event">이벤트</p>
                     <p class="green">진헹중</p>
                 </div>
-                <h2>재료의 방 오픈! 집밥 요리사</h2>
-                <p class="date">2024.10.28 ~ 2024.12.01</p>
+                <h2 th:utext="${event.event_name}"></h2>
+<!--            <h2>재료의 방 오픈! 집밥 요리사</h2>-->
+                <p class="date">
+                    <em th:utext="${event.event_start}"></em>
+                    ~
+                    <em th:utext="${event.event_end}"></em>
+                </p>
+<!--            <p class="date">2024.10.28 ~ 2024.12.01</p>-->
             </div>
             <div class="img">
-                <img src="/images/e-images2.jpg" alt="">
+                <img th:src="${'/images/event/' + event.poster}" alt="">
             </div>
             <div class="page">
                 <div class="event_view">
@@ -33,10 +39,10 @@
                     </h3>
                     <p class="p">화제의 요리 프로그램 덕에 대국민 요리 열풍이죠.
                         <br>그래서 준비한 집밥 요리사 당신을 위한 이벤트!</p>
-                    <img src="/images/e-images3.jpg" alt="">
+                    <img src="/images/event/e-images2-2.jpg" alt="">
                     <h4>집밥 요리사, 재료의 방 오픈! 🧑🏻‍🍳</h4>
-                    <img src="/images/e-images4.jpg" alt="">
-                    <img src="/images/e-images5.jpg" alt="">
+                    <img src="/images/event/e-images2-3.jpg" alt="">
+                    <img src="/images/event/e-images2-4.jpg" alt="">
                     <h4>집밥 요리사, MISSION! 🧑🏻‍🍳</h4>
                     <p class="p">새미가 제안하는 위 네 가지 재료 중 한 가지를 선택해 만든<br>나만의 요리를
                         <a href="#" class="a">요리해요</a>에 공유해 주세요.
@@ -56,7 +62,7 @@
                     <p class="p tip">요리와 관련된 나의 의도나 재밌는 에피소드도 함께 공유될수록 당첨확률 UP!<br>
                         그럼 이제 함께 집밥 요리 시작해 볼까요? 😉
                     </p>
-                    <img src="/images/e-images6.jpg" alt="">
+                    <img src="/images/event/e-images2-5.jpg" alt="">
                     <div class="event_box">
                         <strong>🎁 판매가 3만원 상당의 집밥 필수템!</strong><br>
                         <span class="event_info_noti">샘표 장트리오 (토장, 고추장, 간장)와 요리에센스 연두순을 드려요.</span>

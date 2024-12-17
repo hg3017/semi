@@ -5,8 +5,7 @@
       let mainslider = new Swiper('.main_slider .swiper', {
         loop: true,
         speed: 3000,
-        slidesPerView: 3,
-        slidesPerGroup: 1,
+        slidesPerView: 'auto',
         centeredSlides: true,
         spaceBetween: 50,
         autoplay: {
@@ -37,36 +36,36 @@
       });
 
       // 메인 요리가이드 pause 버튼 클릭 이벤트
-      document.addEventListener('DOMContentLoaded', function () {
-          const pauseButton = document.querySelector('.main_slider .pause');
-          if (pauseButton) {
-            pauseButton.addEventListener('click', function () {
-              if (mainslider.autoplay.running) {
-                mainslider.autoplay.stop();
-              } else {
-                mainslider.autoplay.start();
+                 const pauseButton = document.querySelector('.main_slider .pause');
+                 if (pauseButton) {
+                   pauseButton.addEventListener('click', function () {
+                     if (mainslider.autoplay.running) {
+                       mainslider.autoplay.stop();
+                     } else {
+                       mainslider.autoplay.start();
+                     }
+                     this.classList.toggle('on');
+                   });
+                 }
+
+             // 메인 요리가이드 더보기 버튼
+             window.onload = function () {
+              const button = document.querySelector('.main_slider .button');
+              if (button) {
+                button.addEventListener('click', function () {
+                  this.classList.toggle('on');
+                  document.querySelector('.main_slider .guide_wrap').classList.toggle('on');
+                });
               }
-              this.classList.toggle('on');
-            });
-          }
-        });
 
-      // 메인 요리가이드 더보기 버튼
-      document
-          .querySelector('.main_slider .button')
-          .addEventListener('click', function () {
-            this.classList.toggle('on');
-            document.querySelector('.main_slider .guide_wrap').classList.toggle('on');
-            // document.body.classList.toggle('on');
-          });
-
-        document
-          .querySelector('.main_slider .closebtn')
-          .addEventListener('click', function () {
-            // e.preventDefault();
-            document.querySelector('.main_slider .guide_wrap').classList.remove('on');
-            document.body.classList.remove('on');
-          });
+              const closeButton = document.querySelector('.main_slider .closebtn');
+              if (closeButton) {
+                closeButton.addEventListener('click', function () {
+                  document.querySelector('.main_slider .guide_wrap').classList.remove('on');
+                  document.body.classList.remove('on');
+                });
+              }
+            };
 
 
 
