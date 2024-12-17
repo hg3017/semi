@@ -7,7 +7,7 @@
 
 <head layout:fragment="config">
     <title>Event</title>
-    <link rel="stylesheet" href="/css/event.css">
+    <link rel="stylesheet" href="/css/event/event.css">
 </head>
 <body>
 <main id="container_event" class="container">
@@ -25,20 +25,23 @@
                 </div>
                 <ul class="event_wrap">
                     <li class="event_item" th:each="event : ${list}">
-                        <a href="/event/event_archive">
+                        <a th:href="@{'/event/event_archive/' + ${event.event_id}}">
                             <div class="img_wrap">
-                                <img th:src="${event.file_path}" alt="나와">
+                                <img th:src="${'/images/event/' + event.poster}" alt="">
                             </div>
                             <div class="txt_wrap">
                                 <p class="tit" th:text="${event.event_name}"></p>
                                 <p class="date">
                                     <span class="green">진행중</span>
-                                    <span th:text="${event.event_start}"></span> ~ <span th:text="${event.event_end}"></span>
+                                    <span>
+                                        <em th:utext="${event.event_start}"></em>
+                                        ~
+                                        <em th:utext="${event.event_end}"></em>
+                                    </span>
                                 </p>
                             </div>
                         </a>
                     </li>
-
                 </ul>
             </div>
             <div class="board_pagination_wrap">
