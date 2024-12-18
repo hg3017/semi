@@ -86,37 +86,14 @@
         order by l.lab_id DESC
     </select>
     <select id="selectIngredientById" resultType="hashMap">
-        SELECT DISTINCT l.LAB_ID
-                      , l.BOARD_ID
-                      , l.LAB_NAME
-                      , l.LAB_NAME_DESC
-                      , l.DESC_DETAIL
-                      , l.CREATE_DATE
-                      , l.MODIFY_DATE
-                      , ld.PREPARATION
-                      , ld.COOKINGTIME
-                      , ld.SERVINGS
-                      , ld.LAB_INGREDIENT_DETAIL
-                      , ld.LAB_INGREDIENT_NAME
-                      , (SELECT FILE_PATH
-                         FROM IMG_LIST il
-                         WHERE 1 = 1
-                           AND il.POST_NUMBER = l.LAB_ID
-                           AND il.board_id = l.BOARD_ID
-                           AND ROWNUM = 1
-                           AND IMG_PRIORITY = 1) AS              POSTER
-                      ,LISTAGG(
-                CASE
-                    WHEN ld.LAB_priority = 1
-                        THEN ld.LAB_INGREDIENT_detail
-                    WHEN ld.LAB_priority = 2
-                        THEN ld.LAB_INGREDIENT_detail
-                    WHEN ld.LAB_priority = 5
-                        THEN ld.LAB_INGREDIENT_detail
-                    END, ',') WITHIN GROUP (ORDER BY ld.LAB_priority)
-                OVER (PARTITION BY ld.LAB_INGREDIENT_NAME) AS files
-        FROM LAB l
-                 INNER JOIN LAB_DETAIL_INGREDIENT ld ON ld.LAB_ID = l.LAB_ID
-        WHERE l.LAB_ID = 2
+        SELECT DISTINCT LAB_PRIORITY
+                      , LAB_INGREDIENT_NAME
+                      , SERVINGS
+                      , PREPARATION
+                      , COOKINGTIME
+                      , LISTAGG(LAB_INGREDIENT_DETAIL, ',') WITHIN GROUP (ORDER BY LAB_PRIORITY)
+                                OVER (PARTITION BY LAB_PRIORITY) AS COOKS
+        FROM LAB_DETAIL_INGREDIENT
+        WHERE LAB_ID = 2
     </select>
 </mapper>

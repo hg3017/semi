@@ -76,7 +76,7 @@
         WHERE
             1=1
           AND TB.TAG_NAME IN (
-            SELECT tb.TAG_NAME
+            SELECT tb2.TAG_NAME
             FROM GUIDE g , TAG_BOX tb2
             WHERE g.guide_id = tb2.post_number
               AND g.board_id = tb2.board_id
