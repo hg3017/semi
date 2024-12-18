@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequiredArgsConstructor
@@ -57,6 +58,11 @@ public class RecipeLabController {
     public String archive(@PathVariable int labId, Model model) {
         model.addAttribute("lab", recipeLabService.selectById(labId));
         model.addAttribute("ldi", recipeLabService.selectIngredientById(labId));
+
+        List<Map<String, String>> ldi = recipeLabService.selectIngredientById(labId);
+        if (!ldi.isEmpty()) {
+            model.addAttribute("item", ldi.get(0));  // 첫 번째 아이템만 모델에 추가
+        }
         System.out.println("selectById" + recipeLabService.selectById(labId));
         System.out.println("recipeLab/archive-----------------------------------------------");
         return "/recipeLab/archive_rep";
