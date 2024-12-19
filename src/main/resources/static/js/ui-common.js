@@ -69,7 +69,7 @@ window.addEventListener('DOMContentLoaded', function () {
     const shareControl = document.querySelector(".share_control");
     const targetSection = document.querySelector(".share_control"); // 특정요소있을때만!
 
-    if(targetSection) {
+    if (targetSection) {
 
         window.addEventListener("scroll", function () {
             const scrollPosition = window.scrollY; // 현재 스크롤 위치
@@ -85,30 +85,30 @@ window.addEventListener('DOMContentLoaded', function () {
     }
 
     // 헤더 스크롤시 스타일 변경
-      window.addEventListener('scroll', function () {
+    window.addEventListener('scroll', function () {
         let _scrollY = this.scrollY;
 
         if (_scrollY > 50) {
-          header.classList.add('fixed');
+            header.classList.add('fixed');
         } else {
-          header.classList.remove('fixed');
+            header.classList.remove('fixed');
         }
-      });
+    });
 
     //헤더 모바일메뉴 탭버튼
-      document
+    document
         .querySelector('#header .sitemap_btn')
         .addEventListener('click', function () {
-          this.classList.toggle('on');
-          document.querySelector('#header .menu_wrap').classList.toggle('on');
+            this.classList.toggle('on');
+            document.querySelector('#header .menu_wrap').classList.toggle('on');
         });
 
-      document.querySelectorAll('#header .menu>li>a').forEach((v) => {
+    document.querySelectorAll('#header .menu>li>a').forEach((v) => {
         v.addEventListener('click', function (e) {
-          e.preventDefault();
-          v.parentElement.classList.toggle('on');
+            e.preventDefault();
+            v.parentElement.classList.toggle('on');
         });
-      });
+    });
 
 
     //요리연구소, 요리해요 탭버튼
@@ -143,34 +143,34 @@ window.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-  //레시피 상세
-        let StagList = new Swiper('.S_tagList .swiper', {
+    //레시피 상세
+    let StagList = new Swiper('.S_tagList .swiper', {
         slidesPerView: '4',
         navigation: {
             nextEl: '.S_tagList .swiper-button-next',
             prevEl: '.S_tagList .swiper-button-prev',
         },
-      });
+    });
 
 
-  //스크롤 시 바 생성
-  function updateProgressBar() {
-          const documentHeight = document.documentElement.scrollHeight; // 문서의 총 높이
-          const windowHeight = window.innerHeight; // 윈도우 창의 높이
-          const scrollPosition = window.scrollY; // 현재 스크롤된 위치
-          // 스크롤된 비율을 계산
-          const scrolledPercentage = (scrollPosition / (documentHeight - windowHeight)) * 100;
-          // 프로그레스 바의 너비를 스크롤 비율에 따라 조정
-          const progressBar = document.querySelector(".progress .bar");
-          if (progressBar) {
-              progressBar.style.width = scrolledPercentage + "%";
-          }
-      }
+    //스크롤 시 바 생성
+    function updateProgressBar() {
+        const documentHeight = document.documentElement.scrollHeight; // 문서의 총 높이
+        const windowHeight = window.innerHeight; // 윈도우 창의 높이
+        const scrollPosition = window.scrollY; // 현재 스크롤된 위치
+        // 스크롤된 비율을 계산
+        const scrolledPercentage = (scrollPosition / (documentHeight - windowHeight)) * 100;
+        // 프로그레스 바의 너비를 스크롤 비율에 따라 조정
+        const progressBar = document.querySelector(".progress .bar");
+        if (progressBar) {
+            progressBar.style.width = scrolledPercentage + "%";
+        }
+    }
 
-      // 스크롤 이벤트 리스너 추가
-      window.addEventListener('scroll', updateProgressBar);
+    // 스크롤 이벤트 리스너 추가
+    window.addEventListener('scroll', updateProgressBar);
 
-      // 페이지 로드 시 초기 상태 업데이트
-      updateProgressBar();
+    // 페이지 로드 시 초기 상태 업데이트
+    updateProgressBar();
 
 });

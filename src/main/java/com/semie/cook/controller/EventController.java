@@ -1,6 +1,7 @@
 package com.semie.cook.controller;
 
 import com.semie.cook.common.Pagination;
+import com.semie.cook.model.EventDTO;
 import com.semie.cook.service.EventService;
 import com.semie.cook.service.GuideService;
 import jakarta.servlet.http.HttpServletRequest;
@@ -8,10 +9,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequiredArgsConstructor
@@ -38,6 +36,15 @@ public class EventController {
         System.out.println("selectById" + eventService.selectById(eventId));
         System.out.println("event/event_archive---------------------------------------------" +eventId);
         return "/event/event_archive";
+    }
+
+    @GetMapping("/write")
+    public void write() {}
+
+    @PostMapping("/write")
+    public String write(@ModelAttribute EventDTO event, Model model) {
+        System.out.println("event = " + event);
+        return "redirect:/event/list";
     }
 
 }
