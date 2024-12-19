@@ -23,6 +23,10 @@ public class GuideService {
         return guideMapper.selectGuide(guide_id);
     }
 
+    public List<Map<String, String>> selectGuide1(int guide_id) {
+        return guideMapper.selectGuide1(guide_id);
+    }
+
     public GuideDTO findById (int guide_id) {
         return guideMapper.selectById(guide_id);
     }

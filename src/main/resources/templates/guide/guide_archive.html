@@ -45,7 +45,7 @@
                                 <img th:src="@{'/images/' + ${item['FILE_PATH']}}" alt="디테일">
                             </div>
                             <div class="detail_text">
-                                <h4>가장 맛있는 무 고르기</h4>
+                                <h4 th:text="${item['SOLUTION_NAME']}"></h4>
                                 <p>한국 사람들이 많이 먹는 대표 채소, 무</p>
                             </div>
                         </a>
@@ -54,57 +54,27 @@
                         </ul>
                         <button class="scrap" type="button">스크랩</button>
                     </li>
-<!--                    <li>-->
-<!--                        <a href="#">-->
-<!--                            <div class="detail_img">-->
-<!--                                <img src="/images/guide1.jpg" alt="디테일">-->
-<!--                            </div>-->
-<!--                            <div class="detail_text">-->
-<!--                                <h4>가장 맛있는 무 고르기</h4>-->
-<!--                                <p>한국 사람들이 많이 먹는 대표 채소, 무</p>-->
-<!--                            </div>-->
-<!--                            <ul class="hash_wrap">-->
-<!--                                <li>#무</li>-->
-<!--                                <li>#김치</li>-->
-<!--                            </ul>-->
-<!--                        </a>-->
-<!--                    </li>-->
-<!--                    <li>-->
-<!--                        <a href="#">-->
-<!--                            <div class="detail_img">-->
-<!--                                <img src="/images/guide1.jpg" alt="디테일">-->
-<!--                            </div>-->
-<!--                            <div class="detail_text">-->
-<!--                                <h4>가장 맛있는 무 고르기</h4>-->
-<!--                                <p>한국 사람들이 많이 먹는 대표 채소, 무</p>-->
-<!--                            </div>-->
-<!--                            <ul class="hash_wrap">-->
-<!--                                <li>#무</li>-->
-<!--                                <li>#김치</li>-->
-<!--                            </ul>-->
-<!--                        </a>-->
-<!--                    </li>-->
-<!--                    <li>-->
-<!--                        <a href="#">-->
-<!--                            <div class="detail_img">-->
-<!--                                <img src="/images/guide1.jpg" alt="디테일">-->
-<!--                            </div>-->
-<!--                            <div class="detail_text">-->
-<!--                                <h4>가장 맛있는 무 고르기</h4>-->
-<!--                                <p>한국 사람들이 많이 먹는 대표 채소, 무</p>-->
-<!--                            </div>-->
-<!--                        </a>-->
-<!--                        <ul class="tag_wrap">-->
-<!--                            <li>-->
-<!--                                <span>준비시간</span>-->
-<!--                                25분-->
-<!--                            </li>-->
-<!--                            <li>-->
-<!--                                <span>조리시간</span>-->
-<!--                                5분-->
-<!--                            </li>-->
-<!--                        </ul>-->
-<!--                    </li>-->
+                    <li th:each="items : ${sol}">
+                        <a th:href="@{/recipeLab/archive_lab}">
+                            <div class="detail_img">
+                                <img th:src="@{'/images/' + ${items['FILE_PATH']}}" alt="디테일">
+                            </div>
+                            <div class="detail_text">
+                                <h4>가장 맛있는 무 고르기</h4>
+                                <p>한국 사람들이 많이 먹는 대표 채소, 무</p>
+                            </div>
+                        </a>
+                        <ul class="tag_wrap">
+                            <li>
+                                <span>준비시간</span>
+                                25분
+                            </li>
+                            <li>
+                                <span>조리시간</span>
+                                5분
+                            </li>
+                        </ul>
+                    </li>
 <!--                    <li>-->
 <!--                        <a href="#">-->
 <!--                            <div class="detail_img">-->

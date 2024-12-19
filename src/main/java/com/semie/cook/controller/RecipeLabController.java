@@ -37,7 +37,11 @@ public class RecipeLabController {
     }
 
     @GetMapping("/solution")
-    public String solution(Model model) {
+    public String solution(HttpServletRequest request,@RequestParam(defaultValue = "1") int pageNum ,Model model) {
+        Pagination page = new Pagination();
+        page.setPageNum(pageNum);
+        model.addAttribute("list", recipeLabService.findAll1(page));
+        model.addAttribute("paging", page.paging(request));
         System.out.println("recipeLab/solution---------------------------------------------");
         return "/recipeLab/solution";
     }
@@ -63,8 +67,9 @@ public class RecipeLabController {
         return "/recipeLab/archive_rep";
     }
 
-    @GetMapping("/archive_sol")
-    public String archive_sol(Model model) {
+    @GetMapping("/archive_sol/{solId}")
+    public String archive_sol(@PathVariable int solId, Model model) {
+        model.addAttribute("sol", recipeLabService.selectById1(solId));
         System.out.println("recipeLab/archive_sol-----------------------------------------------");
         return "/recipeLab/archive_sol";
     }
