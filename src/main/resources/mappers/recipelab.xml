@@ -82,7 +82,7 @@
                  inner JOIN img_list i
                             ON l.lab_id = i.post_number
                                 AND l.board_id = i.board_id
-        where l.lab_id = 1
+        where l.lab_id = #{lab_id}
         order by l.lab_id DESC
     </select>
     <select id="selectIngredientById" resultType="hashMap">
@@ -95,5 +95,6 @@
                                 OVER (PARTITION BY LAB_PRIORITY) AS COOKS
         FROM LAB_DETAIL_INGREDIENT
         WHERE LAB_ID = 2
+        order by lab_priority
     </select>
 </mapper>

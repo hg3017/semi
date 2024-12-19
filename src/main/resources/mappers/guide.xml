@@ -62,6 +62,26 @@
     </select>
 
     <select id="selectGuide" resultType="HashMap">
+        SELECT tb.TAG_NAME,
+               tb.BOARD_ID,
+               tb.POST_NUMBER,
+               s.SOLUTION_NAME,
+               il.FILE_PATH,
+               s.SOLUTION_DESC,
+               s.DESC_DETAIL
+        FROM TAG_BOX tb
+                 INNER JOIN SOLUTION s ON s.SOLUTION_ID = TB.POST_NUMBER AND s.BOARD_ID = TB.BOARD_ID
+                 LEFT OUTER JOIN IMG_LIST il ON il.BOARD_ID = s.BOARD_ID AND il.POST_NUMBER = s.SOLUTION_ID
+        WHERE 1 = 1
+          AND TB.TAG_NAME IN (SELECT tb2.TAG_NAME
+               FROM GUIDE g,
+                    TAG_BOX tb2
+               WHERE g.guide_id = tb2.post_number
+                 AND g.board_id = tb2.board_id
+                 AND g.guide_id = #{guide_id})
+    </select>
+
+    <select id="selectGuide1" resultType="HashMap">
         SELECT
             tb.TAG_NAME ,
             tb.BOARD_ID ,
@@ -71,11 +91,11 @@
             l.LAB_NAME_DESC ,
             l.DESC_DETAIL
         FROM
-            TAG_BOX tb INNER JOIN LAB l ON L.LAB_ID = TB.POST_NUMBER AND L.BOARD_ID = TB.BOARD_ID
-                       LEFT OUTER JOIN IMG_LIST il ON il.BOARD_ID = l.BOARD_ID AND il.POST_NUMBER = l.LAB_ID
+            TAG_BOX tb
+                INNER JOIN LAB l ON L.LAB_ID = TB.POST_NUMBER AND L.BOARD_ID = TB.BOARD_ID
+                LEFT OUTER JOIN IMG_LIST il ON il.BOARD_ID = l.BOARD_ID AND il.POST_NUMBER = l.LAB_ID
         WHERE
-            1=1
-          AND TB.TAG_NAME IN (
+            TB.TAG_NAME IN (
             SELECT tb2.TAG_NAME
             FROM GUIDE g , TAG_BOX tb2
             WHERE g.guide_id = tb2.post_number
