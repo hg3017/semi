@@ -33,52 +33,6 @@ window.addEventListener('DOMContentLoaded', function () {
         });
 
       // 스탭 스와이퍼
-    //     var swiper = new Swiper(".sub_sw_wrap .step2_swiper_wrap", {
-    //       spaceBetween: 10,
-    //       slidesPerView: 4,
-    //       freeMode: true,
-    //       watchSlidesProgress: true,
-    //     });
-    //     var swiper2 = new Swiper(".sub_sw_wrap .step_swiper_wrap", {
-    //       spaceBetween: 50,
-    //       navigation: {
-    //         nextEl: ".sub_sw_wrap .step-button-next",
-    //         prevEl: ".sub_sw_wrap .step-button-prev",
-    //       },
-    //       pagination: {
-    //         el: '.swiper-pagination',
-    //         clickable: true,
-    //       },
-    //       thumbs: {
-    //         swiper: swiper,
-    //       },
-    //     });
-    //
-    // var stepSwiper2 = new Swiper(".sub_sw_wrap .step_swiper_wrap", {
-    //     // speed: 400,
-    //     spaceBetween: 20,
-    //     slidesPerView: 4,
-    //     freeMode: true,
-    //     watchSlidesProgress: true,
-    //     pagination: {   //페이징 사용자 설정
-    //         el: ".sub_sw_wrap .swiper-pagination",   //페이징 태그 클래스 설정
-    //         clickable: true,
-    //     },
-    //     navigation: {
-    //         nextEl: ".sub_sw_wrap .swiper-button-next",
-    //         prevEl: ".sub_sw_wrap .swiper-button-prev"
-    //     },
-    //     threshold: 50,
-    //     autoHeight: true,
-    //     on: {
-    //         slideChange: function () {
-    //             var idx = this.realIndex + 1;
-    //             $(".recipe_step_head span").text('Step.' + idx);
-    //             $(".recipe_step_cont .step_h").each(function(){$(this).find("span:eq(0)").text('Step ' + idx + ".  ");});
-    //             // $(".step_thumb_list:eq("+this.realIndex+") img:eq(0)").trigger("click");
-    //         }
-    //     }
-    // });
     var stepSwiper2 = new Swiper(".step_swiper_wrap .swiper-container", {
         slidesPerView: 1,  // 한 번에 한 슬라이드만 보이게 설정
         spaceBetween: 20,  // 슬라이드 간 간격
@@ -113,70 +67,9 @@ window.addEventListener('DOMContentLoaded', function () {
                     }
                 });
             }
-            // slideChange: function () {
-            //     var idx = this.realIndex + 1;
-            //
-            //     // 단계 제목 업데이트
-            //     var stepTitle = document.querySelector(".step_h span:first-child");
-            //     if (stepTitle) stepTitle.textContent = 'Step ' + idx + '.';
-            //
-            //     // 단계 설명 업데이트
-            //     var stepDesc = document.querySelector(".step_cont .steph_wrap .step_desc");
-            //     var lastSpan = document.querySelector(".step_h span:last-child");
-            //     if (stepDesc && lastSpan) lastSpan.textContent = stepDesc.textContent;
-            // }
         }
-
     });
-    // document.querySelectorAll(".step_swiper_wrap .step_thumb_list li").forEach(i => {
-    //     i.addEventListener("click", () => {
-    //         const thumbImg = i.querySelector(".step_thumb_list img");
-    //         if (thumbImg) {
-    //             const thumbImgSrc = thumbImg.src;
-    //
-    //             // Add 'on' class to clicked li, remove 'on' from others
-    //             i.classList.add("on");
-    //
-    //             Array.from(i.parentElement.children).forEach(sibling => {
-    //                 if (sibling !== i) sibling.classList.remove("on");
-    //             });
-    //
-    //             // Update the image src in the closest .swiper-slide
-    //             const swiperSlide = i.closest("li.swiper-slide");
-    //             if (swiperSlide) {
-    //                 const stepThumbImg = swiperSlide.querySelector(".step_swiper_wrap .step_thumb img");
-    //                 if (stepThumbImg) {
-    //                     stepThumbImg.src = thumbImgSrc; // Update image src
-    //                 }
-    //             }
-    //         }
-    //     });
-    // });
 
-
-    // document.querySelectorAll(".step_swiper_wrap .step_thumb_list li").forEach(i => {
-    //     i.addEventListener("click", () => {
-    //         const thumbImg = i.querySelector(".step_thumb_list img");
-    //         if (thumbImg) {
-    //             const thumbImgSrc = thumbImg.src;
-    //
-    //             // Add 'on' class to clicked li, remove 'on' from others
-    //             i.classList.add("on");
-    //
-    //             Array.from(i.parentElement.children).forEach(sibling => {
-    //                 if (sibling !== i) sibling.classList.remove("on");
-    //             });
-    //
-    //             const swiperSlide = i.closest(".swiper-slide");  // Ensure it's the correct element
-    //             if (swiperSlide) {
-    //                 const stepThumbImg = swiperSlide.querySelector(".step_swiper_wrap .step_thumb img");
-    //                 if (stepThumbImg) {
-    //                     stepThumbImg.src = thumbImgSrc; // Update image src
-    //                 }
-    //             }
-    //         }
-    //     });
-    // });
 
     document.querySelectorAll(".step_swiper_wrap .step_thumb_list li").forEach(i => {
         i.addEventListener("click", () => {
@@ -206,46 +99,6 @@ window.addEventListener('DOMContentLoaded', function () {
             }
         });
     });
-
-
-    // document.querySelectorAll(".step_swiper_wrap .step_thumb_list li").forEach(i => {
-    //     i.addEventListener("click", () => {
-    //         const thumbImg = i.querySelector(".step_thumb_list img");  // 클릭된 li 내 이미지 선택
-    //         if (thumbImg) {
-    //             const thumbImgSrc = thumbImg.src;  // 클릭된 이미지의 src 가져오기
-    //
-    //             // 클릭된 li에 'on' 클래스 추가하고, 다른 li에서는 'on' 클래스 제거
-    //             i.classList.add("on");
-    //
-    //             Array.from(i.parentElement.children).forEach(sibling => {
-    //                 if (sibling !== i) sibling.classList.remove("on");
-    //             });
-    //
-    //             // step_thumb의 모든 이미지 변경
-    //             const stepThumb = document.querySelector(".step_thumb");
-    //             if (stepThumb) {
-    //                 const stepThumbImages = stepThumb.querySelectorAll(".step_thumb_list img");  // step_thumb 내 모든 이미지 선택
-    //                 stepThumbImages.forEach(img => {
-    //                     img.src = thumbImgSrc;  // 각 이미지의 src를 클릭된 이미지의 src로 변경
-    //                 });
-    //             }
-    //         }
-    //     });
-    // });
-
-    // document.querySelectorAll(".step_swiper_wrap .step_thumb_list li").forEach(i => {
-    //     i.addEventListener("click", () => {
-    //         const thumbImgSrc = i.querySelector("img").src;
-    //         i.classList.add("on");
-    //
-    //         Array.from(i.parentElement.children).map(sibling => {
-    //             if (sibling !== i) sibling.classList.remove("on");
-    //         });
-    //
-    //         // i.closest("li.swiper-slide").querySelector(".step_thumb img").src = thumbImgSrc;
-    //     });
-    // });
-
 
     //레시피 상세
       let CtagList = new Swiper('.C_tagList .swiper', {
