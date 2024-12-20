@@ -14,4 +14,12 @@ public class MemberService {
     public List<MemberDTO> findAll() {
         return memberMapper.selectAll();
     }
+
+    public void insertMember(MemberDTO memberDTO) {
+        memberMapper.insertMember(memberDTO);
+    }
+
+    public boolean existsEmail(String email) {
+        return memberMapper.existsEmail(email);
+    }
 }

@@ -91,6 +91,6 @@ fieldset {
     margin-top: 7px;
 }
 
-.form-g .error {
+.form-g .error, .help-block {
     color: #d83120;
 }
