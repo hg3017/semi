@@ -5,6 +5,7 @@ import com.semie.cook.mapper.RecipeLabMapper;
 import com.semie.cook.mapper.SolutionMapper;
 import com.semie.cook.model.Lab_detail_ingredientDTO;
 import com.semie.cook.model.RecipeLabDTO;
+import com.semie.cook.model.RecipeLabStepDTO;
 import com.semie.cook.model.SolutionDTO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,5 +42,9 @@ public class RecipeLabService {
 
     public List<Map<String, String>> selectIngredientById(int lab_id) {
         return recipeLabMapper.selectIngredientById(lab_id);
+    }
+
+    public RecipeLabStepDTO selectStepById(int lab_id) {
+        return recipeLabMapper.selectStepById(lab_id);
     }
 }

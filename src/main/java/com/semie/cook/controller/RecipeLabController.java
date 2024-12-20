@@ -62,6 +62,7 @@ public class RecipeLabController {
     public String archive(@PathVariable int labId, Model model) {
         model.addAttribute("lab", recipeLabService.selectById(labId));
         model.addAttribute("ldi", recipeLabService.selectIngredientById(labId));
+        model.addAttribute("lds", recipeLabService.selectStepById(labId));
         System.out.println("selectById" + recipeLabService.selectById(labId));
         System.out.println("recipeLab/archive-----------------------------------------------");
         return "/recipeLab/archive_rep";
