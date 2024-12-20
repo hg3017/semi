@@ -22,4 +22,8 @@ public class EventService {
     public EventDTO selectById(int event_id) {
         return eventMapper.selectById(event_id);
     }
+
+    public void insert(EventDTO event) {
+        return;
+    }
 }

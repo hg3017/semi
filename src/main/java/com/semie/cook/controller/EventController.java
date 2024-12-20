@@ -25,7 +25,7 @@ public class EventController {
         pg.setPageNum(pageNum);
         model.addAttribute("list", eventService.findAll(pg));
         model.addAttribute("paging", pg.paging(request));
-
+        System.out.println("selectById" + eventService.findAll(pg));
         System.out.println("event/list---------------------------------------------");
         return "/event/list";
     }

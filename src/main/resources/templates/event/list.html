@@ -27,16 +27,16 @@
                     <li class="event_item" th:each="event : ${list}">
                         <a th:href="@{'/event/event_archive/' + ${event.event_id}}">
                             <div class="img_wrap">
-                                <img th:src="${'/images/event/' + event.poster}" alt="">
+                                <img th:src="${'/images/event/' + event.main_poster}" alt="메인이미지">
                             </div>
                             <div class="txt_wrap">
                                 <p class="tit" th:text="${event.event_name}"></p>
                                 <p class="date">
                                     <span class="green">진행중</span>
                                     <span>
-                                        <em th:utext="${event.event_start}"></em>
+                                        <span th:utext="${event.event_start}"></span>
                                         ~
-                                        <em th:utext="${event.event_end}"></em>
+                                        <span th:utext="${event.event_end}"></span>
                                     </span>
                                 </p>
                             </div>
