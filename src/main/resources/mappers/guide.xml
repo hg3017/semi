@@ -26,20 +26,20 @@
         g.guide_desc,
         g.create_date,
         (SELECT file_path
-        FROM img_list i
-        WHERE i.post_number = g.guide_id
-        AND i.board_id = g.board_id
-        AND img_priority = 1) AS poster,
+        FROM img_list il
+        WHERE il.post_id = g.guide_id
+        AND il.board_id = g.board_id
+        AND il.img_priority = 1) AS poster,
         LISTAGG(
         CASE
-        WHEN i.img_priority != 1
-        THEN i.file_path
-        END, ',') WITHIN GROUP (ORDER BY i.img_priority)
-        OVER (PARTITION BY i.post_number) AS files
+        WHEN il.img_priority != 1
+        THEN il.file_path
+        END, ',') WITHIN GROUP (ORDER BY il.img_priority)
+        OVER (PARTITION BY g.guide_id) AS files
         FROM guide g
-        LEFT OUTER JOIN img_list i
-        ON g.guide_id = i.post_number
-        WHERE i.board_id = 1
+        LEFT OUTER JOIN img_list il
+        ON g.guide_id = il.post_id
+        AND il.board_id = g.board_id
         <include refid="page2" />
     </select>
 
@@ -50,57 +50,51 @@
     <select id="selectById" resultType="guideDTO">
         SELECT
             g.*
-             , i.file_path
+             , il.file_path
         from guide g
-                 inner join img_list i
-                            on g.guide_id = i.post_number
+                 inner join img_list il
+                            on g.guide_id = il.post_id
         WHERE
             1=1
-          AND i.BOARD_ID = 1
-          and i.img_priority = 1
+          AND il.BOARD_ID = 10
+          and il.img_priority = 1
           and g.guide_id = #{guide_id}
     </select>
 
     <select id="selectGuide" resultType="HashMap">
-        SELECT tb.TAG_NAME,
-               tb.BOARD_ID,
-               tb.POST_NUMBER,
-               s.SOLUTION_NAME,
-               il.FILE_PATH,
-               s.SOLUTION_DESC,
-               s.DESC_DETAIL
-        FROM TAG_BOX tb
-                 INNER JOIN SOLUTION s ON s.SOLUTION_ID = TB.POST_NUMBER AND s.BOARD_ID = TB.BOARD_ID
-                 LEFT OUTER JOIN IMG_LIST il ON il.BOARD_ID = s.BOARD_ID AND il.POST_NUMBER = s.SOLUTION_ID
-        WHERE 1 = 1
-          AND TB.TAG_NAME IN (SELECT tb2.TAG_NAME
-               FROM GUIDE g,
-                    TAG_BOX tb2
-               WHERE g.guide_id = tb2.post_number
-                 AND g.board_id = tb2.board_id
-                 AND g.guide_id = #{guide_id})
+        SELECT DISTINCT
+            g.*,
+            LISTAGG(
+                    CASE
+                        WHEN il.img_priority != 1
+                THEN il.file_path
+                        END, ',') WITHIN GROUP (ORDER BY il.img_priority)
+                        OVER (PARTITION BY g.guide_id) AS files,
+            s.SOLUTION_id,
+            s.solution_name,
+		    s.SOLUTION_DESC,
+		    s.solution_detail,
+		    DBMS_LOB.SUBSTR(s.desc_detail, 4000) AS desc_detail,
+		    l.lab_id,
+		    l.LAB_NAME,
+		    l.LAB_NAME_DESC,
+		    l.desc_detail
+        FROM GUIDE g
+            LEFT OUTER JOIN HASHTAGS_CONN hc
+        ON g.GUIDE_ID = hc.CONN_ID
+            AND g.BOARD_ID = hc.BOARD_ID
+            LEFT OUTER JOIN HASHTAGS H
+            ON H.HASH_ID = hc.HASH_ID
+            LEFT OUTER JOIN IMG_LIST IL
+            ON g.GUIDE_ID = il.POST_ID
+            AND g.BOARD_ID = IL.BOARD_ID
+            LEFT OUTER JOIN SOLUTION s
+            ON g.GUIDE_ID = s.solution_ID
+            AND s.solution_ID = il.post_ID
+            LEFT OUTER JOIN LAB l
+            ON g.GUIDE_ID = l.lab_ID
+            AND l.lab_ID = il.post_ID
+        WHERE g.GUIDE_ID = #{guide_id}
     </select>
 
-    <select id="selectGuide1" resultType="HashMap">
-        SELECT
-            tb.TAG_NAME ,
-            tb.BOARD_ID ,
-            tb.POST_NUMBER ,
-            l.LAB_NAME ,
-            il.FILE_PATH ,
-            l.LAB_NAME_DESC ,
-            l.DESC_DETAIL
-        FROM
-            TAG_BOX tb
-                INNER JOIN LAB l ON L.LAB_ID = TB.POST_NUMBER AND L.BOARD_ID = TB.BOARD_ID
-                LEFT OUTER JOIN IMG_LIST il ON il.BOARD_ID = l.BOARD_ID AND il.POST_NUMBER = l.LAB_ID
-        WHERE
-            TB.TAG_NAME IN (
-            SELECT tb2.TAG_NAME
-            FROM GUIDE g , TAG_BOX tb2
-            WHERE g.guide_id = tb2.post_number
-              AND g.board_id = tb2.board_id
-              AND g.guide_id = #{guide_id}
-        )
-    </select>
 </mapper>

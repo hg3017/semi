@@ -14,9 +14,10 @@ public class GuideDTO {
     private String board_id;
     private String guide_name;
     private String guide_desc;
+    private String guide_detail;
     private Date create_date;
     private String poster;
     private String files;
     private String file_path;
-    private String guide_detail;
+
 }
