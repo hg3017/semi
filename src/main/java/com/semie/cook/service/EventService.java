@@ -17,7 +17,6 @@ public class EventService {
     public List<EventDTO> findAll(Pagination pg) {
         pg.setTotalRecord(eventMapper.totalEvent(pg));
         return eventMapper.selectAll(pg);
-
     }
 
     public EventDTO selectById(int event_id) {
