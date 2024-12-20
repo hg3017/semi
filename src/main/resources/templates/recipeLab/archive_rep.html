@@ -93,8 +93,8 @@
                     <div class="ingred_inner">
                         <div class="ingred" th:each="item : ${ldi}">
                             <div class="text_wrap">
-                                <p class="ingred_h"></p>
-                                <span th:text="${item['LAB_INGREDIENT_NAME']}"></span>
+                                <p class="ingred_h"  th:text="${item['LAB_INGREDIENT_NAME']}"></p>
+                                <span></span>
                             </div>
                             <ul class="ingred_item">
                                 <li th:each="cook : ${#strings.setSplit(item['COOKS'], ',')}" th:text="${cook}"></li>
@@ -150,64 +150,140 @@
                     <h4>한 단계씩 따라해 보세요😄</h4>
                 </div>
                 <div class="step_head">
-                    <div class="step-button-next"></div>
-                    <span>Step.1</span>
                     <div class="step-button-prev"></div>
+                    <span>Step.1</span>
+                    <div class="step-button-next"></div>
                 </div>
                 <div class="step_body">
                     <div class="step_swiper_wrap">
+                    <div class="swiper-container ">
                         <div class="swiper-pagination"></div>
                         <div class="swiper-wrapper">
                             <div class="swiper-slide">
-                                <img src="/images/sub_img1.jpg" alt="에그인리얼헬"/>
+                                <div class="step_thumb">
+                                    <img src="/images/step1.jpg" alt=""/>
+                                </div>
+                                <ul class="step_thumb_list">
+                                    <li class="on">
+                                        <img src="/images/step1.jpg" alt=""/>
+                                    </li>
+                                </ul>
+                                <div class="step_cont">
+                                    <div class="steph_wrap">
+                                        <p class="step_h">
+                                            <span>Step 1.  </span>
+                                            <span>재료 썰기</span>
+                                        </p>
+                                        <p class="step_desc">
+                                            소고기 등심은 사방 3~4cm 크기로 큼직하게 큐브 모양으로 썰어주고, 감자와 당근은 껍질을 제거한 뒤에 들쭉날쭉 마구 썰기로 8등분, 새송이버섯과 양파는 감자 사이즈와 동일하게 깍둑 썰어주세요.
+                                        </p>
+                                        <ol class="tip_list">
+                                            <li class="tip">
+                                                <span>스튜에 사용하기 좋은 소고기 부위로는 등심 외에도 목심, 앞다리살, 양지머리, 사태, 갈비살 등이 있어요.</span>
+                                            </li>
+                                            <li class="tip2">
+                                                <span><strong>남은 두부</strong>가 생겼다. 보관은 어떻게? <br> <a href="#">👉보관 솔루션 보러가기</a></span>
+                                            </li>
+                                        </ol>
+                                    </div>
+                                </div>
                             </div>
                             <div class="swiper-slide">
-                                <img src="/images/sub_img2.jpg" alt="에그인리얼헬"/>
+                                <div class="step_thumb">
+                                    <img src="/images/step2.jpg" alt="에그인리얼헬"/>
+                                    <img src="/images/step2.jpg" alt="에그인리얼헬"/>
+                                    <img src="/images/step2.jpg" alt="에그인리얼헬"/>
+
+                                </div>
+                                <ul class="step_thumb_list">
+                                    <li class="on">
+                                        <img src="/images/step2.jpg" alt=""/>
+                                    </li>
+                                    <li>
+                                        <img src="/images/step3.jpg" alt=""/>
+                                    </li>
+                                    <li>
+                                        <img src="/images/step4.jpg" alt=""/>
+                                    </li>
+                                </ul>
+                                <div class="step_cont">
+                                    <div class="steph_wrap">
+                                        <p class="step_h">
+                                            <span>Step 2.  </span>
+                                            <span>스튜 끓이기</span>
+                                        </p>
+                                        <p class="step_desc">
+                                            전기밥솥에 손질한 모든 재료와 물, 연두순과 토마토 파스타소스를 넣어주고 찜모드로 50분간 조리하면 완성!근은 껍질을 제거한 뒤에 들쭉날쭉 마구 썰기로 8등분, 새송이버섯과 양파는 감자 사이즈와 동일하게 깍둑 썰어주세요.
+                                        </p>
+                                        <ol class="tip_list">
+                                            <li class="tip">
+                                                <span>양지나 사태 등 질긴 부위를 사용했다면 조금 더 시간을 늘려 조리해주면 좋아요.</span>
+                                            </li>
+                                            <li class="tip">
+                                                <span>완성된 스튜 위에 파슬리를 뿌려주면 더 예쁘게 담을 수 있어요!</span>
+                                            </li>
+                                            <li class="tip">
+                                                <span>빵이나 바게트 등과 곁들여 먹어도 좋아요.</span>
+                                            </li>
+                                        </ol>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="swiper-slide">
-                                <img src="/images/sub_img3.jpg" alt="에그인리얼헬"/>
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="/images/sub_img4.jpg" alt="에그인리얼헬"/>
-                            </div>
-                        </div>
                     </div>
-                    <div class="step2_swiper_wrap">
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <img src="/images/sub_img1.jpg" alt="에그인리얼헬"/>
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="/images/sub_img2.jpg" alt="에그인리얼헬"/>
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="/images/sub_img3.jpg" alt="에그인리얼헬"/>
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="/images/sub_img4.jpg" alt="에그인리얼헬"/>
-                            </div>
-                        </div>
-                    </div>
+<!--                    <div class="step_swiper_wrap">-->
+<!--                        <div class="swiper-pagination"></div>-->
+<!--                        <div class="swiper-wrapper">-->
+<!--                            <div class="swiper-slide">-->
+<!--                                <img src="/images/sub_img1.jpg" alt="에그인리얼헬"/>-->
+<!--                            </div>-->
+<!--                            <div class="swiper-slide">-->
+<!--                                <img src="/images/sub_img2.jpg" alt="에그인리얼헬"/>-->
+<!--                            </div>-->
+<!--                            <div class="swiper-slide">-->
+<!--                                <img src="/images/sub_img3.jpg" alt="에그인리얼헬"/>-->
+<!--                            </div>-->
+<!--                            <div class="swiper-slide">-->
+<!--                                <img src="/images/sub_img4.jpg" alt="에그인리얼헬"/>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="step2_swiper_wrap">-->
+<!--                        <div class="swiper-wrapper">-->
+<!--                            <div class="swiper-slide">-->
+<!--                                <img src="/images/sub_img1.jpg" alt="에그인리얼헬"/>-->
+<!--                            </div>-->
+<!--                            <div class="swiper-slide">-->
+<!--                                <img src="/images/sub_img2.jpg" alt="에그인리얼헬"/>-->
+<!--                            </div>-->
+<!--                            <div class="swiper-slide">-->
+<!--                                <img src="/images/sub_img3.jpg" alt="에그인리얼헬"/>-->
+<!--                            </div>-->
+<!--                            <div class="swiper-slide">-->
+<!--                                <img src="/images/sub_img4.jpg" alt="에그인리얼헬"/>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
                 </div>
-                <div class="step_cont">
-                    <div class="steph_wrap">
-                        <p class="step_h">
-                            <span>Step 1.  </span>
-                            <span>재료 손질하기</span>
-                        </p>
-                        <p class="step_desc">
-                            키친타올로 두부의 물기를 제거한 후 으깨주고 쪽파는 송송 썰어 주세요.
-                        </p>
-                        <ol class="tip_list">
-                            <li class="tip">
-                                <span>두부를 으깰 때는 수저 뒷면 또는 국자의 뒷면을 이용하거나 포크로 으깨면 좋아요. </span>
-                            </li>
-                            <li class="tip2">
-                                <span><strong>남은 두부</strong>가 생겼다. 보관은 어떻게? <br> <a href="#">👉보관 솔루션 보러가기</a></span>
-                            </li>
-                        </ol>
                     </div>
-                </div>
+<!--                <div class="step_cont">-->
+<!--                    <div class="steph_wrap">-->
+<!--                        <p class="step_h">-->
+<!--                            <span>Step 1.  </span>-->
+<!--                            <span>재료 손질하기</span>-->
+<!--                        </p>-->
+<!--                        <p class="step_desc">-->
+<!--                            키친타올로 두부의 물기를 제거한 후 으깨주고 쪽파는 송송 썰어 주세요.-->
+<!--                        </p>-->
+<!--                        <ol class="tip_list">-->
+<!--                            <li class="tip">-->
+<!--                                <span>두부를 으깰 때는 수저 뒷면 또는 국자의 뒷면을 이용하거나 포크로 으깨면 좋아요. </span>-->
+<!--                            </li>-->
+<!--                            <li class="tip2">-->
+<!--                                <span><strong>남은 두부</strong>가 생겼다. 보관은 어떻게? <br> <a href="#">👉보관 솔루션 보러가기</a></span>-->
+<!--                            </li>-->
+<!--                        </ol>-->
+<!--                    </div>-->
+<!--                </div>-->
                 <div class="step_tag_wrap">
                     <a href="#" class="s_tag">
                         마라
@@ -271,6 +347,7 @@
                 </div>
 
             </div>
+        </div>
         </div>
     </section>
     <div class="hr_line"></div>
