@@ -41,8 +41,8 @@
                 <ul class="tag_list hash_list">
                     <li th:each="item : ${list}">
                         <a th:href="@{/recipeLab/archive_sol}">
-                            <div class="detail_img">
-                                <img th:src="@{'/images/' + ${item['FILES']}}" alt="디테일">
+                            <div class="detail_img" th:each="img : ${#strings.setSplit(item['FILES'],',')}">
+                                <img th:src="${'/images/' + img}" alt="디테일">
                             </div>
                             <div class="detail_text">
                                 <h4 th:text="${item['SOLUTION_NAME']}"></h4>
@@ -50,7 +50,7 @@
                             </div>
                         </a>
                         <ul class="hash_wrap">
-                            <li th:each="hash : ${item['TAG_NAME']}" th:text="${'#' + hash}"></li>
+                            <li th:each="hash : ${item['HASH_NAME']}" th:text="${'#' + hash}"></li>
                         </ul>
                         <button class="scrap" type="button">스크랩</button>
                     </li>

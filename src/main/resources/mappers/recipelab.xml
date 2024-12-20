@@ -49,13 +49,13 @@
         IMG_LIST il
         WHERE
         1 = 1
-        AND il.POST_NUMBER = l.LAB_ID
+        AND il.POST_ID = l.LAB_ID
         AND il.BOARD_ID = l.BOARD_ID
         AND ROWNUM = 1
         AND IMG_PRIORITY = 1) AS POSTER
         FROM LAB l
         INNER JOIN IMG_LIST i
-        ON l.LAB_ID = i.POST_NUMBER
+        ON l.LAB_ID = i.POST_ID
         AND l.BOARD_ID = i.BOARD_ID
         <include refid="page2" />
     </select>
@@ -69,7 +69,7 @@
             l.*,
             (SELECT file_path
              FROM img_list i
-             WHERE i.post_number = l.lab_id
+             WHERE i.post_ID = l.lab_id
                and rownum=1
                AND img_priority = 1) AS poster,
             LISTAGG(
@@ -77,10 +77,10 @@
                         WHEN 1=1
                             THEN i.file_path
                         END, ',') WITHIN GROUP (ORDER BY i.img_priority)
-                    OVER (PARTITION BY i.post_number) AS files
+                    OVER (PARTITION BY i.post_ID) AS files
         FROM lab l
                  inner JOIN img_list i
-                            ON l.lab_id = i.post_number
+                            ON l.lab_id = i.post_ID
                                 AND l.board_id = i.board_id
         where l.lab_id = #{lab_id}
         order by l.lab_id DESC
