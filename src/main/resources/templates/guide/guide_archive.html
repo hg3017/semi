@@ -42,7 +42,7 @@
                     <li th:each="item : ${list}">
                         <a th:href="@{/recipeLab/archive_sol}">
                             <div class="detail_img">
-                                <img th:src="@{'/images/' + ${item['FILE_PATH']}}" alt="디테일">
+                                <img th:src="@{'/images/' + ${item['FILES']}}" alt="디테일">
                             </div>
                             <div class="detail_text">
                                 <h4 th:text="${item['SOLUTION_NAME']}"></h4>
@@ -54,10 +54,10 @@
                         </ul>
                         <button class="scrap" type="button">스크랩</button>
                     </li>
-                    <li th:each="items : ${sol}">
+                    <li th:each="items : ${list}">
                         <a th:href="@{/recipeLab/archive_lab}">
                             <div class="detail_img">
-                                <img th:src="@{'/images/' + ${items['FILE_PATH']}}" alt="디테일">
+                                <img th:src="@{'/images/' + ${items['FILES']}}" alt="디테일">
                             </div>
                             <div class="detail_text">
                                 <h4>가장 맛있는 무 고르기</h4>
