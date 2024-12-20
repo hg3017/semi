@@ -2,21 +2,25 @@
 <html lang="ko"
       xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{/layout}"
-      layout:fragment="content">
+      layout:decorate="~{/layout}">
+
 
 <head layout:fragment="config">
   <title>Member</title>
   <link rel="stylesheet" href="/css/member/emailJoin.css">
   <script src="/js/member.js"></script>
+
 </head>
 
-    <main id="main" class="main login">
+    <main id="main" class="main login"  layout:fragment="content">
       <div class="l-wrap-8">
         <div class="container">
           <h1 class="page-title">이메일 확인</h1>
 
-          <form class="form email-form" id="requored-form" action="/login">
+          <form class="form email-form"
+                id="requored-form"
+                action="/member/emailJoinDetail"
+          >
             <div class="form-g">
               <label for="email" class="label"> 아이디(이메일) </label>
               <input
@@ -31,10 +35,13 @@
                 aria-required="true"
               />
             </div>
-            <div class="messages" data-msg-required="이메일을 입력해주세요." data-msg-type="이메일을 형식에 맞게 입력해주세요.(3글자에서 40글자까지 입력 가능합니다.)" hidden></div>
-            <button type="submit" class="btn" onclick="emailJoinDetailHref()">
-              확인하기
-            </button>
+            <div class="messages" data-msg-required="이메일을 입력해주세요." data-msg-type="이메일을 형식에 맞게 입력해주세요.(3글자에서 40글자까지 입력 가능합니다.)" hidden>
+              <small class="help-block error">이메일을 형식에 맞게 입력해주세요.(3글자에서 40글자까지 입력 가능합니다.)</small>
+            </div>
+
+              <button type="button" class="btn" onclick="emailJoinDetailHref()">
+                확인하기
+              </button>
           </form>
         </div>
       </div>

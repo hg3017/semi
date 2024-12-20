@@ -9,4 +9,7 @@ import java.util.List;
 public interface MemberMapper {
     List<MemberDTO> selectAll();
 
+    void insertMember(MemberDTO memberDTO);
+
+    boolean existsEmail(String email);
 }

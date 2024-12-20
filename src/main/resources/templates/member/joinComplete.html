@@ -22,10 +22,10 @@
           <div class="hr-block">
             <h2 class="hr-block-title">소셜미디어 계정으로 로그인</h2>
           </div>
-          <p class="page-desc">test123@gmail.com</p>
+          <p class="page-desc" th:utext="${email}">test123@gmail.com</p>
 
           <div class="form_func">
-            <button id="formSubmitBtn" type="button" class="btn">로그인</button>
+            <a id="formSubmitBtn" th:href="@{/member/login}" class="btn">로그인</a>
           </div>
         </div>
       </div>
