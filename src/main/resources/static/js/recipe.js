@@ -154,9 +154,33 @@ window.addEventListener('DOMContentLoaded', function () {
     // });
 
 
+    // document.querySelectorAll(".step_swiper_wrap .step_thumb_list li").forEach(i => {
+    //     i.addEventListener("click", () => {
+    //         const thumbImg = i.querySelector(".step_thumb_list img");
+    //         if (thumbImg) {
+    //             const thumbImgSrc = thumbImg.src;
+    //
+    //             // Add 'on' class to clicked li, remove 'on' from others
+    //             i.classList.add("on");
+    //
+    //             Array.from(i.parentElement.children).forEach(sibling => {
+    //                 if (sibling !== i) sibling.classList.remove("on");
+    //             });
+    //
+    //             const swiperSlide = i.closest(".swiper-slide");  // Ensure it's the correct element
+    //             if (swiperSlide) {
+    //                 const stepThumbImg = swiperSlide.querySelector(".step_swiper_wrap .step_thumb img");
+    //                 if (stepThumbImg) {
+    //                     stepThumbImg.src = thumbImgSrc; // Update image src
+    //                 }
+    //             }
+    //         }
+    //     });
+    // });
+
     document.querySelectorAll(".step_swiper_wrap .step_thumb_list li").forEach(i => {
         i.addEventListener("click", () => {
-            const thumbImg = i.querySelector(".step_thumb_list img");
+            const thumbImg = i.querySelector("img");
             if (thumbImg) {
                 const thumbImgSrc = thumbImg.src;
 
@@ -167,17 +191,47 @@ window.addEventListener('DOMContentLoaded', function () {
                     if (sibling !== i) sibling.classList.remove("on");
                 });
 
-                // Update the image src in the closest swiper-slide
                 const swiperSlide = i.closest(".swiper-slide");  // Ensure it's the correct element
                 if (swiperSlide) {
-                    const stepThumbImg = swiperSlide.querySelector(".step_swiper_wrap .step_thumb img");
-                    if (stepThumbImg) {
-                        stepThumbImg.src = thumbImgSrc; // Update image src
-                    }
+                    const stepThumbImgs = swiperSlide.querySelectorAll(".step_swiper_wrap .step_thumb img");
+                    stepThumbImgs.forEach(stepThumbImg => {
+                        if (stepThumbImg) {
+                            // Remove the src and reassign it to force reloading the image
+                            const currentSrc = stepThumbImg.src;
+                            stepThumbImg.src = '';  // Temporarily clear the src
+                            stepThumbImg.src = thumbImgSrc; // Set the new src
+                        }
+                    });
                 }
             }
         });
     });
+
+
+    // document.querySelectorAll(".step_swiper_wrap .step_thumb_list li").forEach(i => {
+    //     i.addEventListener("click", () => {
+    //         const thumbImg = i.querySelector(".step_thumb_list img");  // 클릭된 li 내 이미지 선택
+    //         if (thumbImg) {
+    //             const thumbImgSrc = thumbImg.src;  // 클릭된 이미지의 src 가져오기
+    //
+    //             // 클릭된 li에 'on' 클래스 추가하고, 다른 li에서는 'on' 클래스 제거
+    //             i.classList.add("on");
+    //
+    //             Array.from(i.parentElement.children).forEach(sibling => {
+    //                 if (sibling !== i) sibling.classList.remove("on");
+    //             });
+    //
+    //             // step_thumb의 모든 이미지 변경
+    //             const stepThumb = document.querySelector(".step_thumb");
+    //             if (stepThumb) {
+    //                 const stepThumbImages = stepThumb.querySelectorAll(".step_thumb_list img");  // step_thumb 내 모든 이미지 선택
+    //                 stepThumbImages.forEach(img => {
+    //                     img.src = thumbImgSrc;  // 각 이미지의 src를 클릭된 이미지의 src로 변경
+    //                 });
+    //             }
+    //         }
+    //     });
+    // });
 
     // document.querySelectorAll(".step_swiper_wrap .step_thumb_list li").forEach(i => {
     //     i.addEventListener("click", () => {
