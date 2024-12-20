@@ -1,13 +1,16 @@
 package com.semie.cook.controller;
 
 
+import com.semie.cook.model.MemberDTO;
 import com.semie.cook.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.ui.Model;
 
@@ -26,7 +29,7 @@ public class MemberController {
 
     @GetMapping("/emailJoinDetail")
     public String emailJoinDetail(Model model) {
-        System.out.println("member/emailJoin2---------------------------------------------");
+        System.out.println("member/emailJoinDetail---------------------------------------------");
         return "/member/emailJoinDetail";
     }
 
@@ -36,8 +39,25 @@ public class MemberController {
         return "/member/join";
     }
 
-    @GetMapping("/joinComplete")
-    public String joinComplete(Model model) {
+    @PostMapping("/existsEmail")
+    public Map<String, Boolean>  checkEmail(@RequestBody String email) {
+        System.out.println(email + "/member/existsEmail--------------------------------------------");
+        boolean exists = memberService.existsEmail(email);
+        System.out.println(exists + " : exists");
+
+        Map<String, Boolean> response = new HashMap<>();
+        response.put("exists", exists);
+        return response; // JSON 형식으로 반환
+    }
+
+    @PostMapping("/joinComplete")
+    public String joinComplete(@ModelAttribute MemberDTO memberDto, Model model) {
+
+        System.out.println("MemberController: joinComplete" + memberDto );
+
+        memberService.insertMember(memberDto);
+
+        model.addAttribute("email", memberDto.getMember_email());
         System.out.println("member/joinComplete---------------------------------------------");
         return "/member/joinComplete";
     }

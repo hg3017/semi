@@ -5,4 +5,15 @@
     <select id="selectAll" resultType="memberDTO">
         select * from member
     </select>
+
+    <insert id="insertMember">
+        INSERT INTO MEMBER (MEMBER_ID, BOARD_ID, MEMBER_EMAIL, PASSWORD, MEMBER_NAME , MEMBER_PHONE)
+        VALUES (MEMBER_ID_SEQ.NEXTVAL, 90, #{member_email}, #{password}, #{member_name}, #{member_phone})
+    </insert>
+
+    <select id="existsEmail">
+        SELECT COUNT(MEMBER_ID) FROM MEMBER WHERE MEMBER_EMAIL = #{email}
+    </select>
+
+
 </mapper>

@@ -8,19 +8,63 @@ function emailJoinHref() {
 // emailJoin
 // 실행 시 이메일 정합성을 확인한 후 작성된 이메일을 가지고 /member/emailJoinDetail 로 이동합니다.
 function emailJoinDetailHref() {
-    const email = document.querySelector('.email-form .form-g .input-block').value.trim();
+
+    const email = document.querySelector('.email-form .form-g .input-block')
+    const item = email.closest('.form-g');
     // 이메일 정규식 패턴.
     const pattern = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-za-z0-9\-]+/;
 
+    console.log("ERROR CHECKPOINT");
     // test: 정규 표현식 객체에서 제공하는 메서드로, 주어진 문자열이 정규 표현식과 일치하는지를 검사
-    if(pattern.test(email) === false) {
+    if (!pattern.test(email.value.trim())) {
         alert("이메일 형식이 아닙니다.");
+
+        item.classList.add("is-error");
+        item.parentElement.querySelector('.messages').removeAttribute('hidden');
+
         return false;
     }
-    else {
-        window.location.href = '/member/emailJoinDetail';
-    }
+    console.log("ERROR CHECKPOINT1");
+
+    // Fetch 요청 보내기
+    fetch('/member/existsEmail', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded', // 요청 데이터 형식
+        },
+        body: JSON.stringify({ email: email.value.trim() }), // 요청 본문 데이터
+    })
+        .then(response => {
+            alert("response : " + response.json());
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json(); // JSON으로 응답 데이터 처리
+        })
+        .then(data => {
+            alert("data :" + data);
+            if (data.exists) {
+                alert("중복된 이메일 입니다.")
+            } else {
+                item.classList.remove("is-error");
+                item.parentElement.querySelector('.messages').setAttribute('hidden','');
+                window.location.href = `/member/emailJoinDetail?email=${encodeURIComponent(email.value.trim())}`;
+            }
+        })
+        .catch(error => {
+            alert("error : " + error);
+            console.error('Error:', error);
+            alert("서버와 연결 중 에러 발생.")
+        });
+
+    return false; // 폼 제출 중단
 }
+    // item.classList.remove("is-error");
+    // item.parentElement.querySelector('.messages').setAttribute('hidden','');
+    // // document.getElementById('requored-form').submit();
+    // window.location.href = `/member/emailJoinDetail?email=${encodeURIComponent(email.value.trim())}`;
+
+
 
 // emailJoinDetail
 // 비밀번호 정규식
@@ -146,27 +190,35 @@ function phoneRegex() {
 // 하위 체크박스중 하나이상 체크를 해제할 경우 전체동의 체크박스 체크 해제,
 // 하위 체크박스에 체크 해제시 빨간색 안내문구 표기.
 window.addEventListener('DOMContentLoaded', function () {
-    const agreeAllCheckbox = document.getElementById('agreeAll');
+    const agreeAllCheckbox = document.querySelector('.fieldset-header .checkbox');
     // const agreeAllCheckbox = document.querySelector('.fieldset-header .checkbox_input')
-    const otherCheckboxes = document.querySelectorAll('.agree-list .checkbox_input');
+    const otherCheckboxes = document.querySelectorAll('.agree-list .checkbox');
 
     if (agreeAllCheckbox) {
         agreeAllCheckbox.addEventListener('click', function (e) {
             e.stopPropagation();
-
-            const isChecked = this.checked;
+            let chBox = this.querySelector('input[type=checkbox]');
+            chBox.checked = !chBox.checked;
 
             otherCheckboxes.forEach(checkbox => {
-                checkbox.checked = isChecked;
+                checkbox.querySelector('.checkbox_input').checked = chBox.checked;
 
                 // 체크박스 상태에 따라 is-error 클래스 추가/제거
-                const item = checkbox.parentElement.parentElement;
-                if (!isChecked) {
+                const item = checkbox.closest('.form-g');
+                const msg = item.querySelector('.messages');
+
+                if (!chBox.checked) {
                     item.classList.add("is-error");
-                    item.querySelector('.messages').removeAttribute('hidden');
+                    if (msg && msg.getAttribute('hidden') != null) {
+                        msg.removeAttribute('hidden');
+                    }
                 } else {
                     item.classList.remove("is-error");
-                    item.querySelector('.messages').setAttribute('hidden', "");
+                    if (msg) {
+                        if (msg.getAttribute('hidden') == null) {
+                            msg.setAttribute("hidden", "");
+                        }
+                    }
                 }
             });
 
@@ -178,21 +230,31 @@ window.addEventListener('DOMContentLoaded', function () {
         otherCheckboxes.forEach(box => {
             box.addEventListener('click', function (e) {
                 e.stopPropagation();
+                let chBox = this.querySelector('input[type=checkbox]');
+
+                chBox.checked = !chBox.checked;
 
                 // "전체 동의" 체크박스 상태 업데이트
-                agreeAllCheckbox.checked = [...otherCheckboxes].every(v => v.checked);
+                agreeAllCheckbox.querySelector('.checkbox_input').checked = [...otherCheckboxes].every(v => v.querySelector('input[type=checkbox]').checked);
 
                 // 체크된 상태 확인 후 is-error 클래스 추가/제거
-                const item = box.parentElement.parentElement;
-                if (!box.checked) {
-                    item.classList.add("is-error");
-                    item.querySelector('.messages').removeAttribute('hidden');
-                } else {
-                    item.classList.remove("is-error");
-                    item.querySelector('.messages').setAttribute('hidden', "");
-                }
+                const item = box.closest('.form-g');
+                const msg = item.querySelector('.messages');
+                if (!chBox.checked) {
 
-                // agreeAllCheckbox.checked = [...otherCheckboxes].every(v => v.checked);
+                    item.classList.add("is-error");
+                    if (msg && msg.getAttribute('hidden') != null) {
+                        msg.removeAttribute('hidden');
+                    }
+                } else {
+
+                    item.classList.remove("is-error");
+                    if (msg) {
+                        if (msg.getAttribute('hidden') == null) {
+                            msg.setAttribute("hidden", "");
+                        }
+                    }
+                }
             });
         });
     }
@@ -202,16 +264,13 @@ window.addEventListener('DOMContentLoaded', function () {
 
 // 모든 사항이 다 입력되었을 때 회원가입.
 // 전체적인 정합성을 확인하여 회원가입을 실행
-// 지금 문제. 전체동의 컬럼에서 필수값만 선택되어도 회원가입이 가능해야함.
+// 전체동의 컬럼에서 필수값만 선택되어도 회원가입 가능
 function validateAndSignUp() {
     const isPasswordValid = passwordRegex();
     const isRePasswordValid = rePasswordRegex();
     const isNameValid = nameRegex();
     const isPhoneValid = phoneRegex();
     const isAgreeAllChecked = document.querySelectorAll('.agree-list .checkbox_input').checked;
-    // const form = document.querySelectorAll('.agree-list');
-    // const requiredElements = form.querySelectorAll('[required]');
-    // const isAgreeAllChecked = document.getElementById('agreeAll').checked;
 
     const requiredCheckboxes = document.querySelectorAll('.agree-list .checkbox_input[required]');
     const isAllRequiredChecked = [...requiredCheckboxes].every(checkbox => checkbox.checked);
@@ -233,13 +292,4 @@ function signUp() {
     alert('회원가입이 완료되었습니다!');
     window.location.href = '/member/joinComplete';
 }
-
-//
-// alert('validateAndSignUp 클릭 성공');
-// console.log(isAgreeAllChecked + " isAgreeAllChecked")
-// console.log(isPhoneValid + " isPhoneValid")
-// console.log(isNameValid + " isNameValid")
-// console.log(isRePasswordValid + " isRePasswordValid")
-// console.log(isPasswordValid + " isPasswordValid")
-//
 
