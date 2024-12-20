@@ -19,9 +19,7 @@
 
     <select id="selectAll" parameterType="com.semie.cook.common.Pagination" resultType="EventDTO">
         <include refid="page1" />
-        select *
-                from event
-                 order by event_id desc
+        SELECT * FROM EVENT ORDER BY event_id DESC
         <include refid="page2" />
     </select>
 
@@ -30,12 +28,31 @@
     </select>
 
     <select id="selectById" resultType="eventDTO">
-        select *
-                from event e
-                where e.event_id = event_id
-                and rownum=1
-                order by e.event_id desc
+        SELECT *
+                FROM EVENT
+                WHERE EVENT_ID = #{event_id}
+                AND ROWNUM=1
+                ORDER BY EVENT_ID DESC
     </select>
+
+    <insert id="insertEvent" parameterType="eventDTO">
+        INSERT INTO EVENT (EVENT_ID, BOARD_ID, EVENT_NAME, MAIN_POSTER, POSTER, DESC_DETAIL, EVENT_START, EVENT_END)
+        VALUES(EVENT_ID_SEQ.NEXTVAL, #{board_id}, #{event_name, jdbcType=VARCHAR}, #{main_poster, jdbcType=VARCHAR}, #{poster, jdbcType=VARCHAR}, #{desc_detail, jdbcType=VARCHAR}, #{event_start, jdbcType=DATE}, #{event_end, jdbcType=DATE})
+    </insert>
+
+    <update id="editEvent" parameterType="eventDTO">
+        UPDATE EVENT
+        SET
+            BOARD_ID=#{board_id},
+            EVENT_NAME=#{event_name},
+            MAIN_POSTER=#{main_poster},
+            POSTER=#{poster},
+            DESC_DETAIL=#{desc_detail},
+            MODIFY_DATE=#{modify_date},
+            EVENT_START=#{event_start},
+            EVENT_END=#{event_end}
+        where EVENT_ID = #{event_id}
+    </update>
 
 
 

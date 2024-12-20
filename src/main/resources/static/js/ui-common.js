@@ -209,6 +209,8 @@ function quill(id, body) {
 
     // 서버에 전송을 위해 기존 태그에 추가된 내용을 붙이기
     quill.on('text-change', function () {
-        document.getElementById(id).value = quill.root.innerHTML;
+        //document.getElementById(id).value = quill.root.innerHTML;
+        // tag 제거 출력
+        document.getElementById(id).value = quill.root.innerText;
     });
 }

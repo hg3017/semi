@@ -27,13 +27,14 @@
                     <span th:utext="${event.event_end}"></span>
                 </p>
 <!--            <p class="date">2024.10.28 ~ 2024.12.01</p>-->
+                <button type="button" onclick="location.href='/event/edit'" class="eventbt">수정하기</button>
             </div>
             <div class="img">
                 <img th:src="${'/images/event/' + event.poster}" alt="">
             </div>
             <div class="page">
                 <div class="event_view">
-                    <h3 th:utext="${event.desc_detail}"></h3>
+                    <div th:utext="${event.desc_detail}"></div>
 <!--                    <h3>-->
 <!--                        "나야, 집밥 요리 전도사 새미"<br>-->
 <!--                        <em>근데 이제 이벤트를 곁들인 ..</em>-->

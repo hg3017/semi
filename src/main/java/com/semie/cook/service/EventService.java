@@ -23,7 +23,11 @@ public class EventService {
         return eventMapper.selectById(event_id);
     }
 
-    public void insert(EventDTO event) {
-        return;
+    public void insertEvent(EventDTO eventDto) {
+        eventMapper.insertEvent(eventDto);
+    }
+
+    public void updateEvent(EventDTO eventDto) {
+        eventMapper.updateEvent(eventDto);
     }
 }

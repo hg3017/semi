@@ -11,12 +11,12 @@
 </head>
 <body>
     <main style="margin: 200px" class="main_event">
-        <form action="/event/write" method="post">
-            <em>제목 : <input name="event_name" type="text"/></em>
-            <p class="img">메인 포스터 : <input type="file" name="main_poster"></p>
-            <p class="img">포스터 : <input type="file" name="poster"></p>
-            <textarea name="desc_detail" id="eventEditor" data-editor></textarea>
-            <p class="date">이벤트 시작일 :<input name="event_start" type="date"/></p>
+        <form action="/event/edit/" method="post">
+            <em>제목 : <input name="event_name" type="text" th:value="${event.event_name}"/></em>
+            <p class="img">메인 포스터 : <input type="file" name="main_poster" /></p>
+            <p class="img">포스터 : <input type="file" name="poster" /></p>
+            <textarea name="desc_detail" id="eventEditor" data-editor ></textarea>
+            <p class="date">이벤트 시작일 :<input name="event_start" type="date" /></p>
             <p class="date">이벤트 종료일 :<input name="event_end" type="date" /></p>
             <button type="submit">submit</button>
         </form>
