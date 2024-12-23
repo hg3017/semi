@@ -25,7 +25,7 @@ public class EventController {
         pg.setPageNum(pageNum);
         model.addAttribute("list", eventService.findAll(pg));
         model.addAttribute("paging", pg.paging(request));
-
+        System.out.println("selectById" + eventService.findAll(pg));
         System.out.println("event/list---------------------------------------------");
         return "/event/list";
     }
@@ -43,8 +43,26 @@ public class EventController {
 
     @PostMapping("/write")
     public String write(@ModelAttribute EventDTO event, Model model) {
+        event.setBoard_id(60);
+//        event.setEvent_name("새미");
+//        event.setMain_poster("새미");
+//        event.setPoster("새미");
+//        event.setDesc_detail("rr");
         System.out.println("event = " + event);
+        eventService.insertEvent(event);
+
         return "redirect:/event/list";
+    }
+
+    @GetMapping("/edit")
+    public void edit() {}
+
+    @PostMapping("/edit/{eventId}")
+    public String edit(@ModelAttribute EventDTO event, Model model) {
+        System.out.println("event = " + event);
+        eventService.updateEvent(event);
+
+        return "redirect:/event/event_archive/{eventId}";
     }
 
 }
