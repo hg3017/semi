@@ -48,6 +48,8 @@ public class RecipeLabController {
         return "/recipeLab/solution";
     }
 
+
+
     @GetMapping("/counseling")
     public String counseling(Model model) {
         System.out.println("recipeLab/counseling---------------------------------------------");
