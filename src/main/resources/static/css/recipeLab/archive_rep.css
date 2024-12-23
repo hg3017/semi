@@ -140,6 +140,10 @@
 }
 .sub_view_cont .swiper-button-next {
   background-image: url(/images/common/ic_next.png);
+  left: 120%;
+}
+.sub_view_cont .swiper-button-prev {
+  left: -5%;
 }
 .sub_view_cont [class*=swiper-button]::after {
   display: none;
@@ -369,7 +373,8 @@
   height: 10px;
   margin-bottom: 30px;
   position: absolute;
-  top: 0; /* top 대신 bottom을 사용 */
+  /*top: 0;*/
+  top: -27px;
 }
 
 .sub_sw_wrap .swiper-pagination .swiper-pagination-bullet {

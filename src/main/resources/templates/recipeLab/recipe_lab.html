@@ -19,10 +19,10 @@
                 </div>
                 <div class="tap_wrap">
                     <ul>
-                        <li class="on">
+                        <li th:class="${#strings.equals(state, 'list') ? 'on' : ''}">
                             <a href="/recipeLab/list" class="rec_btn">레시피</a>
                         </li>
-                        <li>
+                        <li th:class="${#strings.equals(state, 'solution') ? 'on' : ''}">
                             <a href="/recipeLab/solution" class="solu_btn">솔루션</a>
                         </li>
                     </ul>
