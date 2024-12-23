@@ -16,9 +16,18 @@
       <th:block th:replace="~{/fragments :: loading}" />
       <loading></loading>
 
+      <div id="password-modal" style="display: none;">
+        <div class="modal-content">
+          <p>임시 비밀번호: <span id="temp-password"></span></p>
+          <p>로그인 후 비밀번호를 변경해주세요.</p>
+          <button class="btn" onclick="closeModal()">확인</button>
+        </div>
+      </div>
+
+
       <div class="l-wrap-8">
         <div class="container">
-          <h1 class="page-title">이메일 확인</h1>
+          <h1 class="page-title">로그인 정보 찾기</h1>
 
           <form class="form email-form"
                 id="requored-form"
@@ -42,8 +51,8 @@
               <small class="help-block error">이메일을 형식에 맞게 입력해주세요.(3글자에서 40글자까지 입력 가능합니다.)</small>
             </div>
 
-              <button type="button" class="btn" onclick="emailJoinDetailHref()">
-                확인하기
+              <button type="button" class="btn" onclick="resetPassword()">
+                로그인 정보 찾기
               </button>
           </form>
         </div>

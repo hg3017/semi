@@ -62,39 +62,106 @@
     </select>
 
     <select id="selectGuide" resultType="HashMap">
+<!--        SELECT DISTINCT-->
+<!--            g.*,-->
+<!--            LISTAGG(-->
+<!--                    CASE-->
+<!--                        WHEN il.img_priority != 1-->
+<!--                THEN il.file_path-->
+<!--                        END, ',') WITHIN GROUP (ORDER BY il.img_priority)-->
+<!--                        OVER (PARTITION BY g.guide_id) AS files,-->
+<!--            s.SOLUTION_id,-->
+<!--            s.solution_name,-->
+<!--		    s.SOLUTION_DESC,-->
+<!--		    s.solution_detail,-->
+<!--		    DBMS_LOB.SUBSTR(s.desc_detail, 4000) AS desc_detail,-->
+<!--		    l.lab_id,-->
+<!--		    l.LAB_NAME,-->
+<!--		    l.LAB_NAME_DESC,-->
+<!--		    l.desc_detail,-->
+<!--		    hc.conn_id,-->
+<!--		    hc.board_id,-->
+<!--		    hc.hash_id,-->
+<!--		    h.hash_name-->
+<!--        FROM GUIDE g-->
+<!--            LEFT OUTER JOIN HASHTAGS_CONN hc-->
+<!--        ON g.GUIDE_ID = hc.CONN_ID-->
+<!--            AND g.BOARD_ID = hc.BOARD_ID-->
+<!--            LEFT OUTER JOIN HASHTAGS H-->
+<!--            ON H.HASH_ID = hc.HASH_ID-->
+<!--            LEFT OUTER JOIN IMG_LIST IL-->
+<!--            ON g.GUIDE_ID = il.POST_ID-->
+<!--            AND g.BOARD_ID = IL.BOARD_ID-->
+<!--            LEFT OUTER JOIN SOLUTION s-->
+<!--            ON g.GUIDE_ID = s.solution_ID-->
+<!--            AND s.solution_ID = il.post_ID-->
+<!--            LEFT OUTER JOIN LAB l-->
+<!--            ON g.GUIDE_ID = l.lab_ID-->
+<!--            AND l.lab_ID = il.post_ID-->
+<!--        WHERE g.GUIDE_ID = #{guide_id}-->
+<!--    </select>-->
+
+<!--    <select id="selectGuide" resultType="hashMap">-->
+        WITH HASHTABLES AS (
+            SELECT hc.CONN_ID
+            , hc.BOARD_ID
+            , h.HASH_ID
+            , h.HASH_NAME
+            FROM HASHTAGS_CONN hc
+            INNER JOIN HASHTAGS h
+            ON hc.HASH_ID = h.HASH_ID
+        )
         SELECT DISTINCT
-            g.*,
-            LISTAGG(
-                    CASE
-                        WHEN il.img_priority != 1
-                THEN il.file_path
-                        END, ',') WITHIN GROUP (ORDER BY il.img_priority)
-                        OVER (PARTITION BY g.guide_id) AS files,
-            s.SOLUTION_id,
-            s.solution_name,
-		    s.SOLUTION_DESC,
-		    s.solution_detail,
-		    DBMS_LOB.SUBSTR(s.desc_detail, 4000) AS desc_detail,
-		    l.lab_id,
-		    l.LAB_NAME,
-		    l.LAB_NAME_DESC,
-		    l.desc_detail
-        FROM GUIDE g
-            LEFT OUTER JOIN HASHTAGS_CONN hc
-        ON g.GUIDE_ID = hc.CONN_ID
-            AND g.BOARD_ID = hc.BOARD_ID
-            LEFT OUTER JOIN HASHTAGS H
-            ON H.HASH_ID = hc.HASH_ID
-            LEFT OUTER JOIN IMG_LIST IL
-            ON g.GUIDE_ID = il.POST_ID
-            AND g.BOARD_ID = IL.BOARD_ID
-            LEFT OUTER JOIN SOLUTION s
-            ON g.GUIDE_ID = s.solution_ID
-            AND s.solution_ID = il.post_ID
-            LEFT OUTER JOIN LAB l
-            ON g.GUIDE_ID = l.lab_ID
-            AND l.lab_ID = il.post_ID
-        WHERE g.GUIDE_ID = #{guide_id}
+            l.LAB_ID			AS ITEM_ID
+            , l.BOARD_ID		AS BOARD_ID
+            , l.LAB_NAME		AS ITEM_NAME
+            , l.LAB_NAME_DESC	AS ITEM_NAME_DESC
+            , l.DESC_DETAIL	AS ITEM_DESC_DETAIL
+            , ''				AS ITEM_DETAIL
+            , LISTAGG(DISTINCT h.HASH_NAME, ',') WITHIN GROUP (ORDER BY l.LAB_ID) OVER (PARTITION BY l.LAB_ID) AS hashnames
+            , LISTAGG(DISTINCT CASE WHEN IMG_PRIORITY = 1 THEN i.FILE_PATH END, ',') WITHIN GROUP (ORDER BY i.IMG_PRIORITY) OVER (PARTITION BY l.LAB_ID) AS poster
+            , LISTAGG(DISTINCT CASE WHEN IMG_PRIORITY != 1 THEN i.FILE_PATH END, ',') WITHIN GROUP (ORDER BY i.IMG_PRIORITY) OVER (PARTITION BY l.LAB_ID) AS files
+        FROM LAB l
+        LEFT OUTER JOIN HASHTABLES h
+            ON l.LAB_ID = h.CONN_ID
+            AND l.BOARD_ID = h.BOARD_ID
+        LEFT OUTER JOIN IMG_LIST i
+            ON l.LAB_ID = i.POST_ID
+            AND l.BOARD_ID = i.BOARD_ID
+        WHERE h.HASH_NAME IN (
+                                SELECT h.HASH_NAME
+                                FROM GUIDE g
+                                LEFT OUTER JOIN HASHTABLES h
+                                ON g.GUIDE_ID = h.CONN_ID
+                                AND g.BOARD_ID = h.BOARD_ID
+                                WHERE GUIDE_ID = 1
+                            )
+        UNION ALL
+        SELECT DISTINCT
+              s.SOLUTION_ID		    AS ITEM_ID
+            , s.BOARD_ID			AS BOARD_ID
+            , s.SOLUTION_NAME		AS ITEM_NAME
+            , s.SOLUTION_DESC		AS ITEM_NAME_DESC
+            , DBMS_LOB.SUBSTR(s.DESC_DETAIL, 4000) AS ITEM_DESC_DETAIL
+            , s.SOLUTION_DETAIL	AS ITEM_DETAIL
+            , LISTAGG(DISTINCT h.HASH_NAME, ',') WITHIN GROUP (ORDER BY s.SOLUTION_ID) OVER (PARTITION BY s.SOLUTION_ID) AS hashnames
+            , LISTAGG(DISTINCT CASE WHEN IMG_PRIORITY = 1 THEN i.FILE_PATH END, ',') WITHIN GROUP (ORDER BY i.IMG_PRIORITY) OVER (PARTITION BY s.SOLUTION_ID) AS poster
+            , LISTAGG(DISTINCT CASE WHEN IMG_PRIORITY != 1 THEN i.FILE_PATH END, ',') WITHIN GROUP (ORDER BY i.IMG_PRIORITY) OVER (PARTITION BY s.SOLUTION_ID) AS files
+        FROM SOLUTION s
+        LEFT OUTER JOIN HASHTABLES h
+            ON s.SOLUTION_ID = h.CONN_ID
+            AND s.BOARD_ID = h.BOARD_ID
+        LEFT OUTER JOIN IMG_LIST i
+            ON s.SOLUTION_ID = i.POST_ID
+            AND s.BOARD_ID = i.BOARD_ID
+        WHERE h.HASH_NAME IN (
+                                SELECT h.HASH_NAME
+                                FROM GUIDE g
+                                LEFT OUTER JOIN HASHTABLES h
+                                ON g.GUIDE_ID = h.CONN_ID
+                                AND g.BOARD_ID = h.BOARD_ID
+                                WHERE GUIDE_ID = 1
+                            )
     </select>
 
 </mapper>

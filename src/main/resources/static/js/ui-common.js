@@ -166,11 +166,73 @@ window.addEventListener('DOMContentLoaded', function () {
             progressBar.style.width = scrolledPercentage + "%";
         }
     }
-
     // 스크롤 이벤트 리스너 추가
     window.addEventListener('scroll', updateProgressBar);
-
     // 페이지 로드 시 초기 상태 업데이트
     updateProgressBar();
 
+
+
+    // 웹 에디터가 되기위해 editor 속성 찾기
+    const editor = document.querySelector('[data-editor]');
+    if (editor) {
+        // 해당 속성 숨기기
+        editor.style.display = 'none';
+
+        // ID값 얻기
+        const id = editor.getAttribute('id');
+        // 데이터 VALUE 얻기
+        const body = editor.dataset.editor;
+
+        // 웹 에디터 생성함수 호출
+        quill(id, body);
+    }
+}); // DOMContentLoaded
+
+// 웹 에디터 생성 함수
+function quill(id, body) {
+    // div 태크 생성
+    const template = document.createElement('div');
+    // 속성, style, body 추가
+    template.setAttribute('id', 'editor-container');
+    template.setAttribute('style', 'width: 100%; height: 300px;');
+    template.innerHTML = body;
+
+    // 기존 태그뒤에 웹에디터 추가
+    document.getElementById(id).after(template);
+
+    // 웹 에디터 객체 생성
+    const quill = new Quill('#editor-container', {
+        placeholder: '새미네 부엌 입니다.',
+        theme: 'snow',
+    });
+
+    // 서버에 전송을 위해 기존 태그에 추가된 내용을 붙이기
+    quill.on('text-change', function () {
+        //document.getElementById(id).value = quill.root.innerHTML;
+        // tag 제거 출력
+        document.getElementById(id).value = quill.root.innerText;
+    });
+}
+
+// 우클릭 방지.
+document.addEventListener("contextmenu", (event) => {
+    event.preventDefault(); // 우클릭 메뉴 기본 동작 방지
+    alert("소중한 창작물 보호를 위해 마우스 우측 버튼 클릭은 허용되지 않습니다."); // 알림 표시 (선택 사항)
 });
+
+// Progress Loading 이미지 보여주기.
+function showLoading() {
+    const loadingElement = document.getElementById('loading');
+    loadingElement.style.display = 'flex'; // 로딩 표시
+    document.body.style.overflow = 'hidden'; // 스크롤 금지
+    window.showLoading = showLoading; // 글로벌 등록
+}
+
+// Progress Loading 이미지 가리기.
+function hideLoading() {
+    const loadingElement = document.getElementById('loading');
+    loadingElement.style.display = 'none'; // 로딩 숨김
+    document.body.style.overflow = 'auto'; // 스크롤 허용.
+    window.hideLoading = hideLoading; // 글로벌 등록
+}

@@ -3,8 +3,7 @@
 <html lang="ko"
       xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{/layout}"
-      layout:fragment="content">
+      layout:decorate="~{/layout}" >
 
 <head layout:fragment="config">
   <title>Member</title>
@@ -12,16 +11,22 @@
   <script src="/js/member.js"></script>
 </head>
 
+    <main id="main" class="main login" layout:fragment="content">
+      <th:block th:replace="~{/fragments :: loading}" />
+      <loading></loading>
 
-    <main id="main" class="main login">
       <div class="l-wrap-8">
         <div class="container">
           <h1 class="page-title">로그인</h1>
-          <form class="form login_form" id="requored-form" action="/login">
+
+          <form class="form login_form" id="requored-form" action="/member/checkLogin">
             <div class="form-g">
+              <div class="messages" data-msg-required="이메일을 입력해주세요." data-msg-type="이메일을 형식에 맞게 입력해주세요.(3글자에서 40글자까지 입력 가능합니다.)" hidden>
+                <small class="help-block error">이메일을 형식에 맞게 입력해주세요.(3글자에서 40글자까지 입력 가능합니다.)</small>
+              </div>
               <input
                 type="email"
-                id="username"
+                id="member_email"
                 name="username"
                 placeholder="아이디 또는 이메일주소"
                 class="input-block"
@@ -38,7 +43,7 @@
             </div>
 
             <div class="form_func">
-              <button id="formSubmitBtn" type="button" class="btn">
+              <button id="formSubmitBtn" type="button" class="btn" onclick="emailLogin()">
                 로그인
               </button>
             </div>
@@ -46,7 +51,7 @@
 
           <div class="login_guide">
             <a href="/member/join" class="small-link">회원가입</a>
-            <a href="/find/account" class="small-link">로그인 정보 찾기</a>
+            <a href="/member/emailFind" class="small-link">로그인 정보 찾기</a>
           </div>
 
           <div class="hr-block">

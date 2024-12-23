@@ -14,12 +14,11 @@ public class EventDTO {
     private int event_id;
     private int board_id;
     private String event_name;
+    private String main_poster;
+    private String poster;
     private String desc_detail;
     private Date create_date;
     private Date modify_date;
     private Date event_start;
     private Date event_end;
-    private String poster;
-    private String file_path;
-    private String files;
 }

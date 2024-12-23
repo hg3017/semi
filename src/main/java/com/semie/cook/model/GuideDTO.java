@@ -19,5 +19,7 @@ public class GuideDTO {
     private String poster;
     private String files;
     private String file_path;
+    private String hashnames;
+
 
 }

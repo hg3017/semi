@@ -20,4 +20,7 @@ public class RecipeLabStepDTO {
     private String lab_step_tip2;
     private String lab_step_tip3;
     private String lab_step_tip4;
+    private String poster;
+    private String files;
+    private String hashnames;
 }

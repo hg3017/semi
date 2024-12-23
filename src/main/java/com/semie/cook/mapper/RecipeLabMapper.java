@@ -18,6 +18,6 @@ public interface RecipeLabMapper {
 
     List<Map<String, String>> selectIngredientById(int lab_id);
 
-    RecipeLabStepDTO selectStepById(int lab_id);
+    List<RecipeLabStepDTO> selectStepById(int lab_id);
 
 }

@@ -26,8 +26,10 @@
 }
 .main_event .filter {
     margin-bottom: 20px;
+    text-align: right;
 }
 .main_event .filter ul {
+    margin-top: 30px;
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -110,7 +112,7 @@
 }
 .event_archive .title {
     margin-bottom: 60px;
-    text-align: center;
+    text-align: right;
 }
 .event_archive .label_list {
     display: flex;
@@ -138,10 +140,13 @@
     font-size: 48px;
     font-weight: 900;
     line-height: 1;
+    text-align: center;
 }
 .event_archive .title .date {
     color: #666;
+    text-align: center;
 }
+
 .event_archive .page {
     width: 100%;
     max-width: 720px;
@@ -429,4 +434,8 @@
     border-radius: 38px;
     border: solid 2px #15a775;
     transition: all 0.2s;
+}
+
+.event_archive .eventbt {
+    right: 0;
 }
