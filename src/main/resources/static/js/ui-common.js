@@ -214,3 +214,25 @@ function quill(id, body) {
         document.getElementById(id).value = quill.root.innerText;
     });
 }
+
+// 우클릭 방지.
+document.addEventListener("contextmenu", (event) => {
+    event.preventDefault(); // 우클릭 메뉴 기본 동작 방지
+    alert("소중한 창작물 보호를 위해 마우스 우측 버튼 클릭은 허용되지 않습니다."); // 알림 표시 (선택 사항)
+});
+
+// Progress Loading 이미지 보여주기.
+function showLoading() {
+    const loadingElement = document.getElementById('loading');
+    loadingElement.style.display = 'flex'; // 로딩 표시
+    document.body.style.overflow = 'hidden'; // 스크롤 금지
+    window.showLoading = showLoading; // 글로벌 등록
+}
+
+// Progress Loading 이미지 가리기.
+function hideLoading() {
+    const loadingElement = document.getElementById('loading');
+    loadingElement.style.display = 'none'; // 로딩 숨김
+    document.body.style.overflow = 'auto'; // 스크롤 허용.
+    window.hideLoading = hideLoading; // 글로벌 등록
+}

@@ -19,5 +19,10 @@
         SELECT MEMBER_ID, MEMBER_NAME, MEMBER_EMAIL FROM MEMBER WHERE MEMBER_EMAIL = #{email, jdbcType=VARCHAR} AND PASSWORD = #{password, jdbcType=VARCHAR}
     </select>
 
+    <update id="resetPassword">
+        UPDATE MEMBER SET PASSWORD = #{password, jdbcType=VARCHAR} WHERE MEMBER_EMAIL = #{email, jdbcType=VARCHAR}
+    </update>
+
+
 
 </mapper>

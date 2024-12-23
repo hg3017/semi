@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 import org.springframework.ui.Model;
 
@@ -67,7 +68,6 @@ public class MemberController {
             response.put("success", false);
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(response);
         }
-
     }
 
     @PostMapping("/existsEmail")
@@ -78,7 +78,30 @@ public class MemberController {
         Map<String, Boolean> response = new HashMap<>();
         response.put("exists", exists);
         return ResponseEntity.ok(response);
+    }
 
+    @PostMapping("/resetPassword")
+    public ResponseEntity<Map<String, Object>> resetPassword(@RequestBody Map<String, String> request) {
+        String email = request.get("email");
+        Map<String, Object> response = new HashMap<>();
+
+        // 이메일로 회원 존재 여부 확인
+        if (memberService.existsEmail(email)) {
+            // 임시 비밀번호 생성
+            String tempPassword = UUID.randomUUID().toString().substring(0, 8); // 8자리 임시 비밀번호
+
+            // 비밀번호 업데이트
+            memberService.resetPassword(email, tempPassword);
+
+            // 응답 데이터에 임시 비밀번호 포함
+            response.put("success", true);
+            response.put("tempPassword", tempPassword);
+            return ResponseEntity.ok(response);
+        } else {
+            response.put("success", false);
+            response.put("message", "입력한 이메일로 가입된 회원이 없습니다.");
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
+        }
     }
 
     @PostMapping("/joinComplete")
