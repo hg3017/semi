@@ -15,5 +15,9 @@
         SELECT COUNT(MEMBER_ID) FROM MEMBER WHERE MEMBER_EMAIL = #{email}
     </select>
 
+    <select id="checkLogin">
+        SELECT MEMBER_ID, MEMBER_NAME, MEMBER_EMAIL FROM MEMBER WHERE MEMBER_EMAIL = #{email, jdbcType=VARCHAR} AND PASSWORD = #{password, jdbcType=VARCHAR}
+    </select>
+
 
 </mapper>

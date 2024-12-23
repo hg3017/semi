@@ -22,4 +22,8 @@ public class MemberService {
     public boolean existsEmail(String email) {
         return memberMapper.existsEmail(email);
     }
+
+    public MemberDTO checkLogin(String email, String password) {
+        return memberMapper.checkLogin(email, password);
+    }
 }

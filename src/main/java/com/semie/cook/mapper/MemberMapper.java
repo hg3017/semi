@@ -12,4 +12,5 @@ public interface MemberMapper {
     void insertMember(MemberDTO memberDTO);
 
     boolean existsEmail(String email);
+    MemberDTO checkLogin(String email, String password);
 }
