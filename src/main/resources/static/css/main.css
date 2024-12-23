@@ -4,7 +4,7 @@
   top: 0;
   width: 100%;
   height: 90px;
-  z-index: 9999;
+  z-index: 9000;
   border-bottom: 1px solid #15a775;
   background: #fff;
   box-shadow:0 0 10px rgba(0,0,0,.1) ;
@@ -995,7 +995,7 @@ display: block;
   top:85px;
   width:100px;
   height: 90px;
-  z-index: 9999;
+  z-index: 9000;
   margin-bottom: 20px;
 }
 .main_cook .swiper-button-prev,
@@ -1124,7 +1124,7 @@ display: block;
   top:85px;
   width:100px;
   height: 90px;
-  z-index: 9999;
+  z-index: 9000;
   margin-bottom: 20px;
 }
 .main_bnlist [class*=swiper-button]::after {
@@ -1373,7 +1373,7 @@ display: block;
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000;
+  z-index: 9999;
 }
 
 .spinner {
