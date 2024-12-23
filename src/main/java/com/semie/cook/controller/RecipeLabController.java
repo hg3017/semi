@@ -49,12 +49,14 @@ public class RecipeLabController {
     @GetMapping("/counseling")
     public String counseling(Model model) {
         System.out.println("recipeLab/counseling---------------------------------------------");
+        model.addAttribute("state", "counseling");
         return "/recipeLab/counseling";
     }
 
     @GetMapping("/cooking")
     public String cooking(Model model) {
         System.out.println("recipeLab/cooking---------------------------------------------");
+        model.addAttribute("state", "cooking");
         return "/recipeLab/cooking";
     }
 
@@ -62,6 +64,7 @@ public class RecipeLabController {
     public String archive(@PathVariable int labId, Model model) {
         model.addAttribute("lab", recipeLabService.selectById(labId));
         model.addAttribute("ldi", recipeLabService.selectIngredientById(labId));
+        System.out.println(recipeLabService.selectStepById(labId));
         model.addAttribute("lds", recipeLabService.selectStepById(labId));
         System.out.println("selectById" + recipeLabService.selectById(labId));
         System.out.println("recipeLab/archive-----------------------------------------------");

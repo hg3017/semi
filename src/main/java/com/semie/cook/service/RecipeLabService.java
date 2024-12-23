@@ -44,7 +44,8 @@ public class RecipeLabService {
         return recipeLabMapper.selectIngredientById(lab_id);
     }
 
-    public RecipeLabStepDTO selectStepById(int lab_id) {
+    public List<RecipeLabStepDTO> selectStepById(int lab_id) {
+        System.out.println("RecipeLabService :" + lab_id);
         return recipeLabMapper.selectStepById(lab_id);
     }
 }
