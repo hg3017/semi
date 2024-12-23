@@ -26,4 +26,8 @@ public class MemberService {
     public MemberDTO checkLogin(String email, String password) {
         return memberMapper.checkLogin(email, password);
     }
+
+    public void resetPassword(String email, String password) {
+        memberMapper.resetPassword(email, password);
+    }
 }

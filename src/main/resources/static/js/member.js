@@ -1,13 +1,3 @@
-function showLoading() {
-    const loadingElement = document.getElementById('loading');
-    loadingElement.style.display = 'flex'; // 로딩 표시
-}
-
-function hideLoading() {
-    const loadingElement = document.getElementById('loading');
-    loadingElement.style.display = 'none'; // 로딩 숨김
-}
-
 // login
 // 제대로 입력한 경우 로그인
 function emailLogin() {
@@ -42,13 +32,11 @@ function emailLogin() {
             }
         })
         .then(data => {
-            hideLoading();
             if (data.success) {
                 window.location.href = '/';
             }
         })
         .catch(error => {
-            hideLoading();
             // 실패 시 처리
             if (error.message === '로그인 실패') {
                 emailLoginFail();
@@ -56,7 +44,11 @@ function emailLogin() {
                 console.error('Error:', error);
                 alert("서버와 연결 중 에러 발생.");
             }
-        });
+        })
+        .finally(()=> {
+            hideLoading();
+        })
+    ;
 }
 
 // 틀렸을 경우 빨간색 강조표시.
@@ -90,6 +82,8 @@ function emailJoinDetailHref() {
         return false;
     }
 
+    showLoading();
+
     // Fetch 요청 보내기
     fetch('/member/existsEmail', {
         method: 'POST',
@@ -116,7 +110,11 @@ function emailJoinDetailHref() {
         .catch(error => {
             console.error('Error:', error);
             alert("서버와 연결 중 에러 발생.")
-        });
+        })
+        .finally(()=> {
+            hideLoading();
+        })
+    ;
 
     return false; // 폼 제출 중단
 }
@@ -355,7 +353,8 @@ function signUp() {
 }
 
 // emailFind
-function emailFind() {
+// 비밀번호를 초기화하고 임시비밀번호를 팝업으로 보여줍니다.
+function resetPassword() {
     const email = document.querySelector('.email-form .form-g .input-block')
     const item = email.closest('.form-g');
     // 이메일 정규식 패턴.
@@ -371,33 +370,38 @@ function emailFind() {
         return false;
     }
 
+    showLoading();
+
     // Fetch 요청 보내기
-    fetch('/member/existsEmail', {
+    fetch('/member/resetPassword', {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/x-www-form-urlencoded', // 요청 데이터 형식
+            'Content-Type': 'application/json', // 요청 데이터 형식
         },
-        body: `email=${email.value.trim()}` // 요청 본문 데이터
+        body: JSON.stringify({ email: email.value.trim() }) // 요청 본문 데이터
     })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.json(); // JSON으로 응답 데이터 처리
-        })
+        .then(response => response.json())
         .then(data => {
-            if (data.exists) {
-                alert("중복된 이메일 입니다. 다른 이메일을 입력해주세요.")
+            if (data.success) {
+                // 모달에 임시 비밀번호 표시
+                document.getElementById('temp-password').textContent = data.tempPassword;
+                document.getElementById('password-modal').style.display = 'flex';
             } else {
-                item.classList.remove("is-error");
-                item.parentElement.querySelector('.messages').setAttribute('hidden','');
-                window.location.href = `/member/emailJoinDetail?email=${encodeURIComponent(email.value.trim())}`;
+                alert(data.message); // "입력한 이메일로 가입된 회원이 없습니다."
             }
         })
         .catch(error => {
             console.error('Error:', error);
-            alert("서버와 연결 중 에러 발생.")
+            alert("서버와 연결 중 에러가 발생했습니다.");
+        })
+        .finally(()=> {
+            hideLoading();
         });
 
     return false; // 폼 제출 중단
+}
+
+// 생성한 팝업을 닫습니다.
+function closeModal() {
+    document.getElementById('password-modal').style.display = 'none';
 }
