@@ -442,6 +442,10 @@
   border-radius: 20px;
   cursor: pointer;
 }
+.step_swiper_wrap .step_thumb_list li img {
+  aspect-ratio: 1 / 1;
+  width: 100%;
+}
 .step_swiper_wrap .step_thumb_list li.on {
   border: 2px solid #15a775;
 }

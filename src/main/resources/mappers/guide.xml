@@ -61,7 +61,7 @@
           and g.guide_id = #{guide_id}
     </select>
 
-<!--    <select id="selectGuide" resultType="HashMap">-->
+    <select id="selectGuide" resultType="HashMap">
 <!--        SELECT DISTINCT-->
 <!--            g.*,-->
 <!--            LISTAGG(-->
@@ -101,7 +101,7 @@
 <!--        WHERE g.GUIDE_ID = #{guide_id}-->
 <!--    </select>-->
 
-    <select id="selectGuide" resultType="hashMap">
+<!--    <select id="selectGuide" resultType="hashMap">-->
         WITH HASHTABLES AS (
             SELECT hc.CONN_ID
             , hc.BOARD_ID
@@ -119,8 +119,8 @@
             , l.DESC_DETAIL	AS ITEM_DESC_DETAIL
             , ''				AS ITEM_DETAIL
             , LISTAGG(DISTINCT h.HASH_NAME, ',') WITHIN GROUP (ORDER BY l.LAB_ID) OVER (PARTITION BY l.LAB_ID) AS hashnames
-            , LISTAGG(DISTINCT CASE WHEN IMG_PRIORITY = 1 THEN i.FILE_PATH END, ',') WITHIN GROUP (ORDER BY i.IMG_PRIORITY) OVER (PARTITION BY l.LAB_ID) AS imgposter
-            , LISTAGG(DISTINCT CASE WHEN IMG_PRIORITY != 1 THEN i.FILE_PATH END, ',') WITHIN GROUP (ORDER BY i.IMG_PRIORITY) OVER (PARTITION BY l.LAB_ID) AS imglist
+            , LISTAGG(DISTINCT CASE WHEN IMG_PRIORITY = 1 THEN i.FILE_PATH END, ',') WITHIN GROUP (ORDER BY i.IMG_PRIORITY) OVER (PARTITION BY l.LAB_ID) AS poster
+            , LISTAGG(DISTINCT CASE WHEN IMG_PRIORITY != 1 THEN i.FILE_PATH END, ',') WITHIN GROUP (ORDER BY i.IMG_PRIORITY) OVER (PARTITION BY l.LAB_ID) AS files
         FROM LAB l
         LEFT OUTER JOIN HASHTABLES h
             ON l.LAB_ID = h.CONN_ID
@@ -145,8 +145,8 @@
             , DBMS_LOB.SUBSTR(s.DESC_DETAIL, 4000) AS ITEM_DESC_DETAIL
             , s.SOLUTION_DETAIL	AS ITEM_DETAIL
             , LISTAGG(DISTINCT h.HASH_NAME, ',') WITHIN GROUP (ORDER BY s.SOLUTION_ID) OVER (PARTITION BY s.SOLUTION_ID) AS hashnames
-            , LISTAGG(DISTINCT CASE WHEN IMG_PRIORITY = 1 THEN i.FILE_PATH END, ',') WITHIN GROUP (ORDER BY i.IMG_PRIORITY) OVER (PARTITION BY s.SOLUTION_ID) AS imgposter
-            , LISTAGG(DISTINCT CASE WHEN IMG_PRIORITY != 1 THEN i.FILE_PATH END, ',') WITHIN GROUP (ORDER BY i.IMG_PRIORITY) OVER (PARTITION BY s.SOLUTION_ID) AS imglist
+            , LISTAGG(DISTINCT CASE WHEN IMG_PRIORITY = 1 THEN i.FILE_PATH END, ',') WITHIN GROUP (ORDER BY i.IMG_PRIORITY) OVER (PARTITION BY s.SOLUTION_ID) AS poster
+            , LISTAGG(DISTINCT CASE WHEN IMG_PRIORITY != 1 THEN i.FILE_PATH END, ',') WITHIN GROUP (ORDER BY i.IMG_PRIORITY) OVER (PARTITION BY s.SOLUTION_ID) AS files
         FROM SOLUTION s
         LEFT OUTER JOIN HASHTABLES h
             ON s.SOLUTION_ID = h.CONN_ID

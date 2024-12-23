@@ -63,7 +63,7 @@ window.addEventListener('DOMContentLoaded', function () {
                 stepHeaders.forEach(function (stepHeader) {
                     var firstSpan = stepHeader.querySelector("span:first-child");
                     if (firstSpan) {
-                        firstSpan.textContent = 'Step ' + idx + ".";
+                        firstSpan.textContent = 'Step.' + idx + "";
                     }
                 });
             }

@@ -134,10 +134,10 @@ CREATE TABLE LAB_DETAIL_STEP
     LAB_STEP      NUMBER,        -- 스탭 단계
     LAB_STEP_NAME VARCHAR2(100), -- 스탭별 조리법 이름.
     LAB_STEP_DESC VARCHAR2(500), -- 스탭별 조리법 상세설명.
-    LAB_STEP_TIP1 VARCHAR2(300), -- 조리 방법 팁 1.
-    LAB_STEP_TIP2 VARCHAR2(300), -- 조리 방법 팁 2.
-    LAB_STEP_TIP3 VARCHAR2(300), -- 조리 방법 팁 3.
-    LAB_STEP_TIP4 VARCHAR2(300), -- 조리 방법 팁 4.
+    LAB_STEP_TIP1 VARCHAR2(500), -- 조리 방법 팁 1.
+    LAB_STEP_TIP2 VARCHAR2(500), -- 조리 방법 팁 2.
+    LAB_STEP_TIP3 VARCHAR2(500), -- 조리 방법 팁 3.
+    LAB_STEP_TIP4 VARCHAR2(500), -- 조리 방법 팁 4.
     PRIMARY KEY (LAB_STEP_ID, BOARD_ID)
 );
 
