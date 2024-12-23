@@ -61,7 +61,7 @@
           and g.guide_id = #{guide_id}
     </select>
 
-    <select id="selectGuide" resultType="HashMap">
+<!--    <select id="selectGuide" resultType="HashMap">-->
 <!--        SELECT DISTINCT-->
 <!--            g.*,-->
 <!--            LISTAGG(-->
@@ -101,7 +101,7 @@
 <!--        WHERE g.GUIDE_ID = #{guide_id}-->
 <!--    </select>-->
 
-<!--    <select id="selectGuide" resultType="hashMap">-->
+    <select id="selectGuide" resultType="hashMap">
         WITH HASHTABLES AS (
             SELECT hc.CONN_ID
             , hc.BOARD_ID
