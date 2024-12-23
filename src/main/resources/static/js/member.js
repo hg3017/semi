@@ -1,3 +1,70 @@
+function showLoading() {
+    const loadingElement = document.getElementById('loading');
+    loadingElement.style.display = 'flex'; // 로딩 표시
+}
+
+function hideLoading() {
+    const loadingElement = document.getElementById('loading');
+    loadingElement.style.display = 'none'; // 로딩 숨김
+}
+
+// login
+// 제대로 입력한 경우 로그인
+function emailLogin() {
+    const email =  document.querySelector('#member_email').value;
+    const password = document.querySelector('#password').value;
+
+    const memberDTO = {
+        member_email: email,
+        password: password
+    };
+
+    showLoading();
+
+    // Fetch 요청 보내기
+    fetch('/member/checkLogin', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json', // 요청 데이터 형식
+        },
+        body: JSON.stringify(memberDTO) // 요청 본문 데이터
+    })
+        .then(response => {
+            if (response.status === 200) {
+
+                return response.json(); // 성공 응답 처리
+            } else if (response.status === 401) {
+                return response.json().then(data => {
+                    throw new Error(data.message || '로그인 실패');
+                });
+            } else {
+                throw new Error('Unexpected status code: ' + response.status);
+            }
+        })
+        .then(data => {
+            hideLoading();
+            if (data.success) {
+                window.location.href = '/';
+            }
+        })
+        .catch(error => {
+            hideLoading();
+            // 실패 시 처리
+            if (error.message === '로그인 실패') {
+                emailLoginFail();
+            } else {
+                console.error('Error:', error);
+                alert("서버와 연결 중 에러 발생.");
+            }
+        });
+}
+
+// 틀렸을 경우 빨간색 강조표시.
+function emailLoginFail() {
+    const item = document.querySelector('.login_form');
+    item.querySelector('.messages').removeAttribute('hidden');
+}
+
 // join
 // 실행 시 /member/emailJoin 으로 이동합니다.
 function emailJoinHref() {
@@ -8,13 +75,11 @@ function emailJoinHref() {
 // emailJoin
 // 실행 시 이메일 정합성을 확인한 후 작성된 이메일을 가지고 /member/emailJoinDetail 로 이동합니다.
 function emailJoinDetailHref() {
-
     const email = document.querySelector('.email-form .form-g .input-block')
     const item = email.closest('.form-g');
     // 이메일 정규식 패턴.
     const pattern = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-za-z0-9\-]+/;
 
-    console.log("ERROR CHECKPOINT");
     // test: 정규 표현식 객체에서 제공하는 메서드로, 주어진 문자열이 정규 표현식과 일치하는지를 검사
     if (!pattern.test(email.value.trim())) {
         alert("이메일 형식이 아닙니다.");
@@ -24,7 +89,6 @@ function emailJoinDetailHref() {
 
         return false;
     }
-    console.log("ERROR CHECKPOINT1");
 
     // Fetch 요청 보내기
     fetch('/member/existsEmail', {
@@ -32,19 +96,17 @@ function emailJoinDetailHref() {
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded', // 요청 데이터 형식
         },
-        body: JSON.stringify({ email: email.value.trim() }), // 요청 본문 데이터
+        body: `email=${email.value.trim()}` // 요청 본문 데이터
     })
         .then(response => {
-            alert("response : " + response.json());
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
             return response.json(); // JSON으로 응답 데이터 처리
         })
         .then(data => {
-            alert("data :" + data);
             if (data.exists) {
-                alert("중복된 이메일 입니다.")
+                alert("중복된 이메일 입니다. 다른 이메일을 입력해주세요.")
             } else {
                 item.classList.remove("is-error");
                 item.parentElement.querySelector('.messages').setAttribute('hidden','');
@@ -52,7 +114,6 @@ function emailJoinDetailHref() {
             }
         })
         .catch(error => {
-            alert("error : " + error);
             console.error('Error:', error);
             alert("서버와 연결 중 에러 발생.")
         });
@@ -75,51 +136,51 @@ function passwordRegex() {
     const specialPattern = /[^a-zA-Z0-9\s]/;
     const lengthPattern = /^.{8,20}$/;
 
-    const passwordELement = document.querySelector('.join-form .password-strength');
+    const passwordElement = document.querySelector('.join-form .password-strength');
     var checkCount = 0;
 
     // 비밀번호 정규식 통과 시 체크항목 불들어오기, 정규식 통과 실패시 강조표시
     if(letterPattern.test(password)) {
-        passwordELement.querySelector('li:first-child').classList.add("is-active");
+        passwordElement.querySelector('li:first-child').classList.add("is-active");
         checkCount++;
-        if ( !passwordELement.parentElement.querySelector('.messages').hasAttribute('hidden') ) {
-            passwordELement.parentElement.querySelector('.messages').setAttribute('hidden', "");
+        if ( !passwordElement.parentElement.querySelector('.messages').hasAttribute('hidden') ) {
+            passwordElement.parentElement.querySelector('.messages').setAttribute('hidden', "");
         }
     } else {
-        passwordELement.querySelector('li:first-child').classList.remove('is-active');
-        passwordELement.parentElement.classList.add("is-error");
-        passwordELement.parentElement.querySelector('.messages').removeAttribute('hidden');
+        passwordElement.querySelector('li:first-child').classList.remove('is-active');
+        passwordElement.parentElement.classList.add("is-error");
+        passwordElement.parentElement.querySelector('.messages').removeAttribute('hidden');
     }
 
     if(specialPattern.test(password)) {
-        passwordELement.querySelector('li:nth-child(2)').classList.add("is-active");
+        passwordElement.querySelector('li:nth-child(2)').classList.add("is-active");
         checkCount++;
-        if ( !passwordELement.parentElement.querySelector('.messages').hasAttribute('hidden') ) {
-            passwordELement.parentElement.querySelector('.messages').setAttribute('hidden', "");
+        if ( !passwordElement.parentElement.querySelector('.messages').hasAttribute('hidden') ) {
+            passwordElement.parentElement.querySelector('.messages').setAttribute('hidden', "");
         }
     } else {
-        passwordELement.querySelector('li:nth-child(2)').classList.remove('is-active');
-        passwordELement.parentElement.classList.add("is-error");
-        passwordELement.parentElement.querySelector('.messages').removeAttribute('hidden');
+        passwordElement.querySelector('li:nth-child(2)').classList.remove('is-active');
+        passwordElement.parentElement.classList.add("is-error");
+        passwordElement.parentElement.querySelector('.messages').removeAttribute('hidden');
     }
 
     if(lengthPattern.test(password)) {
-        passwordELement.querySelector('li:last-child').classList.add("is-active");
+        passwordElement.querySelector('li:last-child').classList.add("is-active");
         checkCount++;
-        if ( !passwordELement.parentElement.querySelector('.messages').hasAttribute('hidden') ) {
-            passwordELement.parentElement.querySelector('.messages').setAttribute('hidden', "");
+        if ( !passwordElement.parentElement.querySelector('.messages').hasAttribute('hidden') ) {
+            passwordElement.parentElement.querySelector('.messages').setAttribute('hidden', "");
         }
     } else {
-        passwordELement.querySelector('li:last-child').classList.remove("is-active");
-        passwordELement.parentElement.classList.add("is-error");
-        passwordELement.parentElement.querySelector('.messages').removeAttribute('hidden');
+        passwordElement.querySelector('li:last-child').classList.remove("is-active");
+        passwordElement.parentElement.classList.add("is-error");
+        passwordElement.parentElement.querySelector('.messages').removeAttribute('hidden');
     }
 
     if( checkCount===3) {
-        passwordELement.parentElement.classList.remove("is-error");
+        passwordElement.parentElement.classList.remove("is-error");
         return true;
     } else {
-        passwordELement.parentElement.querySelector('.messages').removeAttribute('hidden');
+        passwordElement.parentElement.querySelector('.messages').removeAttribute('hidden');
         return false;
     }
 }
@@ -293,3 +354,50 @@ function signUp() {
     window.location.href = '/member/joinComplete';
 }
 
+// emailFind
+function emailFind() {
+    const email = document.querySelector('.email-form .form-g .input-block')
+    const item = email.closest('.form-g');
+    // 이메일 정규식 패턴.
+    const pattern = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-za-z0-9\-]+/;
+
+    // test: 정규 표현식 객체에서 제공하는 메서드로, 주어진 문자열이 정규 표현식과 일치하는지를 검사
+    if (!pattern.test(email.value.trim())) {
+        alert("이메일 형식이 아닙니다.");
+
+        item.classList.add("is-error");
+        item.parentElement.querySelector('.messages').removeAttribute('hidden');
+
+        return false;
+    }
+
+    // Fetch 요청 보내기
+    fetch('/member/existsEmail', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded', // 요청 데이터 형식
+        },
+        body: `email=${email.value.trim()}` // 요청 본문 데이터
+    })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json(); // JSON으로 응답 데이터 처리
+        })
+        .then(data => {
+            if (data.exists) {
+                alert("중복된 이메일 입니다. 다른 이메일을 입력해주세요.")
+            } else {
+                item.classList.remove("is-error");
+                item.parentElement.querySelector('.messages').setAttribute('hidden','');
+                window.location.href = `/member/emailJoinDetail?email=${encodeURIComponent(email.value.trim())}`;
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert("서버와 연결 중 에러 발생.")
+        });
+
+    return false; // 폼 제출 중단
+}
