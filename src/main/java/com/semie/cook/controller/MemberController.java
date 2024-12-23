@@ -4,6 +4,7 @@ package com.semie.cook.controller;
 import com.semie.cook.model.MemberDTO;
 import com.semie.cook.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -39,15 +40,45 @@ public class MemberController {
         return "/member/join";
     }
 
+    @GetMapping("/emailFind")
+    public String emailFind(Model model) {
+        System.out.println("member/emailFind---------------------------------------------");
+        return "/member/emailFind";
+    }
+
+    @PostMapping("/checkLogin")
+    public ResponseEntity<Map<String, Object>> checkLogin(Model model, @RequestBody MemberDTO memberDTO) {
+        System.out.println("member/checkLogin---------------------------------------------");
+
+        Map<String, Object> response = new HashMap<>();
+        System.out.println(memberDTO.getMember_email() + " : Controller Email");
+        System.out.println(memberDTO.getPassword() + " : Controller Password");
+
+        MemberDTO isValidUser = memberService.checkLogin(memberDTO.getMember_email(), memberDTO.getPassword());
+
+        System.out.println(isValidUser + " : Controller Return DTO");
+
+
+        if (isValidUser != null) {
+            response.put("success", true);
+            response.put("user", isValidUser);
+            return ResponseEntity.ok(response);
+        } else {
+            response.put("success", false);
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(response);
+        }
+
+    }
+
     @PostMapping("/existsEmail")
-    public Map<String, Boolean>  checkEmail(@RequestBody String email) {
+    public ResponseEntity<Map<String, Boolean>> checkEmail(@RequestParam String email) {
         System.out.println(email + "/member/existsEmail--------------------------------------------");
         boolean exists = memberService.existsEmail(email);
-        System.out.println(exists + " : exists");
 
         Map<String, Boolean> response = new HashMap<>();
         response.put("exists", exists);
-        return response; // JSON 형식으로 반환
+        return ResponseEntity.ok(response);
+
     }
 
     @PostMapping("/joinComplete")
