@@ -51,25 +51,25 @@
     </select>
 
     <select id="selectById" resultType="RecipeLabDTO">
-        SELECT distinct
-            l.*,
-            (SELECT file_path
-             FROM img_list i
-             WHERE i.post_ID = l.lab_id
-               and rownum=1
-               AND img_priority = 1) AS poster,
-            LISTAGG(distinct
-                    CASE
-                        WHEN 1=1
-                            THEN i.file_path
-                        END, ',') WITHIN GROUP (ORDER BY i.img_priority)
-                    OVER (PARTITION BY i.post_id) AS files
-        FROM lab l
-                 inner JOIN img_list i
-                            ON l.lab_id = i.post_ID
-                                AND l.board_id = i.board_id
-        where l.lab_id = 1
-        order by l.lab_id DESC
+        SELECT a.*
+        FROM (
+                 SELECT distinct
+                     l.*,
+                     DECODE(i.img_priority, 1, i.file_path) AS poster,
+                     LISTAGG(distinct
+		        CASE
+		            WHEN i.img_priority != 1
+		                THEN i.file_path
+		            END, ',') WITHIN GROUP (ORDER BY i.img_priority)
+		        OVER (PARTITION BY i.post_id) AS files
+                 FROM lab l
+                     inner JOIN img_list i
+                 ON l.lab_id = i.post_ID
+                     AND l.board_id = i.board_id
+                 where l.lab_id = #{lab_id}
+                 order by l.lab_id DESC
+             ) a
+        WHERE a.poster IS NOT NULL
     </select>
     <select id="selectIngredientById" resultType="hashMap">
         SELECT DISTINCT LAB_PRIORITY
