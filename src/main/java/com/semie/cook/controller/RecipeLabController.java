@@ -31,6 +31,7 @@ public class RecipeLabController {
 
         model.addAttribute("list", recipeLabService.findAll(pg));
         model.addAttribute("paging", pg.paging(request));
+        model.addAttribute("state","list");
         System.out.println("recipeLab/list---------------------------------------------");
         System.out.println(" recipeLabService.findAll(pg)" +  recipeLabService.findAll(pg));
         return "/recipeLab/recipe_lab";
@@ -42,9 +43,12 @@ public class RecipeLabController {
         page.setPageNum(pageNum);
         model.addAttribute("list", recipeLabService.findAll1(page));
         model.addAttribute("paging", page.paging(request));
+        model.addAttribute("state","solution");
         System.out.println("recipeLab/solution---------------------------------------------");
         return "/recipeLab/solution";
     }
+
+
 
     @GetMapping("/counseling")
     public String counseling(Model model) {
