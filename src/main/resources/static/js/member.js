@@ -1,5 +1,57 @@
 // login
 // 제대로 입력한 경우 로그인
+// function emailLogin() {
+//     const email =  document.querySelector('#member_email').value;
+//     const password = document.querySelector('#password').value;
+//
+//     const memberDTO = {
+//         member_email: email,
+//         password: password
+//     };
+//
+//     showLoading();
+//
+//     // Fetch 요청 보내기
+//     fetch('/member/checkLogin', {
+//         method: 'POST',
+//         headers: {
+//             'Content-Type': 'application/json', // 요청 데이터 형식
+//             'Accept': 'application/json'
+//         },
+//         body: JSON.stringify(memberDTO) // 요청 본문 데이터
+//     })
+//         .then(response => {
+//             alert("password : " + password);
+//             alert("member_email : " + email);
+//             if (response.status === 200) {
+//                 return response.json(); // 성공 응답 처리
+//             } else if (response.status === 401) {
+//                 return response.json().then(data => {
+//                     throw new Error(data.message || '로그인 실패');
+//                 });
+//             } else {
+//                 throw new Error('Unexpected status code: ' + response.status);
+//             }
+//         })
+//         .then(data => {
+//             if (data.success) {
+//                 window.location.href = '/';
+//             }
+//         })
+//         .catch(error => {
+//             // 실패 시 처리
+//             if (error.message === '로그인 실패') {
+//                 emailLoginFail();
+//             } else {
+//                 console.error('Error:', error);
+//                 alert("서버와 연결 중 에러 발생.");
+//             }
+//         })
+//         .finally(()=> {
+//             hideLoading();
+//         });
+// }
+
 function emailLogin() {
     const email =  document.querySelector('#member_email').value;
     const password = document.querySelector('#password').value;

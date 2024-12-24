@@ -215,7 +215,7 @@ window.addEventListener('DOMContentLoaded', function () {
         if (h_op_btn.querySelector('act')) h_op_btn.removeClass('act');
     });
 
-    document.getElementById('header').addEventListener('click',  function (e) {
+    document.querySelector('.selectWrap').addEventListener('click',  function (e) {
         const button = e.target.parentElement.parentElement;
         console.log(e.target);
         const siblingOption = button.querySelector('.option'); // 버튼의 형제 요소 중 .option 선택
