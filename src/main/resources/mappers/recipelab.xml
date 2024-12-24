@@ -20,30 +20,30 @@
     <select id="selectAll" parameterType="com.semie.cook.common.Pagination" resultType="RecipeLabDTO">
         <include refid="page1" />
         SELECT DISTINCT
-        l.LAB_ID
-        , l.BOARD_ID
-        , l.LAB_NAME
-        , l.LAB_NAME_DESC
-        , l.DESC_DETAIL
-        , l.CREATE_DATE
-        , l.MODIFY_DATE
-        , (SELECT PREPARATION FROM LAB_DETAIL_INGREDIENT WHERE LAB_ID = l.LAB_ID AND ROWNUM = 1) PREPARATION
-        , (SELECT COOKINGTIME FROM LAB_DETAIL_INGREDIENT WHERE LAB_ID = l.LAB_ID AND ROWNUM = 1) COOKINGTIME
-        , (
-        SELECT
-        FILE_PATH
-        FROM
-        IMG_LIST il
-        WHERE
-        1 = 1
-        AND il.POST_ID = l.LAB_ID
-        AND il.BOARD_ID = l.BOARD_ID
-        AND ROWNUM = 1
-        AND IMG_PRIORITY = 1) AS POSTER
+            l.LAB_ID
+            , l.BOARD_ID
+            , l.LAB_NAME
+            , l.LAB_NAME_DESC
+            , l.DESC_DETAIL
+            , l.CREATE_DATE
+            , l.MODIFY_DATE
+            , (SELECT PREPARATION FROM LAB_DETAIL_INGREDIENT WHERE LAB_ID = l.LAB_ID AND ROWNUM = 1) PREPARATION
+            , (SELECT COOKINGTIME FROM LAB_DETAIL_INGREDIENT WHERE LAB_ID = l.LAB_ID AND ROWNUM = 1) COOKINGTIME
+            , (
+                SELECT FILE_PATH
+                FROM IMG_LIST il
+                WHERE il.POST_ID = l.LAB_ID
+                AND il.BOARD_ID = l.BOARD_ID
+                AND ROWNUM = 1
+                AND IMG_PRIORITY = 1
+              ) AS POSTER
         FROM LAB l
         INNER JOIN IMG_LIST i
         ON l.LAB_ID = i.POST_ID
         AND l.BOARD_ID = i.BOARD_ID
+        <if test="searchMap.labId != null">
+            and l.LAB_ID != #{searchMap.labId}
+        </if>
         <include refid="page2" />
     </select>
     <select id="totalLab" resultType="int">
