@@ -52,6 +52,7 @@ public class MemberController {
 
     @PostMapping("/checkLogin")
     public ResponseEntity<Map<String, Object>> checkLogin(Model model, @RequestBody MemberDTO memberDTO, HttpSession session) {
+
         System.out.println("member/checkLogin---------------------------------------------");
 
         Map<String, Object> response = new HashMap<>();
@@ -67,12 +68,21 @@ public class MemberController {
             session.setAttribute("user", user); // 세션에 사용자 정보 저장
             response.put("success", true);
             response.put("user", user);
+
+            model.addAttribute("user", user);
+//            return ResponseEntity.ok(response);
             return ResponseEntity.ok(response);
         } else {
             response.put("success", false);
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(response);
         }
     }
+
+    @GetMapping("/logout") public String logout(HttpSession session) {
+            session.invalidate(); // 세션 무효화
+            return "/main"; // 로그아웃 후 메인 페이지로 리다이렉트
+        }
+
 
     @PostMapping("/existsEmail")
     public ResponseEntity<Map<String, Boolean>> checkEmail(@RequestParam String email) {
@@ -121,7 +131,7 @@ public class MemberController {
     }
 
     @GetMapping("/login")
-    public String solution(Model model) {
+    public String solution(Model model, HttpSession session) {
         System.out.println("member/login---------------------------------------------");
         return "/member/login";
     }
