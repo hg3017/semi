@@ -98,7 +98,7 @@
   font-weight: 200;
 }
 
-#header .btn_wrap {
+#header .inner .btn_wrap {
   position: absolute;
   right:90px;
   top: 30px;
@@ -112,11 +112,128 @@
   color: #000;
   font-weight: 500;
 }
+
+#header-logged-out, #header-logged-in {
+  display: flex;
+  align-items: center;
+}
+
+
 #header .search_btn {
   width: 30px;
   height: 30px;
   margin-left: 10px;
 }
+
+#header .search_btn img {
+  width: 30px;
+  height: 30px;
+}
+
+#header .selectWrap {
+  position: relative;
+  margin-left: 8px;
+}
+
+#header .selectWrap button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 30px;
+  color: #15a775;
+  font-weight: bold;
+  border: 1px solid #15a775;
+  border-radius: 18px;
+  transition: all 0.2s;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+#header .selectWrap button i {
+  width: 13px;
+  height: 13px;
+  margin-left: 4px;
+  background-size: cover;
+  background: url(/images/common/write_down.svg) no-repeat 100% / cover;
+  transition: all 0.2s;
+}
+
+#header .selectWrap button:hover i {
+  transform: rotate(-180deg);
+  background: url(/images/common/write_up.svg) no-repeat 100% / cover;
+}
+
+#header .selectWrap button:hover {
+  color: #fff;
+  background-color: #15a775;
+}
+
+#header .utWrap .selectWrap button.on+.option {
+  display: block;
+}
+
+#header .selectWrap .option {
+  position: absolute;
+  right: 0;
+  top: 110%;
+  width: 22.375rem;
+  padding: 15px 20px;
+  /*display: none;*/
+  box-shadow: 1px 1px 0.625rem 0 rgba(0, 0, 0, 0.05);
+  border: solid 1px #e5e5e5;
+  border-radius: 0.5rem;
+  box-sizing: border-box;
+  background-color: #fff;
+}
+
+#header .selectWrap .option li {
+  display: flex;
+}
+
+#header .selectWrap .option li>img {
+  margin-right: 15px;
+}
+
+#header .selectWrap .option li p {
+  display: flex;
+  align-items: center;
+  font-size: 15px;
+  font-weight: 800;
+  transition: all 0.2s;
+}
+
+#header .selectWrap .option li:hover p {
+  color: #0bab6d;
+}
+
+#header .selectWrap .option li p i {
+  width: 1rem;
+  height: 1rem;
+  margin-left: 0.3rem;
+  background-image: url(/images/common/write_right.svg);
+  background-repeat: no-repeat; /* 반복 제거 */
+  background-position: 100%; /* 위치 설정 */
+  background-size: cover; /* 크기 설정 */
+  transition: all 0.2s;
+}
+
+#header .selectWrap .option li:hover p i {
+  background-image: url(/images/common/write_right_green.svg);
+}
+
+#header .selectWrap .option li span {
+  font-size: 11px;
+}
+
+#header .utWrap .selectWrap .option li+li {
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: solid 1px #e5e5e5;
+
+}
+
+
+
 
 #header .sitemap_btn {
   display: none;
@@ -125,6 +242,10 @@
 #header .menu_wrap {
   display: none;
 }
+
+
+
+
 
 
 
