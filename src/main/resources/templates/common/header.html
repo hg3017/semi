@@ -39,12 +39,7 @@
         </nav>
             <div class="btn_wrap">
 
-                <div id="header-logged-out" style="display: none;">
-                    <a class="login_btn" href="/member/login">로그인</a>
-                    <a class="search_btn" href="/search"><img src="/images/common/ic_search.png" alt="검색"></a>
-                </div>
-
-                <div id="header-logged-in">
+                <div th:if="${session.get('user') != null}" id="header-logged-in">
                     <a class="login_btn" href="/member/logout">로그아웃</a>
                     <a class="search_btn" href="/search"><img src="/images/common/ic_search.png" alt="검색"></a>
                     <a class="search_btn" href="/mypage/mypageProfile"><img src="/images/common/ic_mypage.png" alt="마이페이지"></a>
@@ -76,6 +71,13 @@
                         </ul>
                     </div>
                 </div>
+
+                <div th:if="${session.get('user') == null}" id="header-logged-out">
+                    <a class="login_btn" href="/member/login">로그인</a>
+                    <a class="search_btn" href="/search"><img src="/images/common/ic_search.png" alt="검색"></a>
+                </div>
+
+
 
             </div>
 
