@@ -1,0 +1,48 @@
+.cook_write_wrap {
+    margin: 0 auto;
+    padding-top: 90px;
+}
+.cook_write_wrap .write_title {
+
+    background-color: #fbb9bf;
+    position: relative;
+    padding: 78px 0;
+}
+
+.sub_view_wrap .view_title {
+    background: url(/images/common/bg_pattern_green.png) no-repeat 100% / 100% #eff9ef;
+}
+.write_title .inner {
+    width: 100%;
+    max-width: 720px;
+    margin: 0 auto;
+}
+.write_title h3 {
+    color: #fff;
+    font-size: 30px;
+    font-weight: 600;
+}
+.write_title p {
+    margin-top: 20px;
+    color: #fff;
+    font-size: 18px;
+}
+
+.cook_write_cont .inner {
+    margin: 0 auto;
+    padding: 60px 0;
+    max-width: 720px;
+}
+.cook_write_cont .label {
+    margin-bottom: 20px;
+}
+.cook_write_cont .from_box {
+    width: 100%;
+    padding: 14px 20px;
+    border-radius: 5px;
+    border: solid 1px #e5e5e5;;
+    height: 48px;
+}
+.cook_write_cont .from_box + .from_box {
+    
+}

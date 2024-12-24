@@ -74,6 +74,7 @@
 }
 
 .sub_view_cont .swiper-slide {
+  position: relative;
   text-align: center;
   font-size: 18px;
   background: #fff;
@@ -83,6 +84,7 @@
 }
 
 .main_swiper_wrap.swiper-slide img {
+  position: relative;
   display: block;
   width: 100%;
   height: 100%;
@@ -119,6 +121,7 @@
   width: 25%;
   height: 100%;
   opacity: 0.4;
+  object-fit: cover;
 }
 
 .sub_view_cont .thumb_swiper_wrap .swiper-slide-thumb-active {
@@ -127,9 +130,11 @@
 
 .sub_view_cont .con_swiper_wrap {
   width: 100%;
+
 }
 .sub_view_cont .swiper-button-prev,
 .sub_view_cont .swiper-button-next  {
+  position: absolute;
   top: 50px;
   align-items: center;
   border: 1px solid #d4d4d4;
@@ -139,6 +144,7 @@
   background: #fff url(/images/common/ic_prev.png) no-repeat center;
 }
 .sub_view_cont .swiper-button-next {
+  position: relative;
   background-image: url(/images/common/ic_next.png);
   left: 120%;
 }
@@ -165,6 +171,7 @@
   transform: rotate(180deg);
 } */
 .thumb_swiper_wrap .swiper-slide img {
+  position: relative;
   display: block;
   border-radius: 30px;
   width: 100%;
