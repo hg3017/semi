@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -66,12 +68,20 @@ public class RecipeLabController {
 
     @GetMapping("/archive_rep/{labId}")
     public String archive(@PathVariable int labId, Model model) {
+        // 레시피 리스트
         model.addAttribute("lab", recipeLabService.selectById(labId));
+        // 조리 목록
         model.addAttribute("ldi", recipeLabService.selectIngredientById(labId));
-        System.out.println(recipeLabService.selectStepById(labId));
+        // 스탭 스와이프
         model.addAttribute("lds", recipeLabService.selectStepById(labId));
-        System.out.println("selectById" + recipeLabService.selectById(labId));
-        System.out.println("recipeLab/archive-----------------------------------------------");
+
+        // 이 글이 마음에 드셨다면 목록
+        Pagination pg = new Pagination();
+        Map<String, String> map = Collections.singletonMap("labId", String.valueOf(labId));
+        pg.setSearchMap(map);
+
+        model.addAttribute("list", recipeLabService.findAll(pg));
+
         return "/recipeLab/archive_rep";
     }
 

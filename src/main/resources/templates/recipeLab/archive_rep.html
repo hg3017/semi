@@ -96,105 +96,105 @@
             </div>
         </div>
     </section>
-<!--    <section class="sub_sw_wrap">-->
-<!--        <div class="inner">-->
-<!--            <div class="step_wrap">-->
-<!--                 <div class="step_tit">-->
-<!--                    <h4>한 단계씩 따라해 보세요😄</h4>-->
-<!--                </div>-->
-<!--                <div class="step_head">-->
-<!--                    <div class="step-button-prev"></div>-->
-<!--                    <span>Step.1</span>-->
-<!--                    <div class="step-button-next"></div>-->
-<!--                </div>-->
-<!--                <div class="step_body">-->
-<!--                    <div class="step_swiper_wrap">-->
-<!--                        <div class="swiper-container">-->
-<!--                            <div class="swiper-pagination"></div>-->
-<!--                            <div class="swiper-wrapper">-->
-<!--                                <div class="swiper-slide" th:each="lds, state : ${lds}">-->
-<!--                                    <div class="step_thumb">-->
-<!--                                        <img th:src="${'/images/' + lds.poster}" alt=""/>-->
-<!--                                    </div>-->
-<!--                                    <ul class="step_thumb_list">-->
-<!--                                        <li class="on">-->
-<!--                                            <img th:src="${'/images/' + lds.poster}" alt=""/>-->
-<!--                                        </li>-->
+    <section class="sub_sw_wrap">
+        <div class="inner">
+            <div class="step_wrap">
+                 <div class="step_tit">
+                    <h4>한 단계씩 따라해 보세요😄</h4>
+                </div>
+                <div class="step_head">
+                    <div class="step-button-prev"></div>
+                    <span>Step.1</span>
+                    <div class="step-button-next"></div>
+                </div>
+                <div class="step_body">
+                    <div class="step_swiper_wrap">
+                        <div class="swiper-container">
+                            <div class="swiper-pagination"></div>
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide" th:each="lds, state : ${lds}">
+                                    <div class="step_thumb">
+                                        <img th:src="${'/images/' + lds.poster}" alt=""/>
+                                    </div>
+                                    <ul class="step_thumb_list">
+                                        <li class="on">
+                                            <img th:src="${'/images/' + lds.poster}" alt=""/>
+                                        </li>
 
-<!--                                        <li th:each="items : ${#strings.setSplit(lds.files, ',')}">-->
-<!--                                            <img th:src="${'/images/' + items}" alt=""/>-->
-<!--                                        </li>-->
-<!--                                    </ul>-->
-<!--                                    <div class="step_cont">-->
-<!--                                        <div class="steph_wrap">-->
-<!--                                            <p class="step_h">-->
-<!--                                                <span th:text="${'Step.' + lds.lab_step}"></span>-->
-<!--                                                <span th:text="${lds.lab_step_name}"></span>-->
-<!--                                            </p>-->
-<!--                                            <p class="step_desc" th:text="${lds.lab_step_desc}">-->
-<!--                                            </p>-->
-<!--                                            <ol class="tip_list">-->
-<!--                                                <li class="tip" th:text="${lds.lab_step_tip1}">-->
-<!--                                                    <span></span>-->
-<!--                                                </li>-->
-<!--                                                <li class="tip" th:text="${lds.lab_step_tip2}">-->
-<!--                                                    <span><a href="#">👉보관 솔루션 보러가기</a></span>-->
-<!--                                                </li>-->
-<!--                                            </ol>-->
-<!--                                        </div>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="step_tag_wrap">-->
-<!--                        <th:block th:each="hash, state : ${lds}" th:if="${state.first}">-->
-<!--                            <a href="#" th:class="${state.first ? 's_tag' : ''}" th:each="ha, state : ${#strings.setSplit(hash.hashnames, ',')}" th:text="${ha}"></a>-->
-<!--                        </th:block>-->
-<!--                    </div>-->
-<!--                    <div class="k_comment_wrap">-->
-<!--                        <div class="total">-->
-<!--                            <h4>댓글 </h4>-->
-<!--                            <span>0</span>-->
-<!--                        </div>-->
-<!--                        <div class="com_login">-->
-<!--                            <div class="profile">-->
-<!--                                <img src="/images/common/profile.png" alt="">-->
-<!--                            </div>-->
-<!--                            <div class="loginFirst">-->
-<!--                                <a href="#">로그인</a>-->
-<!--                                하시고 댓글을 남겨보세요.-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                        <div class="com_box">-->
-<!--                            <div class="profile">-->
-<!--                                <img src="/images/common/profile.png" alt="">-->
-<!--                            </div>-->
-<!--                            <div class="cmt">-->
-<!--                                <div class="name">-->
-<!--                                    <p>yoon's table</p>-->
-<!--                                    <span class="date">2024-11-08 21:29</span>-->
-<!--                                </div>-->
-<!--                                <div class="text">-->
-<!--                                    건강하고 간편하게 먹기 딱인걸요!-->
+                                        <li th:each="items : ${#strings.setSplit(lds.files, ',')}">
+                                            <img th:src="${'/images/' + items}" alt=""/>
+                                        </li>
+                                    </ul>
+                                    <div class="step_cont">
+                                        <div class="steph_wrap">
+                                            <p class="step_h">
+                                                <span th:text="${'Step.' + lds.lab_step}"></span>
+                                                <span th:text="${lds.lab_step_name}"></span>
+                                            </p>
+                                            <p class="step_desc" th:text="${lds.lab_step_desc}">
+                                            </p>
+                                            <ol class="tip_list">
+                                                <li class="tip" th:text="${lds.lab_step_tip1}">
+                                                    <span></span>
+                                                </li>
+                                                <li class="tip" th:text="${lds.lab_step_tip2}">
+                                                    <span><a href="#">👉보관 솔루션 보러가기</a></span>
+                                                </li>
+                                            </ol>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="step_tag_wrap">
+                        <th:block th:each="hash, state : ${lds}" th:if="${state.first}">
+                            <a href="#" th:class="${state.first ? 's_tag' : ''}" th:each="ha, state : ${#strings.setSplit(hash.hashnames, ',')}" th:text="${ha}"></a>
+                        </th:block>
+                    </div>
+                    <div class="k_comment_wrap">
+                        <div class="total">
+                            <h4>댓글 </h4>
+                            <span>0</span>
+                        </div>
+                        <div class="com_login">
+                            <div class="profile">
+                                <img src="/images/common/profile.png" alt="">
+                            </div>
+                            <div class="loginFirst">
+                                <a href="#">로그인</a>
+                                하시고 댓글을 남겨보세요.
+                            </div>
+                        </div>
+                        <div class="com_box">
+                            <div class="profile">
+                                <img src="/images/common/profile.png" alt="">
+                            </div>
+                            <div class="cmt">
+                                <div class="name">
+                                    <p>yoon's table</p>
+                                    <span class="date">2024-11-08 21:29</span>
+                                </div>
+                                <div class="text">
+                                    건강하고 간편하게 먹기 딱인걸요!
 
-<!--                                    &lt;!&ndash; <form>-->
-<!--                                      <div class="txtArea">-->
-<!--                                        <textarea id="txtBox" name="content" placeholder="내용을 입력하세요.">단백질 가득 너무 맛나겠어요!</textarea>-->
-<!--                                      </div>-->
-<!--                                    </form> &ndash;&gt;-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                        <div class="com_blank">-->
-<!--                            <p>여러분의 댓글을 기다리고 있어요 :)</p>-->
-<!--                        </div>-->
-<!--                    </div>-->
+                                    <!-- <form>
+                                      <div class="txtArea">
+                                        <textarea id="txtBox" name="content" placeholder="내용을 입력하세요.">단백질 가득 너무 맛나겠어요!</textarea>
+                                      </div>
+                                    </form> -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="com_blank">
+                            <p>여러분의 댓글을 기다리고 있어요 :)</p>
+                        </div>
+                    </div>
 
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </section>-->
+                </div>
+            </div>
+        </div>
+    </section>
     <div class="hr_line"></div>
     <!--    <section class="S_tagList">-->
     <!--        <div class="inner">-->
@@ -378,7 +378,7 @@
     <!--            </div>-->
     <!--        </div>-->
     <!--    </section>-->
-    <div th:replace="~{/fragments :: tagList}"></div>
+    <div th:replace="~{/fragments :: tagList(${list})}"></div>
     <section class="back_wrap">
         <div class="inner">
             <div class="btn_box">
