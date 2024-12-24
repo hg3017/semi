@@ -37,9 +37,48 @@
                 </li>
             </ul>
         </nav>
-        <div class="btn_wrap">
-            <a class="login_btn" href="/member/login">로그인</a>
-            <a class="search_btn" href="/search"><img src="/images/common/ic_search.png" alt="검색"></a>
+            <div class="btn_wrap">
+
+                <div id="header-logged-out" style="display: none;">
+                    <a class="login_btn" href="/member/login">로그인</a>
+                    <a class="search_btn" href="/search"><img src="/images/common/ic_search.png" alt="검색"></a>
+                </div>
+
+                <div id="header-logged-in">
+                    <a class="login_btn" href="/member/logout">로그아웃</a>
+                    <a class="search_btn" href="/search"><img src="/images/common/ic_search.png" alt="검색"></a>
+                    <a class="search_btn" href="/mypage/mypageProfile"><img src="/images/common/ic_mypage.png" alt="마이페이지"></a>
+                    <div class="selectWrap">
+                        <button type="button" class="">
+                            글쓰기 <i></i>
+                        </button>
+                        <ul class="option" style="display: none">
+                            <li onclick="javascript:location.href='/cooking/write'">
+                                <img src="/images/common/ic_photo.png" alt="요리해요">
+                                <a href="javascript:void(0)">
+                                    <p>
+                                        요리해요
+                                        <i></i>
+                                    </p>
+                                    <span>나만의 요리를 올려주세요!</span>
+                                </a>
+                            </li>
+                            <li onclick="javascript:location.href='/counseling/write'">
+                                <img src="/images/common/ic_talk.png" alt="고민있어요">
+                                <a href="javascript:void(0)">
+                                    <p>
+                                        고민있어요
+                                        <i></i>
+                                    </p>
+                                    <span>요리에 대한 모든 고민을 남기고 해결해보아요.</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
             <button type="button" class="sitemap_btn">
                 <span class="blind">사이트맵 열기</span>
                 <i></i>

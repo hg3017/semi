@@ -187,6 +187,42 @@ window.addEventListener('DOMContentLoaded', function () {
         // 웹 에디터 생성함수 호출
         quill(id, body);
     }
+
+
+
+// 헤더 글쓰기 버튼 이벤트
+    var h_op_btn = document.querySelector('.btn_wrap .selectWrap button');
+    var h_op_Wrap =  document.querySelector('.btn_wrap .selectWrap');
+
+
+    document.getElementById('header').addEventListener('click', function (e) {
+        if (!h_op_Wrap.classList.contains('on') && !h_op_btn.classList.contains('act')) {
+            h_op_btn.classList.toggle('on');
+        }
+    });
+
+    h_op_btn.addEventListener('click', function () {
+        h_op_btn.classList.remove('act');
+        h_op_btn.classList.toggle('on')
+        h_op_Wrap.classList.toggle('on')
+    });
+
+    h_op_btn.addEventListener('mouseover', function () {
+        h_op_btn.classList.add('act');
+    });
+
+    h_op_btn.addEventListener('mouseout', function () {
+        if (h_op_btn.querySelector('act')) h_op_btn.removeClass('act');
+    });
+
+    document.getElementById('header').addEventListener('click',  function (e) {
+        const button = e.target.parentElement.parentElement;
+        console.log(e.target);
+        const siblingOption = button.querySelector('.option'); // 버튼의 형제 요소 중 .option 선택
+        if (siblingOption && siblingOption.classList.contains('option')) {
+            siblingOption.style.display = siblingOption.style.display === 'none' ? 'block' : 'none';
+        }
+    });
 }); // DOMContentLoaded
 
 // 웹 에디터 생성 함수

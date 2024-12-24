@@ -3,11 +3,14 @@ package com.semie.cook.controller;
 
 import com.semie.cook.model.MemberDTO;
 import com.semie.cook.service.MemberService;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+
 
 import java.util.HashMap;
 import java.util.List;
@@ -48,21 +51,22 @@ public class MemberController {
     }
 
     @PostMapping("/checkLogin")
-    public ResponseEntity<Map<String, Object>> checkLogin(Model model, @RequestBody MemberDTO memberDTO) {
+    public ResponseEntity<Map<String, Object>> checkLogin(Model model, @RequestBody MemberDTO memberDTO, HttpSession session) {
         System.out.println("member/checkLogin---------------------------------------------");
 
         Map<String, Object> response = new HashMap<>();
         System.out.println(memberDTO.getMember_email() + " : Controller Email");
         System.out.println(memberDTO.getPassword() + " : Controller Password");
 
-        MemberDTO isValidUser = memberService.checkLogin(memberDTO.getMember_email(), memberDTO.getPassword());
+        MemberDTO user = memberService.checkLogin(memberDTO.getMember_email(), memberDTO.getPassword());
 
-        System.out.println(isValidUser + " : Controller Return DTO");
+        System.out.println(user + " : Controller Return DTO");
 
 
-        if (isValidUser != null) {
+        if (user != null) {
+            session.setAttribute("user", user); // 세션에 사용자 정보 저장
             response.put("success", true);
-            response.put("user", isValidUser);
+            response.put("user", user);
             return ResponseEntity.ok(response);
         } else {
             response.put("success", false);
