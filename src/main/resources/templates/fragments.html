@@ -90,7 +90,7 @@
         <p>여러분의 댓글을 기다리고 있어요 :)</p>
     </div>
 </div>
-<section class="S_tagList" th:fragment="tagList">
+<section class="S_tagList" th:fragment="tagList(list)">
     <div class="inner">
         <div class="s_titwrap">
             <h4 class="s_tit">이 글이 마음에 드셨다면😍</h4>
@@ -100,173 +100,175 @@
             </div>
             <div class="swiper">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide">
+                    <div class="swiper-slide" th:each="lab : ${list}">
                         <a href="#">
                             <div class="img_wrap">
-                                <img src="/images/mainpage3.jpg" alt="">
+                                <img th:src="${'/images/' + lab.poster}" th:alt="${lab.lab_name}">
                             </div>
                             <div class="s_text_wrap">
-                                <h4>산뜻고소 참치마카로니샐러드</h4>
-                                <p>산뜻한 채소와 쫀득한 참치, 마카로니로 색다르게!</p>
+                                <h4 th:utext="${lab.lab_name_desc}"></h4>
+                                <p th:utext="${lab.desc_detail}"></p>
                             </div>
                             <ul class="s_time_wrap">
                                 <li>
-                                    <span>준비시간</span> 25분
+                                    <span>준비시간</span>
+                                    <span th:with="txt=${lab.preparation != null ? lab.preparation : '0'}" th:text="${txt + '분'}"></span>
                                 </li>
                                 <li>
-                                    <span>조리시간</span> 5분
+                                    <span>조리시간</span>
+                                    <span th:with="txt=${lab.cookingtime != null ? lab.cookingtime : '0'}" th:text="${txt + '분'}"></span>
                                 </li>
                             </ul>
                         </a>
                         <div class="scrap">스크랩</div>
                     </div>
-                    <div class="swiper-slide">
-                        <a href="#">
-                            <div class="img_wrap">
-                                <img src="/images/mainpage4.jpg" alt="">
-                            </div>
-                            <div class="s_text_wrap">
-                                <h4>산뜻고소 참치마카로니샐러드</h4>
-                                <p>산뜻한 채소와 쫀득한 참치, 마카로니로 색다르게!</p>
-                            </div>
-                            <ul class="s_time_wrap">
-                                <li>
-                                    <span>준비시간</span> 25분
-                                </li>
-                                <li>
-                                    <span>조리시간</span> 5분
-                                </li>
-                            </ul>
-                        </a>
-                        <div class="scrap">스크랩</div>
-                        </a>
-                    </div>
-                    <div class="swiper-slide">
-                        <a href="#">
-                            <div class="img_wrap">
-                                <img src="/images/mainpage3.jpg" alt="">
-                            </div>
-                            <div class="s_text_wrap">
-                                <h4>산뜻고소 참치마카로니샐러드</h4>
-                                <p>산뜻한 채소와 쫀득한 참치, 마카로니로 색다르게!</p>
-                            </div>
-                            <ul class="s_time_wrap">
-                                <li>
-                                    <span>준비시간</span> 25분
-                                </li>
-                                <li>
-                                    <span>조리시간</span> 5분
-                                </li>
-                            </ul>
-                        </a>
-                        <div class="scrap">스크랩</div>
-                        </a>
-                    </div>
-                    <div class="swiper-slide">
-                        <a href="#">
-                            <div class="img_wrap">
-                                <img src="/images/mainpage4.jpg" alt="">
-                            </div>
-                            <div class="s_text_wrap">
-                                <h4>산뜻고소 참치마카로니샐러드</h4>
-                                <p>산뜻한 채소와 쫀득한 참치, 마카로니로 색다르게!</p>
-                            </div>
-                            <ul class="s_time_wrap">
-                                <li>
-                                    <span>준비시간</span> 25분
-                                </li>
-                                <li>
-                                    <span>조리시간</span> 5분
-                                </li>
-                            </ul>
-                        </a>
-                        <div class="scrap">스크랩</div>
-                        </a>
-                    </div>
-                    <div class="swiper-slide">
-                        <a href="#">
-                            <div class="img_wrap">
-                                <img src="/images/mainpage3.jpg" alt="">
-                            </div>
-                            <div class="s_text_wrap">
-                                <h4>산뜻고소 참치마카로니샐러드</h4>
-                                <p>산뜻한 채소와 쫀득한 참치, 마카로니로 색다르게!</p>
-                            </div>
-                            <ul class="s_time_wrap">
-                                <li>
-                                    <span>준비시간</span> 25분
-                                </li>
-                                <li>
-                                    <span>조리시간</span> 5분
-                                </li>
-                            </ul>
-                        </a>
-                        <div class="scrap">스크랩</div>
-                        </a>
-                    </div>
-                    <div class="swiper-slide">
-                        <a href="#">
-                            <div class="img_wrap">
-                                <img src="/images/mainpage4.jpg" alt="">
-                            </div>
-                            <div class="s_text_wrap">
-                                <h4>산뜻고소 참치마카로니샐러드</h4>
-                                <p>산뜻한 채소와 쫀득한 참치, 마카로니로 색다르게!</p>
-                            </div>
-                            <ul class="s_time_wrap">
-                                <li>
-                                    <span>준비시간</span> 25분
-                                </li>
-                                <li>
-                                    <span>조리시간</span> 5분
-                                </li>
-                            </ul>
-                        </a>
-                        <div class="scrap">스크랩</div>
-                        </a>
-                    </div>
-                    <div class="swiper-slide">
-                        <a href="#">
-                            <div class="img_wrap">
-                                <img src="/images/mainpage3.jpg" alt="">
-                            </div>
-                            <div class="s_text_wrap">
-                                <h4>산뜻고소 참치마카로니샐러드</h4>
-                                <p>산뜻한 채소와 쫀득한 참치, 마카로니로 색다르게!</p>
-                            </div>
-                            <ul class="s_time_wrap">
-                                <li>
-                                    <span>준비시간</span> 25분
-                                </li>
-                                <li>
-                                    <span>조리시간</span> 5분
-                                </li>
-                            </ul>
-                        </a>
-                        <div class="scrap">스크랩</div>
-                        </a>
-                    </div>
-                    <div class="swiper-slide">
-                        <a href="#">
-                            <div class="img_wrap">
-                                <img src="/images/mainpage4.jpg" alt="">
-                            </div>
-                            <div class="s_text_wrap">
-                                <h4>산뜻고소 참치마카로니샐러드</h4>
-                                <p>산뜻한 채소와 쫀득한 참치, 마카로니로 색다르게!</p>
-                            </div>
-                            <ul class="s_time_wrap">
-                                <li>
-                                    <span>준비시간</span> 25분
-                                </li>
-                                <li>
-                                    <span>조리시간</span> 5분
-                                </li>
-                            </ul>
-                        </a>
-                        <div class="scrap">스크랩</div>
-                        </a>
-                    </div>
+<!--                    <div class="swiper-slide">-->
+<!--                        <a href="#">-->
+<!--                            <div class="img_wrap">-->
+<!--                                <img src="/images/mainpage4.jpg" alt="">-->
+<!--                            </div>-->
+<!--                            <div class="s_text_wrap">-->
+<!--                                <h4>산뜻고소 참치마카로니샐러드</h4>-->
+<!--                                <p>산뜻한 채소와 쫀득한 참치, 마카로니로 색다르게!</p>-->
+<!--                            </div>-->
+<!--                            <ul class="s_time_wrap">-->
+<!--                                <li>-->
+<!--                                    <span>준비시간</span> 25분-->
+<!--                                </li>-->
+<!--                                <li>-->
+<!--                                    <span>조리시간</span> 5분-->
+<!--                                </li>-->
+<!--                            </ul>-->
+<!--                        </a>-->
+<!--                        <div class="scrap">스크랩</div>-->
+<!--                        </a>-->
+<!--                    </div>-->
+<!--                    <div class="swiper-slide">-->
+<!--                        <a href="#">-->
+<!--                            <div class="img_wrap">-->
+<!--                                <img src="/images/mainpage3.jpg" alt="">-->
+<!--                            </div>-->
+<!--                            <div class="s_text_wrap">-->
+<!--                                <h4>산뜻고소 참치마카로니샐러드</h4>-->
+<!--                                <p>산뜻한 채소와 쫀득한 참치, 마카로니로 색다르게!</p>-->
+<!--                            </div>-->
+<!--                            <ul class="s_time_wrap">-->
+<!--                                <li>-->
+<!--                                    <span>준비시간</span> 25분-->
+<!--                                </li>-->
+<!--                                <li>-->
+<!--                                    <span>조리시간</span> 5분-->
+<!--                                </li>-->
+<!--                            </ul>-->
+<!--                        </a>-->
+<!--                        <div class="scrap">스크랩</div>-->
+<!--                        </a>-->
+<!--                    </div>-->
+<!--                    <div class="swiper-slide">-->
+<!--                        <a href="#">-->
+<!--                            <div class="img_wrap">-->
+<!--                                <img src="/images/mainpage4.jpg" alt="">-->
+<!--                            </div>-->
+<!--                            <div class="s_text_wrap">-->
+<!--                                <h4>산뜻고소 참치마카로니샐러드</h4>-->
+<!--                                <p>산뜻한 채소와 쫀득한 참치, 마카로니로 색다르게!</p>-->
+<!--                            </div>-->
+<!--                            <ul class="s_time_wrap">-->
+<!--                                <li>-->
+<!--                                    <span>준비시간</span> 25분-->
+<!--                                </li>-->
+<!--                                <li>-->
+<!--                                    <span>조리시간</span> 5분-->
+<!--                                </li>-->
+<!--                            </ul>-->
+<!--                        </a>-->
+<!--                        <div class="scrap">스크랩</div>-->
+<!--                        </a>-->
+<!--                    </div>-->
+<!--                    <div class="swiper-slide">-->
+<!--                        <a href="#">-->
+<!--                            <div class="img_wrap">-->
+<!--                                <img src="/images/mainpage3.jpg" alt="">-->
+<!--                            </div>-->
+<!--                            <div class="s_text_wrap">-->
+<!--                                <h4>산뜻고소 참치마카로니샐러드</h4>-->
+<!--                                <p>산뜻한 채소와 쫀득한 참치, 마카로니로 색다르게!</p>-->
+<!--                            </div>-->
+<!--                            <ul class="s_time_wrap">-->
+<!--                                <li>-->
+<!--                                    <span>준비시간</span> 25분-->
+<!--                                </li>-->
+<!--                                <li>-->
+<!--                                    <span>조리시간</span> 5분-->
+<!--                                </li>-->
+<!--                            </ul>-->
+<!--                        </a>-->
+<!--                        <div class="scrap">스크랩</div>-->
+<!--                        </a>-->
+<!--                    </div>-->
+<!--                    <div class="swiper-slide">-->
+<!--                        <a href="#">-->
+<!--                            <div class="img_wrap">-->
+<!--                                <img src="/images/mainpage4.jpg" alt="">-->
+<!--                            </div>-->
+<!--                            <div class="s_text_wrap">-->
+<!--                                <h4>산뜻고소 참치마카로니샐러드</h4>-->
+<!--                                <p>산뜻한 채소와 쫀득한 참치, 마카로니로 색다르게!</p>-->
+<!--                            </div>-->
+<!--                            <ul class="s_time_wrap">-->
+<!--                                <li>-->
+<!--                                    <span>준비시간</span> 25분-->
+<!--                                </li>-->
+<!--                                <li>-->
+<!--                                    <span>조리시간</span> 5분-->
+<!--                                </li>-->
+<!--                            </ul>-->
+<!--                        </a>-->
+<!--                        <div class="scrap">스크랩</div>-->
+<!--                        </a>-->
+<!--                    </div>-->
+<!--                    <div class="swiper-slide">-->
+<!--                        <a href="#">-->
+<!--                            <div class="img_wrap">-->
+<!--                                <img src="/images/mainpage3.jpg" alt="">-->
+<!--                            </div>-->
+<!--                            <div class="s_text_wrap">-->
+<!--                                <h4>산뜻고소 참치마카로니샐러드</h4>-->
+<!--                                <p>산뜻한 채소와 쫀득한 참치, 마카로니로 색다르게!</p>-->
+<!--                            </div>-->
+<!--                            <ul class="s_time_wrap">-->
+<!--                                <li>-->
+<!--                                    <span>준비시간</span> 25분-->
+<!--                                </li>-->
+<!--                                <li>-->
+<!--                                    <span>조리시간</span> 5분-->
+<!--                                </li>-->
+<!--                            </ul>-->
+<!--                        </a>-->
+<!--                        <div class="scrap">스크랩</div>-->
+<!--                        </a>-->
+<!--                    </div>-->
+<!--                    <div class="swiper-slide">-->
+<!--                        <a href="#">-->
+<!--                            <div class="img_wrap">-->
+<!--                                <img src="/images/mainpage4.jpg" alt="">-->
+<!--                            </div>-->
+<!--                            <div class="s_text_wrap">-->
+<!--                                <h4>산뜻고소 참치마카로니샐러드</h4>-->
+<!--                                <p>산뜻한 채소와 쫀득한 참치, 마카로니로 색다르게!</p>-->
+<!--                            </div>-->
+<!--                            <ul class="s_time_wrap">-->
+<!--                                <li>-->
+<!--                                    <span>준비시간</span> 25분-->
+<!--                                </li>-->
+<!--                                <li>-->
+<!--                                    <span>조리시간</span> 5분-->
+<!--                                </li>-->
+<!--                            </ul>-->
+<!--                        </a>-->
+<!--                        <div class="scrap">스크랩</div>-->
+<!--                        </a>-->
+<!--                    </div>-->
                 </div>
             </div>
         </div>

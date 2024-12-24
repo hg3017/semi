@@ -24,7 +24,7 @@
         , s.BOARD_ID
         , s.SOLUTION_NAME
         , s.SOLUTION_DESC
-        , s.DESC_DETAIL
+        , DBMS_LOB.SUBSTR(s.DESC_DETAIL, 4000) AS DESC_DETAIL
         , s.CREATE_DATE
         , s.MODIFY_DATE
         , (
@@ -34,13 +34,13 @@
         IMG_LIST il
         WHERE
         1 = 1
-        AND il.POST_NUMBER = s.SOLUTION_ID
+        AND il.POST_ID = s.SOLUTION_ID
         AND il.BOARD_ID = s.BOARD_ID
         AND ROWNUM = 1
         AND IMG_PRIORITY = 1) AS POSTER
         FROM SOLUTION s
         INNER JOIN IMG_LIST i
-        ON s.SOLUTION_ID = i.POST_NUMBER
+        ON s.SOLUTION_ID = i.POST_ID
         AND s.BOARD_ID = i.BOARD_ID
         <include refid="page2" />
     </select>
@@ -54,7 +54,7 @@
             s.*,
             (SELECT file_path
              FROM img_list i
-             WHERE i.post_number = s.solution_id
+             WHERE i.post_id = s.solution_id
                and rownum=1
                AND img_priority = 1) AS poster,
             LISTAGG(
@@ -62,10 +62,10 @@
                         WHEN 1=1
                             THEN i.file_path
                         END, ',') WITHIN GROUP (ORDER BY i.img_priority)
-                    OVER (PARTITION BY i.post_number) AS files
+                    OVER (PARTITION BY i.post_id) AS files
         FROM solution s
                  inner JOIN img_list i
-                            ON s.solution_id = i.post_number
+                            ON s.solution_id = i.post_id
                                 AND s.board_id = i.board_id
         where s.solution_id = #{solution_id}
         order by s.solution_id DESC

@@ -47,8 +47,7 @@ function emailLogin() {
         })
         .finally(()=> {
             hideLoading();
-        })
-    ;
+        });
 }
 
 // 틀렸을 경우 빨간색 강조표시.
