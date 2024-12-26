@@ -38,7 +38,7 @@
                 AND IMG_PRIORITY = 1
               ) AS POSTER
         FROM LAB l
-        INNER JOIN IMG_LIST i
+        left outer join IMG_LIST i
         ON l.LAB_ID = i.POST_ID
         AND l.BOARD_ID = i.BOARD_ID
         <if test="searchMap.labId != null">
@@ -53,7 +53,7 @@
     <select id="selectById" resultType="RecipeLabDTO">
         SELECT a.*
         FROM (
-                 SELECT distinct
+                 SELECT
                      l.*,
                      DECODE(i.img_priority, 1, i.file_path) AS poster,
                      LISTAGG(distinct
