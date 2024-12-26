@@ -48,18 +48,16 @@ insert into event (EVENT_ID, BOARD_ID, MAIN_POSTER, POSTER, EVENT_NAME, DESC_DET
 
 
 -- lab
-insert into LAB (LAB_ID, BOARD_ID, LAB_NAME, LAB_NAME_DESC, DESC_DETAIL, CREATE_DATE, MODIFY_DATE) values(LAB_ID_SEQ.NEXTVAL,20,'새콤 무생채','남은 무가 있다면 새콤하게 무쳐봐요!','마라맛 토마토소스에 달걀 퐁당!<br>색다른 맛으로 즐기는 에그인헬','2024.12.03','2024.12.16');
-insert into LAB (LAB_ID, BOARD_ID, LAB_NAME, LAB_NAME_DESC, DESC_DETAIL, CREATE_DATE, MODIFY_DATE) values(LAB_ID_SEQ.NEXTVAL,20,'새콤 무생채','남은 무가 있다면 새콤하게 무쳐봐요!','마라맛 토마토소스에 달걀 퐁당!<br>색다른 맛으로 즐기는 에그인헬','2024.12.03','2024.12.16');
-insert into LAB (LAB_ID, BOARD_ID, LAB_NAME, LAB_NAME_DESC, DESC_DETAIL, CREATE_DATE, MODIFY_DATE) values(LAB_ID_SEQ.NEXTVAL,20,'새콤 무생채','남은 무가 있다면 새콤하게 무쳐봐요!','마라맛 토마토소스에 달걀 퐁당!<br>색다른 맛으로 즐기는 에그인헬','2024.12.03','2024.12.16');
-insert into LAB (LAB_ID, BOARD_ID, LAB_NAME, LAB_NAME_DESC, DESC_DETAIL, CREATE_DATE, MODIFY_DATE) values(LAB_ID_SEQ.NEXTVAL,20,'새콤 무생채','남은 무가 있다면 새콤하게 무쳐봐요!','마라맛 토마토소스에 달걀 퐁당!<br>색다른 맛으로 즐기는 에그인헬','2024.12.03','2024.12.16');
-insert into LAB (LAB_ID, BOARD_ID, LAB_NAME, LAB_NAME_DESC, DESC_DETAIL, CREATE_DATE, MODIFY_DATE) values(LAB_ID_SEQ.NEXTVAL,20,'새콤 무생채','남은 무가 있다면 새콤하게 무쳐봐요!','마라맛 토마토소스에 달걀 퐁당!<br>색다른 맛으로 즐기는 에그인헬','2024.12.03','2024.12.16');
-insert into LAB (LAB_ID, BOARD_ID, LAB_NAME, LAB_NAME_DESC, DESC_DETAIL, CREATE_DATE, MODIFY_DATE) values(LAB_ID_SEQ.NEXTVAL,20,'새콤 무생채','남은 무가 있다면 새콤하게 무쳐봐요!','마라맛 토마토소스에 달걀 퐁당!<br>색다른 맛으로 즐기는 에그인헬','2024.12.03','2024.12.16');
-
+insert into LAB (LAB_ID, BOARD_ID, LAB_NAME, LAB_NAME_DESC, DESC_DETAIL, CREATE_DATE, MODIFY_DATE) values(LAB_ID_SEQ.NEXTVAL,20,'초간단 소고기 토마토스튜','전기밥솥에 재료 넣으면 끝! 초간단 스튜요리','몸도 마음도 따뜻하게 녹일 한 그릇<br>간단한데 이렇게 깊은 맛이?','2024.12.03','2024.12.16');
+insert into LAB (LAB_ID, BOARD_ID, LAB_NAME, LAB_NAME_DESC, DESC_DETAIL, CREATE_DATE, MODIFY_DATE) values(LAB_ID_SEQ.NEXTVAL,20,'마라맛 에그인리얼헬','진짜 지옥을 보여줄게!','마라맛 토마토소스에 달걀 퐁당!<br>색다른 맛으로 즐기는 에그인헬','2024.12.03','2024.12.16');
+insert into LAB (LAB_ID, BOARD_ID, LAB_NAME, LAB_NAME_DESC, DESC_DETAIL, CREATE_DATE, MODIFY_DATE) values(LAB_ID_SEQ.NEXTVAL,20,'새콤 무생채','남은 무가 있다면 새콤하게 무쳐봐요!','무는 어떤 부위를 써야할지,<br>물이 덜 나오는 팁은 있는지,<br>양념은 어떻게 해야할지...<br>무생채 할 때 어려웠던 점, 여기서 다 해결!','2024.12.03','2024.12.16');
+insert into LAB (LAB_ID, BOARD_ID, LAB_NAME, LAB_NAME_DESC, DESC_DETAIL, CREATE_DATE, MODIFY_DATE) values(LAB_ID_SEQ.NEXTVAL,20,'감칠맛 가득 양배추참치덮밥','간단한 재료로 쉽게, 하지만 든든하게!','한 그릇 요리지만<br>맛과 건강 다 사로잡은 덮밥 레시피','2024.12.03','2024.12.16');
 
 -- solution
-insert into SOLUTION (SOLUTION_ID, BOARD_ID, SOLUTION_NAME, SOLUTION_DESC, SOLUTION_DETAIL, DESC_DETAIL, CREATE_DATE, MODIFY_DATE) values(SOLUTION_ID_SEQ.NEXTVAL,30,'새콤 무생채','남은 무가 있다면 새콤하게 무쳐봐요!','마라맛 토마토소스에 달걀 퐁당!<br>색다른 맛으로 즐기는 에그인헬', '맛으로 즐기는 에그인헬','2024.12.03','2024.12.16');
-insert into SOLUTION (SOLUTION_ID, BOARD_ID, SOLUTION_NAME, SOLUTION_DESC, SOLUTION_DETAIL, DESC_DETAIL, CREATE_DATE, MODIFY_DATE) values(SOLUTION_ID_SEQ.NEXTVAL,30,'새콤 무생채','남은 무가 있다면 새콤하게 무쳐봐요!','마라맛 토마토소스에 달걀 퐁당!<br>색다른 맛으로 즐기는 에그인헬', '맛으로 즐기는 에그인헬','2024.12.03','2024.12.16');
-insert into SOLUTION (SOLUTION_ID, BOARD_ID, SOLUTION_NAME, SOLUTION_DESC, SOLUTION_DETAIL, DESC_DETAIL, CREATE_DATE, MODIFY_DATE) values(SOLUTION_ID_SEQ.NEXTVAL,30,'새콤 무생채','남은 무가 있다면 새콤하게 무쳐봐요!','마라맛 토마토소스에 달걀 퐁당!<br>색다른 맛으로 즐기는 에그인헬', '맛으로 즐기는 에그인헬','2024.12.03','2024.12.16');
+insert into SOLUTION (SOLUTION_ID, BOARD_ID, SOLUTION_NAME, SOLUTION_DESC, SOLUTION_DETAIL, DESC_DETAIL, CREATE_DATE, MODIFY_DATE) values(SOLUTION_ID_SEQ.NEXTVAL,30,'무 손질 & 보관법','팔뚝만한 무, 어떻게 손질하고 보관할까?','올바르게 손질하고, 보관하는 법 함께 알아볼까요?', '','2024.12.03','2024.12.16');
+insert into SOLUTION (SOLUTION_ID, BOARD_ID, SOLUTION_NAME, SOLUTION_DESC, SOLUTION_DETAIL, DESC_DETAIL, CREATE_DATE, MODIFY_DATE) values(SOLUTION_ID_SEQ.NEXTVAL,30,'가장 맛있는 무 고르기','한국 사람들이 많이 먹는 대표 채소, 무','김치, 국물요리, 반찬 등 여러가지 요리로 활용되는<br>''무''에 대해 알아볼까요?', '','2024.12.03','2024.12.16');
+insert into SOLUTION (SOLUTION_ID, BOARD_ID, SOLUTION_NAME, SOLUTION_DESC, SOLUTION_DETAIL, DESC_DETAIL, CREATE_DATE, MODIFY_DATE) values(SOLUTION_ID_SEQ.NEXTVAL,30,'6가지 무썰기','요리에 따라 달라지는 무 써는 법','큼직하게 썰어 익혀도 맛있고<br>얇게 채썰어도 맛있는 재료,무.<br>단단한 질감에 어떻게 썰어야할지 막막하다면?', '','2024.12.03','2024.12.16');
+insert into SOLUTION (SOLUTION_ID, BOARD_ID, SOLUTION_NAME, SOLUTION_DESC, SOLUTION_DETAIL, DESC_DETAIL, CREATE_DATE, MODIFY_DATE) values(SOLUTION_ID_SEQ.NEXTVAL,30,'식비를 줄이는 효과적인 절약팁','잘 사고 잘 먹는 식비 줄이는 법, 궁금하다면?','날이 갈 수록 얇아지는 내 텅장,<br>식재료 구입부터 보관, 요리 단계에서까지<br>식비를 줄일 수 있는 생활팁을 공유해요!', '','2024.12.03','2024.12.16');
 
 
 -- LAB_DETAIL_INGREDIENT

@@ -12,5 +12,6 @@ public interface GuideMapper {
     List<GuideDTO> selectAll(Pagination pg);
     int totalGuide(Pagination pg);
     List<Map<String, String>> selectGuide(int guide_id);
+    List<Map<String, String>> selectGuide1(int guide_id);
     GuideDTO selectById(int guide_id);
 }
