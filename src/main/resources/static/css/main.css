@@ -1429,7 +1429,7 @@ display: block;
     background: #fff;
 }
 
-#footer .sitemap .sitelist {
+#footer .sitemap .siteList {
     height: 208px;
     width: 100%;
     padding: 30px 20px 78px 29px;
@@ -1444,25 +1444,35 @@ display: block;
     display: none;
 }
 
-#footer .sitemap.on > .sitelist {
+#footer .sitemap.on > .siteList {
     display: block;
 }
 
-#footer .sitemap .sitelist ul {
+#footer .sitemap .siteList ul {
     overflow-y: auto;
     width: 100%;
     height: 100%;
 }
 
-#footer .sitemap .sitelist ul li + li {
+#footer .sitemap .siteList ul::-webkit-scrollbar {
+  width: 2px;
+  background: #e5e5e5;
+}
+#footer .sitemap .siteList ul::-webkit-scrollbar-thumb {
+  background-color: #15a775;
+  border: none;
+  border-radius: 0;
+}
+
+#footer .sitemap .siteList ul li + li {
     margin-top: 20px;
 }
 
-#footer .sitemap .sitelist ul li a {
+#footer .sitemap .siteList ul li a {
     font-weight: 500;
 }
 
-#footer .sitemap .sitelist ul li a:hover {
+#footer .sitemap .siteList ul li a:hover {
     color: var(--point-color1);
 }
 
@@ -1473,7 +1483,7 @@ display: block;
 
 #footer .top_wrap .top_btn {
     position: absolute;
-    top: 80px;
+    top: 30px;
     right: 0;
     height: 48px;
     width: 48px;

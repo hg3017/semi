@@ -36,7 +36,7 @@ public class GuideController {
         System.out.println("guide/guide_archive---------------------------------------------" + guideId);
         model.addAttribute("guide", guideService.findById(guideId));
         model.addAttribute("list", guideService.selectGuide(guideId));
-//        model.addAttribute("sol", guideService.selectGuide1(guideId));
+        model.addAttribute("sol", guideService.selectGuide1(guideId));
         return "/guide/guide_archive";
     }
 }
