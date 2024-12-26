@@ -4,7 +4,6 @@ import com.semie.cook.common.Pagination;
 import com.semie.cook.mapper.EventMapper;
 import com.semie.cook.model.EventDTO;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -23,11 +22,11 @@ public class EventService {
         return eventMapper.selectById(event_id);
     }
 
-    public void insertEvent(EventDTO eventDto) {
-        eventMapper.insertEvent(eventDto);
+    public int insertEvent(EventDTO eventDto) {
+        return eventMapper.insertEvent(eventDto);
     }
 
-    public void updateEvent(EventDTO eventDto) {
-        eventMapper.updateEvent(eventDto);
+    public int updateEvent(EventDTO eventDto) {
+        return eventMapper.updateEvent(eventDto);
     }
 }

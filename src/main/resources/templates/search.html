@@ -144,86 +144,90 @@
     <div class="inner">
       <div class="tag_wrap">
         <ul class="rep_area">
-          <li class="rep_item">
+          <li class="rep_item" th:each="lab : ${list}">
             <a href="/recipeLab/archive_rep">
               <div class="img_wrap">
-                <img src="/images/cook3.jpg" alt="">
+                <img th:src="${'/images/' + lab.poster}" th:alt="${lab.lab_name}">
+<!--                <img src="/images/cook3.jpg" alt="">-->
               </div>
               <div class="txt_wrap">
-                <h4>새콤 무생채</h4>
-                <p>남은 무가 있다면 새콤하게 무쳐봐요!</p>
+                <h4 th:utext="${lab.lab_name_desc}"></h4>
+<!--                <h4>새콤 무생채</h4>-->
+                <p th:utext="${lab.desc_detail}"></p>
+<!--                <p>남은 무가 있다면 새콤하게 무쳐봐요!</p>-->
               </div>
             </a>
             <ul class="time_wrap">
               <li>
-                <span>준비시간</span> 25분
+                <span>준비시간</span>
+                <span th:with="txt=${lab.preparation != null ? lab.preparation : '0'}" th:text="${txt + '분'}"></span>
               </li>
               <li>
-                <span>조리시간</span> 5분
+                <span th:with="txt=${lab.cookingtime != null ? lab.cookingtime : '0'}" th:text="${txt + '분'}"></span>
               </li>
             </ul>
-            <a href="#" class="scrap">스크랩</a>
+            <div class="scrap">스크랩</div>
           </li>
-          <li class="rep_item">
-            <a href="/recipeLab/archive_rep">
-              <div class="img_wrap">
-                <img src="/images/cook3.jpg" alt="">
-              </div>
-              <div class="txt_wrap">
-                <h4>새콤 무생채</h4>
-                <p>남은 무가 있다면 새콤하게 무쳐봐요!</p>
-              </div>
-            </a>
-            <ul class="time_wrap">
-              <li>
-                <span>준비시간</span> 25분
-              </li>
-              <li>
-                <span>조리시간</span> 5분
-              </li>
-            </ul>
-            <a href="#" class="scrap">스크랩</a>
-          </li>
-          <li class="rep_item">
-            <a href="/recipeLab/archive_rep">
-              <div class="img_wrap">
-                <img src="/images/cook3.jpg" alt="">
-              </div>
-              <div class="txt_wrap">
-                <h4>새콤 무생채</h4>
-                <p>남은 무가 있다면 새콤하게 무쳐봐요!</p>
-              </div>
-            </a>
-            <ul class="time_wrap">
-              <li>
-                <span>준비시간</span> 25분
-              </li>
-              <li>
-                <span>조리시간</span> 5분
-              </li>
-            </ul>
-            <a href="#" class="scrap">스크랩</a>
-          </li>
-          <li class="rep_item">
-            <a href="/recipeLab/archive_rep">
-              <div class="img_wrap">
-                <img src="/images/cook3.jpg" alt="">
-              </div>
-              <div class="txt_wrap">
-                <h4>새콤 무생채</h4>
-                <p>남은 무가 있다면 새콤하게 무쳐봐요!</p>
-              </div>
-            </a>
-            <ul class="time_wrap">
-              <li>
-                <span>준비시간</span> 25분
-              </li>
-              <li>
-                <span>조리시간</span> 5분
-              </li>
-            </ul>
-            <a href="#" class="scrap">스크랩</a>
-          </li>
+<!--          <li class="rep_item">-->
+<!--            <a href="/recipeLab/archive_rep">-->
+<!--              <div class="img_wrap">-->
+<!--                <img src="/images/cook3.jpg" alt="">-->
+<!--              </div>-->
+<!--              <div class="txt_wrap">-->
+<!--                <h4>새콤 무생채</h4>-->
+<!--                <p>남은 무가 있다면 새콤하게 무쳐봐요!</p>-->
+<!--              </div>-->
+<!--            </a>-->
+<!--            <ul class="time_wrap">-->
+<!--              <li>-->
+<!--                <span>준비시간</span> 25분-->
+<!--              </li>-->
+<!--              <li>-->
+<!--                <span>조리시간</span> 5분-->
+<!--              </li>-->
+<!--            </ul>-->
+<!--            <a href="#" class="scrap">스크랩</a>-->
+<!--          </li>-->
+<!--          <li class="rep_item">-->
+<!--            <a href="/recipeLab/archive_rep">-->
+<!--              <div class="img_wrap">-->
+<!--                <img src="/images/cook3.jpg" alt="">-->
+<!--              </div>-->
+<!--              <div class="txt_wrap">-->
+<!--                <h4>새콤 무생채</h4>-->
+<!--                <p>남은 무가 있다면 새콤하게 무쳐봐요!</p>-->
+<!--              </div>-->
+<!--            </a>-->
+<!--            <ul class="time_wrap">-->
+<!--              <li>-->
+<!--                <span>준비시간</span> 25분-->
+<!--              </li>-->
+<!--              <li>-->
+<!--                <span>조리시간</span> 5분-->
+<!--              </li>-->
+<!--            </ul>-->
+<!--            <a href="#" class="scrap">스크랩</a>-->
+<!--          </li>-->
+<!--          <li class="rep_item">-->
+<!--            <a href="/recipeLab/archive_rep">-->
+<!--              <div class="img_wrap">-->
+<!--                <img src="/images/cook3.jpg" alt="">-->
+<!--              </div>-->
+<!--              <div class="txt_wrap">-->
+<!--                <h4>새콤 무생채</h4>-->
+<!--                <p>남은 무가 있다면 새콤하게 무쳐봐요!</p>-->
+<!--              </div>-->
+<!--            </a>-->
+<!--            <ul class="time_wrap">-->
+<!--              <li>-->
+<!--                <span>준비시간</span> 25분-->
+<!--              </li>-->
+<!--              <li>-->
+<!--                <span>조리시간</span> 5분-->
+<!--              </li>-->
+<!--            </ul>-->
+<!--            <a href="#" class="scrap">스크랩</a>-->
+<!--          </li>-->
         </ul>
       </div>
     </div>
