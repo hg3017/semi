@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="/css/recipeLab/archive_write.css">
 </head>
 <body>
-<main id="cooking_container" class="container">
+<main id="cooking_write_container" class="container">
     <div th:replace="~{/fragments :: scroll}"></div>
     </div>
     <section class="cook_write_wrap">
@@ -22,6 +22,7 @@
                     나만의 요리법, 재밌는 플레이팅, <br>요리 꿀팁 등 다양한 이야기를<br>
                     새미네부엌에서 함께 나눠 주세요!
                 </p>
+<!--                <img src="/images/il_samie_pink.png">-->
             </div>
         </div>
     </section>
@@ -30,14 +31,14 @@
             <div class="write_txt_wrap">
 
             </div>
-            <div class="from">
+            <div class="form">
                 <p class="label">제목</p>
-                <input type="text" name="title" class="from_box" placeholder="제목을 입력해 주세요">
+                <input type="text" class="form_box" placeholder="제목을 입력해 주세요">
                 <div class="warning">제목을 입력해주세요.</div>
             </div>
             <div class="form">
                 <p class="label">작성방법</p>
-                <div id="btn_box" class="detail_btn_box">
+                <div class="detail_btn_box">
                     <button type="button" class="btn_check_lg on">
                         <i></i> 간단하게
                     </button>
@@ -47,297 +48,167 @@
                 </div>
             </div>
             <div class="form">
+                <p class="label">내용</p>
+                <textarea class="form_box" placeholder="내용을 입력해 주세요"></textarea>
+                <div class="warning">내용을 입력해주세요.</div>
+            </div>
+            <div class="form">
                 <p class="label">완성 이미지 (필수항목)</p>
                 <div class="file">
-                    <input type="text" class="form-control" placeholder="10MB 미만의 이미지를 업로드 해주세요" disabled="">
+                    <input type="text" class="form_box" placeholder="10MB 미만의 이미지를 업로드 해주세요" disabled="">
                     <input type="hidden" name="imagesArr">
                     <input type="file" id="formFile" name="images" required="" aria-required="true" accept="image/jpg,image/jpeg,image/gif,image/png" data-max-limit="10485760" aria-describedby="file-desc" data-url="/cooking/write/upload" class="a11y" style="display: none;">
-                    <label for="formFile">파일첨부</label>
+                    <label>파일첨부</label>
                 </div>
                 <ul class="file-list" id="done_img_list" style="display: none;">
                 </ul>
             </div>
+            <div class="detail-form">
+                <div class="form">
+                    <p class="label">인분 수/준비시간/조리시간</p>
+                    <div class="form-list">
+                        <div class="form-custom">
+                            <input type="number" class="form_box" name="inbun" placeholder="인분 수">
+                            <span class="unit">인분</span>
+                        </div>
+                        <div class="form-custom">
+                            <input type="number" class="form_box" name="readytime" placeholder="준비시간" >
+                            <span class="unit">분</span>
+                        </div>
+                        <div class="form-custom">
+                            <input type="number" class="form_box" name="cooktime" placeholder="조리시간">
+                            <span class="unit">분</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form">
+                    <p class="label">재료</p>
+                    <div class="form-box">
+                        <div class="form">
+                            <p class="label">주재료</p>
+                            <div class="form-list">
+                                <div class="input_wrap">
+                                    <input type="text" class="form_box" name="main_mat" placeholder="예) 생닭 1마리(600g)" required="">
+                                </div>
+                                <div class="btn-wrap">
+                                    <button type="button" class="add">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-box">
+                        <div class="form">
+                            <p class="label">부재료</p>
+                            <div class="form-list">
+                                <div class="input_wrap">
+                                    <input type="text" class="form_box" name="sub_mat" placeholder="예) 감자 1개(100g)">
+                                </div>
+                                <div class="btn-wrap">
+                                    <button type="button" class="add">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-box">
+                        <div class="form">
+                            <p class="label">양념</p>
+                            <div class="form-list">
+                                <div class="input_wrap">
+                                    <input type="text" class="form_box" name="sauce" placeholder="예) 새미네부엌 진간장(10ml)">
+                                </div>
+                                <div class="btn-wrap">
+                                    <button type="button" class="add">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form">
+                    <p class="qa">
+                        단계별 레시피
+                        <img src="/images/common/ic_qa.png" class="on">
+                        <span class="tooltip">
+                        자세하게 작성 시 단계는 최소 1개 이상 작성해야 하며,<br>
+                        이미지는 선택 항목입니다.
+                        <button type="button" class="close_btn">×</button>
+                        </span>
+                    </p>
+                    <input type="hidden" name="stepCnt" value="0">
+                    <div class="form-step">
+                        <p class="label text-point">
+                            Step.1
+                        </p>
+                        <div class="form-box line">
+                            <div class="form">
+                                <p class="label">이미지</p>
+                                <div class="file">
+                                    <input type="text" class="form_box" placeholder="10MB 미만의 이미지를 업로드 해주세요" disabled="">
+                                    <input type="hidden" name="stepImage1Arr">
+                                    <input type="file" id="formFile1" name="stepImage1" required="" aria-required="true" accept="image/jpg,image/jpeg,image/gif,image/png" data-max-limit="10485760" aria-describedby="file-desc" data-url="/cooking/write/upload/step1" class="a11y" style="display: none;">
+                                    <label for="formFile1">파일첨부</label>
+                                </div>
+                                <ul class="file-list" style="display: none;">
+                                </ul>
+                            </div>
+                            <div class="form">
+                                <p class="label">제목</p>
+                                <input type="text" maxlength="250" class="form_box" name="stepTitle1" placeholder="제목을 입력해주세요" required="">
+                            </div>
+                            <div class="form">
+                                <p class="label">내용</p>
+                                <input type="text" maxlength="250" class="form_box" name="stepSubject1" placeholder="내용을 입력해주세요" required="">
+                            </div>
+                            <div class="form" id="stepTipList1">
+                                <p class="label">요리팁</p>
+                                <div class="form-list">
+                                    <div class="input_wrap">
+                                    <input type="text" class="form_box" name="stepTips1" placeholder="예) 입맞에 따라 청양고추를 추가하세요">
+                                        </div>
+                                    <div class="btn-wrap">
+                                        <button type="button" class="add">+</button>
+                                        <button type="button" class="del">-</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="btn_step_wrap">
+                    <div class="btn_step" id="removeStep">단계삭제 ―</div>
+                    <div class="btn_step" id="addStep">단계추가 +</div>
+                </div>
+            </div>
+            <div class="form">
+                <p class="qa">
+                    핵심 키워드 (필수입력)
+                    <img src="/images/common/ic_qa.png" class="on">
+                    <span class="tooltip">
+                        핵심 키워드와 유사한 해시태그를 가진 <br>
+                        레시피/솔루션 콘텐츠를 추천해 드려요!
+                        <button type="button" class="close_btn">×</button>
+                    </span>
+                </p>
+                <span class="la">* 한글, 영문, 숫자만 입력 가능해요</span>
+                <input type="text" class="form_box" name="point_keyword" placeholder="핵심키워드를 입력해주세요">
+                <div class="warning">핵심키워드를 입력해주세요.</div>
+            </div>
+            <div class="form">
+                <p class="label">
+                    태그 (선택입력)
+                </p>
+                <span>* 한글, 영문, 숫자만 입력 가능해요</span>
+<!--                <tags class="tagify form_box tags tagify&#45;&#45;noTags tagify&#45;&#45;empty" tabindex="-1">-->
+<!--                    <span contenteditable="" tabindex="0" data-placeholder="태그를 입력하고 쉼표(,) 또는 enter 키를 입력 해주세요" aria-placeholder="태그를 입력하고 쉼표(,) 또는 enter 키를 입력 해주세요" class="tagify__input" role="textbox" aria-autocomplete="both" aria-multiline="false"></span>-->
+<!--                    ​-->
+<!--                </tags>-->
+                <input type="text" class="form_box tags" name="tags" placeholder="태그를 입력하고 쉼표(,) 또는 enter 키를 입력 해주세요" tabindex="-1">
+            </div>
+            <div id="box_wrap" class="btn_box">
+                <a href="#" class="clear_btn">취소</a>
+                <button type="button" class="write_btn">작성하기</button>
+            </div>
         </div>
     </section>
-<!--            <div class="cook_img_wrap">-->
-<!--                <img src="/images/arch_cook1.jpg" alt="">-->
-<!--                <img src="/images/arch_cook2.jpg" alt="">-->
-<!--            </div>-->
-<!--            <div class="cook_tag_wrap">-->
-<!--                <a href="#" class="c_tag">-->
-<!--                    연말홈파티-->
-<!--                </a>-->
-<!--                <a href="#">-->
-<!--                    낭만파티요리-->
-<!--                </a>-->
-<!--                <a href="#">-->
-<!--                    연말홈파티-->
-<!--                </a>-->
-<!--                <a href="#">-->
-<!--                    로스트치킨-->
-<!--                </a>-->
-<!--                <a href="#">-->
-<!--                    연어파피요트-->
-<!--                </a>-->
-<!--                <a href="#">-->
-<!--                    리스샐러드-->
-<!--                </a>-->
-<!--                <a href="#">-->
-<!--                    어니언스프-->
-<!--                </a>-->
-<!--            </div>-->
-<!--            <div class="c_comment_wrap">-->
-<!--                <div class="total">-->
-<!--                    <h4>댓글 </h4>-->
-<!--                    <span>1</span>-->
-<!--                </div>-->
-<!--                <div class="com_login">-->
-<!--                    <div class="profile">-->
-<!--                        <img src="/images/common/profile.png" alt="">-->
-<!--                    </div>-->
-<!--                    <div class="loginFirst">-->
-<!--                        <a href="#">로그인</a>-->
-<!--                        하시고 댓글을 남겨보세요.-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="com_box">-->
-<!--                    <div class="profile">-->
-<!--                        <img src="/images/common/profile.png" alt="">-->
-<!--                    </div>-->
-<!--                    <div class="cmt">-->
-<!--                        <div class="name">-->
-<!--                            <p>yoon's table</p>-->
-<!--                            <span class="date">2024-11-08 21:29</span>-->
-<!--                        </div>-->
-<!--                        <div class="text">-->
-<!--                            우와...............플레이팅 실력 넘 부럽습니닷<br>-->
-<!--                            너무너무 예쁘고 먹음직스러워요!! 치즈 플래터까지 짱이에요😍<br>-->
-<!--                            리스 샐러드도 완전 아이디어네요!!!-->
-
-<!--                            &lt;!&ndash; <form>-->
-<!--                              <div class="txtArea">-->
-<!--                                <textarea id="txtBox" name="content" placeholder="내용을 입력하세요.">단백질 가득 너무 맛나겠어요!</textarea>-->
-<!--                              </div>-->
-<!--                            </form> &ndash;&gt;-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="com_blank">-->
-<!--                    <p>여러분의 댓글을 기다리고 있어요 :)</p>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </section>-->
-<!--    <section class="cook_profile_wrap">-->
-<!--        <div class="inner">-->
-<!--            <div class="text">-->
-<!--                <p><strong class="point">yoon's table</strong> 님</p>-->
-<!--                <span>-->
-<!--                    소개글이 없습니다.-->
-<!--                </span>-->
-<!--            </div>-->
-<!--            <div class="profile">-->
-<!--                <img src="/images/common/profile.png" alt="">-->
-<!--            </div>-->
-
-<!--        </div>-->
-<!--    </section>-->
-<!--    <section class="C_tagList">-->
-<!--        <div class="inner">-->
-<!--            &lt;!&ndash;            <div class="c_tit_wrap">&ndash;&gt;-->
-<!--            &lt;!&ndash;                <h3 class="c_tit">&ndash;&gt;-->
-<!--            &lt;!&ndash;                    <span class="point">&ndash;&gt;-->
-<!--            &lt;!&ndash;                        yoon's table님&ndash;&gt;-->
-<!--            &lt;!&ndash;                    </span>&ndash;&gt;-->
-<!--            &lt;!&ndash;                    의 다른 글도 살펴보세요&ndash;&gt;-->
-<!--            &lt;!&ndash;                </h3>&ndash;&gt;-->
-<!--            &lt;!&ndash;                <div class="k_arrowbtn">&ndash;&gt;-->
-<!--            &lt;!&ndash;                    <div class="swiper-button-prev"></div>&ndash;&gt;-->
-<!--            &lt;!&ndash;                    <div class="swiper-button-next"></div>&ndash;&gt;-->
-<!--            &lt;!&ndash;                </div>&ndash;&gt;-->
-<!--            &lt;!&ndash;                <div class="swiper">&ndash;&gt;-->
-<!--            &lt;!&ndash;                    <div class="swiper-wrapper">&ndash;&gt;-->
-<!--            &lt;!&ndash;                        <div class="swiper-slide">&ndash;&gt;-->
-<!--            &lt;!&ndash;                            <a href="#">&ndash;&gt;-->
-<!--            &lt;!&ndash;                                <div class="img_wrap">&ndash;&gt;-->
-<!--            &lt;!&ndash;                                    <img src="/images/mainpage3.jpg" alt="">&ndash;&gt;-->
-<!--            &lt;!&ndash;                                </div>&ndash;&gt;-->
-<!--            &lt;!&ndash;                                <div class="s_text_wrap">&ndash;&gt;-->
-<!--            &lt;!&ndash;                                    <h4>산뜻고소 참치마카로니샐러드</h4>&ndash;&gt;-->
-<!--            &lt;!&ndash;                                    <p>산뜻한 채소와 쫀득한 참치, 마카로니로 색다르게!</p>&ndash;&gt;-->
-<!--            &lt;!&ndash;                                </div>&ndash;&gt;-->
-<!--            &lt;!&ndash;                                <ul class="s_time_wrap">&ndash;&gt;-->
-<!--            &lt;!&ndash;                                    <li>&ndash;&gt;-->
-<!--            &lt;!&ndash;                                        <span>준비시간</span> 25분&ndash;&gt;-->
-<!--            &lt;!&ndash;                                    </li>&ndash;&gt;-->
-<!--            &lt;!&ndash;                                    <li>&ndash;&gt;-->
-<!--            &lt;!&ndash;                                        <span>조리시간</span> 5분&ndash;&gt;-->
-<!--            &lt;!&ndash;                                    </li>&ndash;&gt;-->
-<!--            &lt;!&ndash;                                </ul>&ndash;&gt;-->
-<!--            &lt;!&ndash;                            </a>&ndash;&gt;-->
-<!--            &lt;!&ndash;                            <div class="scrap">스크랩</div>&ndash;&gt;-->
-<!--            &lt;!&ndash;                        </div>&ndash;&gt;-->
-<!--            &lt;!&ndash;                        <div class="swiper-slide">&ndash;&gt;-->
-<!--            &lt;!&ndash;                            <a href="#">&ndash;&gt;-->
-<!--            &lt;!&ndash;                                <div class="img_wrap">&ndash;&gt;-->
-<!--            &lt;!&ndash;                                    <img src="/images/mainpage4.jpg" alt="">&ndash;&gt;-->
-<!--            &lt;!&ndash;                                </div>&ndash;&gt;-->
-<!--            &lt;!&ndash;                                <div class="s_text_wrap">&ndash;&gt;-->
-<!--            &lt;!&ndash;                                    <h4>산뜻고소 참치마카로니샐러드</h4>&ndash;&gt;-->
-<!--            &lt;!&ndash;                                    <p>산뜻한 채소와 쫀득한 참치, 마카로니로 색다르게!</p>&ndash;&gt;-->
-<!--            &lt;!&ndash;                                </div>&ndash;&gt;-->
-<!--            &lt;!&ndash;                                <ul class="s_time_wrap">&ndash;&gt;-->
-<!--            &lt;!&ndash;                                    <li>&ndash;&gt;-->
-<!--            &lt;!&ndash;                                        <span>준비시간</span> 25분&ndash;&gt;-->
-<!--            &lt;!&ndash;                                    </li>&ndash;&gt;-->
-<!--            &lt;!&ndash;                                    <li>&ndash;&gt;-->
-<!--            &lt;!&ndash;                                        <span>조리시간</span> 5분&ndash;&gt;-->
-<!--            &lt;!&ndash;                                    </li>&ndash;&gt;-->
-<!--            &lt;!&ndash;                                </ul>&ndash;&gt;-->
-<!--            &lt;!&ndash;                            </a>&ndash;&gt;-->
-<!--            &lt;!&ndash;                            <div class="scrap">스크랩</div>&ndash;&gt;-->
-<!--            &lt;!&ndash;                            </a>&ndash;&gt;-->
-<!--            &lt;!&ndash;                        </div>&ndash;&gt;-->
-<!--            &lt;!&ndash;                        <div class="swiper-slide">&ndash;&gt;-->
-<!--            &lt;!&ndash;                            <a href="#">&ndash;&gt;-->
-<!--            &lt;!&ndash;                                <div class="img_wrap">&ndash;&gt;-->
-<!--            &lt;!&ndash;                                    <img src="/images/mainpage3.jpg" alt="">&ndash;&gt;-->
-<!--            &lt;!&ndash;                                </div>&ndash;&gt;-->
-<!--            &lt;!&ndash;                                <div class="s_text_wrap">&ndash;&gt;-->
-<!--            &lt;!&ndash;                                    <h4>산뜻고소 참치마카로니샐러드</h4>&ndash;&gt;-->
-<!--            &lt;!&ndash;                                    <p>산뜻한 채소와 쫀득한 참치, 마카로니로 색다르게!</p>&ndash;&gt;-->
-<!--            &lt;!&ndash;                                </div>&ndash;&gt;-->
-<!--            &lt;!&ndash;                                <ul class="s_time_wrap">&ndash;&gt;-->
-<!--            &lt;!&ndash;                                    <li>&ndash;&gt;-->
-<!--            &lt;!&ndash;                                        <span>준비시간</span> 25분&ndash;&gt;-->
-<!--            &lt;!&ndash;                                    </li>&ndash;&gt;-->
-<!--            &lt;!&ndash;                                    <li>&ndash;&gt;-->
-<!--            &lt;!&ndash;                                        <span>조리시간</span> 5분&ndash;&gt;-->
-<!--            &lt;!&ndash;                                    </li>&ndash;&gt;-->
-<!--            &lt;!&ndash;                                </ul>&ndash;&gt;-->
-<!--            &lt;!&ndash;                            </a>&ndash;&gt;-->
-<!--            &lt;!&ndash;                            <div class="scrap">스크랩</div>&ndash;&gt;-->
-<!--            &lt;!&ndash;                            </a>&ndash;&gt;-->
-<!--            &lt;!&ndash;                        </div>&ndash;&gt;-->
-<!--            &lt;!&ndash;                        <div class="swiper-slide">&ndash;&gt;-->
-<!--            &lt;!&ndash;                            <a href="#">&ndash;&gt;-->
-<!--            &lt;!&ndash;                                <div class="img_wrap">&ndash;&gt;-->
-<!--            &lt;!&ndash;                                    <img src="/images/mainpage4.jpg" alt="">&ndash;&gt;-->
-<!--            &lt;!&ndash;                                </div>&ndash;&gt;-->
-<!--            &lt;!&ndash;                                <div class="s_text_wrap">&ndash;&gt;-->
-<!--            &lt;!&ndash;                                    <h4>산뜻고소 참치마카로니샐러드</h4>&ndash;&gt;-->
-<!--            &lt;!&ndash;                                    <p>산뜻한 채소와 쫀득한 참치, 마카로니로 색다르게!</p>&ndash;&gt;-->
-<!--            &lt;!&ndash;                                </div>&ndash;&gt;-->
-<!--            &lt;!&ndash;                                <ul class="s_time_wrap">&ndash;&gt;-->
-<!--            &lt;!&ndash;                                    <li>&ndash;&gt;-->
-<!--            &lt;!&ndash;                                        <span>준비시간</span> 25분&ndash;&gt;-->
-<!--            &lt;!&ndash;                                    </li>&ndash;&gt;-->
-<!--            &lt;!&ndash;                                    <li>&ndash;&gt;-->
-<!--            &lt;!&ndash;                                        <span>조리시간</span> 5분&ndash;&gt;-->
-<!--            &lt;!&ndash;                                    </li>&ndash;&gt;-->
-<!--            &lt;!&ndash;                                </ul>&ndash;&gt;-->
-<!--            &lt;!&ndash;                            </a>&ndash;&gt;-->
-<!--            &lt;!&ndash;                            <div class="scrap">스크랩</div>&ndash;&gt;-->
-<!--            &lt;!&ndash;                            </a>&ndash;&gt;-->
-<!--            &lt;!&ndash;                        </div>&ndash;&gt;-->
-<!--            &lt;!&ndash;                        <div class="swiper-slide">&ndash;&gt;-->
-<!--            &lt;!&ndash;                            <a href="#">&ndash;&gt;-->
-<!--            &lt;!&ndash;                                <div class="img_wrap">&ndash;&gt;-->
-<!--            &lt;!&ndash;                                    <img src="/images/mainpage3.jpg" alt="">&ndash;&gt;-->
-<!--            &lt;!&ndash;                                </div>&ndash;&gt;-->
-<!--            &lt;!&ndash;                                <div class="s_text_wrap">&ndash;&gt;-->
-<!--            &lt;!&ndash;                                    <h4>산뜻고소 참치마카로니샐러드</h4>&ndash;&gt;-->
-<!--            &lt;!&ndash;                                    <p>산뜻한 채소와 쫀득한 참치, 마카로니로 색다르게!</p>&ndash;&gt;-->
-<!--            &lt;!&ndash;                                </div>&ndash;&gt;-->
-<!--            &lt;!&ndash;                                <ul class="s_time_wrap">&ndash;&gt;-->
-<!--            &lt;!&ndash;                                    <li>&ndash;&gt;-->
-<!--            &lt;!&ndash;                                        <span>준비시간</span> 25분&ndash;&gt;-->
-<!--            &lt;!&ndash;                                    </li>&ndash;&gt;-->
-<!--            &lt;!&ndash;                                    <li>&ndash;&gt;-->
-<!--            &lt;!&ndash;                                        <span>조리시간</span> 5분&ndash;&gt;-->
-<!--            &lt;!&ndash;                                    </li>&ndash;&gt;-->
-<!--            &lt;!&ndash;                                </ul>&ndash;&gt;-->
-<!--            &lt;!&ndash;                            </a>&ndash;&gt;-->
-<!--            &lt;!&ndash;                            <div class="scrap">스크랩</div>&ndash;&gt;-->
-<!--            &lt;!&ndash;                            </a>&ndash;&gt;-->
-<!--            &lt;!&ndash;                        </div>&ndash;&gt;-->
-<!--            &lt;!&ndash;                        <div class="swiper-slide">&ndash;&gt;-->
-<!--            &lt;!&ndash;                            <a href="#">&ndash;&gt;-->
-<!--            &lt;!&ndash;                                <div class="img_wrap">&ndash;&gt;-->
-<!--            &lt;!&ndash;                                    <img src="/images/mainpage4.jpg" alt="">&ndash;&gt;-->
-<!--            &lt;!&ndash;                                </div>&ndash;&gt;-->
-<!--            &lt;!&ndash;                                <div class="s_text_wrap">&ndash;&gt;-->
-<!--            &lt;!&ndash;                                    <h4>산뜻고소 참치마카로니샐러드</h4>&ndash;&gt;-->
-<!--            &lt;!&ndash;                                    <p>산뜻한 채소와 쫀득한 참치, 마카로니로 색다르게!</p>&ndash;&gt;-->
-<!--            &lt;!&ndash;                                </div>&ndash;&gt;-->
-<!--            &lt;!&ndash;                                <ul class="s_time_wrap">&ndash;&gt;-->
-<!--            &lt;!&ndash;                                    <li>&ndash;&gt;-->
-<!--            &lt;!&ndash;                                        <span>준비시간</span> 25분&ndash;&gt;-->
-<!--            &lt;!&ndash;                                    </li>&ndash;&gt;-->
-<!--            &lt;!&ndash;                                    <li>&ndash;&gt;-->
-<!--            &lt;!&ndash;                                        <span>조리시간</span> 5분&ndash;&gt;-->
-<!--            &lt;!&ndash;                                    </li>&ndash;&gt;-->
-<!--            &lt;!&ndash;                                </ul>&ndash;&gt;-->
-<!--            &lt;!&ndash;                            </a>&ndash;&gt;-->
-<!--            &lt;!&ndash;                            <div class="scrap">스크랩</div>&ndash;&gt;-->
-<!--            &lt;!&ndash;                            </a>&ndash;&gt;-->
-<!--            &lt;!&ndash;                        </div>&ndash;&gt;-->
-<!--            &lt;!&ndash;                        <div class="swiper-slide">&ndash;&gt;-->
-<!--            &lt;!&ndash;                            <a href="#">&ndash;&gt;-->
-<!--            &lt;!&ndash;                                <div class="img_wrap">&ndash;&gt;-->
-<!--            &lt;!&ndash;                                    <img src="/images/mainpage3.jpg" alt="">&ndash;&gt;-->
-<!--            &lt;!&ndash;                                </div>&ndash;&gt;-->
-<!--            &lt;!&ndash;                                <div class="s_text_wrap">&ndash;&gt;-->
-<!--            &lt;!&ndash;                                    <h4>산뜻고소 참치마카로니샐러드</h4>&ndash;&gt;-->
-<!--            &lt;!&ndash;                                    <p>산뜻한 채소와 쫀득한 참치, 마카로니로 색다르게!</p>&ndash;&gt;-->
-<!--            &lt;!&ndash;                                </div>&ndash;&gt;-->
-<!--            &lt;!&ndash;                                <ul class="s_time_wrap">&ndash;&gt;-->
-<!--            &lt;!&ndash;                                    <li>&ndash;&gt;-->
-<!--            &lt;!&ndash;                                        <span>준비시간</span> 25분&ndash;&gt;-->
-<!--            &lt;!&ndash;                                    </li>&ndash;&gt;-->
-<!--            &lt;!&ndash;                                    <li>&ndash;&gt;-->
-<!--            &lt;!&ndash;                                        <span>조리시간</span> 5분&ndash;&gt;-->
-<!--            &lt;!&ndash;                                    </li>&ndash;&gt;-->
-<!--            &lt;!&ndash;                                </ul>&ndash;&gt;-->
-<!--            &lt;!&ndash;                            </a>&ndash;&gt;-->
-<!--            &lt;!&ndash;                            <div class="scrap">스크랩</div>&ndash;&gt;-->
-<!--            &lt;!&ndash;                            </a>&ndash;&gt;-->
-<!--            &lt;!&ndash;                        </div>&ndash;&gt;-->
-<!--            &lt;!&ndash;                        <div class="swiper-slide">&ndash;&gt;-->
-<!--            &lt;!&ndash;                            <a href="#">&ndash;&gt;-->
-<!--            &lt;!&ndash;                                <div class="img_wrap">&ndash;&gt;-->
-<!--            &lt;!&ndash;                                    <img src="/images/mainpage4.jpg" alt="">&ndash;&gt;-->
-<!--            &lt;!&ndash;                                </div>&ndash;&gt;-->
-<!--            &lt;!&ndash;                                <div class="s_text_wrap">&ndash;&gt;-->
-<!--            &lt;!&ndash;                                    <h4>산뜻고소 참치마카로니샐러드</h4>&ndash;&gt;-->
-<!--            &lt;!&ndash;                                    <p>산뜻한 채소와 쫀득한 참치, 마카로니로 색다르게!</p>&ndash;&gt;-->
-<!--            &lt;!&ndash;                                </div>&ndash;&gt;-->
-<!--            &lt;!&ndash;                                <ul class="s_time_wrap">&ndash;&gt;-->
-<!--            &lt;!&ndash;                                    <li>&ndash;&gt;-->
-<!--            &lt;!&ndash;                                        <span>준비시간</span> 25분&ndash;&gt;-->
-<!--            &lt;!&ndash;                                    </li>&ndash;&gt;-->
-<!--            &lt;!&ndash;                                    <li>&ndash;&gt;-->
-<!--            &lt;!&ndash;                                        <span>조리시간</span> 5분&ndash;&gt;-->
-<!--            &lt;!&ndash;                                    </li>&ndash;&gt;-->
-<!--            &lt;!&ndash;                                </ul>&ndash;&gt;-->
-<!--            &lt;!&ndash;                            </a>&ndash;&gt;-->
-<!--            &lt;!&ndash;                            <div class="scrap">스크랩</div>&ndash;&gt;-->
-<!--            &lt;!&ndash;                            </a>&ndash;&gt;-->
-<!--            &lt;!&ndash;                        </div>&ndash;&gt;-->
-<!--            &lt;!&ndash;                    </div>&ndash;&gt;-->
-<!--            &lt;!&ndash;                </div>&ndash;&gt;-->
-<!--            &lt;!&ndash;            </div>&ndash;&gt;-->
-<!--            <div th:replace="~{/fragments :: cook_tit}"></div>-->
-<!--        </div>-->
-<!--    </section>-->
-<!--    <section class="back_wrap">-->
-<!--        <div class="inner">-->
-<!--            <div class="btn_box">-->
-<!--                <a href="#" class="list_back">목록으로</a>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </section>-->
-
 </main>
 </body>
 </html>

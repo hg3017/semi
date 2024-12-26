@@ -114,7 +114,7 @@ window.addEventListener('DOMContentLoaded', function () {
     //요리연구소, 요리해요 탭버튼
     document.querySelectorAll('.tap_wrap li>a').forEach((v) => {
         v.addEventListener('click', function (e) {
-            // e.preventDefault();
+            e.preventDefault();
 
             // 모든 li에서 on 클래스를 제거
             document.querySelectorAll('.tap_wrap li').forEach((li) => {
