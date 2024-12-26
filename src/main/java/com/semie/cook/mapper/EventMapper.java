@@ -11,6 +11,7 @@ public interface EventMapper {
     List<EventDTO> selectAll(Pagination pg);
     int totalEvent(Pagination pg);
     EventDTO selectById(int event_id);
-    void insertEvent(EventDTO eventDto);
-    void updateEvent(EventDTO eventDto);
+    int insertEvent(EventDTO eventDto);
+    int updateEvent(EventDTO eventDto);
+
 }
