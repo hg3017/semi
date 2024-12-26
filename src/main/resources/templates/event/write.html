@@ -2,7 +2,7 @@
 <html lang="ko"
       xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{/layout}"
+      layout:decorate="~{layout}"
       layout:fragment="content">
 
 <head layout:fragment="config">
@@ -11,14 +11,32 @@
 </head>
 <body>
     <main style="margin: 200px" class="main_event">
-        <form action="/event/write" method="post">
-            <em>제목 : <input name="event_name" type="text"/></em>
-            <p class="img">메인 포스터 : <input type="file" name="main_poster"></p>
-            <p class="img">포스터 : <input type="file" name="poster"></p>
-            <textarea name="desc_detail" id="eventEditor" data-editor></textarea>
-            <p class="date">이벤트 시작일 :<input name="event_start" type="date"/></p>
-            <p class="date">이벤트 종료일 :<input name="event_end" type="date" /></p>
-            <button type="submit">submit</button>
+        <form action="/event/write" method="post" enctype="multipart/form-data">
+            <fieldset>
+                <legend></legend>
+                <div>
+                    <label>제목</label>
+                    <input name="event_name" type="text"/>
+                </div>
+                <div>
+                    <label>메인 포스터</label>
+                    <input type="file" name="file_main_poster">
+                </div>
+                <div>
+                    <label>포스터</label>
+                    <input type="file" name="file_poster">
+                </div>
+                <textarea name="desc_detail" id="eventEditor" data-editor></textarea>
+                <div>
+                    <label>이벤트 시작일</label>
+                    <input name="event_start" type="date"/>
+                </div>
+                <div>
+                    <label>이벤트 종료일</label>
+                    <input name="event_end" type="date"/>
+                </div>
+                <button type="submit">submit</button>
+            </fieldset>
         </form>
     </main>
 </body>

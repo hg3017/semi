@@ -500,6 +500,64 @@
     </div>
 </div>
 
+<section class="main_lab" th:fragment="mainlab(list)">
+    <div class="inner">
+        <div class="swiper_wrap">
+            <div class="swiper_title">
+                <div class="swiper_txt">
+                    <div class="title_top">
+                        <h3>요리연구소</h3>
+                        <button type="button" class="btn" onclick="">더보기</button>
+                    </div>
+                    <div class="filter">
+                        <ul>
+                            <li class="li on">
+                                <a href="#">전체</a>
+                            </li>
+                            <li class="li">
+                                <a href="#">레시피</a>
+                            </li>
+                            <li>
+                                <a href="#">솔루션</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="arrow-box">
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+            <div class="swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide" th:each="lab : ${list}">
+                        <a href="#">
+                            <div class="img_wrap">
+                                <img th:src="${'/images/' + lab.poster}" th:alt="${lab.lab_name}">
+                            </div>
+                            <div class="s_text_wrap">
+                                <h4 th:utext="${lab.lab_name_desc}"></h4>
+                                <p th:utext="${lab.desc_detail}"></p>
+                            </div>
+                            <ul class="s_time_wrap">
+                                <li>
+                                    <span>준비시간</span>
+                                    <span th:with="txt=${lab.preparation != null ? lab.preparation : '0'}" th:text="${txt + '분'}"></span>
+                                </li>
+                                <li>
+                                    <span>조리시간</span>
+                                    <span th:with="txt=${lab.cookingtime != null ? lab.cookingtime : '0'}" th:text="${txt + '분'}"></span>
+                                </li>
+                            </ul>
+                        </a>
+                        <div class="scrap">스크랩</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <svg
         xmlns:xlink="http://www.w3.org/1999/xlink"
         xmlns="http://www.w3.org/2000/svg"
