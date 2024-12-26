@@ -272,3 +272,63 @@ function hideLoading() {
     document.body.style.overflow = 'auto'; // 스크롤 허용.
     window.hideLoading = hideLoading; // 글로벌 등록
 }
+
+
+// 댓글 작성
+function submitComment() {
+    const comment_board_id = document.getElementById('comment_board_id').value;
+    const comment_post_id = document.getElementById('comment_post_id').value;
+    const desc_detail = document.getElementById('textBox').value;
+    const creater = document.getElementById('creater').value;
+    let parent_comment_id = document.getElementById('parent_comment_id').value;
+
+    console.log(comment_board_id);
+    console.log(comment_post_id);
+    console.log(desc_detail);
+    console.log(creater);
+    console.log(parent_comment_id);
+    if(parent_comment_id === 0) {
+        parent_comment_id = null;
+    }
+
+    const commentDTO = {
+        comment_board_id: comment_board_id,
+        comment_post_id: comment_post_id,
+        desc_detail: desc_detail,
+        creater: creater,
+        parent_comment_id: parent_comment_id
+    };
+
+    showLoading();
+
+    // Fetch 요청 보내기
+    fetch('/member/createComment', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json', // 요청 데이터 형식
+        },
+        body: JSON.stringify(commentDTO) // 요청 본문 데이터
+    })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json(); // JSON으로 응답 데이터 처리
+        })
+        .then(data => {
+            if (data.success) {
+                alert("댓글이 저장되었습니다.");
+                location.reload();
+            } else {
+                alert("댓글 저장에 실패했습니다.");
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert("서버와 연결 중 에러 발생.")
+        })
+        .finally(()=> {
+            hideLoading();
+        });
+    return false; // 폼 제출 중단
+}

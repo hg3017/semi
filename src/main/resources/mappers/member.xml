@@ -23,6 +23,29 @@
         UPDATE MEMBER SET PASSWORD = #{password, jdbcType=VARCHAR} WHERE MEMBER_EMAIL = #{email, jdbcType=VARCHAR}
     </update>
 
+    <insert id="createComment" parameterType="CommentDTO">
+        INSERT INTO MEMBER_COMMENT (COMMENT_ID, BOARD_ID, COMMENT_BOARD_ID, COMMENT_POST_ID, DESC_DETAIL, CREATER, CREATE_DATE)
+        VALUES (COMMENT_ID_SEQ.NEXTVAL, 91, #{comment_board_id, jdbcType=INTEGER}, #{comment_post_id, jdbcType=INTEGER}, #{desc_detail, jdbcType=VARCHAR}, #{creater, jdbcType=INTEGER}, SYSDATE)
+    </insert>
+
+    <select id="findPostComment" resultType="commentDTO">
+        SELECT
+            MC.COMMENT_Id,
+            MC.COMMENT_BOARD_ID,
+            MC.COMMENT_POST_ID,
+            MC.DESC_DETAIL,
+            M.MEMBER_NAME ,
+            il.FILE_PATH ,
+            MC.CREATE_DATE
+        FROM
+            MEMBER_COMMENT mc
+                INNER JOIN MEMBER M ON M.MEMBER_ID = MC.CREATER
+                LEFT OUTER JOIN IMG_LIST il ON m.MEMBER_ID = IL.POST_ID AND m.BOARD_ID = il.BOARD_ID
+        WHERE
+            1=1
+          AND MC.COMMENT_BOARD_ID = #{comment_board_id}
+          AND MC.COMMENT_POST_ID =  #{comment_post_id}
+    </select>
 
 
 </mapper>

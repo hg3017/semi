@@ -1,6 +1,7 @@
 package com.semie.cook.controller;
 
 
+import com.semie.cook.model.CommentDTO;
 import com.semie.cook.model.MemberDTO;
 import com.semie.cook.service.MemberService;
 import jakarta.servlet.http.HttpSession;
@@ -38,6 +39,9 @@ public class MemberController {
         return "/member/emailJoinDetail";
     }
 
+    Map<String, Object> response = new HashMap<>();
+
+
     @GetMapping("/join")
     public String join(Model model) {
         System.out.println("member/join---------------------------------------------");
@@ -55,7 +59,6 @@ public class MemberController {
 
         System.out.println("member/checkLogin---------------------------------------------");
 
-        Map<String, Object> response = new HashMap<>();
         System.out.println(memberDTO.getMember_email() + " : Controller Email");
         System.out.println(memberDTO.getPassword() + " : Controller Password");
 
@@ -78,10 +81,11 @@ public class MemberController {
         }
     }
 
-    @GetMapping("/logout") public String logout(HttpSession session) {
-            session.invalidate(); // 세션 무효화
-            return "/main"; // 로그아웃 후 메인 페이지로 리다이렉트
-        }
+    @GetMapping("/logout")
+    public String logout(HttpSession session) {
+        session.invalidate(); // 세션 무효화
+        return "/main"; // 로그아웃 후 메인 페이지로 리다이렉트
+    }
 
 
     @PostMapping("/existsEmail")
@@ -121,7 +125,7 @@ public class MemberController {
     @PostMapping("/joinComplete")
     public String joinComplete(@ModelAttribute MemberDTO memberDto, Model model) {
 
-        System.out.println("MemberController: joinComplete" + memberDto );
+        System.out.println("MemberController: joinComplete" + memberDto);
 
         memberService.insertMember(memberDto);
 
@@ -141,4 +145,34 @@ public class MemberController {
         System.out.println("member/wait---------------------------------------------");
         return "/member/wait";
     }
+
+    // 코맨트 작성
+    @PostMapping("/createComment")
+    public ResponseEntity<Map<String, Object>> createComment(@RequestBody CommentDTO commentDTO, Model model) {
+
+        System.out.println("MemberController: createComment" + commentDTO);
+        System.out.println("member/createComment---------------------------------------------");
+
+        try {
+            // 댓글 저장 로직
+            memberService.createComment(commentDTO);
+
+            response.put("success", true);
+            return ResponseEntity.ok(response);
+        } catch (Exception e) {
+            e.printStackTrace();
+            response.put("success", false);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
+        }
+    }
+
+    // 게시판의 코맨트 조회
+//    @GetMapping("/readPostComment")
+//    public void readPostComment(@RequestParam String commentBoard_id, @RequestParam String commentPost_id,  Model model) {
+//        System.out.println("member/readPostComment---------------------------------------------");
+//
+//        System.out.println(memberService.findPostComment(commentBoard_id, commentPost_id));
+//
+//        model.addAttribute("postCommentlist", memberService.findPostComment(commentBoard_id, commentPost_id));
+//    }
 }
