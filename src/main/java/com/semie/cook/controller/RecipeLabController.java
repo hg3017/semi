@@ -102,10 +102,4 @@ public class RecipeLabController {
         System.out.println("recipeLab/archive_counsel-----------------------------------------------");
         return "/recipeLab/archive_counsel";
     }
-    @GetMapping("/archive_write")
-    public String archive_write(Model model) {
-        System.out.println("recipeLab/archive_write-----------------------------------------------");
-        return "/recipeLab/archive_write";
-    }
-
 }

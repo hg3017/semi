@@ -10,15 +10,6 @@ import java.util.List;
 import java.util.Map;
 
 @Mapper
-public interface RecipeLabMapper {
-    List<RecipeLabDTO> selectAll(Pagination pg);
-    int totalLab(Pagination pg);
-
-    RecipeLabDTO selectById(int lab_id);
-
-    List<Map<String, String>> selectIngredientById(int lab_id);
-
-    List<RecipeLabStepDTO> selectStepById(int lab_id);
-
+public interface CookingMapper {
     void insertCounsel(CounselingDTO dto);
 }

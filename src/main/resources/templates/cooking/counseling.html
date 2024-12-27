@@ -22,10 +22,10 @@
     </div>
     <div class="tap_wrap">
       <ul>
-        <li class="on">
+        <li th:class="${#strings.equals(state, 'cooking') ? 'on' : ''}">
           <a href="cooking.html" class="rec_btn">요리해요</a>
         </li>
-        <li>
+        <li th:class="${#strings.equals(state, 'counseling') ? 'on' : ''}">
           <a href="counseling.html" class="solu_btn">고민있어요</a>
         </li>
       </ul>
