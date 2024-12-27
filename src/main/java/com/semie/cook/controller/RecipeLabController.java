@@ -75,14 +75,6 @@ public class RecipeLabController {
         System.out.println(recipeLabService.selectStepById(labId));
         model.addAttribute("lds", recipeLabService.selectStepById(labId));
 
-        // 이 글이 마음에 드셨다면 목록
-        Pagination pg = new Pagination();
-        Map<String, String> map = Collections.singletonMap("labId", String.valueOf(labId));
-        pg.setSearchMap(map);
-
-        model.addAttribute("list", recipeLabService.findAll(pg));
-
-
         model.addAttribute("postCommentlist", memberService.findPostComment(20, labId));
 
         System.out.println("selectById" + recipeLabService.selectById(labId));
