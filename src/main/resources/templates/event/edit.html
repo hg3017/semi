@@ -21,17 +21,12 @@
                 </div>
                 <div>
                     <label>메인 포스터</label>
-                    <input type="file" name="file_main_poster" />
-                    <div th:if="${event.main_poster}">
-                        이전 파일 - <span th:utext="${event.main_poster}"></span>
-                    </div>
+                    <input type="file" name="file_main_poster"  th:value="${event.main_poster}" multiple />
                 </div>
                 <div>
                     <label>포스터</label>
-                    <input type="file" name="file_poster" />
-                    <div th:if="${event.poster}">
-                        이전 파일 - <span th:utext="${event.poster}"></span>
-                    </div>
+                    <input type="file" name="file_poster" th:value="${event.poster}" multiple />
+
                 </div>
                 <textarea name="desc_detail" id="eventEditor" th:attr="data-editor=${#strings.defaultString(event.desc_detail, ' ')}" th:utext="${event.desc_detail}"></textarea>
                 <div>

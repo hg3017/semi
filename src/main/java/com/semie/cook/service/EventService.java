@@ -29,4 +29,7 @@ public class EventService {
     public int updateEvent(EventDTO eventDto) {
         return eventMapper.updateEvent(eventDto);
     }
+    public int deleteEvent(int event_id) {
+        return eventMapper.deleteEvent(event_id);
+    }
 }

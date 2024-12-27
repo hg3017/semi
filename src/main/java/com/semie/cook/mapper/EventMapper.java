@@ -13,5 +13,6 @@ public interface EventMapper {
     EventDTO selectById(int event_id);
     int insertEvent(EventDTO eventDto);
     int updateEvent(EventDTO eventDto);
+    int deleteEvent(int event_id);
 
 }

@@ -53,27 +53,32 @@ public class EventController {
                         @RequestParam("file_main_poster") MultipartFile[] main_poster,
                         @RequestParam("file_poster") MultipartFile[] poster) {
 
+        //메인포스터 업로드
         List<FileVO> mainPosterList = fileStorage.uploadFiles(main_poster,"upload/");
         event.setMain_poster(mainPosterList.get(0).getNfile());
+
+        //포스터 업로드
         List<FileVO> posterList = fileStorage.uploadFiles(poster,"upload/");
         event.setPoster(posterList.get(0).getNfile());
 
+        //글쓰기
         int re = eventService.insertEvent(event);
         if(re > 0) {
             return "redirect:/event/list";
-
         }else {
             return "redirect:/event/write";
         }
 
     }
 
+    //파일명
     @GetMapping("/uploads/{fileName:.+}")
     public @ResponseBody Resource getFile(@PathVariable String fileName) {
         File file = new File("upload/" + fileName);
         return new FileSystemResource(file);
     }
 
+    //수정 시 아이디 확인
     @GetMapping("/edit/{eventId}")
     public String edit(Model model, @PathVariable int eventId) {
         model.addAttribute("event", eventService.selectById(eventId));
@@ -81,28 +86,60 @@ public class EventController {
         return "/event/edit";
     }
 
-//    @PostMapping("/edit")
-//    public String edit(@ModelAttribute EventDTO event,
-//                       @RequestParam("file_main_poster") MultipartFile[] main_poster,
-//                       @RequestParam("file_poster") MultipartFile[] poster) {
-//
-//        List<FileVO> mainPosterList = fileStorage.uploadFiles(main_poster,"upload/");
-//        event.setMain_poster(mainPosterList.get(0).getNfile());
-//        List<FileVO> posterList = fileStorage.uploadFiles(poster,"upload/");
-//        event.setPoster(posterList.get(0).getNfile());
-//
-////        System.out.println("event" + event);
-//        eventService.updateEvent(event);
-//
-//        return "redirect:/event/list";
-//    }
-
     @PostMapping("/edit")
-    public String edit(@ModelAttribute EventDTO event) {
-        System.out.println("event = " + event);
-        eventService.updateEvent(event);
+    public String edit(@ModelAttribute EventDTO event,
+                       @RequestParam("file_main_poster") MultipartFile[] main_poster,
+                       @RequestParam("file_poster") MultipartFile[] poster) {
 
+        EventDTO dto = eventService.selectById(event.getEvent_id());
+
+        //메인포스터 이전 파일 삭제 후 업로드
+        List<FileVO> mainPosterList = fileStorage.uploadFiles(main_poster,"upload/");
+        if (!mainPosterList.isEmpty()) {
+            //파일 삭제
+            fileStorage.deleteFile(dto.getMain_poster());
+            //업로드
+            event.setMain_poster(mainPosterList.get(0).getNfile());
+        }
+
+        //포스터 이전 파일 삭제 후 업로드
+        List<FileVO> posterList = fileStorage.uploadFiles(poster,"upload/");
+        if (!posterList.isEmpty()) {
+            //파일 삭제
+            fileStorage.deleteFile(dto.getPoster());
+            //업로드
+            event.setPoster(posterList.get(0).getNfile());
+        }
+
+        //내용 업데이트
+        int update = eventService.updateEvent(event);
+        if(update > 0) {
+            return "redirect:/event/list";
+        } else {
+            return "redirect:/event/edit";
+        }
+    }
+
+    @GetMapping("/delete/{eventId}")
+    public String delete(@PathVariable int eventId,
+                         @RequestParam("file_main_poster") MultipartFile[] main_poster,
+                         @RequestParam("file_poster") MultipartFile[] poster) {
+
+        EventDTO dto = eventService.selectById(eventId);
+
+        List<FileVO> mainPosterList = fileStorage.uploadFiles(main_poster,"upload/");
+        if (!mainPosterList.isEmpty()) {
+            fileStorage.deleteFile(dto.getMain_poster());
+        }
+
+        List<FileVO> posterList = fileStorage.uploadFiles(poster,"upload/");
+        if (!posterList.isEmpty()) {
+            fileStorage.deleteFile(dto.getPoster());
+        }
+
+        eventService.deleteEvent(eventId);
         return "redirect:/event/list";
     }
+
 
 }
