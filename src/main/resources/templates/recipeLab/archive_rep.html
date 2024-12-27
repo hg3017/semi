@@ -203,14 +203,15 @@
 
                       <div class="com_box" th:each="comment : ${postCommentlist}">
                         <div class="profile">
-                          <img src="/images/common/profile.png" alt="">
+<!--                          <img th:src="${'/images/' + items}" alt=""/>-->
+                          <img th:src="${'/images/' + comment.profile_img}" alt="">
                         </div>
                         <div class="cmt">
                           <div class="name">
-                            <p>yoon's table</p>
-                            <span class="date">2024-11-08 21:29</span>
+                            <p th:text="${comment.member_name}"> </p>
+                            <span class="date" th:text="${comment.create_date}"> </span>
                           </div>
-                          <div class="text">
+                          <div class="text" th:text="${comment.desc_detail}">
                             건강하고 간편하게 먹기 딱인걸요!
 
                             <!-- <form>

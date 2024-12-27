@@ -36,7 +36,10 @@ public class MemberService {
         memberMapper.createComment(commentDTO);
     }
 
-    public List<CommentDTO> findPostComment(int commentBoard_id, int commentPost_id) {
-        return memberMapper.findPostComment(commentBoard_id, commentPost_id);
+    public List<CommentDTO> findPostComment(int comment_board_id, int comment_post_id) {
+        System.out.println("comment_board_id : " + comment_board_id);
+        System.out.println("comment_post_id : " + comment_post_id);
+
+        return memberMapper.findPostComment(comment_board_id, comment_post_id);
     }
 }

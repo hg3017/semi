@@ -17,6 +17,7 @@ public class CommentDTO {
     private String desc_detail;
     private int creater;
     private String member_name;
+    private String profile_img;
     private int parent_comment_id;
     private Date create_date;
     private Date modify_date;

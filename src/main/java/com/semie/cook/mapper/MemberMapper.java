@@ -18,5 +18,5 @@ public interface MemberMapper {
 
     void createComment(CommentDTO commentDTO);
 
-    List<CommentDTO> findPostComment(int commentBoard_id, int commentPost_id);
+    List<CommentDTO> findPostComment(int comment_board_id, int comment_post_id);
 }

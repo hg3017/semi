@@ -35,7 +35,7 @@
             MC.COMMENT_POST_ID,
             MC.DESC_DETAIL,
             M.MEMBER_NAME ,
-            il.FILE_PATH ,
+            il.FILE_PATH AS PROFILE_IMG,
             MC.CREATE_DATE
         FROM
             MEMBER_COMMENT mc
@@ -43,8 +43,8 @@
                 LEFT OUTER JOIN IMG_LIST il ON m.MEMBER_ID = IL.POST_ID AND m.BOARD_ID = il.BOARD_ID
         WHERE
             1=1
-          AND MC.COMMENT_BOARD_ID = #{comment_board_id}
-          AND MC.COMMENT_POST_ID =  #{comment_post_id}
+          AND MC.COMMENT_BOARD_ID = #{comment_board_id, jdbcType=INTEGER}
+          AND MC.COMMENT_POST_ID =  #{comment_post_id, jdbcType=INTEGER}
     </select>
 
 
