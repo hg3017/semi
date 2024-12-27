@@ -61,7 +61,7 @@
         WHERE EVENT_ID  = #{event_id}
     </update>
 
-    <delete id="deleteEvent" parameterType="eventDTO">
+    <delete id="deleteEvent">
         DELETE FROM EVENT
         WHERE EVENT_ID = #{event_id}
     </delete>

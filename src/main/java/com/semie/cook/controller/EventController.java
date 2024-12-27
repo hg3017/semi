@@ -121,19 +121,15 @@ public class EventController {
     }
 
     @GetMapping("/delete/{eventId}")
-    public String delete(@PathVariable int eventId,
-                         @RequestParam("file_main_poster") MultipartFile[] main_poster,
-                         @RequestParam("file_poster") MultipartFile[] poster) {
+    public String delete(@PathVariable int eventId) {
 
         EventDTO dto = eventService.selectById(eventId);
 
-        List<FileVO> mainPosterList = fileStorage.uploadFiles(main_poster,"upload/");
-        if (!mainPosterList.isEmpty()) {
+        if(dto.getMain_poster() != null) {
             fileStorage.deleteFile(dto.getMain_poster());
         }
 
-        List<FileVO> posterList = fileStorage.uploadFiles(poster,"upload/");
-        if (!posterList.isEmpty()) {
+        if(dto.getPoster() != null) {
             fileStorage.deleteFile(dto.getPoster());
         }
 
