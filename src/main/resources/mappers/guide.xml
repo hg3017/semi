@@ -71,7 +71,7 @@
         ON g.guide_id = il.post_id
             AND g.BOARD_ID = il.BOARD_ID
             AND il.img_priority = 1
-            INNER JOIN
+        INNER JOIN
             HASHTABLES h
             ON g.guide_id = h.CONN_ID
             AND il.BOARD_ID = h.BOARD_ID
@@ -81,43 +81,35 @@
 
     <!-- LAB 리스트(hashtag 별) -->
     <select id="selectGuide" resultType="hashMap">
-        WITH HASHTABLES AS (
-            SELECT hc.CONN_ID
-                 , hc.BOARD_ID
-                 , h.HASH_ID
-                 , h.HASH_NAME
-            FROM HASHTAGS_CONN hc
-                     INNER JOIN HASHTAGS h
-                                ON hc.HASH_ID = h.HASH_ID
-        )
-        SELECT DISTINCT
-            l.LAB_ID
-                      , l.BOARD_ID
-                      , l.LAB_NAME
-                      , l.LAB_NAME_DESC
-                      , l.DESC_DETAIL
-                      , LISTAGG(DISTINCT h.HASH_NAME, ',') WITHIN GROUP (ORDER BY l.LAB_ID) OVER (PARTITION BY l.LAB_ID) AS hashnames
-                    , LISTAGG(DISTINCT CASE WHEN IMG_PRIORITY = 1 THEN i.FILE_PATH END, ',') WITHIN GROUP (ORDER BY i.IMG_PRIORITY) OVER (PARTITION BY l.LAB_ID) AS poster
-                , LISTAGG(DISTINCT CASE WHEN IMG_PRIORITY != 1 THEN i.FILE_PATH END, ',') WITHIN GROUP (ORDER BY i.IMG_PRIORITY) OVER (PARTITION BY l.LAB_ID) AS files
+        WITH HASHTABLES AS (SELECT hc.CONN_ID
+                                 , hc.BOARD_ID
+                                 , h.HASH_ID
+                                 , h.HASH_NAME
+                            FROM HASHTAGS_CONN hc
+                                     INNER JOIN HASHTAGS h
+                                                ON hc.HASH_ID = h.HASH_ID)
+        SELECT DISTINCT l.lab_id
+                      , l.board_id
+                      , l.lab_name
+                      , l.lab_name_desc
+                      , l.desc_detail
+                      , LISTAGG(DISTINCT h.HASH_NAME, ',') WITHIN GROUP (ORDER BY l.lab_ID) OVER (PARTITION BY l.lab_ID) AS hashnames
+	, 	LISTAGG(DISTINCT CASE WHEN IMG_PRIORITY = 1 THEN il.FILE_PATH END, ',') WITHIN
+        GROUP (ORDER BY il.IMG_PRIORITY) OVER (PARTITION BY l.LAB_ID) AS poster
+                , LISTAGG(DISTINCT CASE WHEN IMG_PRIORITY != 1 THEN il.FILE_PATH END, ',') WITHIN
+        GROUP (ORDER BY il.IMG_PRIORITY) OVER (PARTITION BY l.LAB_ID) AS files
                 , ldi.PREPARATION
                 , ldi.COOKINGTIME
         FROM LAB l
+            LEFT OUTER JOIN IMG_LIST il
+        ON il.BOARD_ID = l.BOARD_ID
+            AND il.POST_ID = l.LAB_ID
             LEFT OUTER JOIN HASHTABLES h
-        ON l.LAB_ID = h.CONN_ID
-            AND l.BOARD_ID = h.BOARD_ID
-            LEFT OUTER JOIN IMG_LIST i
-            ON l.LAB_ID = i.POST_ID
-            AND l.BOARD_ID = i.BOARD_ID
+            ON h.board_id = l.BOARD_ID
+            AND h.conn_id = l.LAB_ID
             LEFT OUTER JOIN LAB_DETAIL_INGREDIENT ldi
             ON l.LAB_ID = ldi.LAB_ID
-        WHERE h.HASH_NAME IN (
-            SELECT h.HASH_NAME
-            FROM GUIDE g
-            LEFT OUTER JOIN HASHTABLES h
-            ON g.GUIDE_ID = h.CONN_ID
-            AND g.BOARD_ID = h.board_id
-            WHERE GUIDE_ID = #{guide_id}
-            )
+        WHERE l.LAB_ID IN (SELECT LAB_ID FROM GUIDE_LAB_CONN glc WHERE GUIDE_ID = #{guide_id})
     </select>
 
     <!-- SOLUTION 리스트(hashtag 별) -->
@@ -139,23 +131,16 @@
                       , s.SOLUTION_DETAIL
                       , DBMS_LOB.SUBSTR(s.DESC_DETAIL, 4000) AS DESC_DETAIL
                       , LISTAGG(DISTINCT h.HASH_NAME, ',') WITHIN GROUP (ORDER BY s.SOLUTION_ID) OVER (PARTITION BY s.SOLUTION_ID) AS hashnames
-            		  , LISTAGG(DISTINCT CASE WHEN IMG_PRIORITY = 1 THEN i.FILE_PATH END, ',') WITHIN GROUP (ORDER BY i.IMG_PRIORITY) OVER (PARTITION BY s.SOLUTION_ID) AS poster
-                , LISTAGG(DISTINCT CASE WHEN IMG_PRIORITY != 1 THEN i.FILE_PATH END, ',') WITHIN GROUP (ORDER BY i.IMG_PRIORITY) OVER (PARTITION BY s.SOLUTION_ID) AS files
+  , LISTAGG(DISTINCT CASE WHEN IMG_PRIORITY = 1 THEN il.FILE_PATH END, ',') WITHIN GROUP (ORDER BY il.IMG_PRIORITY) OVER (PARTITION BY s.SOLUTION_ID) AS poster
+                , LISTAGG(DISTINCT CASE WHEN IMG_PRIORITY != 1 THEN il.FILE_PATH END, ',') WITHIN GROUP (ORDER BY il.IMG_PRIORITY) OVER (PARTITION BY s.SOLUTION_ID) AS files
         FROM SOLUTION s
+            LEFT OUTER JOIN IMG_LIST il
+        ON il.BOARD_ID = s.BOARD_ID
+            AND il.POST_ID = s.solution_ID
             LEFT OUTER JOIN HASHTABLES h
-        ON s.SOLUTION_ID = h.CONN_ID
-            AND s.BOARD_ID = h.BOARD_ID
-            LEFT OUTER JOIN IMG_LIST i
-            ON s.SOLUTION_ID = i.POST_ID
-            AND s.BOARD_ID = i.BOARD_ID
-        WHERE h.HASH_NAME IN (
-            SELECT h.HASH_NAME
-            FROM GUIDE g
-            LEFT OUTER JOIN HASHTABLES h
-            ON g.GUIDE_ID = h.CONN_ID
-            AND g.BOARD_ID = h.board_id
-            WHERE GUIDE_ID = #{guide_id}
-            )
+            ON h.board_id = s.BOARD_ID
+            AND h.conn_id = s.solution_ID
+        WHERE s.solution_ID IN (SELECT solution_ID FROM GUIDE_SOLUTION_CONN WHERE GUIDE_ID = #{guide_id})
     </select>
 
 </mapper>
