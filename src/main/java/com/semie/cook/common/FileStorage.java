@@ -78,8 +78,11 @@ public class FileStorage {
         }
     }
 
+
     public void deleteFile(String fileName) {
         File file = new File(uploadDir + fileName);
+        System.out.println(fileName);
         if (file.exists()) file.delete();
     }
+
 }

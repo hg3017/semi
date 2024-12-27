@@ -19,7 +19,8 @@
 
     <select id="selectAll" parameterType="com.semie.cook.common.Pagination" resultType="EventDTO">
         <include refid="page1" />
-        SELECT * FROM EVENT
+        SELECT EVENT_ID, BOARD_ID, EVENT_NAME, MAIN_POSTER, POSTER, DESC_DETAIL, TO_CHAR(EVENT_START, 'yyyy-MM-dd') EVENT_START, TO_CHAR(EVENT_END, 'yyyy-MM-dd') EVENT_END
+        FROM EVENT
         <include refid="page2" />
     </select>
 
@@ -28,7 +29,7 @@
     </select>
 
     <select id="selectById" resultType="eventDTO">
-        SELECT *
+        SELECT EVENT_ID, BOARD_ID, EVENT_NAME, MAIN_POSTER, POSTER, DESC_DETAIL, TO_CHAR(EVENT_START, 'yyyy-MM-dd') EVENT_START, TO_CHAR(EVENT_END, 'yyyy-MM-dd') EVENT_END
         FROM EVENT
         WHERE EVENT_ID = #{event_id}
     </select>
@@ -51,13 +52,18 @@
         UPDATE EVENT
         SET
             EVENT_NAME  = #{event_name, jdbcType=VARCHAR},
-            DESC_DETAIL = #{desc_detail, jdbcType=CLOB},
             MAIN_POSTER = #{main_poster ,jdbcType=VARCHAR},
             POSTER = #{poster, jdbcType=VARCHAR},
+            DESC_DETAIL = #{desc_detail, jdbcType=CLOB},
             MODIFY_DATE = SYSDATE,
             EVENT_START = #{event_start, jdbcType=VARCHAR},
             EVENT_END   = #{event_end, jdbcType=VARCHAR}
         WHERE EVENT_ID  = #{event_id}
     </update>
+
+    <delete id="deleteEvent" parameterType="eventDTO">
+        DELETE FROM EVENT
+        WHERE EVENT_ID = #{event_id}
+    </delete>
 
 </mapper>
