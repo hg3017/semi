@@ -35,7 +35,7 @@
             MC.COMMENT_POST_ID,
             MC.DESC_DETAIL,
             M.MEMBER_NAME ,
-            il.FILE_PATH AS PROFILE_IMG,
+            il.FILE_PATH AS profile_img,
             MC.CREATE_DATE
         FROM
             MEMBER_COMMENT mc

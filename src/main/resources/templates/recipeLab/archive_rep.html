@@ -63,7 +63,6 @@
                         <div class="swiper-button-next"></div>
                         <div class="swiper-button-prev"></div>
                     </div>
-
                 </div>
             </div>
             <div class="recipe_intro">
@@ -99,30 +98,30 @@
             </div>
         </div>
     </section>
-    <section class="sub_sw_wrap">
-        <div class="inner">
-            <div class="step_wrap">
-                 <div class="step_tit">
-                    <h4>한 단계씩 따라해 보세요😄</h4>
-                </div>
-                <div class="step_head">
-                    <div class="step-button-prev"></div>
-                    <span>Step.1</span>
-                    <div class="step-button-next"></div>
-                </div>
-                <div class="step_body">
-                    <div class="step_swiper_wrap">
-                        <div class="swiper-container">
-                            <div class="swiper-pagination"></div>
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide" th:each="lds, state : ${lds}">
-                                    <div class="step_thumb">
-                                        <img th:src="${'/images/' + lds.poster}" alt=""/>
-                                    </div>
-                                    <ul class="step_thumb_list">
-                                        <li class="on">
-                                            <img th:src="${'/images/' + lds.poster}" alt=""/>
-                                        </li>
+<!--    <section class="sub_sw_wrap">-->
+<!--        <div class="inner">-->
+<!--            <div class="step_wrap">-->
+<!--                 <div class="step_tit">-->
+<!--                    <h4>한 단계씩 따라해 보세요😄</h4>-->
+<!--                </div>-->
+<!--                <div class="step_head">-->
+<!--                    <div class="step-button-prev"></div>-->
+<!--                    <span>Step.1</span>-->
+<!--                    <div class="step-button-next"></div>-->
+<!--                </div>-->
+<!--                <div class="step_body">-->
+<!--                    <div class="step_swiper_wrap">-->
+<!--                        <div class="swiper-container">-->
+<!--                            <div class="swiper-pagination"></div>-->
+<!--                            <div class="swiper-wrapper">-->
+<!--                                <div class="swiper-slide" th:each="lds, state : ${lds}">-->
+<!--                                    <div class="step_thumb">-->
+<!--                                        <img th:src="${'/images/' + lds.poster}" alt=""/>-->
+<!--                                    </div>-->
+<!--                                    <ul class="step_thumb_list">-->
+<!--                                        <li class="on">-->
+<!--                                            <img th:src="${'/images/' + lds.poster}" alt=""/>-->
+<!--                                        </li>-->
 
                                         <li th:each="items : ${#strings.setSplit(lds.files, ',')}">
                                             <img th:src="${'/images/' + items}" alt=""/>
@@ -201,10 +200,9 @@
                         </div>
                       </div>
 
-                      <div class="com_box" th:each="comment : ${postCommentlist}">
+                      <div th:if="${postCommentlist.size() > 0}" class="com_box" th:each="comment : ${postCommentlist}">
                         <div class="profile">
-<!--                          <img th:src="${'/images/' + items}" alt=""/>-->
-                          <img th:src="${'/images/' + comment.profile_img}" alt="">
+                          <img th:src="|/images/${comment.profile_img}|" alt="">
                         </div>
                         <div class="cmt">
                           <div class="name">
@@ -213,26 +211,24 @@
                           </div>
                           <div class="text" th:text="${comment.desc_detail}">
                             건강하고 간편하게 먹기 딱인걸요!
-
-                            <!-- <form>
-                              <div class="txtArea">
-                                <textarea id="txtBox" name="content" placeholder="내용을 입력하세요.">단백질 가득 너무 맛나겠어요!</textarea>
-                              </div>
-                            </form> -->
                           </div>
+                            <a href="javascript:void(0)" class="re rep">답글 달기</a>
+                            <div class="modify editActive">
+                                <button class="replyModify" onclick="activeModify(this)" type="button">수정</button>
+                                <button class="replyDelete" onclick="deleteComment(20655, this)" type="button">삭제</button>
+                            </div>
                         </div>
                       </div>
-                      <div class="com_blank">
+                      <div th:if="${postCommentlist.size() == 0}" class="com_blank">
                         <p>여러분의 댓글을 기다리고 있어요 :)</p>
                       </div>
                     </div>
 
-                </div>
-            </div>
-        </div>
-    </section>
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </section>-->
     <div class="hr_line"></div>
-    <div th:replace="~{/fragments :: tagList(${list})}"></div>
     <!--    <section class="S_tagList">-->
     <!--        <div class="inner">-->
     <!--            <div class="s_titwrap">-->

@@ -149,14 +149,10 @@ public class MemberController {
     // 코맨트 작성
     @PostMapping("/createComment")
     public ResponseEntity<Map<String, Object>> createComment(@RequestBody CommentDTO commentDTO, Model model) {
-
-        System.out.println("MemberController: createComment" + commentDTO);
         System.out.println("member/createComment---------------------------------------------");
-
         try {
             // 댓글 저장 로직
             memberService.createComment(commentDTO);
-
             response.put("success", true);
             return ResponseEntity.ok(response);
         } catch (Exception e) {
@@ -165,14 +161,4 @@ public class MemberController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
         }
     }
-
-    // 게시판의 코맨트 조회
-//    @GetMapping("/readPostComment")
-//    public void readPostComment(@RequestParam String commentBoard_id, @RequestParam String commentPost_id,  Model model) {
-//        System.out.println("member/readPostComment---------------------------------------------");
-//
-//        System.out.println(memberService.findPostComment(commentBoard_id, commentPost_id));
-//
-//        model.addAttribute("postCommentlist", memberService.findPostComment(commentBoard_id, commentPost_id));
-//    }
 }
