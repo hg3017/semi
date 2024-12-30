@@ -3,6 +3,7 @@ package com.semie.cook.controller;
 import com.semie.cook.common.Pagination;
 import com.semie.cook.model.Lab_detail_ingredientDTO;
 import com.semie.cook.service.GuideService;
+import com.semie.cook.service.MemberService;
 import com.semie.cook.service.RecipeLabService;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
@@ -25,6 +26,7 @@ import java.util.Map;
 public class RecipeLabController {
 
    private final RecipeLabService recipeLabService;
+   private final MemberService memberService;
 
     @GetMapping("/list")
     public String list(HttpServletRequest request, @RequestParam(defaultValue = "1") int pageNum, Model model) {
@@ -68,11 +70,8 @@ public class RecipeLabController {
 
     @GetMapping("/archive_rep/{labId}")
     public String archive(@PathVariable int labId, Model model) {
-        // 레시피 리스트
         model.addAttribute("lab", recipeLabService.selectById(labId));
-        // 조리 목록
         model.addAttribute("ldi", recipeLabService.selectIngredientById(labId));
-        // 스탭 스와이프
         model.addAttribute("lds", recipeLabService.selectStepById(labId));
 
         // 이 글이 마음에 드셨다면 목록
@@ -81,7 +80,11 @@ public class RecipeLabController {
         pg.setSearchMap(map);
 
         model.addAttribute("list", recipeLabService.findAll(pg));
+        model.addAttribute("postCommentlist", memberService.findPostComment(20, labId));
 
+        System.out.println("memberService" + memberService.findPostComment(20, labId));
+
+        System.out.println("recipeLab/archive-----------------------------------------------");
         return "/recipeLab/archive_rep";
     }
 

@@ -11,6 +11,8 @@
 </head>
 <body>
 <main id="rep_container" class="container">
+    <th:block th:replace="~{/fragments :: loading}" />
+    <loading></loading>
     <div th:replace="~{/fragments :: scroll}"></div>
     <section class="sub_view_wrap">
         <div class="view_title">
@@ -61,7 +63,6 @@
                         <div class="swiper-button-next"></div>
                         <div class="swiper-button-prev"></div>
                     </div>
-
                 </div>
             </div>
             <div class="recipe_intro">
@@ -97,30 +98,30 @@
             </div>
         </div>
     </section>
-    <section class="sub_sw_wrap">
-        <div class="inner">
-            <div class="step_wrap">
-                 <div class="step_tit">
-                    <h4>한 단계씩 따라해 보세요😄</h4>
-                </div>
-                <div class="step_head">
-                    <div class="step-button-prev"></div>
-                    <span>Step.1</span>
-                    <div class="step-button-next"></div>
-                </div>
-                <div class="step_body">
-                    <div class="step_swiper_wrap">
-                        <div class="swiper-container">
-                            <div class="swiper-pagination"></div>
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide" th:each="lds, state : ${lds}">
-                                    <div class="step_thumb">
-                                        <img th:src="${'/images/' + lds.poster}" alt=""/>
-                                    </div>
-                                    <ul class="step_thumb_list">
-                                        <li class="on">
-                                            <img th:src="${'/images/' + lds.poster}" alt=""/>
-                                        </li>
+<!--    <section class="sub_sw_wrap">-->
+<!--        <div class="inner">-->
+<!--            <div class="step_wrap">-->
+<!--                 <div class="step_tit">-->
+<!--                    <h4>한 단계씩 따라해 보세요😄</h4>-->
+<!--                </div>-->
+<!--                <div class="step_head">-->
+<!--                    <div class="step-button-prev"></div>-->
+<!--                    <span>Step.1</span>-->
+<!--                    <div class="step-button-next"></div>-->
+<!--                </div>-->
+<!--                <div class="step_body">-->
+<!--                    <div class="step_swiper_wrap">-->
+<!--                        <div class="swiper-container">-->
+<!--                            <div class="swiper-pagination"></div>-->
+<!--                            <div class="swiper-wrapper">-->
+<!--                                <div class="swiper-slide" th:each="lds, state : ${lds}">-->
+<!--                                    <div class="step_thumb">-->
+<!--                                        <img th:src="${'/images/' + lds.poster}" alt=""/>-->
+<!--                                    </div>-->
+<!--                                    <ul class="step_thumb_list">-->
+<!--                                        <li class="on">-->
+<!--                                            <img th:src="${'/images/' + lds.poster}" alt=""/>-->
+<!--                                        </li>-->
 
                                         <li th:each="items : ${#strings.setSplit(lds.files, ',')}">
                                             <img th:src="${'/images/' + items}" alt=""/>
@@ -158,46 +159,259 @@
                             <h4>댓글 </h4>
                             <span>0</span>
                         </div>
-                        <div class="com_login">
-                            <div class="profile">
-                                <img src="/images/common/profile.png" alt="">
-                            </div>
-                            <div class="loginFirst">
-                                <a href="#">로그인</a>
-                                하시고 댓글을 남겨보세요.
-                            </div>
+                      <div th:if="${session.get('user') == null}" class="com_login">
+                        <div class="profile">
+                          <img src="/images/common/profile.png" alt="">
                         </div>
-                        <div class="com_box">
-                            <div class="profile">
-                                <img src="/imagels/common/profile.png" alt="">
-                            </div>
-                            <div class="cmt">
-                                <div class="name">
-                                    <p>yoon's table</p>
-                                    <span class="date">2024-11-08 21:29</span>
-                                </div>
-                                <div class="text">
-                                    건강하고 간편하게 먹기 딱인걸요!
+                        <div class="loginFirst">
+                          <a href="#">로그인</a>
+                          하시고 댓글을 남겨보세요.
+                        </div>
+                      </div>
 
-                                    <!-- <form>
-                                      <div class="txtArea">
-                                        <textarea id="txtBox" name="content" placeholder="내용을 입력하세요.">단백질 가득 너무 맛나겠어요!</textarea>
-                                      </div>
-                                    </form> -->
+                      <div th:if="${session.get('user') != null}" class="cmt_box">
+                        <div class="profile"><img src="/assets/images/common/profile.png" alt=""></div>
+                        <div class="cmt">
+                          <div class="name" th:text="${session.user.getMember_name()}"></div>
+                          <div class="text">
+                            <form id="replyForm" onsubmit="return false;" method="post">
+                              <input type="hidden" id="comment_board_id" th:value="${lab.board_id}">
+                              <input type="hidden" id="comment_post_id" th:value="${lab.lab_id}">
+                              <input type="hidden" id="creater" th:value="${session.user.member_id}">
+                              <input type="hidden" id="parent_comment_id" value="">
+
+                              <div class="txtArea">
+                                <textarea id="textBox" name="content" maxlength="1000" placeholder="내용을 입력하세요."></textarea>
+                                <ul class="imgList">
+                                </ul>
+                                <p class="wordCount">
+                                  <span>0</span>/1,000
+                                </p>
+                                <div class="files">
+                                  <input type="file" name="file" id="addFile" data-url="/comment/presign" accept=".jpg, .jpeg, .png, .gif, image/*">
+                                  <label onclick="$(this).prev().click()">사진첨부</label>
+                                  <span class="fileName"></span>
+                                  <button id="replyButton" type="button" onclick="submitComment();">등록</button>
                                 </div>
+                              </div>
+                              <!--                                        <div class="warning">내용을 입력해주세요.</div>-->
+                            </form>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div th:if="${postCommentlist.size() > 0}" class="com_box" th:each="comment : ${postCommentlist}">
+                        <div class="profile">
+                          <img th:src="|/images/${comment.profile_img}|" alt="">
+                        </div>
+                        <div class="cmt">
+                          <div class="name">
+                            <p th:text="${comment.member_name}"> </p>
+                            <span class="date" th:text="${comment.create_date}"> </span>
+                          </div>
+                          <div class="text" th:text="${comment.desc_detail}">
+                            건강하고 간편하게 먹기 딱인걸요!
+                          </div>
+                            <a href="javascript:void(0)" class="re rep">답글 달기</a>
+                            <div class="modify editActive">
+                                <button class="replyModify" onclick="activeModify(this)" type="button">수정</button>
+                                <button class="replyDelete" onclick="deleteComment(20655, this)" type="button">삭제</button>
                             </div>
                         </div>
-                        <div class="com_blank">
-                            <p>여러분의 댓글을 기다리고 있어요 :)</p>
-                        </div>
+                      </div>
+                      <div th:if="${postCommentlist.size() == 0}" class="com_blank">
+                        <p>여러분의 댓글을 기다리고 있어요 :)</p>
+                      </div>
                     </div>
 
-                </div>
-            </div>
-        </div>
-    </section>
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </section>-->
     <div class="hr_line"></div>
-    <div th:replace="~{/fragments :: tagList(${list})}"></div>
+    <!--    <section class="S_tagList">-->
+    <!--        <div class="inner">-->
+    <!--            <div class="s_titwrap">-->
+    <!--                <h4 class="s_tit">이 글이 마음에 드셨다면😍</h4>-->
+    <!--                <div class="k_arrowbtn">-->
+    <!--                    <div class="swiper-button-prev"></div>-->
+    <!--                    <div class="swiper-button-next"></div>-->
+    <!--                </div>-->
+    <!--                <div class="swiper">-->
+    <!--                    <div class="swiper-wrapper">-->
+    <!--                        <div class="swiper-slide">-->
+    <!--                            <a href="#">-->
+    <!--                                <div class="img_wrap">-->
+    <!--                                    <img src="/images/mainpage3.jpg" alt="">-->
+    <!--                                </div>-->
+    <!--                                <div class="s_text_wrap">-->
+    <!--                                    <h4>산뜻고소 참치마카로니샐러드</h4>-->
+    <!--                                    <p>산뜻한 채소와 쫀득한 참치, 마카로니로 색다르게!</p>-->
+    <!--                                </div>-->
+    <!--                                <ul class="s_time_wrap">-->
+    <!--                                    <li>-->
+    <!--                                        <span>준비시간</span> 25분-->
+    <!--                                    </li>-->
+    <!--                                    <li>-->
+    <!--                                        <span>조리시간</span> 5분-->
+    <!--                                    </li>-->
+    <!--                                </ul>-->
+    <!--                            </a>-->
+    <!--                            <div class="scrap">스크랩</div>-->
+    <!--                        </div>-->
+    <!--                        <div class="swiper-slide">-->
+    <!--                            <a href="#">-->
+    <!--                                <div class="img_wrap">-->
+    <!--                                    <img src="/images/mainpage4.jpg" alt="">-->
+    <!--                                </div>-->
+    <!--                                <div class="s_text_wrap">-->
+    <!--                                    <h4>산뜻고소 참치마카로니샐러드</h4>-->
+    <!--                                    <p>산뜻한 채소와 쫀득한 참치, 마카로니로 색다르게!</p>-->
+    <!--                                </div>-->
+    <!--                                <ul class="s_time_wrap">-->
+    <!--                                    <li>-->
+    <!--                                        <span>준비시간</span> 25분-->
+    <!--                                    </li>-->
+    <!--                                    <li>-->
+    <!--                                        <span>조리시간</span> 5분-->
+    <!--                                    </li>-->
+    <!--                                </ul>-->
+    <!--                            </a>-->
+    <!--                            <div class="scrap">스크랩</div>-->
+    <!--                            </a>-->
+    <!--                        </div>-->
+    <!--                        <div class="swiper-slide">-->
+    <!--                            <a href="#">-->
+    <!--                                <div class="img_wrap">-->
+    <!--                                    <img src="/images/mainpage3.jpg" alt="">-->
+    <!--                                </div>-->
+    <!--                                <div class="s_text_wrap">-->
+    <!--                                    <h4>산뜻고소 참치마카로니샐러드</h4>-->
+    <!--                                    <p>산뜻한 채소와 쫀득한 참치, 마카로니로 색다르게!</p>-->
+    <!--                                </div>-->
+    <!--                                <ul class="s_time_wrap">-->
+    <!--                                    <li>-->
+    <!--                                        <span>준비시간</span> 25분-->
+    <!--                                    </li>-->
+    <!--                                    <li>-->
+    <!--                                        <span>조리시간</span> 5분-->
+    <!--                                    </li>-->
+    <!--                                </ul>-->
+    <!--                            </a>-->
+    <!--                            <div class="scrap">스크랩</div>-->
+    <!--                            </a>-->
+    <!--                        </div>-->
+    <!--                        <div class="swiper-slide">-->
+    <!--                            <a href="#">-->
+    <!--                                <div class="img_wrap">-->
+    <!--                                    <img src="/images/mainpage4.jpg" alt="">-->
+    <!--                                </div>-->
+    <!--                                <div class="s_text_wrap">-->
+    <!--                                    <h4>산뜻고소 참치마카로니샐러드</h4>-->
+    <!--                                    <p>산뜻한 채소와 쫀득한 참치, 마카로니로 색다르게!</p>-->
+    <!--                                </div>-->
+    <!--                                <ul class="s_time_wrap">-->
+    <!--                                    <li>-->
+    <!--                                        <span>준비시간</span> 25분-->
+    <!--                                    </li>-->
+    <!--                                    <li>-->
+    <!--                                        <span>조리시간</span> 5분-->
+    <!--                                    </li>-->
+    <!--                                </ul>-->
+    <!--                            </a>-->
+    <!--                            <div class="scrap">스크랩</div>-->
+    <!--                            </a>-->
+    <!--                        </div>-->
+    <!--                        <div class="swiper-slide">-->
+    <!--                            <a href="#">-->
+    <!--                                <div class="img_wrap">-->
+    <!--                                    <img src="/images/mainpage3.jpg" alt="">-->
+    <!--                                </div>-->
+    <!--                                <div class="s_text_wrap">-->
+    <!--                                    <h4>산뜻고소 참치마카로니샐러드</h4>-->
+    <!--                                    <p>산뜻한 채소와 쫀득한 참치, 마카로니로 색다르게!</p>-->
+    <!--                                </div>-->
+    <!--                                <ul class="s_time_wrap">-->
+    <!--                                    <li>-->
+    <!--                                        <span>준비시간</span> 25분-->
+    <!--                                    </li>-->
+    <!--                                    <li>-->
+    <!--                                        <span>조리시간</span> 5분-->
+    <!--                                    </li>-->
+    <!--                                </ul>-->
+    <!--                            </a>-->
+    <!--                            <div class="scrap">스크랩</div>-->
+    <!--                            </a>-->
+    <!--                        </div>-->
+    <!--                        <div class="swiper-slide">-->
+    <!--                            <a href="#">-->
+    <!--                                <div class="img_wrap">-->
+    <!--                                    <img src="/images/mainpage4.jpg" alt="">-->
+    <!--                                </div>-->
+    <!--                                <div class="s_text_wrap">-->
+    <!--                                    <h4>산뜻고소 참치마카로니샐러드</h4>-->
+    <!--                                    <p>산뜻한 채소와 쫀득한 참치, 마카로니로 색다르게!</p>-->
+    <!--                                </div>-->
+    <!--                                <ul class="s_time_wrap">-->
+    <!--                                    <li>-->
+    <!--                                        <span>준비시간</span> 25분-->
+    <!--                                    </li>-->
+    <!--                                    <li>-->
+    <!--                                        <span>조리시간</span> 5분-->
+    <!--                                    </li>-->
+    <!--                                </ul>-->
+    <!--                            </a>-->
+    <!--                            <div class="scrap">스크랩</div>-->
+    <!--                            </a>-->
+    <!--                        </div>-->
+    <!--                        <div class="swiper-slide">-->
+    <!--                            <a href="#">-->
+    <!--                                <div class="img_wrap">-->
+    <!--                                    <img src="/images/mainpage3.jpg" alt="">-->
+    <!--                                </div>-->
+    <!--                                <div class="s_text_wrap">-->
+    <!--                                    <h4>산뜻고소 참치마카로니샐러드</h4>-->
+    <!--                                    <p>산뜻한 채소와 쫀득한 참치, 마카로니로 색다르게!</p>-->
+    <!--                                </div>-->
+    <!--                                <ul class="s_time_wrap">-->
+    <!--                                    <li>-->
+    <!--                                        <span>준비시간</span> 25분-->
+    <!--                                    </li>-->
+    <!--                                    <li>-->
+    <!--                                        <span>조리시간</span> 5분-->
+    <!--                                    </li>-->
+    <!--                                </ul>-->
+    <!--                            </a>-->
+    <!--                            <div class="scrap">스크랩</div>-->
+    <!--                            </a>-->
+    <!--                        </div>-->
+    <!--                        <div class="swiper-slide">-->
+    <!--                            <a href="#">-->
+    <!--                                <div class="img_wrap">-->
+    <!--                                    <img src="/images/mainpage4.jpg" alt="">-->
+    <!--                                </div>-->
+    <!--                                <div class="s_text_wrap">-->
+    <!--                                    <h4>산뜻고소 참치마카로니샐러드</h4>-->
+    <!--                                    <p>산뜻한 채소와 쫀득한 참치, 마카로니로 색다르게!</p>-->
+    <!--                                </div>-->
+    <!--                                <ul class="s_time_wrap">-->
+    <!--                                    <li>-->
+    <!--                                        <span>준비시간</span> 25분-->
+    <!--                                    </li>-->
+    <!--                                    <li>-->
+    <!--                                        <span>조리시간</span> 5분-->
+    <!--                                    </li>-->
+    <!--                                </ul>-->
+    <!--                            </a>-->
+    <!--                            <div class="scrap">스크랩</div>-->
+    <!--                            </a>-->
+    <!--                        </div>-->
+    <!--                    </div>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--        </div>-->
+    <!--    </section>-->
+    <div th:replace="~{/fragments :: tagList}"></div>
     <section class="back_wrap">
         <div class="inner">
             <div class="btn_box">

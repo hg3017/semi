@@ -166,7 +166,6 @@ function emailJoinDetailHref() {
             hideLoading();
         })
     ;
-
     return false; // 폼 제출 중단
 }
     // item.classList.remove("is-error");
