@@ -2,7 +2,7 @@
 <html lang="ko"
       xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{/layout}"
+      layout:decorate="~{layout}"
       layout:fragment="content" xmlns="http://www.w3.org/1999/html">
 
 <head layout:fragment="config">
@@ -11,10 +11,10 @@
 </head>
 
 <body>
-<div th:replace="~{/fragments :: shareControl}"></div>
+<div th:replace="~{fragments :: shareControl}"></div>
 <div id="wrap" class="archive_wrap">
     <main id="sol_container" class="container">
-        <div th:replace="~{/fragments :: scroll}"></div>
+        <div th:replace="~{fragments :: scroll}"></div>
         <section class="sol_view_wrap">
             <div class="view_title">
                 <div class="inner">
@@ -147,12 +147,12 @@
                     </p>
                 </div>
             </div>
-            <div th:replace="~{/fragments :: tag}"></div>
-            <div th:replace="~{/fragments :: comment}"></div>
+            <div th:replace="~{fragments :: tag}"></div>
+            <div th:replace="~{fragments :: comment}"></div>
         </div>
         <div class="hr_line"></div>
-        <div th:replace="~{/fragments :: tagList()}"></div>
-        <div th:replace="~{/fragments :: sol_list}"></div>
+        <div th:replace="~{fragments :: tagList}"></div>
+        <div th:replace="~{fragments :: sol_list}"></div>
     </main>
 </div>
 

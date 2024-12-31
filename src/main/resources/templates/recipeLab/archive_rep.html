@@ -2,7 +2,7 @@
 <!--<html lang="ko"-->
 <!--      xmlns:th="http://www.thymeleaf.org"-->
 <!--      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"-->
-<!--      layout:decorate="~{/layout}"-->
+<!--      layout:decorate="~{layout}"-->
 <!--      layout:fragment="content">-->
 
 <!--<head layout:fragment="config">-->
@@ -11,9 +11,9 @@
 <!--</head>-->
 <!--<body>-->
 <!--<main id="rep_container" class="container">-->
-<!--    <th:block th:replace="~{/fragments :: loading}" />-->
+<!--    <th:block th:replace="~{fragments :: loading}" />-->
 <!--    <loading></loading>-->
-<!--    <div th:replace="~{/fragments :: scroll}"></div>-->
+<!--    <div th:replace="~{fragments :: scroll}"></div>-->
 <!--    <section class="sub_view_wrap">-->
 <!--        <div class="view_title">-->
 <!--            <div class="inner">-->
@@ -224,7 +224,7 @@
 <!--                      </div>-->
 <!--                    </div>-->
 <!--    <div class="hr_line"></div>-->
-<!--    <div th:replace="~{/fragments :: tagList}"></div>-->
+<!--    <div th:replace="~{fragments :: tagList}"></div>-->
 <!--    <section class="back_wrap">-->
 <!--        <div class="inner">-->
 <!--            <div class="btn_box">-->
@@ -240,7 +240,7 @@
 <html lang="ko"
       xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{/layout}"
+      layout:decorate="~{layout}"
       layout:fragment="content">
 
 <head layout:fragment="config">
@@ -249,7 +249,7 @@
 </head>
 <body>
 <main id="rep_container" class="container">
-    <div th:replace="~{/fragments :: scroll}"></div>
+    <div th:replace="~{fragments :: scroll}"></div>
     <section class="sub_view_wrap">
         <div class="view_title">
             <div class="inner">
@@ -466,7 +466,7 @@
         </div>
     </section>
     <div class="hr_line"></div>
-    <div th:replace="~{/fragments :: tagList(${list})}"></div>
+    <div th:replace="~{fragments :: tagList(${list})}"></div>
     <section class="back_wrap">
         <div class="inner">
             <div class="btn_box">
