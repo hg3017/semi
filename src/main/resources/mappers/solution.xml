@@ -24,24 +24,37 @@
         , s.BOARD_ID
         , s.SOLUTION_NAME
         , s.SOLUTION_DESC
+        , s.SOLUTION_DETAIL
         , DBMS_LOB.SUBSTR(s.DESC_DETAIL, 4000) AS DESC_DETAIL
         , s.CREATE_DATE
         , s.MODIFY_DATE
+        , LISTAGG(DISTINCT h.HASH_NAME, ',') WITHIN GROUP (ORDER BY s.solution_id) OVER (PARTITION BY s.solution_id) AS hashnames
         , (
-        SELECT
-        FILE_PATH
-        FROM
-        IMG_LIST il
-        WHERE
-        1 = 1
-        AND il.POST_ID = s.SOLUTION_ID
+        SELECT FILE_PATH
+        FROM IMG_LIST il
+        WHERE il.POST_ID = s.SOLUTION_ID
         AND il.BOARD_ID = s.BOARD_ID
         AND ROWNUM = 1
-        AND IMG_PRIORITY = 1) AS POSTER
+        AND IMG_PRIORITY = 1
+        ) AS POSTER
         FROM SOLUTION s
-        INNER JOIN IMG_LIST i
+        left outer join IMG_LIST i
         ON s.SOLUTION_ID = i.POST_ID
         AND s.BOARD_ID = i.BOARD_ID
+        INNER JOIN (
+        SELECT
+        hc.CONN_ID,
+        hc.BOARD_ID,
+        h.HASH_ID,
+        h.HASH_NAME
+        FROM
+        HASHTAGS_CONN hc
+        INNER JOIN
+        HASHTAGS h
+        ON hc.HASH_ID = h.HASH_ID
+        ) h
+        ON s.SOLUTION_ID = h.CONN_ID
+        AND s.BOARD_ID = h.BOARD_ID
         <include refid="page2" />
     </select>
 
@@ -51,7 +64,15 @@
 
     <select id="selectById1" resultType="SolutionDTO">
         SELECT distinct
-            s.*,
+            s.SOLUTION_ID
+                      , s.BOARD_ID
+                      , s.SOLUTION_NAME
+                      , s.SOLUTION_DESC
+                      , s.SOLUTION_DETAIL
+                      , DBMS_LOB.SUBSTR(s.DESC_DETAIL, 4000) AS DESC_DETAIL
+                      , s.CREATE_DATE
+                      , s.MODIFY_DATE
+                      ,
             (SELECT file_path
              FROM img_list i
              WHERE i.post_id = s.solution_id
@@ -70,16 +91,4 @@
         where s.solution_id = #{solution_id}
         order by s.solution_id DESC
     </select>
-<!--    <select id="selectIngredientById" resultType="hashMap">-->
-<!--        SELECT DISTINCT LAB_PRIORITY-->
-<!--                      , LAB_INGREDIENT_NAME-->
-<!--                      , SERVINGS-->
-<!--                      , PREPARATION-->
-<!--                      , COOKINGTIME-->
-<!--                      , LISTAGG(LAB_INGREDIENT_DETAIL, ',') WITHIN GROUP (ORDER BY LAB_PRIORITY)-->
-<!--                                OVER (PARTITION BY LAB_PRIORITY) AS COOKS-->
-<!--        FROM LAB_DETAIL_INGREDIENT-->
-<!--        WHERE LAB_ID = 2-->
-<!--        order by lab_priority-->
-<!--    </select>-->
 </mapper>
