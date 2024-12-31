@@ -28,6 +28,12 @@
     margin-bottom: 20px;
     text-align: right;
 }
+.main_event .filter .eventbt {
+    padding: 8px 14px;
+    border: 1px solid #333;
+    font-weight: 500;
+    background: #fff;
+}
 .main_event .filter ul {
     margin-top: 30px;
     display: flex;
