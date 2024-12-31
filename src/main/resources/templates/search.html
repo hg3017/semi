@@ -2,7 +2,7 @@
 <html lang="ko"
       xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{layout}"
+      layout:decorate="~{/layout}"
       layout:fragment="content">
 <head layout:fragment="config">
   <title>Search</title>
@@ -13,7 +13,8 @@
   <section class="main_search">
     <div class="inner">
       <form id="sFrm" method="POST" onsubmit="return false;">
-        <div>
+        <fieldset>
+          <legend>게시물 검색</legend>
           <div class="search-box">
             <input type="hidden" name="t" value="">
             <div class="select">
@@ -30,7 +31,7 @@
               <button id="btnSearch" type="button">검색</button>
             </div>
           </div>
-        </div>
+        </fieldset>
       </form>
       <div class="keyword">
         <p>추천검색어</p>
@@ -144,90 +145,30 @@
     <div class="inner">
       <div class="tag_wrap">
         <ul class="rep_area">
-          <li class="rep_item" th:each="lab : ${list}">
-            <a href="/recipeLab/archive_rep">
-              <div class="img_wrap">
-                <img th:src="${'/images/' + lab.poster}" th:alt="${lab.lab_name}">
-<!--                <img src="/images/cook3.jpg" alt="">-->
-              </div>
-              <div class="txt_wrap">
-                <h4 th:utext="${lab.lab_name_desc}"></h4>
-<!--                <h4>새콤 무생채</h4>-->
-                <p th:utext="${lab.desc_detail}"></p>
-<!--                <p>남은 무가 있다면 새콤하게 무쳐봐요!</p>-->
-              </div>
-            </a>
-            <ul class="time_wrap">
-              <li>
-                <span>준비시간</span>
-                <span th:with="txt=${lab.preparation != null ? lab.preparation : '0'}" th:text="${txt + '분'}"></span>
-              </li>
-              <li>
-                <span th:with="txt=${lab.cookingtime != null ? lab.cookingtime : '0'}" th:text="${txt + '분'}"></span>
-              </li>
-            </ul>
-            <div class="scrap">스크랩</div>
-          </li>
-<!--          <li class="rep_item">-->
-<!--            <a href="/recipeLab/archive_rep">-->
-<!--              <div class="img_wrap">-->
-<!--                <img src="/images/cook3.jpg" alt="">-->
-<!--              </div>-->
-<!--              <div class="txt_wrap">-->
-<!--                <h4>새콤 무생채</h4>-->
-<!--                <p>남은 무가 있다면 새콤하게 무쳐봐요!</p>-->
-<!--              </div>-->
-<!--            </a>-->
-<!--            <ul class="time_wrap">-->
-<!--              <li>-->
-<!--                <span>준비시간</span> 25분-->
-<!--              </li>-->
-<!--              <li>-->
-<!--                <span>조리시간</span> 5분-->
-<!--              </li>-->
-<!--            </ul>-->
-<!--            <a href="#" class="scrap">스크랩</a>-->
-<!--          </li>-->
-<!--          <li class="rep_item">-->
-<!--            <a href="/recipeLab/archive_rep">-->
-<!--              <div class="img_wrap">-->
-<!--                <img src="/images/cook3.jpg" alt="">-->
-<!--              </div>-->
-<!--              <div class="txt_wrap">-->
-<!--                <h4>새콤 무생채</h4>-->
-<!--                <p>남은 무가 있다면 새콤하게 무쳐봐요!</p>-->
-<!--              </div>-->
-<!--            </a>-->
-<!--            <ul class="time_wrap">-->
-<!--              <li>-->
-<!--                <span>준비시간</span> 25분-->
-<!--              </li>-->
-<!--              <li>-->
-<!--                <span>조리시간</span> 5분-->
-<!--              </li>-->
-<!--            </ul>-->
-<!--            <a href="#" class="scrap">스크랩</a>-->
-<!--          </li>-->
-<!--          <li class="rep_item">-->
-<!--            <a href="/recipeLab/archive_rep">-->
-<!--              <div class="img_wrap">-->
-<!--                <img src="/images/cook3.jpg" alt="">-->
-<!--              </div>-->
-<!--              <div class="txt_wrap">-->
-<!--                <h4>새콤 무생채</h4>-->
-<!--                <p>남은 무가 있다면 새콤하게 무쳐봐요!</p>-->
-<!--              </div>-->
-<!--            </a>-->
-<!--            <ul class="time_wrap">-->
-<!--              <li>-->
-<!--                <span>준비시간</span> 25분-->
-<!--              </li>-->
-<!--              <li>-->
-<!--                <span>조리시간</span> 5분-->
-<!--              </li>-->
-<!--            </ul>-->
-<!--            <a href="#" class="scrap">스크랩</a>-->
-<!--          </li>-->
+          <!--          <li class="rep_item" th:each="lab : ${list}">-->
+          <!--            <a href="/recipeLab/archive_rep">-->
+          <!--              <div class="img_wrap">-->
+          <!--                <img th:src="${'/images/' + lab.poster}" th:alt="${lab.lab_name}">-->
+          <!--&lt;!&ndash;                <img src="/images/cook3.jpg" alt="">&ndash;&gt;-->
+          <!--              </div>-->
+          <!--              <div class="txt_wrap">-->
+          <!--                <h4 th:utext="${lab.lab_name_desc}"></h4>-->
+          <!--&lt;!&ndash;                <h4>새콤 무생채</h4>&ndash;&gt;-->
+          <!--                <p th:utext="${lab.desc_detail}"></p>-->
+          <!--&lt;!&ndash;                <p>남은 무가 있다면 새콤하게 무쳐봐요!</p>&ndash;&gt;-->
+          <!--              </div>-->
+          <!--            </a>-->
+          <!--            <ul class="time_wrap">-->
+          <!--              <li>-->
+          <!--                <span>준비시간</span>-->
+          <!--                <span th:with="txt=${lab.preparation != null ? lab.preparation : '0'}" th:text="${txt + '분'}"></span>-->
+          <!--              </li>-->
+          <!--              <li>-->
+          <!--                <span th:with="txt=${lab.cookingtime != null ? lab.cookingtime : '0'}" th:text="${txt + '분'}"></span>-->
+          <!--              </li>-->
+          <!--            </ul>-->
+          <!--            <div class="scrap">스크랩</div>-->
+          <!--          </li>-->
         </ul>
       </div>
     </div>
@@ -235,85 +176,28 @@
   <section class="sr_sol">
     <div class="inner">
       <ul class="sol_area">
-        <li class="sol_item">
-          <a href="#">
-            <div class="img_wrap">
-              <img src="/images/sol1.jpg" alt="">
-            </div>
-            <div class="txt_wrap">
-              <h4>식비를 줄이는 효과적인 절약팁</h4>
-              <p>잘 사고 잘 먹는 식비 줄이는 법, 궁금하다면?</p>
-            </div>
-          </a>
-          <ul class="hash_wrap">
-            <li>
-              살림
-            </li>
-            <li>
-              재료구매
-            </li>
-          </ul>
-          <a href="#" class="scrap">스크랩</a>
-        </li>
-        <li class="sol_item">
-          <a href="#">
-            <div class="img_wrap">
-              <img src="/images/sol1.jpg" alt="">
-            </div>
-            <div class="txt_wrap">
-              <h4>식비를 줄이는 효과적인 절약팁</h4>
-              <p>잘 사고 잘 먹는 식비 줄이는 법, 궁금하다면?</p>
-            </div>
-          </a>
-          <ul class="hash_wrap">
-            <li>
-              살림
-            </li>
-            <li>
-              재료구매
-            </li>
-          </ul>
-          <a href="#" class="scrap">스크랩</a>
-        </li>
-        <li class="sol_item">
-          <a href="#">
-            <div class="img_wrap">
-              <img src="/images/sol1.jpg" alt="">
-            </div>
-            <div class="txt_wrap">
-              <h4>식비를 줄이는 효과적인 절약팁</h4>
-              <p>잘 사고 잘 먹는 식비 줄이는 법, 궁금하다면?</p>
-            </div>
-          </a>
-          <ul class="hash_wrap">
-            <li>
-              살림
-            </li>
-            <li>
-              재료구매
-            </li>
-          </ul>
-          <a href="#" class="scrap">스크랩</a>
-        </li>
-        <li class="sol_item">
-          <a href="#">
-            <div class="img_wrap">
-              <img src="/images/sol1.jpg" alt="">
-            </div>
-            <div class="txt_wrap">
-              <h4>식비를 줄이는 효과적인 절약팁</h4>
-              <p>잘 사고 잘 먹는 식비 줄이는 법, 궁금하다면?</p>
-            </div>
-          </a>
-          <ul class="hash_wrap">
-            <li>
-              살림
-            </li>
-            <li>
-              재료구매
-            </li>
-          </ul>
-          <a href="#" class="scrap">스크랩</a>
+        <!--        <li class="sol_item" th:each="sol : ${list}">-->
+        <!--          <a th:href="@{'/recipeLab/archive_sol/' + ${sol.solution_id}}">-->
+        <!--            <div class="img_wrap">-->
+        <!--              <img th:src="${'/images/' + sol.poster}" alt="">-->
+        <!--&lt;!&ndash;              <img src="/images/sol1.jpg" alt="">&ndash;&gt;-->
+        <!--            </div>-->
+        <!--            <div class="txt_wrap">-->
+        <!--&lt;!&ndash;              <h4>식비를 줄이는 효과적인 절약팁</h4>&ndash;&gt;-->
+        <!--              <h4 th:text="${sol.solution_name}"></h4>-->
+        <!--              <p th:text="${sol.solution_desc}"></p>-->
+        <!--&lt;!&ndash;              <p>잘 사고 잘 먹는 식비 줄이는 법, 궁금하다면?</p>&ndash;&gt;-->
+        <!--            </div>-->
+        </a>
+        <ul class="hash_wrap">
+          <li>
+            살림
+          </li>
+          <li>
+            재료구매
+          </li>
+        </ul>
+        <a href="#" class="scrap">스크랩</a>
         </li>
       </ul>
     </div>

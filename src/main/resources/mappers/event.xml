@@ -29,8 +29,20 @@
     </select>
 
     <select id="selectById" resultType="eventDTO">
+        WITH HASHTABLES AS (
+            SELECT
+                hc.CONN_ID,
+                hc.BOARD_ID,
+                h.HASH_ID,
+                h.HASH_NAME
+            FROM
+                HASHTAGS_CONN hc
+                    INNER JOIN
+                HASHTAGS h
+                ON hc.HASH_ID = h.HASH_ID
+        )
         SELECT EVENT_ID, BOARD_ID, EVENT_NAME, MAIN_POSTER, POSTER, DESC_DETAIL, TO_CHAR(EVENT_START, 'yyyy-MM-dd') EVENT_START, TO_CHAR(EVENT_END, 'yyyy-MM-dd') EVENT_END
-        FROM EVENT
+        FROM EVENT e
         WHERE EVENT_ID = #{event_id}
     </select>
 

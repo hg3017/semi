@@ -36,12 +36,18 @@ public class MainController {
     public String search(Model model) {
         System.out.println("search---------------------------------------------");
 
-        //요리연구소
+        //요리연구소 레시피
         Pagination pg = new Pagination();
         Map<String, String> map = Collections.singletonMap("labId", String.valueOf(0));
         pg.setSearchMap(map);
 
         model.addAttribute("list", recipeLabService.findAll(pg));
+
+        //요리연구소 솔루션
+        Pagination page = new Pagination();
+        Map<String, String> map2 = Collections.singletonMap("solId", String.valueOf(0));
+        page.setSearchMap(map2);
+        model.addAttribute("list", recipeLabService.findAll1(page));
 
         return "search";
     }
