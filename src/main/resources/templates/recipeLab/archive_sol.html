@@ -11,30 +11,6 @@
 </head>
 
 <body>
-<!--<div class="share_control">-->
-<!--    <button type="button" class="scrap"><i></i><span>스크랩</span></button>-->
-<!--    <div class="share_wrap">-->
-<!--        <button type="button" class="share"><i></i><span>공유하기</span></button>-->
-<!--        <ul class="share_btn">-->
-<!--            <li class="close">-->
-<!--                <span>공유</span>-->
-<!--                <button type="button">X</button>-->
-<!--            </li>-->
-<!--            <li>-->
-<!--                <a href="#" class="share_kakao_btn">-->
-<!--                    <img src="/images/common/ic_kakao2.png" alt="카카오">-->
-<!--                    <span>카카오톡</span>-->
-<!--                </a>-->
-<!--            </li>-->
-<!--            <li>-->
-<!--                <a href="#" class="copy_clip_btn">-->
-<!--                    <img src="/images/common/ic_url.png" alt="카카오">-->
-<!--                    <span>URL복사</span>-->
-<!--                </a>-->
-<!--            </li>-->
-<!--        </ul>-->
-<!--    </div>-->
-<!--</div>-->
 <div th:replace="~{/fragments :: shareControl}"></div>
 <div id="wrap" class="archive_wrap">
     <main id="sol_container" class="container">
@@ -43,15 +19,15 @@
             <div class="view_title">
                 <div class="inner">
                     <span class="label">솔루션</span>
-                    <h3>무 손질 &amp; 보관법</h3>
-                    <p class="date">2024.12.04 08:00</p>
+                    <h3 th:text="${sol.solution_name}"></h3>
+                    <p th:text="${sol.create_date}" class="date"></p>
                 </div>
             </div>
         </section>
         <div class="solution_view_cont">
             <div class="solution_view_title">
-                <h4>팔뚝만한 무, 어떻게 손질하고 보관할까?</h4>
-                <p>올바르게 손질하고, 보관하는 법 함께 알아볼까요?</p>
+                <h4 th:text="${sol.solution_desc}"></h4>
+                <p th:utext="${sol.solution_detail}"></p>
             </div>
             <div class="solution_intro">
                 <div class="sol_editor">
@@ -175,7 +151,7 @@
             <div th:replace="~{/fragments :: comment}"></div>
         </div>
         <div class="hr_line"></div>
-        <div th:replace="~{/fragments :: tagList}"></div>
+        <div th:replace="~{/fragments :: tagList()}"></div>
         <div th:replace="~{/fragments :: sol_list}"></div>
     </main>
 </div>

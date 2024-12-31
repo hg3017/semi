@@ -9,10 +9,10 @@
         )
         SELECT xx.*
         FROM (
-        SELECT /*+ALL_ROWS*/ ROW_NUMBER() OVER(ORDER BY yy.lab_id DESC) rn
-        , yy.*
-        FROM QDATA yy
-        ) xx
+                 SELECT /*+ALL_ROWS*/ ROW_NUMBER() OVER(ORDER BY yy.lab_id DESC) rn
+                      , yy.*
+                 FROM QDATA yy
+             ) xx
         WHERE rn BETWEEN #{start} AND #{end}
     </sql>
 
@@ -20,23 +20,23 @@
     <select id="selectAll" parameterType="com.semie.cook.common.Pagination" resultType="RecipeLabDTO">
         <include refid="page1" />
         SELECT DISTINCT
-            l.LAB_ID
-            , l.BOARD_ID
-            , l.LAB_NAME
-            , l.LAB_NAME_DESC
-            , l.DESC_DETAIL
-            , l.CREATE_DATE
-            , l.MODIFY_DATE
-            , (SELECT PREPARATION FROM LAB_DETAIL_INGREDIENT WHERE LAB_ID = l.LAB_ID AND ROWNUM = 1) PREPARATION
-            , (SELECT COOKINGTIME FROM LAB_DETAIL_INGREDIENT WHERE LAB_ID = l.LAB_ID AND ROWNUM = 1) COOKINGTIME
-            , (
-                SELECT FILE_PATH
-                FROM IMG_LIST il
-                WHERE il.POST_ID = l.LAB_ID
-                AND il.BOARD_ID = l.BOARD_ID
-                AND ROWNUM = 1
-                AND IMG_PRIORITY = 1
-              ) AS POSTER
+        l.LAB_ID
+        , l.BOARD_ID
+        , l.LAB_NAME
+        , l.LAB_NAME_DESC
+        , l.DESC_DETAIL
+        , l.CREATE_DATE
+        , l.MODIFY_DATE
+        , (SELECT PREPARATION FROM LAB_DETAIL_INGREDIENT WHERE LAB_ID = l.LAB_ID AND ROWNUM = 1) PREPARATION
+        , (SELECT COOKINGTIME FROM LAB_DETAIL_INGREDIENT WHERE LAB_ID = l.LAB_ID AND ROWNUM = 1) COOKINGTIME
+        , (
+        SELECT FILE_PATH
+        FROM IMG_LIST il
+        WHERE il.POST_ID = l.LAB_ID
+        AND il.BOARD_ID = l.BOARD_ID
+        AND ROWNUM = 1
+        AND IMG_PRIORITY = 1
+        ) AS POSTER
         FROM LAB l
         left outer join IMG_LIST i
         ON l.LAB_ID = i.POST_ID
@@ -57,15 +57,15 @@
                      l.*,
                      DECODE(i.img_priority, 1, i.file_path) AS poster,
                      LISTAGG(distinct
-		        CASE
-		            WHEN i.img_priority != 1
-		                THEN i.file_path
-		            END, ',') WITHIN GROUP (ORDER BY i.img_priority)
-		        OVER (PARTITION BY i.post_id) AS files
+                             CASE
+                                 WHEN i.img_priority != 1
+                                     THEN i.file_path
+                                 END, ',') WITHIN GROUP (ORDER BY i.img_priority)
+                             OVER (PARTITION BY i.post_id) AS files
                  FROM lab l
-                     inner JOIN img_list i
-                 ON l.lab_id = i.post_ID
-                     AND l.board_id = i.board_id
+                          inner JOIN img_list i
+                                     ON l.lab_id = i.post_ID
+                                         AND l.board_id = i.board_id
                  where l.lab_id = #{lab_id}
                  order by l.lab_id DESC
              ) a
@@ -80,7 +80,7 @@
                       , LISTAGG(LAB_INGREDIENT_DETAIL, ',') WITHIN GROUP (ORDER BY LAB_PRIORITY)
                                 OVER (PARTITION BY LAB_PRIORITY) AS COOKS
         FROM LAB_DETAIL_INGREDIENT
-        WHERE LAB_ID = 2
+        WHERE LAB_ID = #{lab_id}
         order by lab_priority
     </select>
     <select id="selectStepById" resultType="RecipeLabStepDTO">
@@ -95,15 +95,15 @@
         )
         SELECT DISTINCT
             l.*
-             , LISTAGG(DISTINCT h.hash_name, ',') WITHIN GROUP (ORDER BY h.hash_id) OVER(PARTITION BY l.lab_id) AS hashnames
-             , (
+                      , LISTAGG(DISTINCT h.hash_name, ',') WITHIN GROUP (ORDER BY h.hash_id) OVER(PARTITION BY l.lab_id) AS hashnames
+                      , (
             SELECT FILE_PATH
             FROM IMG_LIST il
             WHERE l.LAB_STEP_ID = il.POST_ID
               AND l.BOARD_ID = il.BOARD_ID
               AND il.IMG_PRIORITY = 1
         ) AS POSTER
-             , (
+                      , (
             SELECT DISTINCT
                 LISTAGG(FILE_PATH, ',') WITHIN GROUP(ORDER BY il.IMG_PRIORITY)
                         OVER(PARTITION BY il.POST_ID)
@@ -116,7 +116,7 @@
                  LEFT OUTER JOIN HASHTABLES h
                                  ON l.LAB_ID = h.CONN_ID
                                      AND h.BOARD_ID = 20
-        WHERE l.LAB_ID = 1
+        WHERE l.LAB_ID = #{lab_id}
         ORDER BY l.LAB_STEP_ID
     </select>
 </mapper>

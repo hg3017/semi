@@ -8,7 +8,7 @@ import java.util.Map;
 @Data
 public class Pagination {
     // 기본값
-    private int pageSize = 9; 		// 한 페이지에 보일 게시물 사이즈
+    private int pageSize = 12; 		// 한 페이지에 보일 게시물 사이즈
     private int pageNavSize = 5; 	// 페이지 보여줄 단위(사이즈)
     private int pageNum = 1; 		// 현재시작 페이지(current)
 

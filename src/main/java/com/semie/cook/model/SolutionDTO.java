@@ -14,10 +14,12 @@ public class SolutionDTO {
     private int board_id;
     private String solution_name;
     private String solution_desc;
+    private String solution_detail;
     private String desc_detail;
     private Date create_date;
     private Date modify_date;
     private String poster;
     private String file_path;
     private String files;
+    private String hashnames;
 }
