@@ -2,7 +2,7 @@
 <html lang="ko"
       xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{/layout}"
+      layout:decorate="~{layout}"
       layout:fragment="content">
 
 <head>
@@ -293,7 +293,7 @@
         </div>
     </section>
     <!-- 요리연구소 -->
-    <div th:replace="~{/fragments :: mainlab(${list})}"></div>
+    <div th:replace="~{fragments :: mainlab(${list})}"></div>
 <!--    <section class="main_lab">-->
 <!--        <div class="inner">-->
 <!--            <div class="swiper_wrap">-->

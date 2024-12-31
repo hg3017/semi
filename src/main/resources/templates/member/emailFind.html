@@ -2,7 +2,7 @@
 <html lang="ko"
       xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{/layout}">
+      layout:decorate="~{layout}">
 
 
 <head layout:fragment="config">
@@ -13,7 +13,7 @@
 </head>
 
     <main id="main" class="main login"  layout:fragment="content">
-      <th:block th:replace="~{/fragments :: loading}" />
+      <th:block th:replace="~{fragments :: loading}" />
       <loading></loading>
 
       <div id="password-modal" style="display: none;">

@@ -63,6 +63,15 @@
     </select>
 
     <select id="selectById1" resultType="SolutionDTO">
+        WITH HASHTABLES AS (
+            SELECT hc.CONN_ID
+                 , hc.BOARD_ID
+                 , h.HASH_ID
+                 , h.HASH_NAME
+            FROM HASHTAGS_CONN hc
+                     INNER JOIN HASHTAGS h
+                                ON hc.HASH_ID = h.HASH_ID
+        )
         SELECT distinct
             s.SOLUTION_ID
                       , s.BOARD_ID
@@ -88,6 +97,9 @@
                  inner JOIN img_list i
                             ON s.solution_id = i.post_id
                                 AND s.board_id = i.board_id
+                 LEFT OUTER JOIN HASHTABLES h
+                                 ON s.SOLUTION_ID = h.CONN_ID
+                                     AND h.BOARD_ID = 30
         where s.solution_id = #{solution_id}
         order by s.solution_id DESC
     </select>

@@ -3,7 +3,7 @@
 <html lang="ko"
       xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{/layout}">
+      layout:decorate="~{layout}">
 
   <head layout:fragment="config">
     <title>Member</title>
@@ -13,7 +13,7 @@
 
 
     <main id="main" class="main login" layout:fragment="content">
-      <th:block th:replace="~{/fragments :: svg}" />
+      <th:block th:replace="~{fragments :: svg}" />
 
       <div class="l-wrap-8">
         <div class="container">

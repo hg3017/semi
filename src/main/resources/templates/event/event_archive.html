@@ -2,7 +2,7 @@
 <html lang="ko"
       xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{/layout}"
+      layout:decorate="~{layout}"
       layout:fragment="content">
 
 <head layout:fragment="config">
@@ -12,7 +12,7 @@
 <body>
 <main id="container_event" class="container">
     <section class="event_archive">
-        <div th:replace="~{/fragments :: scroll}"></div>
+        <div th:replace="~{fragments :: scroll}"></div>
         <div class="inner">
             <div class="title">
                 <div class="label_list">
