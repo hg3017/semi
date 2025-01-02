@@ -91,6 +91,14 @@ public class RecipeLabController {
     @GetMapping("/archive_sol/{solId}")
     public String archive_sol(@PathVariable int solId, Model model) {
         model.addAttribute("sol", recipeLabService.selectById1(solId));
+
+        Pagination pg = new Pagination();
+        Map<String, String> map = Collections.singletonMap("solId", String.valueOf(solId));
+        pg.setSearchMap(map);
+
+        model.addAttribute("list", recipeLabService.findAll1(pg));
+        model.addAttribute("postCommentlist", memberService.findPostComment(30, solId));
+
         System.out.println("recipeLab/archive_sol-----------------------------------------------");
         return "/recipeLab/archive_sol";
     }

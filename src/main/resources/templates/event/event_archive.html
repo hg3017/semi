@@ -8,6 +8,7 @@
 <head layout:fragment="config">
     <title>Event</title>
     <link rel="stylesheet" href="/css/event/event.css">
+    <link rel="stylesheet" href="/css/recipeLab/archive_rep.css">
 </head>
 <body>
 <main id="container_event" class="container">
@@ -67,11 +68,8 @@
                             </p>
                         </div>
                     </div>
-                    <div class="view_tag_wrap">
-                        <a href="#" class="view_a important">낭만파티요리</a>
-                        <a href="#" class="view_a">새미네부엌플랫폼</a>
-                        <a href="#" class="view_a">이벤트</a>
-                        <a href="#" class="view_a">요리초보</a>
+                    <div class="step_tag_wrap" th:each="hash,state : ${event.hashnames}" th:if="${state.first}">
+                        <a href="#" th:class="${state.first ? 's_tag' : ''}" th:each="ha,state : ${#strings.setSplit(event.hashnames,',')}" th:text="${ha}">낭만파티요리</a>
                     </div>
                 </div>
             </div>
