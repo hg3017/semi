@@ -521,6 +521,7 @@
 
 .sol_view_wrap .view_title {
     background: #fff9e2 url(/images/bg_pattern_orange.png) no-repeat 100% / 100%;
+    padding: 60px;
 }
 
 .sol_view_wrap .view_title .inner {
@@ -558,6 +559,7 @@
 .solution_view_title {
     margin-bottom: 50px;
     text-align: center;
+    padding-top: 50px;
 }
 
 .solution_view_title h4 {

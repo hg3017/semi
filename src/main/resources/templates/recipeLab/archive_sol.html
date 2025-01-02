@@ -8,6 +8,8 @@
 <head layout:fragment="config">
     <title>RecipeLab</title>
     <link rel="stylesheet" href="/css/guide/archive_guide.css">
+    <link rel="stylesheet" href="/css/recipeLab/archive_rep.css">
+    <link rel="stylesheet" href="/css/recipeLab/solution.css">
 </head>
 
 <body>
@@ -147,11 +149,14 @@
                     </p>
                 </div>
             </div>
-            <div th:replace="~{fragments :: tag}"></div>
+            <div class="step_tag_wrap" th:each="hash,state : ${sol.hashnames}" th:if="${state.first}">
+                <a href="#" th:class="${state.first ? 's_tag' : ''}" th:each="ha,state : ${#strings.setSplit(sol.hashnames,',')}" th:text="${ha}">
+                </a>
+            </div>
             <div th:replace="~{fragments :: comment}"></div>
         </div>
         <div class="hr_line"></div>
-        <div th:replace="~{fragments :: tagList}"></div>
+        <div th:replace="~{fragments :: s_tagList(${list})}"></div>
         <div th:replace="~{fragments :: sol_list}"></div>
     </main>
 </div>

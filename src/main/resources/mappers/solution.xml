@@ -55,6 +55,9 @@
         ) h
         ON s.SOLUTION_ID = h.CONN_ID
         AND s.BOARD_ID = h.BOARD_ID
+        <if test="searchMap.solId != null">
+            and s.SOLUTION_ID != #{searchMap.solId}
+        </if>
         <include refid="page2" />
     </select>
 
@@ -81,6 +84,7 @@
                       , DBMS_LOB.SUBSTR(s.DESC_DETAIL, 4000) AS DESC_DETAIL
                       , s.CREATE_DATE
                       , s.MODIFY_DATE
+                      , LISTAGG(DISTINCT h.HASH_NAME, ',') WITHIN GROUP (ORDER BY s.solution_id) OVER (PARTITION BY s.solution_id) AS hashnames
                       ,
             (SELECT file_path
              FROM img_list i
@@ -89,7 +93,7 @@
                AND img_priority = 1) AS poster,
             LISTAGG(
                     CASE
-                        WHEN 1=1
+                        WHEN i.img_priority != 1
                             THEN i.file_path
                         END, ',') WITHIN GROUP (ORDER BY i.img_priority)
                     OVER (PARTITION BY i.post_id) AS files

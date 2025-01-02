@@ -961,7 +961,7 @@
   display: none;
 }
 
-.S_tagList .k_arrowbtn{
+.S_tagList .k_arrowbtn {
   position: relative;
   display: flex;
   justify-content: space-between;
@@ -969,7 +969,7 @@
   z-index: 999;
 }
 
-// 목록버튼
+/*// 목록버튼*/
 .back_wrap .inner {
   max-width: 1600px;
   margin: 0 auto;

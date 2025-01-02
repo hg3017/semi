@@ -228,5 +228,15 @@
     width: 36px;
     height: 36px;
     text-indent: -9999px;
-    background: url(../images/common/ic_scrap.png) no-repeat 100% / 100%;
+    background: url(/images/common/ic_scrap.png) no-repeat 100% / 100%;
+}
+.S_tagList .sol_time_wrap {
+    display: flex;
+}
+.S_tagList .sol_time_wrap .hash_wrap {
+    margin-bottom: 6px;
+    margin-right: 10px;
+    color: #15a775;
+    font-size: 16px;
+    font-weight: 500;
 }
