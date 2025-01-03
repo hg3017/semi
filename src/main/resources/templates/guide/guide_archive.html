@@ -39,7 +39,7 @@
                 </div>
                 <ul class="tag_list hash_list">
                     <li th:each="item : ${sol}">
-                        <a th:href="@{'/recipeLab/archive_sol/'}">
+                        <a th:href="@{'/recipeLab/archive_sol/' + ${item['SOLUTION_ID']}}">
                             <div class="detail_img" th:each="img : ${#strings.setSplit(item['POSTER'],',')}">
                                 <img th:src="${'/images/' + img}" alt="디테일">
                             </div>
@@ -54,7 +54,7 @@
                         <button class="scrap" type="button">스크랩</button>
                     </li>
                     <li th:each="item : ${list}">
-                        <a th:href="@{/recipeLab/archive_lab/{lab_id}}">
+                        <a th:href="@{'/recipeLab/archive_rep/' + ${item['LAB_ID']}}">
                             <div class="detail_img">
                                 <img th:src="@{'/images/' + ${item['POSTER']}}" alt="디테일">
                             </div>

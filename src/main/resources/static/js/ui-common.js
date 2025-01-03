@@ -124,6 +124,9 @@ window.addEventListener('DOMContentLoaded', function () {
             // 클릭한 a의 부모 li에 on 클래스 추가
             v.parentElement.classList.add('on');
 
+            // 링크의 href 속성을 사용하여 페이지를 이동시킴
+            window.location.href = v.href;
+
         });
     });
 
