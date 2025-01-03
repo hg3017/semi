@@ -25,11 +25,18 @@ public class MainController {
     public String main(Model model) {
         System.out.println("---------------------------------------------");
 
+        //요리초보가이드
+        Pagination pg = new Pagination();
+        Map<String, String> map = Collections.singletonMap("GuideId", String.valueOf(0));
+        pg.setSearchMap(map);
+//        pg.setPageSize(3);
+
+        model.addAttribute("list", guideService.findAll(pg));
+
         //요리연구소 레시피
         Pagination page = new Pagination();
         Map<String, String> map1 = Collections.singletonMap("labId", String.valueOf(0));
         page.setSearchMap(map1);
-//        page.setPageSize(2);
 
         model.addAttribute("list1", recipeLabService.findAll(page));
 
@@ -37,7 +44,6 @@ public class MainController {
         Pagination page1 = new Pagination();
         Map<String, String> map2 = Collections.singletonMap("solId", String.valueOf(0));
         page1.setSearchMap(map2);
-//        page1.setPageSize(2);
 
         model.addAttribute("list2", recipeLabService.findAll1(page1));
 

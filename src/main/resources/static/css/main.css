@@ -378,6 +378,7 @@
   z-index: 1000;
   background: url(/images/common/il_ribbon.png) no-repeat 100% / 100%;
   opacity: 0;
+  border: none;
 }
 .main_slider .swiper-slide-active .scrap {
   transform: translateY(20px);
@@ -450,7 +451,7 @@
 .main_slider .swiper-slide .thumb .more_num::before {
   content: "+";
 }
-.main_slider .swiper-slide .thumb .more_num {
+.main_slider .swiper-slide .thumb li:last-of-type .more_num {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -852,7 +853,7 @@ display: block;
 .main_lab .swiper-slide .txt_wrap ul {
   display: flex;
   gap: 0 10px;
-  padding-top: 20px;
+  padding-top: 30px;
 }
 .main_lab .swiper-slide .txt_wrap li {
   padding: 10px 16px;

@@ -57,75 +57,18 @@
                             <div class="guide_body">
                                 <div class="guide_cont">
                                     <ul>
-                                        <li>
-                                            <a href="#">
+                                        <li th:each="guide: ${list}">
+                                            <a th:href="@{'/guide/guide_archive/' + ${guide.guide_id}}">
                                                 <div class="img_wrap">
-                                                    <img src="/images/mainpage1.jpg" alt="">
+<!--                                                    <img src="/images/mainpage1.jpg" alt="">-->
+                                                    <img th:src="${'/images/' + guide.poster}" alt="이미지">
                                                     <span class="more">8</span>
                                                 </div>
                                                 <div class="txt_wrap">
-                                                    <p>식비 지출 막는 요리법</p>
-                                                    <span>치솟는 물가, 식비 절약을 위한 방법<br>요리초보도, 고수도 모두 집중!</span>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <div class="img_wrap">
-                                                    <img src="/images/mainpage2.jpg" alt="">
-                                                    <span class="more">8</span>
-                                                </div>
-                                                <div class="txt_wrap">
-                                                    <p>냉장고를 열었더니 <br> 남은 '무'가 있다.</p>
-                                                    <span>커다란 '무' 하나 사면,<br>다 먹지 못하고 버리게 되는 분, 손!</span>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <div class="img_wrap">
-                                                    <img src="/images/mainpage1.jpg" alt="">
-                                                    <span class="more">8</span>
-                                                </div>
-                                                <div class="txt_wrap">
-                                                    <p>식비 지출 막는 요리법</p>
-                                                    <span>치솟는 물가, 식비 절약을 위한 방법<br>요리초보도, 고수도 모두 집중!</span>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <div class="img_wrap">
-                                                    <img src="/images/mainpage2.jpg" alt="">
-                                                    <span class="more">8</span>
-                                                </div>
-                                                <div class="txt_wrap">
-                                                    <p>냉장고를 열었더니 <br> 남은 '무'가 있다.</p>
-                                                    <span>커다란 '무' 하나 사면,<br>다 먹지 못하고 버리게 되는 분, 손!</span>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <div class="img_wrap">
-                                                    <img src="/images/mainpage1.jpg" alt="">
-                                                    <span class="more">8</span>
-                                                </div>
-                                                <div class="txt_wrap">
-                                                    <p>식비 지출 막는 요리법</p>
-                                                    <span>치솟는 물가, 식비 절약을 위한 방법<br>요리초보도, 고수도 모두 집중!</span>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <div class="img_wrap">
-                                                    <img src="/images/mainpage2.jpg" alt="">
-                                                    <span class="more">8</span>
-                                                </div>
-                                                <div class="txt_wrap">
-                                                    <p>냉장고를 열었더니 <br> 남은 '무'가 있다.</p>
-                                                    <span>커다란 '무' 하나 사면,<br>다 먹지 못하고 버리게 되는 분, 손!</span>
+<!--                                                    <p>식비 지출 막는 요리법</p>-->
+                                                    <p th:utext="${guide.guide_name}"></p>
+<!--                                                    <span>치솟는 물가, 식비 절약을 위한 방법<br>요리초보도, 고수도 모두 집중!</span>-->
+                                                    <span th:utext="${guide.guide_desc}"></span>
                                                 </div>
                                             </a>
                                         </li>
@@ -136,150 +79,21 @@
                     </div>
                     <div class="swiper">
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <a href="#">
+                            <div class="swiper-slide" th:each="guide: ${list}">
+                                <a th:href="@{'/guide/guide_archive/' + ${guide.guide_id}}">
                                     <div class="wrap">
-                                        <img src="/images/mainpage1.jpg" alt="" class="wrap_img">
-                                        <div class="scrap">스크랩</div>
-                                        <h2>식비 지출 막는 요리법</h2>
+                                        <img th:src="${'/images/' + guide.poster}" alt="이미지">
+                                        <button class="scrap" type="button">스크랩</button>
+                                        <h2 th:utext="${guide.guide_name}"></h2>
                                         <div class="txt_bt">
                                             <p>8</p>
                                             <div class="arrow"></div>
                                         </div>
                                         <ul class="thumb">
-                                            <li>
-                                                <img src="/images/mainpage1.jpg" alt="">
-                                            </li>
-                                            <li>
-                                                <img src="/images/mainpage1.jpg" alt="">
-                                            </li>
-                                            <li>
-                                                <img src="/images/mainpage1.jpg" alt="">
-                                                <p class="more_num">6</p>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="swiper-slide">
-                                <a href="#">
-                                    <div class="wrap">
-                                        <img src="/images/mainpage2.jpg" alt="">
-                                        <div class="scrap">스크랩</div>
-                                        <h2>냉장고를 열었더니 <br> 남은 '무'가 있다.</h2>
-                                        <div class="txt_bt">
-                                            <p>8</p>
-                                            <div class="arrow"></div>
-                                        </div>
-                                        <ul class="thumb">
-                                            <li>
-                                                <img src="/images/mainpage2.jpg" alt="">
-                                            </li>
-                                            <li>
-                                                <img src="/images/mainpage2.jpg" alt="">
-                                            </li>
-                                            <li>
-                                                <img src="/images/mainpage2.jpg" alt="">
-                                                <p class="more_num">6</p>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="swiper-slide">
-                                <a href="#">
-                                    <div class="wrap">
-                                        <img src="/images/mainpage1.jpg" alt="">
-                                        <div class="scrap">스크랩</div>
-                                        <h2>식비 지출 막는 요리법</h2>
-                                        <div class="txt_bt">
-                                            <p>8</p>
-                                            <div class="arrow"></div>
-                                        </div>
-                                        <ul class="thumb">
-                                            <li>
-                                                <img src="/images/mainpage1.jpg" alt="">
-                                            </li>
-                                            <li>
-                                                <img src="/images/mainpage1.jpg" alt="">
-                                            </li>
-                                            <li>
-                                                <img src="/images/mainpage1.jpg" alt="">
-                                                <p class="more_num">6</p>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="swiper-slide">
-                                <a href="#">
-                                    <div class="wrap">
-                                        <img src="/images/mainpage2.jpg" alt="">
-                                        <div class="scrap">스크랩</div>
-                                        <h2>냉장고를 열었더니 <br> 남은 '무'가 있다.</h2>
-                                        <div class="txt_bt">
-                                            <p>8</p>
-                                            <div class="arrow"></div>
-                                        </div>
-                                        <ul class="thumb">
-                                            <li>
-                                                <img src="/images/mainpage2.jpg" alt="">
-                                            </li>
-                                            <li>
-                                                <img src="/images/mainpage2.jpg" alt="">
-                                            </li>
-                                            <li>
-                                                <img src="/images/mainpage2.jpg" alt="">
-                                                <p class="more_num">6</p>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="swiper-slide">
-                                <a href="#">
-                                    <div class="wrap">
-                                        <img src="/images/mainpage1.jpg" alt="">
-                                        <div class="scrap">스크랩</div>
-                                        <h2>식비 지출 막는 요리법</h2>
-                                        <div class="txt_bt">
-                                            <p>8</p>
-                                            <div class="arrow"></div>
-                                        </div>
-                                        <ul class="thumb">
-                                            <li>
-                                                <img src="/images/mainpage1.jpg" alt="">
-                                            </li>
-                                            <li>
-                                                <img src="/images/mainpage1.jpg" alt="">
-                                            </li>
-                                            <li>
-                                                <img src="/images/mainpage1.jpg" alt="">
-                                                <p class="more_num">6</p>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="swiper-slide">
-                                <a href="#">
-                                    <div class="wrap">
-                                        <img src="/images/mainpage2.jpg" alt="">
-                                        <div class="scrap">스크랩</div>
-                                        <h2>냉장고를 열었더니 <br> 남은 '무'가 있다.</h2>
-                                        <div class="txt_bt">
-                                            <p>8</p>
-                                            <div class="arrow"></div>
-                                        </div>
-                                        <ul class="thumb">
-                                            <li>
-                                                <img src="/images/mainpage2.jpg" alt="">
-                                            </li>
-                                            <li>
-                                                <img src="/images/mainpage2.jpg" alt="">
-                                            </li>
-                                            <li>
-                                                <img src="/images/mainpage2.jpg" alt="">
+                                            <li th:if="${guide.files != null}"
+                                                th:each="item : ${#strings.setSplit(guide.files, ',')}"
+                                            >
+                                                <img th:src="@{'/images/' + ${item}}" alt="이미지">
                                                 <p class="more_num">6</p>
                                             </li>
                                         </ul>
@@ -644,12 +458,12 @@
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
                             <a href="#">
-                                <img src="/images/mainbanner1.jpg" alt="">
+                                <img src="/images/mainbanner2.png" alt="메인">
                             </a>
                         </div>
                         <div class="swiper-slide">
                             <a href="#">
-                                <img src="/images/mainbanner1.jpg" alt="">
+                                <img src="/images/mainbanner1.jpg" alt="메인">
                             </a>
                         </div>
                     </div>
