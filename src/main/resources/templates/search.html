@@ -56,87 +56,26 @@
       </div>
       <div class="guide_wrap">
         <ul>
-          <li>
-            <a href="/guide/guide_archive">
+          <li th:each="guide : ${list}">
+            <a th:href="@{'/guide/guide_archive/' + ${guide.guide_id}}">
               <ul class="thumb">
-                <li><img src="/images/mainpage2.jpg" alt="이미지"></li>
-                <li><img src="/images/mainpage2.jpg" alt="이미지"></li>
-                <li>
-                  <img src="/images/mainpage2.jpg" alt="이미지">
+                <li th:if="${guide.files != null}"
+                    th:each="item : ${#strings.setSplit(guide.files, ',')}"
+                >
+                  <img th:src="@{'/images/' + ${item}}" alt="이미지">
                   <p class="more_detail">자세히 보기</p>
                 </li>
               </ul>
-              <div class="scrap">스크랩</div>
               <div class="picture">
-                <img src="/images/mainpage2.jpg" alt="이미지">
-                <p class="guide_text">
-                  냉장고를 열었더니
-                  <br>
-                  남은 '무'가 있다.
-                  <span class="num">8</span>
+                <img th:src="${'/images/' + guide.poster}" alt="이미지">
+                <p th:utext="${guide.guide_name}">
                 </p>
-                <div class="guide_tip">
-                  커다란 '무' 하나 사면,
-                  <br>
-                  다 먹지 못하고 버리게 되는 분, 손!
+                <span class="num">8</span>
+                <div class="guide_tip" th:utext="${guide.guide_desc}">
                 </div>
               </div>
             </a>
-          </li>
-          <li>
-            <a href="#">
-              <ul class="thumb">
-                <li><img src="/images/mainpage2.jpg" alt="이미지"></li>
-                <li><img src="/images/mainpage2.jpg" alt="이미지"></li>
-                <li>
-                  <img src="/images/mainpage2.jpg" alt="이미지">
-                  <p class="more_detail">자세히 보기</p>
-                </li>
-              </ul>
-              <div class="scrap">스크랩</div>
-              <div class="picture">
-                <img src="/images/mainpage2.jpg" alt="이미지">
-                <p class="guide_text">
-                  냉장고를 열었더니
-                  <br>
-                  남은 '무'가 있다.
-                  <span class="num">8</span>
-                </p>
-                <div class="guide_tip">
-                  커다란 '무' 하나 사면,
-                  <br>
-                  다 먹지 못하고 버리게 되는 분, 손!
-                </div>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <ul class="thumb">
-                <li><img src="/images/mainpage2.jpg" alt="이미지"></li>
-                <li><img src="/images/mainpage2.jpg" alt="이미지"></li>
-                <li>
-                  <img src="/images/mainpage2.jpg" alt="이미지">
-                  <p class="more_detail">자세히 보기</p>
-                </li>
-              </ul>
-              <div class="scrap">스크랩</div>
-              <div class="picture">
-                <img src="/images/mainpage2.jpg" alt="이미지">
-                <p class="guide_text">
-                  냉장고를 열었더니
-                  <br>
-                  남은 '무'가 있다.
-                  <span class="num">8</span>
-                </p>
-                <div class="guide_tip">
-                  커다란 '무' 하나 사면,
-                  <br>
-                  다 먹지 못하고 버리게 되는 분, 손!
-                </div>
-              </div>
-            </a>
-          </li>
+            <button class="scrap" type="button">스크랩</button>
         </ul>
       </div>
     </div>
@@ -145,30 +84,28 @@
     <div class="inner">
       <div class="tag_wrap">
         <ul class="rep_area">
-          <!--          <li class="rep_item" th:each="lab : ${list}">-->
-          <!--            <a href="/recipeLab/archive_rep">-->
-          <!--              <div class="img_wrap">-->
-          <!--                <img th:src="${'/images/' + lab.poster}" th:alt="${lab.lab_name}">-->
-          <!--&lt;!&ndash;                <img src="/images/cook3.jpg" alt="">&ndash;&gt;-->
-          <!--              </div>-->
-          <!--              <div class="txt_wrap">-->
-          <!--                <h4 th:utext="${lab.lab_name_desc}"></h4>-->
-          <!--&lt;!&ndash;                <h4>새콤 무생채</h4>&ndash;&gt;-->
-          <!--                <p th:utext="${lab.desc_detail}"></p>-->
-          <!--&lt;!&ndash;                <p>남은 무가 있다면 새콤하게 무쳐봐요!</p>&ndash;&gt;-->
-          <!--              </div>-->
-          <!--            </a>-->
-          <!--            <ul class="time_wrap">-->
-          <!--              <li>-->
-          <!--                <span>준비시간</span>-->
-          <!--                <span th:with="txt=${lab.preparation != null ? lab.preparation : '0'}" th:text="${txt + '분'}"></span>-->
-          <!--              </li>-->
-          <!--              <li>-->
-          <!--                <span th:with="txt=${lab.cookingtime != null ? lab.cookingtime : '0'}" th:text="${txt + '분'}"></span>-->
-          <!--              </li>-->
-          <!--            </ul>-->
-          <!--            <div class="scrap">스크랩</div>-->
-          <!--          </li>-->
+          <li class="rep_item" th:each="lab : ${list1}">
+            <a href="/recipeLab/archive_rep">
+              <div class="img_wrap">
+                <img th:src="${'/images/' + lab.poster}" th:alt="${lab.lab_name}">
+              </div>
+              <div class="txt_wrap">
+                <h4 th:utext="${lab.lab_name_desc}"></h4>
+                <p th:utext="${lab.desc_detail}"></p>
+              </div>
+            </a>
+            <ul class="time_wrap">
+              <li>
+                <span>준비시간</span>
+                <span th:with="txt=${lab.preparation != null ? lab.preparation : '0'}" th:text="${txt + '분'}"></span>
+              </li>
+              <li>
+                <span>조리시간</span>
+                <span th:with="txt=${lab.cookingtime != null ? lab.cookingtime : '0'}" th:text="${txt + '분'}"></span>
+              </li>
+            </ul>
+            <div class="scrap">스크랩</div>
+          </li>
         </ul>
       </div>
     </div>
@@ -176,28 +113,20 @@
   <section class="sr_sol">
     <div class="inner">
       <ul class="sol_area">
-        <!--        <li class="sol_item" th:each="sol : ${list}">-->
-        <!--          <a th:href="@{'/recipeLab/archive_sol/' + ${sol.solution_id}}">-->
-        <!--            <div class="img_wrap">-->
-        <!--              <img th:src="${'/images/' + sol.poster}" alt="">-->
-        <!--&lt;!&ndash;              <img src="/images/sol1.jpg" alt="">&ndash;&gt;-->
-        <!--            </div>-->
-        <!--            <div class="txt_wrap">-->
-        <!--&lt;!&ndash;              <h4>식비를 줄이는 효과적인 절약팁</h4>&ndash;&gt;-->
-        <!--              <h4 th:text="${sol.solution_name}"></h4>-->
-        <!--              <p th:text="${sol.solution_desc}"></p>-->
-        <!--&lt;!&ndash;              <p>잘 사고 잘 먹는 식비 줄이는 법, 궁금하다면?</p>&ndash;&gt;-->
-        <!--            </div>-->
-        </a>
-        <ul class="hash_wrap">
-          <li>
-            살림
-          </li>
-          <li>
-            재료구매
-          </li>
-        </ul>
-        <a href="#" class="scrap">스크랩</a>
+        <li class="sol_item" th:each="sol : ${list2}">
+          <a th:href="@{'/recipeLab/archive_sol/' + ${sol.solution_id}}">
+            <div class="img_wrap">
+              <img th:src="${'/images/' + sol.poster}" alt="">
+            </div>
+            <div class="txt_wrap">
+              <h4 th:text="${sol.solution_name}"></h4>
+              <p th:text="${sol.solution_desc}"></p>
+            </div>
+          </a>
+          <ul class="hash_wrap" th:each="hash : ${sol.hashnames}">
+            <li th:each="ha : ${#strings.setSplit(sol.hashnames,',')}" th:text="${ha}"></li>
+          </ul>
+          <a href="#" class="scrap">스크랩</a>
         </li>
       </ul>
     </div>

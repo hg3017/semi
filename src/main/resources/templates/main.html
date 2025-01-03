@@ -293,178 +293,86 @@
         </div>
     </section>
     <!-- 요리연구소 -->
-    <div th:replace="~{fragments :: mainlab(${list})}"></div>
-<!--    <section class="main_lab">-->
-<!--        <div class="inner">-->
-<!--            <div class="swiper_wrap">-->
-<!--                <div class="swiper_title">-->
-<!--                    <div class="swiper_txt">-->
-<!--                        <div class="title_top">-->
-<!--                            <h3>요리연구소</h3>-->
-<!--                            <button type="button" class="btn" onclick="">더보기</button>-->
-<!--                        </div>-->
-<!--                        <div class="filter">-->
-<!--                            <ul>-->
-<!--                                <li class="li on">-->
-<!--                                    <a href="#">전체</a>-->
-<!--                                </li>-->
-<!--                                <li class="li">-->
-<!--                                    <a href="#">레시피</a>-->
-<!--                                </li>-->
-<!--                                <li>-->
-<!--                                    <a href="#">솔루션</a>-->
-<!--                                </li>-->
-<!--                            </ul>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="swiper">-->
-<!--                    <div class="swiper-wrapper">-->
-<!--                        <div class="swiper-slide">-->
-<!--                            <a href="#">-->
-<!--                                <div class="img_wrap">-->
-<!--                                    <img src="/images/mainpage3.jpg" alt="">-->
-<!--                                </div>-->
-<!--                                <div class="scrap">스크랩</div>-->
-<!--                                <div class="txt_wrap">-->
-<!--                                    <span class="label or">솔루션</span>-->
-<!--                                    <em>새우 고르기 & 손질하기</em>-->
-<!--                                    <p>새우, 어떻게 고르고 어떻게 손질하면 좋을까?</p>-->
-<!--                                    <ul>-->
-<!--                                        <li class="txt">해물</li>-->
-<!--                                        <li class="txt">재료손질</li>-->
-<!--                                    </ul>-->
-<!--                                </div>-->
-<!--                            </a>-->
-<!--                        </div>-->
-<!--                        <div class="swiper-slide">-->
-<!--                            <a href="#">-->
-<!--                                <div class="img_wrap">-->
+    <section class="main_lab">
+        <div class="inner">
+            <div class="swiper_wrap">
+                <div class="swiper_title">
+                    <div class="swiper_txt">
+                        <div class="title_top">
+                            <h3>요리연구소</h3>
+                            <button type="button" class="btn" onclick="">더보기</button>
+                        </div>
+                        <div class="filter">
+                            <ul>
+                                <li class="li on">
+                                    <a href="#">전체</a>
+                                </li>
+                                <li class="li">
+                                    <a href="#">레시피</a>
+                                </li>
+                                <li>
+                                    <a href="#">솔루션</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide" th:each="lab : ${list1}">
+                            <a href="#">
+                                <div class="img_wrap">
 <!--                                    <img src="/images/mainpage4.jpg" alt="">-->
-<!--                                </div>-->
-<!--                                <div class="scrap">스크랩</div>-->
-<!--                                <div class="txt_wrap">-->
-<!--                                    <span class="label">레시피</span>-->
+                                    <img th:src="${'/images/' + lab.poster}" th:alt="${lab.lab_name}">
+                                </div>
+                                <div class="scrap">스크랩</div>
+                                <div class="txt_wrap">
+                                    <span class="label">레시피</span>
 <!--                                    <em>부들쫀떡 감자호떡</em>-->
+                                    <em th:utext="${lab.lab_name_desc}"></em>
 <!--                                    <p>으깬 감자에 찹쌀과 전분넣어 부드럽고 쫀득하게</p>-->
-<!--                                    <ul>-->
-<!--                                        <li class="time">준비시간<span></span>10분</li>-->
-<!--                                        <li class="time">조리시간<span></span>15분</li>-->
-<!--                                    </ul>-->
-<!--                                </div>-->
-<!--                            </a>-->
-<!--                        </div>-->
-<!--                        <div class="swiper-slide">-->
-<!--                            <a href="#">-->
-<!--                                <div class="img_wrap">-->
-<!--                                    <img src="/images/mainpage3.jpg" alt="">-->
-<!--                                </div>-->
-<!--                                <div class="scrap">스크랩</div>-->
-<!--                                <div class="txt_wrap">-->
-<!--                                    <span class="label or">솔루션</span>-->
+                                    <p th:utext="${lab.desc_detail}"></p>
+                                    <ul class="time_wrap">
+                                        <li>
+                                            <span>준비시간</span>
+                                            <span th:with="txt=${lab.preparation != null ? lab.preparation : '0'}" th:text="${txt + '분'}"></span>
+                                        </li>
+                                        <li>
+                                            <span>조리시간</span>
+                                            <span th:with="txt=${lab.cookingtime != null ? lab.cookingtime : '0'}" th:text="${txt + '분'}"></span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="swiper-slide" th:each="sol : ${list2}">
+                            <a href="#">
+                                <div class="img_wrap">
+<!--                                <img src="/images/mainpage3.jpg" alt="">-->
+                                    <img th:src="${'/images/' + sol.poster}" alt="">
+                                </div>
+                                <div class="scrap">스크랩</div>
+                                <div class="txt_wrap">
+                                    <span class="label or">솔루션</span>
 <!--                                    <em>새우 고르기 & 손질하기</em>-->
+                                    <em th:utext="${sol.solution_name}"></em>
 <!--                                    <p>새우, 어떻게 고르고 어떻게 손질하면 좋을까?</p>-->
-<!--                                    <ul>-->
-<!--                                        <li class="txt">해물</li>-->
-<!--                                        <li class="txt">재료손질</li>-->
-<!--                                    </ul>-->
-<!--                                </div>-->
-<!--                            </a>-->
-<!--                        </div>-->
-<!--                        <div class="swiper-slide">-->
-<!--                            <a href="#">-->
-<!--                                <div class="img_wrap">-->
-<!--                                    <img src="/images/mainpage4.jpg" alt="">-->
-<!--                                </div>-->
-<!--                                <div class="scrap">스크랩</div>-->
-<!--                                <div class="txt_wrap">-->
-<!--                                    <span class="label">레시피</span>-->
-<!--                                    <em>부들쫀떡 감자호떡</em>-->
-<!--                                    <p>으깬 감자에 찹쌀과 전분넣어 부드럽고 쫀득하게</p>-->
-<!--                                    <ul>-->
-<!--                                        <li class="time">준비시간<span></span>10분</li>-->
-<!--                                        <li class="time">조리시간<span></span>15분</li>-->
-<!--                                    </ul>-->
-<!--                                </div>-->
-<!--                            </a>-->
-<!--                        </div>-->
-<!--                        <div class="swiper-slide">-->
-<!--                            <a href="#">-->
-<!--                                <div class="img_wrap">-->
-<!--                                    <img src="/images/mainpage3.jpg" alt="">-->
-<!--                                </div>-->
-<!--                                <div class="scrap">스크랩</div>-->
-<!--                                <div class="txt_wrap">-->
-<!--                                    <span class="label or">솔루션</span>-->
-<!--                                    <em>새우 고르기 & 손질하기</em>-->
-<!--                                    <p>새우, 어떻게 고르고 어떻게 손질하면 좋을까?</p>-->
-<!--                                    <ul>-->
-<!--                                        <li class="txt">해물</li>-->
-<!--                                        <li class="txt">재료손질</li>-->
-<!--                                    </ul>-->
-<!--                                </div>-->
-<!--                            </a>-->
-<!--                        </div>-->
-<!--                        <div class="swiper-slide">-->
-<!--                            <a href="#">-->
-<!--                                <div class="img_wrap">-->
-<!--                                    <img src="/images/mainpage4.jpg" alt="">-->
-<!--                                </div>-->
-<!--                                <div class="scrap">스크랩</div>-->
-<!--                                <div class="txt_wrap">-->
-<!--                                    <span class="label">레시피</span>-->
-<!--                                    <em>부들쫀떡 감자호떡</em>-->
-<!--                                    <p>으깬 감자에 찹쌀과 전분넣어 부드럽고 쫀득하게</p>-->
-<!--                                    <ul>-->
-<!--                                        <li class="time">준비시간<span></span>10분</li>-->
-<!--                                        <li class="time">조리시간<span></span>15분</li>-->
-<!--                                    </ul>-->
-<!--                                </div>-->
-<!--                            </a>-->
-<!--                        </div>-->
-<!--                        <div class="swiper-slide">-->
-<!--                            <a href="#">-->
-<!--                                <div class="img_wrap">-->
-<!--                                    <img src="/images/mainpage3.jpg" alt="">-->
-<!--                                </div>-->
-<!--                                <div class="scrap">스크랩</div>-->
-<!--                                <div class="txt_wrap">-->
-<!--                                    <span class="label or">솔루션</span>-->
-<!--                                    <em>새우 고르기 & 손질하기</em>-->
-<!--                                    <p>새우, 어떻게 고르고 어떻게 손질하면 좋을까?</p>-->
-<!--                                    <ul>-->
-<!--                                        <li class="txt">해물</li>-->
-<!--                                        <li class="txt">재료손질</li>-->
-<!--                                    </ul>-->
-<!--                                </div>-->
-<!--                            </a>-->
-<!--                        </div>-->
-<!--                        <div class="swiper-slide">-->
-<!--                            <a href="#">-->
-<!--                                <div class="img_wrap">-->
-<!--                                    <img src="/images/mainpage4.jpg" alt="">-->
-<!--                                </div>-->
-<!--                                <div class="scrap">스크랩</div>-->
-<!--                                <div class="txt_wrap">-->
-<!--                                    <span class="label">레시피</span>-->
-<!--                                    <em>부들쫀떡 감자호떡</em>-->
-<!--                                    <p>으깬 감자에 찹쌀과 전분넣어 부드럽고 쫀득하게</p>-->
-<!--                                    <ul>-->
-<!--                                        <li class="time">준비시간<span></span>10분</li>-->
-<!--                                        <li class="time">조리시간<span></span>15분</li>-->
-<!--                                    </ul>-->
-<!--                                </div>-->
-<!--                            </a>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="arrow-box">-->
-<!--                        <div class="swiper-button-prev"></div>-->
-<!--                        <div class="swiper-button-next"></div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </section>-->
+                                    <p th:utext="${sol.solution_desc}"></p>
+                                    <ul class="hash_wrap" th:each="hash : ${sol.hashnames}">
+                                        <li th:each="ha : ${#strings.setSplit(sol.hashnames,',')}" th:text="${ha}"></li>
+                                    </ul>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="arrow-box">
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <!-- 요리해요 -->
     <section class="main_cook">
         <div class="inner">

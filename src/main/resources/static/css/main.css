@@ -841,7 +841,6 @@ display: block;
   -webkit-box-orient: vertical;
 }
 .main_lab .swiper-slide .txt_wrap p {
-  padding-bottom: 46px;
   font-size: 18px;
   font-weight: 500;
   overflow: hidden;
@@ -853,6 +852,7 @@ display: block;
 .main_lab .swiper-slide .txt_wrap ul {
   display: flex;
   gap: 0 10px;
+  padding-top: 20px;
 }
 .main_lab .swiper-slide .txt_wrap li {
   padding: 10px 16px;
@@ -862,29 +862,37 @@ display: block;
   background: #f3f3f3;
   border: none;
 }
-.main_lab .swiper-slide .txt_wrap .txt::before {
-  content: "#";
-}
-.main_lab .swiper-slide .txt_wrap .txt {
-  border: solid 1px #d4d4d4;
-  background: none;
-}
-.main_lab .swiper-slide .txt_wrap .time {
-  font-weight: 500;
-}
-.main_lab .swiper-slide .txt_wrap .time span {
+.main_lab .swiper-slide .time_wrap span {
   position: relative;
-  padding-right: 20px;
-  font-weight: 500;
+  margin-right: 10px;
+  padding-right: 10px;
+  font-weight: 700;
 }
-.main_lab .swiper-slide .txt_wrap .time span::after {
+.main_lab .swiper-slide .time_wrap span::after {
   content: '';
   position: absolute;
-  left: 8px;
-  top: 6px;
+  right: 0;
+  top: 50%;
   width: 1px;
   height: 10px;
-  background: #ddd;
+  background: #b8b8b8;
+  transform: translateY(-50%);
+}
+.main_lab .swiper-slide .time_wrap span:last-of-type::after {
+  display: none;
+}
+.main_lab .swiper-slide .hash_wrap {
+  display: flex;
+}
+.main_lab .swiper-slide .hash_wrap li::before {
+  content: '#';
+}
+.main_lab .swiper-slide .hash_wrap li {
+  margin-bottom: 6px;
+  margin-right: 10px;
+  color: #15a775;
+  font-size: 16px;
+  font-weight: 500;
 }
 
 .main_lab .swiper-slide .scrap {
