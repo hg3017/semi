@@ -63,6 +63,7 @@ public class RecipeLabController {
 
     @GetMapping("/cooking")
     public String cooking(Model model) {
+
         System.out.println("recipeLab/cooking---------------------------------------------");
         model.addAttribute("state", "cooking");
         return "/recipeLab/cooking";

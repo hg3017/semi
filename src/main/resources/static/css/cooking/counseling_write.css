@@ -3,7 +3,7 @@
     padding-top: 90px;
 }
 .cook_write_wrap .write_title {
-    background-color: #fbb9bf;
+    background-color: #ffaf54;
     position: relative;
     /*padding: 78px 0;*/
 }
@@ -19,7 +19,7 @@
     max-width: 720px;
     margin: 0 auto;
     padding: 78px 0;
-    background: url(/images/il_samie_pink.png) no-repeat 100% 100%;
+    background: url(/images/il_samie_orange.png) no-repeat 100% 100%;
 
 }
 .write_title h3 {
@@ -140,22 +140,6 @@
 .detail-form .qa .tooltip {
     display: none;
 }
-.detail-form .qa .tooltip.on {
-    display: block;
-    position: absolute;
-    top: 189%;
-    left: 41%;
-    padding: 20px 32px 20px 20px;
-    color: #15a775;
-    font-size: 1rem;
-    font-weight: 500;
-    white-space: nowrap;
-    box-shadow: 2px 2px 6px 0 rgba(0, 0, 0, 0.05);
-    border: solid 1px #e5e5e5;
-    border-radius: 5px;
-    background-color: #fff;
-    transform: translateY(145%);
-}
 .form .qa .tooltip {
     display: none;
 }
@@ -176,18 +160,6 @@
     transform: translateY(145%);
 }
 
-/*.cook_write_cont .qa  .tooltip::after {*/
-/*    position: absolute;*/
-/*    top: 50%;*/
-/*    left: -0.5rem;*/
-/*    width: 1rem;*/
-/*    height: 1rem;*/
-/*    border: 1px solid #e5e5e5;*/
-/*    border-width: 1px 0 0 1px;*/
-/*    background-color: #fff;*/
-/*    transform: translateY(-50%) rotate(-45deg);*/
-/*    content: '';*/
-/*}*/
 .cook_write_cont .qa .tooltip .close_btn {
     position: absolute;
     top: 0.55rem;
@@ -231,76 +203,7 @@
 .detail-form + .form {
     margin-top: 60px;
 }
-.detail-form {
-    margin-top: 60px;
-}
-.detail-form .form-list{
-    display: flex;
-}
-.detail-form .form-custom {
-    position: relative;
-    margin-right: 10px;
-}
-.detail-form .form-custom .unit {
-    position: absolute;
-    right: 8%;
-    top: 12px;
-}
-.detail-form .form-box +.form-box {
-    margin-top: 20px;
-}
 
-.detail-form .form-box {
-    padding: 20px;
-    background: #F3F3F3;
-    border-top: 1px solid #15a775;
-    border-radius: 0 0 5px 5px;
-    margin-bottom: 30px;
-}
-.detail-form .form-box .btn-wrap {
-    position: relative;
-    width: 105px;
-    margin-left: 10px;
-    display: flex;
-}
-.detail-form .btn-wrap .add {
-    width: 48px;
-    height: 48px;
-    font-size: 25px;
-    border-radius: 5px;
-    border: 1px solid #e5e5e5;
-    background: #fff;
-    color: #666;
-}
-.detail-form .btn-wrap .del {
-    width: 48px;
-    height: 48px;
-    font-size: 25px;
-    border-radius: 5px;
-    border: 1px solid #e5e5e5;
-    background: #fff;
-    color: #666;
-    margin-left: 10px;
-}
-.detail-form .btn_step_wrap {
-    position: relative;
-    margin-top: 20px;
-    display: flex;
-    justify-content: space-between;
-    flex-direction: row;
-}
-.detail-form .btn_step {
-    width: 49%;
-    border: 1px solid #d4d4d4;
-    text-align: center;
-    padding: 13px 24px;
-    border-radius: 5px;
-    color: #666;
-    cursor: pointer;
-}
-.detail-form .btn_step + .btn_step {
-    padding-left: 10px;
-}
 .form-step .text-point {
     font-weight: bold;
     color: #15a775 !important;

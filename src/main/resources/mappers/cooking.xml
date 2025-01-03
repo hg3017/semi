@@ -6,16 +6,6 @@
         select * from counseling
     </select>
 
-    <insert id="insertCounsel"  parameterType="CounselingDTO">
-        INSERT INTO COUNSELING (COUNSELING_ID, BOARD_ID, COUNSELING_NAME, DESC_DETAIL, CREATER)
-        VALUES (
-                   COUNSELING_ID_SEQ.NEXTVAL,
-                    40,
-
-               )
-    </insert>
-
-
 
 
 </mapper>

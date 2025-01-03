@@ -44,4 +44,14 @@ public class CookingController {
         System.out.println("recipeLab/archive_write-----------------------------------------------");
         return "redirect:/cooking/cooking_write";
     }
+    @GetMapping("/counseling_write")
+    public String counselingWrite() {
+        return "/cooking/counseling_write";
+    }
+    @PostMapping ("/counseling_write")
+    public String counselingWrite(@ModelAttribute CounselingDTO dto) {
+        cookingService.insertCounsel(dto);
+        System.out.println("cooking/counseling_write-----------------------------------------------");
+        return "redirect:/cooking/counseling_write";
+    }
 }
