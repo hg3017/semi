@@ -241,14 +241,17 @@
       xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{layout}"
-      layout:fragment="content">
+      >
 
 <head layout:fragment="config">
     <title>RecipeLab</title>
     <link rel="stylesheet" href="/css/recipeLab/archive_rep.css">
+
 </head>
 <body>
-<main id="rep_container" class="container">
+<main id="rep_container" class="container" layout:fragment="content">
+    <th:block th:replace="~{fragments :: loading}" />
+    <loading></loading>
     <div th:replace="~{fragments :: scroll}"></div>
     <section class="sub_view_wrap">
         <div class="view_title">
@@ -420,45 +423,70 @@
                                     <span class="date">2024-11-08 21:29</span>
                                 </div>
                                 <div class="text">
-                                    <form id="replyForm" onsubmit="return false;" method="post">
-                                      <input type="hidden" id="comment_board_id" th:value="${lab.board_id}">
-                                      <input type="hidden" id="comment_post_id" th:value="${lab.lab_id}">
-                                      <input type="hidden" id="creater" th:value="${session.user.member_id}">
-                                      <input type="hidden" id="parent_comment_id" value="">
+                                    <form class="replyForm" onsubmit="return false;" method="post">
+                                      <input type="hidden" class="comment_board_id" th:value="${lab.board_id}">
+                                      <input type="hidden" class="comment_post_id" th:value="${lab.lab_id}">
+                                      <input type="hidden" class="creater" th:value="${session.user != null ? session.user.member_id : ''}">
+                                      <input type="hidden" class="parent_comment_id" value="">
                                         <div class="txtArea">
-                                            <textarea id="textBox" name="content" maxlength="1000" placeholder="내용을 입력하세요."></textarea>
+                                            <textarea class="textBox" name="content" maxlength="1000" placeholder="내용을 입력하세요."></textarea>
                                             <ul class="imgList">
                                             </ul>
                                             <p class="wordCount">
                                               <span>0</span>/1,000
                                             </p>
                                             <div class="files">
-                                              <input type="file" name="file" id="addFile" data-url="/comment/presign" accept=".jpg, .jpeg, .png, .gif, image/*">
+                                              <input type="file" name="file" class="addFile" data-url="/comment/presign" accept=".jpg, .jpeg, .png, .gif, image/*">
                                               <label onclick="$(this).prev().click()">사진첨부</label>
                                               <span class="fileName"></span>
-                                              <button id="replyButton" type="button" onclick="submitComment();">등록</button>
+                                              <button class="replyButton" type="button" onclick="submitComment(this);">등록</button>
                                             </div>
                                           </div>
                                     </form>
                                 </div>
                             </div>
                         </div>
-                        <div th:if="${postCommentlist.size() > 0}" class="com_box" th:each="comment : ${postCommentlist}">
+                        <div th:if="${postCommentlist.size() > 0}" class="com_box" th:each="comment : ${postCommentlist}" th:id="${comment.comment_id}">
                             <div class="profile">
                               <img th:src="|/images/${comment.profile_img}|" alt="">
                             </div>
                             <div class="cmt">
-                              <div class="name">
-                                <p th:text="${comment.member_name}"> </p>
-                                <span class="date" th:text="${comment.create_date}"> </span>
-                              </div>
+                                <div class="name">
+                                  <p th:text="${comment.member_name}"> </p>
+                                  <span class="date" th:text="${comment.create_date}"> </span>
+                                </div>
+
+                                <div class="modify editAction" style="display: none">
+                                  <button class="replyDelete" onclick="cancelModify(this)" type="button">닫기</button>
+                                </div>
+
+                                <div class="text" style="display: none">
+                                    <form class="replyForm" onsubmit="return false;" method="post">
+                                        <input type="hidden" class="parent_comment_id" value="">
+                                        <div class="txtArea">
+                                            <textarea id="textBox" name="content" maxlength="1000" placeholder="내용을 입력하세요." th:text="${comment.desc_detail}"> </textarea>
+                                            <ul class="imgList">
+                                            </ul>
+                                            <p class="wordCount">
+                                                <span>0</span>/1,000
+                                            </p>
+                                            <div class="files">
+                                                <input type="file" name="file" class="addFile" data-url="/comment/presign" accept=".jpg, .jpeg, .png, .gif, image/*">
+                                                <label onclick="$(this).prev().click()">사진첨부</label>
+                                                <span class="fileName"></span>
+                                                <button class="replyButton" type="button" th:onclick="|modifyComment(${comment.comment_id}, this)|"> 수정 </button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+
                               <div class="text" th:text="${comment.desc_detail}">
                                 건강하고 간편하게 먹기 딱인걸요!
                               </div>
                                 <a href="javascript:void(0)" class="re rep">답글 달기</a>
                                 <div class="modify editActive">
                                     <button class="replyModify" onclick="activeModify(this)" type="button">수정</button>
-                                    <button class="replyDelete" onclick="deleteComment(20655, this)" type="button">삭제</button>
+                                    <button class="replyDelete" th:onclick="|deleteComment(${comment.comment_id}, this)|" type="button">삭제</button>
                                 </div>
                             </div>
                           </div>

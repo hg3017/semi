@@ -36,6 +36,15 @@ public class MemberService {
         memberMapper.createComment(commentDTO);
     }
 
+    public void modifyComment(CommentDTO commentDTO) {
+        memberMapper.modifyComment(commentDTO);
+    }
+
+    public void deleteComment (CommentDTO commentDTO) {
+        memberMapper.deleteComment(commentDTO);
+    }
+
+
     public List<CommentDTO> findPostComment(int comment_board_id, int comment_post_id) {
         return memberMapper.findPostComment(comment_board_id, comment_post_id);
     }
