@@ -71,6 +71,12 @@ INSERT INTO HASHTAGS (HASH_ID, HASH_NAME, CREATE_DATE) VALUES (HASH_ID_SEQ.NEXTV
 INSERT INTO HASHTAGS (HASH_ID, HASH_NAME, CREATE_DATE) VALUES (HASH_ID_SEQ.NEXTVAL,'새미네부엌플랫폼',SYSDATE);
 INSERT INTO HASHTAGS (HASH_ID, HASH_NAME, CREATE_DATE) VALUES (HASH_ID_SEQ.NEXTVAL,'이벤트',SYSDATE);
 INSERT INTO HASHTAGS (HASH_ID, HASH_NAME, CREATE_DATE) VALUES (HASH_ID_SEQ.NEXTVAL,'요리초보',SYSDATE);
+INSERT INTO HASHTAGS (HASH_ID, HASH_NAME, CREATE_DATE) VALUES (HASH_ID_SEQ.NEXTVAL,'생채',SYSDATE);
+INSERT INTO HASHTAGS (HASH_ID, HASH_NAME, CREATE_DATE) VALUES (HASH_ID_SEQ.NEXTVAL,'손님초대요리',SYSDATE);
+INSERT INTO HASHTAGS (HASH_ID, HASH_NAME, CREATE_DATE) VALUES (HASH_ID_SEQ.NEXTVAL,'파티요리',SYSDATE);
+INSERT INTO HASHTAGS (HASH_ID, HASH_NAME, CREATE_DATE) VALUES (HASH_ID_SEQ.NEXTVAL,'소고기스튜',SYSDATE);
+INSERT INTO HASHTAGS (HASH_ID, HASH_NAME, CREATE_DATE) VALUES (HASH_ID_SEQ.NEXTVAL,'토마토스튜',SYSDATE);
+
 
 
 -- HASHTAGS_CONN
@@ -133,19 +139,25 @@ INSERT INTO HASHTAGS_CONN (CONN_ID, HASH_ID, BOARD_ID) VALUES (12,67, 10);
 INSERT INTO HASHTAGS_CONN (CONN_ID, HASH_ID, BOARD_ID) VALUES (12,68, 10);
 INSERT INTO HASHTAGS_CONN (CONN_ID, HASH_ID, BOARD_ID) VALUES (12,6, 10);
 
-
-INSERT INTO HASHTAGS_CONN (CONN_ID, HASH_ID, BOARD_ID) VALUES (1,6, 20);
-INSERT INTO HASHTAGS_CONN (CONN_ID, HASH_ID, BOARD_ID) VALUES (1,7, 20);
-INSERT INTO HASHTAGS_CONN (CONN_ID, HASH_ID, BOARD_ID) VALUES (1,8, 20);
-INSERT INTO HASHTAGS_CONN (CONN_ID, HASH_ID, BOARD_ID) VALUES (1,9, 20);
-INSERT INTO HASHTAGS_CONN (CONN_ID, HASH_ID, BOARD_ID) VALUES (1,10, 20);
-INSERT INTO HASHTAGS_CONN (CONN_ID, HASH_ID, BOARD_ID) VALUES (1,11, 20);
+INSERT INTO HASHTAGS_CONN (CONN_ID, HASH_ID, BOARD_ID) VALUES (1,41, 20);
+INSERT INTO HASHTAGS_CONN (CONN_ID, HASH_ID, BOARD_ID) VALUES (1,74, 20);
+INSERT INTO HASHTAGS_CONN (CONN_ID, HASH_ID, BOARD_ID) VALUES (1,75, 20);
+INSERT INTO HASHTAGS_CONN (CONN_ID, HASH_ID, BOARD_ID) VALUES (1,76, 20);
+INSERT INTO HASHTAGS_CONN (CONN_ID, HASH_ID, BOARD_ID) VALUES (1,77, 20);
 INSERT INTO HASHTAGS_CONN (CONN_ID, HASH_ID, BOARD_ID) VALUES (2,6, 20);
 INSERT INTO HASHTAGS_CONN (CONN_ID, HASH_ID, BOARD_ID) VALUES (2,7, 20);
-INSERT INTO HASHTAGS_CONN (CONN_ID, HASH_ID, BOARD_ID) VALUES (3,6, 20);
-INSERT INTO HASHTAGS_CONN (CONN_ID, HASH_ID, BOARD_ID) VALUES (3,7, 20);
-INSERT INTO HASHTAGS_CONN (CONN_ID, HASH_ID, BOARD_ID) VALUES (4,6, 20);
-INSERT INTO HASHTAGS_CONN (CONN_ID, HASH_ID, BOARD_ID) VALUES (4,7, 20);
+INSERT INTO HASHTAGS_CONN (CONN_ID, HASH_ID, BOARD_ID) VALUES (2,8, 20);
+INSERT INTO HASHTAGS_CONN (CONN_ID, HASH_ID, BOARD_ID) VALUES (2,9, 20);
+INSERT INTO HASHTAGS_CONN (CONN_ID, HASH_ID, BOARD_ID) VALUES (2,10, 20);
+INSERT INTO HASHTAGS_CONN (CONN_ID, HASH_ID, BOARD_ID) VALUES (2,11, 20);
+INSERT INTO HASHTAGS_CONN (CONN_ID, HASH_ID, BOARD_ID) VALUES (3,38, 20);
+INSERT INTO HASHTAGS_CONN (CONN_ID, HASH_ID, BOARD_ID) VALUES (3,40, 20);
+INSERT INTO HASHTAGS_CONN (CONN_ID, HASH_ID, BOARD_ID) VALUES (3,1, 20);
+INSERT INTO HASHTAGS_CONN (CONN_ID, HASH_ID, BOARD_ID) VALUES (3,73, 20);
+INSERT INTO HASHTAGS_CONN (CONN_ID, HASH_ID, BOARD_ID) VALUES (4,66, 20);
+INSERT INTO HASHTAGS_CONN (CONN_ID, HASH_ID, BOARD_ID) VALUES (4,64, 20);
+INSERT INTO HASHTAGS_CONN (CONN_ID, HASH_ID, BOARD_ID) VALUES (4,21, 20);
+INSERT INTO HASHTAGS_CONN (CONN_ID, HASH_ID, BOARD_ID) VALUES (4,3, 20);
 INSERT INTO HASHTAGS_CONN (CONN_ID, HASH_ID, BOARD_ID) VALUES (5,6, 20);
 INSERT INTO HASHTAGS_CONN (CONN_ID, HASH_ID, BOARD_ID) VALUES (5,7, 20);
 INSERT INTO HASHTAGS_CONN (CONN_ID, HASH_ID, BOARD_ID) VALUES (6,6, 20);
@@ -296,8 +308,8 @@ insert into LAB (LAB_ID, BOARD_ID, LAB_NAME, LAB_NAME_DESC, DESC_DETAIL, CREATE_
 insert into LAB (LAB_ID, BOARD_ID, LAB_NAME, LAB_NAME_DESC, DESC_DETAIL, CREATE_DATE, MODIFY_DATE) values(LAB_ID_SEQ.NEXTVAL,20,'마라맛 에그인리얼헬','진짜 지옥을 보여줄게!','마라맛 토마토소스에 달걀 퐁당!<br>색다른 맛으로 즐기는 에그인헬','2024.12.03','2024.12.16');
 insert into LAB (LAB_ID, BOARD_ID, LAB_NAME, LAB_NAME_DESC, DESC_DETAIL, CREATE_DATE, MODIFY_DATE) values(LAB_ID_SEQ.NEXTVAL,20,'새콤 무생채','남은 무가 있다면 새콤하게 무쳐봐요!','무는 어떤 부위를 써야할지,<br>물이 덜 나오는 팁은 있는지,<br>양념은 어떻게 해야할지...<br>무생채 할 때 어려웠던 점, 여기서 다 해결!','2024.12.03','2024.12.16');
 insert into LAB (LAB_ID, BOARD_ID, LAB_NAME, LAB_NAME_DESC, DESC_DETAIL, CREATE_DATE, MODIFY_DATE) values(LAB_ID_SEQ.NEXTVAL,20,'감칠맛 가득 양배추참치덮밥','간단한 재료로 쉽게, 하지만 든든하게!','한 그릇 요리지만<br>맛과 건강 다 사로잡은 덮밥 레시피','2024.12.03','2024.12.16');
-insert into LAB (LAB_ID, BOARD_ID, LAB_NAME, LAB_NAME_DESC, DESC_DETAIL, CREATE_DATE, MODIFY_DATE) values(LAB_ID_SEQ.NEXTVAL,20,'감칠맛 가득 양배추참치덮밥','간단한 재료로 쉽게, 하지만 든든하게!','한 그릇 요리지만<br>맛과 건강 다 사로잡은 덮밥 레시피','2024.12.03','2024.12.16');
-insert into LAB (LAB_ID, BOARD_ID, LAB_NAME, LAB_NAME_DESC, DESC_DETAIL, CREATE_DATE, MODIFY_DATE) values(LAB_ID_SEQ.NEXTVAL,20,'감칠맛 가득 양배추참치덮밥','간단한 재료로 쉽게, 하지만 든든하게!','한 그릇 요리지만<br>맛과 건강 다 사로잡은 덮밥 레시피','2024.12.03','2024.12.16');
+insert into LAB (LAB_ID, BOARD_ID, LAB_NAME, LAB_NAME_DESC, DESC_DETAIL, CREATE_DATE, MODIFY_DATE) values(LAB_ID_SEQ.NEXTVAL,20,'두 가지 뭇국 레시피','담백하게, 얼큰하게 두가지 맛으로 즐기는 뭇국','무와 소고기를 달달 볶다가 푹 끓여<br>담백하게 먹어도 좋고,<br>고춧가루 팍팍 넣어 얼큰하게 끓여먹어도 좋아요!','2024.12.03','2024.12.16');
+insert into LAB (LAB_ID, BOARD_ID, LAB_NAME, LAB_NAME_DESC, DESC_DETAIL, CREATE_DATE, MODIFY_DATE) values(LAB_ID_SEQ.NEXTVAL,20,'취향따라 시원한 물김치','재료에 물만 부으면 김치 끝!','김치에 필요한 양념을 1봉에 담아<br>아이도, 어른도 누구나 쉽게 만들 수 있는 물김치!<br>취향에 따라 재료를 가감해<br>나만의 물김치를 만들어 볼까요?','2024.12.03','2024.12.16');
 insert into LAB (LAB_ID, BOARD_ID, LAB_NAME, LAB_NAME_DESC, DESC_DETAIL, CREATE_DATE, MODIFY_DATE) values(LAB_ID_SEQ.NEXTVAL,20,'감칠맛 가득 양배추참치덮밥','간단한 재료로 쉽게, 하지만 든든하게!','한 그릇 요리지만<br>맛과 건강 다 사로잡은 덮밥 레시피','2024.12.03','2024.12.16');
 insert into LAB (LAB_ID, BOARD_ID, LAB_NAME, LAB_NAME_DESC, DESC_DETAIL, CREATE_DATE, MODIFY_DATE) values(LAB_ID_SEQ.NEXTVAL,20,'감칠맛 가득 양배추참치덮밥','간단한 재료로 쉽게, 하지만 든든하게!','한 그릇 요리지만<br>맛과 건강 다 사로잡은 덮밥 레시피','2024.12.03','2024.12.16');
 insert into LAB (LAB_ID, BOARD_ID, LAB_NAME, LAB_NAME_DESC, DESC_DETAIL, CREATE_DATE, MODIFY_DATE) values(LAB_ID_SEQ.NEXTVAL,20,'감칠맛 가득 양배추참치덮밥','간단한 재료로 쉽게, 하지만 든든하게!','한 그릇 요리지만<br>맛과 건강 다 사로잡은 덮밥 레시피','2024.12.03','2024.12.16');
@@ -356,45 +368,45 @@ insert into SOLUTION (SOLUTION_ID, BOARD_ID, SOLUTION_NAME, SOLUTION_DESC, SOLUT
 insert into SOLUTION (SOLUTION_ID, BOARD_ID, SOLUTION_NAME, SOLUTION_DESC, SOLUTION_DETAIL, DESC_DETAIL, CREATE_DATE, MODIFY_DATE) values(SOLUTION_ID_SEQ.NEXTVAL,30,'3 step이면 끝나는 전복 손질법','전복을 맛있게 먹기위한 첫 단계, 손질','전복 손질을 위해 필요한 준비물<br>솔, 숟가락, 칼<br>한 번 알아두면 유용한 전복 손질 방법 알고가요!', '','2024.12.03','2024.12.16');
 
 -- LAB_DETAIL_INGREDIENT
-insert into LAB_DETAIL_INGREDIENT (LAB_DETAIL_ID, LAB_ID, LAB_PRIORITY, LAB_INGREDIENT_NAME, LAB_INGREDIENT_DETAIL, SERVINGS, PREPARATION, COOKINGTIME) values(LAB_DETAIL_SEQ.nextval,1,1,'주재료','달걀 3개 (150g)',2,5,10);
-insert into LAB_DETAIL_INGREDIENT (LAB_DETAIL_ID, LAB_ID, LAB_PRIORITY, LAB_INGREDIENT_NAME, LAB_INGREDIENT_DETAIL, SERVINGS, PREPARATION, COOKINGTIME) values(LAB_DETAIL_SEQ.nextval,1,1,'주재료','포도씨유 2스푼 (20g)',2,5,10);
-insert into LAB_DETAIL_INGREDIENT (LAB_DETAIL_ID, LAB_ID, LAB_PRIORITY, LAB_INGREDIENT_NAME, LAB_INGREDIENT_DETAIL, SERVINGS, PREPARATION, COOKINGTIME) values(LAB_DETAIL_SEQ.nextval,1,2,'부재료','양파 1/2개 (100g)',2,5,10);
-insert into LAB_DETAIL_INGREDIENT (LAB_DETAIL_ID, LAB_ID, LAB_PRIORITY, LAB_INGREDIENT_NAME, LAB_INGREDIENT_DETAIL, SERVINGS, PREPARATION, COOKINGTIME) values(LAB_DETAIL_SEQ.nextval,1,2,'부재료','빨간 파프리카 1개 (100g)',2,5,10);
-insert into LAB_DETAIL_INGREDIENT (LAB_DETAIL_ID, LAB_ID, LAB_PRIORITY, LAB_INGREDIENT_NAME, LAB_INGREDIENT_DETAIL, SERVINGS, PREPARATION, COOKINGTIME) values(LAB_DETAIL_SEQ.nextval,1,2,'부재료','베이컨 2줄 (50g)',2,5,10);
-insert into LAB_DETAIL_INGREDIENT (LAB_DETAIL_ID, LAB_ID, LAB_PRIORITY, LAB_INGREDIENT_NAME, LAB_INGREDIENT_DETAIL, SERVINGS, PREPARATION, COOKINGTIME) values(LAB_DETAIL_SEQ.nextval,1,2,'부재료','마늘 5개 (20g)',2,5,10);
-insert into LAB_DETAIL_INGREDIENT (LAB_DETAIL_ID, LAB_ID, LAB_PRIORITY, LAB_INGREDIENT_NAME, LAB_INGREDIENT_DETAIL, SERVINGS, PREPARATION, COOKINGTIME) values(LAB_DETAIL_SEQ.nextval,1,2,'부재료','피자치즈 1봉 (60g)',2,5,10);
-insert into LAB_DETAIL_INGREDIENT (LAB_DETAIL_ID, LAB_ID, LAB_PRIORITY, LAB_INGREDIENT_NAME, LAB_INGREDIENT_DETAIL, SERVINGS, PREPARATION, COOKINGTIME) values(LAB_DETAIL_SEQ.nextval,1,5,'양념','폰타나 나폴리 뽀모도로 토마토 파스타소스 1봉 (150g)',2,5,10);
-insert into LAB_DETAIL_INGREDIENT (LAB_DETAIL_ID, LAB_ID, LAB_PRIORITY, LAB_INGREDIENT_NAME, LAB_INGREDIENT_DETAIL, SERVINGS, PREPARATION, COOKINGTIME) values(LAB_DETAIL_SEQ.nextval,1,5,'양념','차오차이 마라샹궈소스 1봉 (110g)',2,5,10);
+insert into LAB_DETAIL_INGREDIENT (LAB_DETAIL_ID, LAB_ID, LAB_PRIORITY, LAB_INGREDIENT_NAME, LAB_INGREDIENT_DETAIL, SERVINGS, PREPARATION, COOKINGTIME) values(LAB_DETAIL_SEQ.nextval,1,1,'주재료','소고기 등심 약 1/3근 (250g)',2,10,50);
+insert into LAB_DETAIL_INGREDIENT (LAB_DETAIL_ID, LAB_ID, LAB_PRIORITY, LAB_INGREDIENT_NAME, LAB_INGREDIENT_DETAIL, SERVINGS, PREPARATION, COOKINGTIME) values(LAB_DETAIL_SEQ.nextval,1,1,'주재료','물 1컵 (200ml)',2,10,50);
+insert into LAB_DETAIL_INGREDIENT (LAB_DETAIL_ID, LAB_ID, LAB_PRIORITY, LAB_INGREDIENT_NAME, LAB_INGREDIENT_DETAIL, SERVINGS, PREPARATION, COOKINGTIME) values(LAB_DETAIL_SEQ.nextval,1,2,'부재료','양파 1/2개 (100g)',2,10,50);
+insert into LAB_DETAIL_INGREDIENT (LAB_DETAIL_ID, LAB_ID, LAB_PRIORITY, LAB_INGREDIENT_NAME, LAB_INGREDIENT_DETAIL, SERVINGS, PREPARATION, COOKINGTIME) values(LAB_DETAIL_SEQ.nextval,1,2,'부재료','당근 1/2개 (70g)',2,10,50);
+insert into LAB_DETAIL_INGREDIENT (LAB_DETAIL_ID, LAB_ID, LAB_PRIORITY, LAB_INGREDIENT_NAME, LAB_INGREDIENT_DETAIL, SERVINGS, PREPARATION, COOKINGTIME) values(LAB_DETAIL_SEQ.nextval,1,2,'부재료','새송이버섯 1개 (50g)',2,10,50);
+insert into LAB_DETAIL_INGREDIENT (LAB_DETAIL_ID, LAB_ID, LAB_PRIORITY, LAB_INGREDIENT_NAME, LAB_INGREDIENT_DETAIL, SERVINGS, PREPARATION, COOKINGTIME) values(LAB_DETAIL_SEQ.nextval,1,2,'부재료','감자 1개 (160g)',2,10,50);
+insert into LAB_DETAIL_INGREDIENT (LAB_DETAIL_ID, LAB_ID, LAB_PRIORITY, LAB_INGREDIENT_NAME, LAB_INGREDIENT_DETAIL, SERVINGS, PREPARATION, COOKINGTIME) values(LAB_DETAIL_SEQ.nextval,1,5,'양념','폰타나 나폴리 뽀모도로 토마토 파스타소스 2봉 혹은 3/4병 (300g)',2,10,50);
+insert into LAB_DETAIL_INGREDIENT (LAB_DETAIL_ID, LAB_ID, LAB_PRIORITY, LAB_INGREDIENT_NAME, LAB_INGREDIENT_DETAIL, SERVINGS, PREPARATION, COOKINGTIME) values(LAB_DETAIL_SEQ.nextval,1,5,'양념','연두순 1스푼 (10g)',2,10,50);
 
-insert into LAB_DETAIL_INGREDIENT (LAB_DETAIL_ID, LAB_ID, LAB_PRIORITY, LAB_INGREDIENT_NAME, LAB_INGREDIENT_DETAIL, SERVINGS, PREPARATION, COOKINGTIME) values(LAB_DETAIL_SEQ.nextval,2,1,'주재료','달걀 3개 (150g)',5,25,10);
-insert into LAB_DETAIL_INGREDIENT (LAB_DETAIL_ID, LAB_ID, LAB_PRIORITY, LAB_INGREDIENT_NAME, LAB_INGREDIENT_DETAIL, SERVINGS, PREPARATION, COOKINGTIME) values(LAB_DETAIL_SEQ.nextval,2,1,'주재료','포도씨유 2스푼 (20g)',5,25,10);
-insert into LAB_DETAIL_INGREDIENT (LAB_DETAIL_ID, LAB_ID, LAB_PRIORITY, LAB_INGREDIENT_NAME, LAB_INGREDIENT_DETAIL, SERVINGS, PREPARATION, COOKINGTIME) values(LAB_DETAIL_SEQ.nextval,2,2,'부재료','양파 1/2개 (100g)',5,25,10);
-insert into LAB_DETAIL_INGREDIENT (LAB_DETAIL_ID, LAB_ID, LAB_PRIORITY, LAB_INGREDIENT_NAME, LAB_INGREDIENT_DETAIL, SERVINGS, PREPARATION, COOKINGTIME) values(LAB_DETAIL_SEQ.nextval,2,2,'부재료','빨간 파프리카 1개 (100g)',5,25,10);
-insert into LAB_DETAIL_INGREDIENT (LAB_DETAIL_ID, LAB_ID, LAB_PRIORITY, LAB_INGREDIENT_NAME, LAB_INGREDIENT_DETAIL, SERVINGS, PREPARATION, COOKINGTIME) values(LAB_DETAIL_SEQ.nextval,2,2,'부재료','베이컨 2줄 (50g)',5,25,10);
-insert into LAB_DETAIL_INGREDIENT (LAB_DETAIL_ID, LAB_ID, LAB_PRIORITY, LAB_INGREDIENT_NAME, LAB_INGREDIENT_DETAIL, SERVINGS, PREPARATION, COOKINGTIME) values(LAB_DETAIL_SEQ.nextval,2,2,'부재료','마늘 5개 (20g)',5,25,10);
-insert into LAB_DETAIL_INGREDIENT (LAB_DETAIL_ID, LAB_ID, LAB_PRIORITY, LAB_INGREDIENT_NAME, LAB_INGREDIENT_DETAIL, SERVINGS, PREPARATION, COOKINGTIME) values(LAB_DETAIL_SEQ.nextval,2,2,'부재료','피자치즈 1봉 (60g)',5,25,10);
-insert into LAB_DETAIL_INGREDIENT (LAB_DETAIL_ID, LAB_ID, LAB_PRIORITY, LAB_INGREDIENT_NAME, LAB_INGREDIENT_DETAIL, SERVINGS, PREPARATION, COOKINGTIME) values(LAB_DETAIL_SEQ.nextval,2,5,'양념','폰타나 나폴리 뽀모도로 토마토 파스타소스 1봉 (150g)',5,25,10);
-insert into LAB_DETAIL_INGREDIENT (LAB_DETAIL_ID, LAB_ID, LAB_PRIORITY, LAB_INGREDIENT_NAME, LAB_INGREDIENT_DETAIL, SERVINGS, PREPARATION, COOKINGTIME) values(LAB_DETAIL_SEQ.nextval,2,5,'양념','차오차이 마라샹궈소스 1봉 (110g)',5,25,10);
+insert into LAB_DETAIL_INGREDIENT (LAB_DETAIL_ID, LAB_ID, LAB_PRIORITY, LAB_INGREDIENT_NAME, LAB_INGREDIENT_DETAIL, SERVINGS, PREPARATION, COOKINGTIME) values(LAB_DETAIL_SEQ.nextval,2,1,'주재료','달걀 3개 (150g)',2,5,10);
+insert into LAB_DETAIL_INGREDIENT (LAB_DETAIL_ID, LAB_ID, LAB_PRIORITY, LAB_INGREDIENT_NAME, LAB_INGREDIENT_DETAIL, SERVINGS, PREPARATION, COOKINGTIME) values(LAB_DETAIL_SEQ.nextval,2,1,'주재료','포도씨유 2스푼 (20g)',2,5,10);
+insert into LAB_DETAIL_INGREDIENT (LAB_DETAIL_ID, LAB_ID, LAB_PRIORITY, LAB_INGREDIENT_NAME, LAB_INGREDIENT_DETAIL, SERVINGS, PREPARATION, COOKINGTIME) values(LAB_DETAIL_SEQ.nextval,2,2,'부재료','양파 1/2개 (100g)',2,5,10);
+insert into LAB_DETAIL_INGREDIENT (LAB_DETAIL_ID, LAB_ID, LAB_PRIORITY, LAB_INGREDIENT_NAME, LAB_INGREDIENT_DETAIL, SERVINGS, PREPARATION, COOKINGTIME) values(LAB_DETAIL_SEQ.nextval,2,2,'부재료','빨간 파프리카 1개 (100g)',2,5,10);
+insert into LAB_DETAIL_INGREDIENT (LAB_DETAIL_ID, LAB_ID, LAB_PRIORITY, LAB_INGREDIENT_NAME, LAB_INGREDIENT_DETAIL, SERVINGS, PREPARATION, COOKINGTIME) values(LAB_DETAIL_SEQ.nextval,2,2,'부재료','베이컨 2줄 (50g)',2,5,10);
+insert into LAB_DETAIL_INGREDIENT (LAB_DETAIL_ID, LAB_ID, LAB_PRIORITY, LAB_INGREDIENT_NAME, LAB_INGREDIENT_DETAIL, SERVINGS, PREPARATION, COOKINGTIME) values(LAB_DETAIL_SEQ.nextval,2,2,'부재료','마늘 5개 (20g)',2,5,10);
+insert into LAB_DETAIL_INGREDIENT (LAB_DETAIL_ID, LAB_ID, LAB_PRIORITY, LAB_INGREDIENT_NAME, LAB_INGREDIENT_DETAIL, SERVINGS, PREPARATION, COOKINGTIME) values(LAB_DETAIL_SEQ.nextval,2,2,'부재료','피자치즈 1봉 (60g)',2,5,10);
+insert into LAB_DETAIL_INGREDIENT (LAB_DETAIL_ID, LAB_ID, LAB_PRIORITY, LAB_INGREDIENT_NAME, LAB_INGREDIENT_DETAIL, SERVINGS, PREPARATION, COOKINGTIME) values(LAB_DETAIL_SEQ.nextval,2,5,'양념','폰타나 나폴리 뽀모도로 토마토 파스타소스 1봉 (150g)',2,5,10);
+insert into LAB_DETAIL_INGREDIENT (LAB_DETAIL_ID, LAB_ID, LAB_PRIORITY, LAB_INGREDIENT_NAME, LAB_INGREDIENT_DETAIL, SERVINGS, PREPARATION, COOKINGTIME) values(LAB_DETAIL_SEQ.nextval,2,5,'양념','차오차이 마라샹궈소스 1봉 (110g)',2,5,10);
 
-insert into LAB_DETAIL_INGREDIENT (LAB_DETAIL_ID, LAB_ID, LAB_PRIORITY, LAB_INGREDIENT_NAME, LAB_INGREDIENT_DETAIL, SERVINGS, PREPARATION, COOKINGTIME) values(LAB_DETAIL_SEQ.nextval,3,1,'주재료','달걀 3개 (150g)',2,5,10);
-insert into LAB_DETAIL_INGREDIENT (LAB_DETAIL_ID, LAB_ID, LAB_PRIORITY, LAB_INGREDIENT_NAME, LAB_INGREDIENT_DETAIL, SERVINGS, PREPARATION, COOKINGTIME) values(LAB_DETAIL_SEQ.nextval,3,1,'주재료','포도씨유 2스푼 (20g)',2,5,10);
-insert into LAB_DETAIL_INGREDIENT (LAB_DETAIL_ID, LAB_ID, LAB_PRIORITY, LAB_INGREDIENT_NAME, LAB_INGREDIENT_DETAIL, SERVINGS, PREPARATION, COOKINGTIME) values(LAB_DETAIL_SEQ.nextval,3,2,'부재료','양파 1/2개 (100g)',2,5,10);
-insert into LAB_DETAIL_INGREDIENT (LAB_DETAIL_ID, LAB_ID, LAB_PRIORITY, LAB_INGREDIENT_NAME, LAB_INGREDIENT_DETAIL, SERVINGS, PREPARATION, COOKINGTIME) values(LAB_DETAIL_SEQ.nextval,3,2,'부재료','빨간 파프리카 1개 (100g)',2,5,10);
-insert into LAB_DETAIL_INGREDIENT (LAB_DETAIL_ID, LAB_ID, LAB_PRIORITY, LAB_INGREDIENT_NAME, LAB_INGREDIENT_DETAIL, SERVINGS, PREPARATION, COOKINGTIME) values(LAB_DETAIL_SEQ.nextval,3,2,'부재료','베이컨 2줄 (50g)',2,5,10);
-insert into LAB_DETAIL_INGREDIENT (LAB_DETAIL_ID, LAB_ID, LAB_PRIORITY, LAB_INGREDIENT_NAME, LAB_INGREDIENT_DETAIL, SERVINGS, PREPARATION, COOKINGTIME) values(LAB_DETAIL_SEQ.nextval,3,2,'부재료','마늘 5개 (20g)',2,5,10);
-insert into LAB_DETAIL_INGREDIENT (LAB_DETAIL_ID, LAB_ID, LAB_PRIORITY, LAB_INGREDIENT_NAME, LAB_INGREDIENT_DETAIL, SERVINGS, PREPARATION, COOKINGTIME) values(LAB_DETAIL_SEQ.nextval,3,2,'부재료','피자치즈 1봉 (60g)',2,5,10);
-insert into LAB_DETAIL_INGREDIENT (LAB_DETAIL_ID, LAB_ID, LAB_PRIORITY, LAB_INGREDIENT_NAME, LAB_INGREDIENT_DETAIL, SERVINGS, PREPARATION, COOKINGTIME) values(LAB_DETAIL_SEQ.nextval,3,5,'양념','폰타나 나폴리 뽀모도로 토마토 파스타소스 1봉 (150g)',2,5,10);
-insert into LAB_DETAIL_INGREDIENT (LAB_DETAIL_ID, LAB_ID, LAB_PRIORITY, LAB_INGREDIENT_NAME, LAB_INGREDIENT_DETAIL, SERVINGS, PREPARATION, COOKINGTIME) values(LAB_DETAIL_SEQ.nextval,3,5,'양념','차오차이 마라샹궈소스 1봉 (110g)',2,5,10);
+insert into LAB_DETAIL_INGREDIENT (LAB_DETAIL_ID, LAB_ID, LAB_PRIORITY, LAB_INGREDIENT_NAME, LAB_INGREDIENT_DETAIL, SERVINGS, PREPARATION, COOKINGTIME) values(LAB_DETAIL_SEQ.nextval,3,1,'주재료','무 1/4개 (300g)',4,25,5);
+insert into LAB_DETAIL_INGREDIENT (LAB_DETAIL_ID, LAB_ID, LAB_PRIORITY, LAB_INGREDIENT_NAME, LAB_INGREDIENT_DETAIL, SERVINGS, PREPARATION, COOKINGTIME) values(LAB_DETAIL_SEQ.nextval,3,2,'부재료','실파 3줄 (30g)',4,25,5);
+insert into LAB_DETAIL_INGREDIENT (LAB_DETAIL_ID, LAB_ID, LAB_PRIORITY, LAB_INGREDIENT_NAME, LAB_INGREDIENT_DETAIL, SERVINGS, PREPARATION, COOKINGTIME) values(LAB_DETAIL_SEQ.nextval,3,5,'양념','고춧가루 2스푼(20g)',4,25,5);
+insert into LAB_DETAIL_INGREDIENT (LAB_DETAIL_ID, LAB_ID, LAB_PRIORITY, LAB_INGREDIENT_NAME, LAB_INGREDIENT_DETAIL, SERVINGS, PREPARATION, COOKINGTIME) values(LAB_DETAIL_SEQ.nextval,3,5,'양념','연두순 1스푼(10g)',4,25,5);
+insert into LAB_DETAIL_INGREDIENT (LAB_DETAIL_ID, LAB_ID, LAB_PRIORITY, LAB_INGREDIENT_NAME, LAB_INGREDIENT_DETAIL, SERVINGS, PREPARATION, COOKINGTIME) values(LAB_DETAIL_SEQ.nextval,3,5,'양념','식초 6스푼(60g)',4,25,5);
+insert into LAB_DETAIL_INGREDIENT (LAB_DETAIL_ID, LAB_ID, LAB_PRIORITY, LAB_INGREDIENT_NAME, LAB_INGREDIENT_DETAIL, SERVINGS, PREPARATION, COOKINGTIME) values(LAB_DETAIL_SEQ.nextval,3,5,'양념','설탕 3스푼(30g)',4,25,5);
+insert into LAB_DETAIL_INGREDIENT (LAB_DETAIL_ID, LAB_ID, LAB_PRIORITY, LAB_INGREDIENT_NAME, LAB_INGREDIENT_DETAIL, SERVINGS, PREPARATION, COOKINGTIME) values(LAB_DETAIL_SEQ.nextval,3,5,'양념','다진마늘 1스푼(10g)',4,25,5);
+insert into LAB_DETAIL_INGREDIENT (LAB_DETAIL_ID, LAB_ID, LAB_PRIORITY, LAB_INGREDIENT_NAME, LAB_INGREDIENT_DETAIL, SERVINGS, PREPARATION, COOKINGTIME) values(LAB_DETAIL_SEQ.nextval,3,6,'무 절임용','물엿 3스푼(30g)',4,25,5);
+insert into LAB_DETAIL_INGREDIENT (LAB_DETAIL_ID, LAB_ID, LAB_PRIORITY, LAB_INGREDIENT_NAME, LAB_INGREDIENT_DETAIL, SERVINGS, PREPARATION, COOKINGTIME) values(LAB_DETAIL_SEQ.nextval,3,6,'무 절임용','소금 약간',4,25,5);
 
-insert into LAB_DETAIL_INGREDIENT (LAB_DETAIL_ID, LAB_ID, LAB_PRIORITY, LAB_INGREDIENT_NAME, LAB_INGREDIENT_DETAIL, SERVINGS, PREPARATION, COOKINGTIME) values(LAB_DETAIL_SEQ.nextval,4,1,'주재료','달걀 3개 (150g)',2,5,10);
-insert into LAB_DETAIL_INGREDIENT (LAB_DETAIL_ID, LAB_ID, LAB_PRIORITY, LAB_INGREDIENT_NAME, LAB_INGREDIENT_DETAIL, SERVINGS, PREPARATION, COOKINGTIME) values(LAB_DETAIL_SEQ.nextval,4,1,'주재료','포도씨유 2스푼 (20g)',2,5,10);
-insert into LAB_DETAIL_INGREDIENT (LAB_DETAIL_ID, LAB_ID, LAB_PRIORITY, LAB_INGREDIENT_NAME, LAB_INGREDIENT_DETAIL, SERVINGS, PREPARATION, COOKINGTIME) values(LAB_DETAIL_SEQ.nextval,4,2,'부재료','양파 1/2개 (100g)',2,5,10);
-insert into LAB_DETAIL_INGREDIENT (LAB_DETAIL_ID, LAB_ID, LAB_PRIORITY, LAB_INGREDIENT_NAME, LAB_INGREDIENT_DETAIL, SERVINGS, PREPARATION, COOKINGTIME) values(LAB_DETAIL_SEQ.nextval,4,2,'부재료','빨간 파프리카 1개 (100g)',2,5,10);
-insert into LAB_DETAIL_INGREDIENT (LAB_DETAIL_ID, LAB_ID, LAB_PRIORITY, LAB_INGREDIENT_NAME, LAB_INGREDIENT_DETAIL, SERVINGS, PREPARATION, COOKINGTIME) values(LAB_DETAIL_SEQ.nextval,4,2,'부재료','베이컨 2줄 (50g)',2,5,10);
-insert into LAB_DETAIL_INGREDIENT (LAB_DETAIL_ID, LAB_ID, LAB_PRIORITY, LAB_INGREDIENT_NAME, LAB_INGREDIENT_DETAIL, SERVINGS, PREPARATION, COOKINGTIME) values(LAB_DETAIL_SEQ.nextval,4,2,'부재료','마늘 5개 (20g)',2,5,10);
-insert into LAB_DETAIL_INGREDIENT (LAB_DETAIL_ID, LAB_ID, LAB_PRIORITY, LAB_INGREDIENT_NAME, LAB_INGREDIENT_DETAIL, SERVINGS, PREPARATION, COOKINGTIME) values(LAB_DETAIL_SEQ.nextval,4,2,'부재료','피자치즈 1봉 (60g)',2,5,10);
-insert into LAB_DETAIL_INGREDIENT (LAB_DETAIL_ID, LAB_ID, LAB_PRIORITY, LAB_INGREDIENT_NAME, LAB_INGREDIENT_DETAIL, SERVINGS, PREPARATION, COOKINGTIME) values(LAB_DETAIL_SEQ.nextval,4,5,'양념','폰타나 나폴리 뽀모도로 토마토 파스타소스 1봉 (150g)',2,5,10);
-insert into LAB_DETAIL_INGREDIENT (LAB_DETAIL_ID, LAB_ID, LAB_PRIORITY, LAB_INGREDIENT_NAME, LAB_INGREDIENT_DETAIL, SERVINGS, PREPARATION, COOKINGTIME) values(LAB_DETAIL_SEQ.nextval,4,5,'양념','차오차이 마라샹궈소스 1봉 (110g)',2,5,10);
+insert into LAB_DETAIL_INGREDIENT (LAB_DETAIL_ID, LAB_ID, LAB_PRIORITY, LAB_INGREDIENT_NAME, LAB_INGREDIENT_DETAIL, SERVINGS, PREPARATION, COOKINGTIME) values(LAB_DETAIL_SEQ.nextval,4,1,'주재료','양배추 1/8개(200g)',1,5,5);
+insert into LAB_DETAIL_INGREDIENT (LAB_DETAIL_ID, LAB_ID, LAB_PRIORITY, LAB_INGREDIENT_NAME, LAB_INGREDIENT_DETAIL, SERVINGS, PREPARATION, COOKINGTIME) values(LAB_DETAIL_SEQ.nextval,4,1,'주재료','통조림 참치 1캔(85g)',1,5,5);
+insert into LAB_DETAIL_INGREDIENT (LAB_DETAIL_ID, LAB_ID, LAB_PRIORITY, LAB_INGREDIENT_NAME, LAB_INGREDIENT_DETAIL, SERVINGS, PREPARATION, COOKINGTIME) values(LAB_DETAIL_SEQ.nextval,4,1,'주재료','밥 1공기(200g)',1,5,5);
+insert into LAB_DETAIL_INGREDIENT (LAB_DETAIL_ID, LAB_ID, LAB_PRIORITY, LAB_INGREDIENT_NAME, LAB_INGREDIENT_DETAIL, SERVINGS, PREPARATION, COOKINGTIME) values(LAB_DETAIL_SEQ.nextval,4,1,'주재료','포도씨유 2스푼(20g)',1,5,5);
+insert into LAB_DETAIL_INGREDIENT (LAB_DETAIL_ID, LAB_ID, LAB_PRIORITY, LAB_INGREDIENT_NAME, LAB_INGREDIENT_DETAIL, SERVINGS, PREPARATION, COOKINGTIME) values(LAB_DETAIL_SEQ.nextval,4,2,'부재료','꽈리고추 3개(15g)',1,5,5);
+insert into LAB_DETAIL_INGREDIENT (LAB_DETAIL_ID, LAB_ID, LAB_PRIORITY, LAB_INGREDIENT_NAME, LAB_INGREDIENT_DETAIL, SERVINGS, PREPARATION, COOKINGTIME) values(LAB_DETAIL_SEQ.nextval,4,2,'부재료','달걀 1개(50g)',1,5,5);
+insert into LAB_DETAIL_INGREDIENT (LAB_DETAIL_ID, LAB_ID, LAB_PRIORITY, LAB_INGREDIENT_NAME, LAB_INGREDIENT_DETAIL, SERVINGS, PREPARATION, COOKINGTIME) values(LAB_DETAIL_SEQ.nextval,4,5,'양념','연두순 1/2스푼(5g)',1,5,5);
+insert into LAB_DETAIL_INGREDIENT (LAB_DETAIL_ID, LAB_ID, LAB_PRIORITY, LAB_INGREDIENT_NAME, LAB_INGREDIENT_DETAIL, SERVINGS, PREPARATION, COOKINGTIME) values(LAB_DETAIL_SEQ.nextval,4,5,'양념','굴소스 1/2스푼(5g)',1,5,5);
+insert into LAB_DETAIL_INGREDIENT (LAB_DETAIL_ID, LAB_ID, LAB_PRIORITY, LAB_INGREDIENT_NAME, LAB_INGREDIENT_DETAIL, SERVINGS, PREPARATION, COOKINGTIME) values(LAB_DETAIL_SEQ.nextval,4,5,'양념','들기름 1/2스푼(5g)',1,5,5);
+insert into LAB_DETAIL_INGREDIENT (LAB_DETAIL_ID, LAB_ID, LAB_PRIORITY, LAB_INGREDIENT_NAME, LAB_INGREDIENT_DETAIL, SERVINGS, PREPARATION, COOKINGTIME) values(LAB_DETAIL_SEQ.nextval,4,5,'양념','깨 1/2스푼(5g)',1,5,5);
 
 insert into LAB_DETAIL_INGREDIENT (LAB_DETAIL_ID, LAB_ID, LAB_PRIORITY, LAB_INGREDIENT_NAME, LAB_INGREDIENT_DETAIL, SERVINGS, PREPARATION, COOKINGTIME) values(LAB_DETAIL_SEQ.nextval,5,1,'주재료','달걀 3개 (150g)',2,5,10);
 insert into LAB_DETAIL_INGREDIENT (LAB_DETAIL_ID, LAB_ID, LAB_PRIORITY, LAB_INGREDIENT_NAME, LAB_INGREDIENT_DETAIL, SERVINGS, PREPARATION, COOKINGTIME) values(LAB_DETAIL_SEQ.nextval,5,1,'주재료','포도씨유 2스푼 (20g)',2,5,10);
@@ -719,293 +731,310 @@ insert into LAB_DETAIL_INGREDIENT (LAB_DETAIL_ID, LAB_ID, LAB_PRIORITY, LAB_INGR
 
 -- LAB_DETAIL_STEP
 
-insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
-values(LAB_STEP_SEQ.nextval, 21, 1, 1, '재료 썰기', '소고기 등심은 사방 3~4cm 크기로 큼직하게 큐브 모양으로 썰어주고, 감자와 당근은 껍질을 제거한 뒤에 들쭉날쭉 마구 썰기로 8등분', '새송이버섯과 양파는 감자 사이즈와 동일하게 깍둑 썰어주세요. 3개 (150g)'
-      , '스튜에 사용하기 좋은 소고기 부위로는 등심 외에도 목심, 앞다리살, 양지머리, 사태, 갈비살 등이 있어요.', '소고기 부위에 따른 맛특징이 궁금하다면? 👉클릭');
+insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_NAME , LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
+values(LAB_STEP_SEQ.nextval, 21, 1, 1, '재료 썰기', '소고기 등심은 사방 3~4cm 크기로 큼직하게 큐브 모양으로 썰어주고, 감자와 당근은 껍질을 제거한 뒤에 들쭉날쭉 마구 썰기로 8등분 새송이버섯과 양파는 감자 사이즈와 동일하게 깍둑 썰어주세요.'
+      , '스튜에 사용하기 좋은 소고기 부위로는 등심 외에도 목심, 앞다리살, 양지머리, 사태, 갈비살 등이 있어요.', '소고기 부위에 따른 맛특징이 궁금하다면? 👉클릭','채소 등 재료는 큼직하게 썰어야 요리할 때 뭉개지지 않아요!<br>감자, 당근, 양파, 새송이버섯 손질하는 법이 어려웠다면?','자주 쓰는 채소 손질법 바로가기 👉클릭');
 
-insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
+insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_NAME , LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
 values(LAB_STEP_SEQ.nextval, 21, 1, 2, '스튜 끓이기', '전기밥솥에 손질한 모든 재료와 물, 연두순과 토마토 파스타소스를 넣어주고 찜모드로 50분간 조리하면 완성!', '양지나 사태 등 질긴 부위를 사용했다면 조금 더 시간을 늘려 조리해주면 좋아요.'
-      , '완성된 스튜 위에 파슬리를 뿌려주면 더 예쁘게 담을 수 있어요!', '빵이나 바게트 등과 곁들여 먹어도 좋아요.');
+      , '완성된 스튜 위에 파슬리를 뿌려주면 더 예쁘게 담을 수 있어요!', '빵이나 바게트 등과 곁들여 먹어도 좋아요.','');
 
-insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
-values(LAB_STEP_SEQ.nextval, 21, 2, 1, '재료 썰기', '소고기 등심은 사방 3~4cm 크기로 큼직하게 큐브 모양으로 썰어주고, 감자와 당근은 껍질을 제거한 뒤에 들쭉날쭉 마구 썰기로 8등분', '새송이버섯과 양파는 감자 사이즈와 동일하게 깍둑 썰어주세요. 3개 (150g)'
-      , '스튜에 사용하기 좋은 소고기 부위로는 등심 외에도 목심, 앞다리살, 양지머리, 사태, 갈비살 등이 있어요.', '소고기 부위에 따른 맛특징이 궁금하다면? 👉클릭');
+insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_NAME , LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
+values(LAB_STEP_SEQ.nextval, 21, 2, 1, '재료 썰기', '양파, 파프리카는 사방 1cm 큐브(주사위) 모양으로 썰어주고, 베이컨은 1cm 두께로 썰어주세요. 마늘은 칼면으로 으깨 준비해 주세요.', '마늘을 베이컨과 함께 볶으면 마늘 풍미가 더욱 풍부해져요!'
+      , '통마늘이 없거나 칼 사용이 어려워 마늘을 으깨기 어렵다면 다진 마늘을 활용해도 좋아요. (다진마늘 1스푼)', '','');
 
-insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
-values(LAB_STEP_SEQ.nextval, 21, 2, 2, '스튜 끓이기', '전기밥솥에 손질한 모든 재료와 물, 연두순과 토마토 파스타소스를 넣어주고 찜모드로 50분간 조리하면 완성!', '양지나 사태 등 질긴 부위를 사용했다면 조금 더 시간을 늘려 조리해주면 좋아요.'
-      , '완성된 스튜 위에 파슬리를 뿌려주면 더 예쁘게 담을 수 있어요!', '빵이나 바게트 등과 곁들여 먹어도 좋아요.');
+insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_NAME , LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
+values(LAB_STEP_SEQ.nextval, 21, 2, 2, '재료 볶기', '중불에서 1분간 팬을 예열한 후, 포도씨유를 두르고 베이컨, 마늘, 양파를 먼저 볶다가 양파가 투명해지면 파프리카를 넣어 30초 동안 더 볶아주세요.', ''
+      , '', '','');
 
-insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
-values(LAB_STEP_SEQ.nextval, 21, 3, 1, '재료 썰기', '소고기 등심은 사방 3~4cm 크기로 큼직하게 큐브 모양으로 썰어주고, 감자와 당근은 껍질을 제거한 뒤에 들쭉날쭉 마구 썰기로 8등분', '새송이버섯과 양파는 감자 사이즈와 동일하게 깍둑 썰어주세요. 3개 (150g)'
-      , '스튜에 사용하기 좋은 소고기 부위로는 등심 외에도 목심, 앞다리살, 양지머리, 사태, 갈비살 등이 있어요.', '소고기 부위에 따른 맛특징이 궁금하다면? 👉클릭');
+insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_NAME , LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
+values(LAB_STEP_SEQ.nextval, 21, 2, 3, '소스 넣어 끓이기', '토마토 파스타소스, 마라샹궈소스를 넣어 소스가 자박해질 때까지 약 1~2분동안 중불에서 끓여주세요. ', ''
+      , '', '','');
 
-insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
-values(LAB_STEP_SEQ.nextval, 21, 3, 2, '스튜 끓이기', '전기밥솥에 손질한 모든 재료와 물, 연두순과 토마토 파스타소스를 넣어주고 찜모드로 50분간 조리하면 완성!', '양지나 사태 등 질긴 부위를 사용했다면 조금 더 시간을 늘려 조리해주면 좋아요.'
-      , '완성된 스튜 위에 파슬리를 뿌려주면 더 예쁘게 담을 수 있어요!', '빵이나 바게트 등과 곁들여 먹어도 좋아요.');
+insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_NAME , LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
+values(LAB_STEP_SEQ.nextval, 21, 2, 4, '계란 익혀 완성하기', '피자치즈를 올려 소스랑 섞어주고, 그 위에 노른자가 터지지 않도록 달걀을 잘 깨주세요.<br>계란 흰자 부분이 70% 정도 익을 때까지 중약불에서 지글지글 끓여주면 완성!', '바게트같은 빵과 함께 즐기기 좋아요.'
+      , '기본 에그인헬 레시피도 궁금하다면?<br>👉에그인헬 보러가기', '','');
 
-insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
-values(LAB_STEP_SEQ.nextval, 21, 4, 1, '재료 썰기', '소고기 등심은 사방 3~4cm 크기로 큼직하게 큐브 모양으로 썰어주고, 감자와 당근은 껍질을 제거한 뒤에 들쭉날쭉 마구 썰기로 8등분', '새송이버섯과 양파는 감자 사이즈와 동일하게 깍둑 썰어주세요. 3개 (150g)'
-      , '스튜에 사용하기 좋은 소고기 부위로는 등심 외에도 목심, 앞다리살, 양지머리, 사태, 갈비살 등이 있어요.', '소고기 부위에 따른 맛특징이 궁금하다면? 👉클릭');
+insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_NAME , LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
+values(LAB_STEP_SEQ.nextval, 21, 3, 1, '재료 썰기', '무는 깨끗하게 씻은 후, 0.2~0.3cm두께로 가늘게 채 썰고 실파는 송송 썰어주세요.', '무의 오독한 식감을 잘 살리기 위해 껍질을 제거하지 않았어요! 깔끔한 표면의 무생채를 원한다면 껍질을 제거한 다음 사용해도 좋아요. '
+      , '무는 부위에 따라 맛이 조금씩 차이가 있어요! 무 생채를 할 때는 단맛이 강한 상단부를 활용하면 좋아요!', '무를 써는 방법이 궁금하다면? 👉클릭','남은 무가 있다면? 이렇게 보관하세요!👉클릭');
 
-insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
-values(LAB_STEP_SEQ.nextval, 21, 4, 2, '스튜 끓이기', '전기밥솥에 손질한 모든 재료와 물, 연두순과 토마토 파스타소스를 넣어주고 찜모드로 50분간 조리하면 완성!', '양지나 사태 등 질긴 부위를 사용했다면 조금 더 시간을 늘려 조리해주면 좋아요.'
-      , '완성된 스튜 위에 파슬리를 뿌려주면 더 예쁘게 담을 수 있어요!', '빵이나 바게트 등과 곁들여 먹어도 좋아요.');
+insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_NAME , LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
+values(LAB_STEP_SEQ.nextval, 21, 3, 2, '무 절이기', '채썬 무에 무 절임용 재료(물엿 3스푼, 소금 약간)를 넣고 20분 정도 두어 무의 수분을 빼고 간이 배도록<br>준비해주세요. 무의 수분이 올라오면 물기를 따라내고 손으로 꾹 눌러 짜 주세요.', '무를 미리 절여주면<br> 1) 완성된 요리에 물이 많이 생기지 않아 음식의 간기가 일정해요.<br> 2) 무의 식감이 더 오독해지고, 요리의 저장성이 높아져요.'
+      , '무를 절일 때 물엿을 활용하는 이유!<br> 강한 단맛, 강한 짠맛의 환경에서는 삼투압현상이 일어나, 재료의 수분을 빼 주는 역할을 해요.<br>물엿을 활용하면 소금보다 빠르게 무 속의 수분을 잡아당겨 재료를 절일 때 활용하면 좋답니다.', '물엿의 당 성분이 무 속으로 침투되더라도 단맛이 높지 않아 요리가 달아지진 않아요!<br> 물엿 대신 설탕을 사용해도 되지만 설탕은 물엿보다 단맛이 높아 요리에 단맛이 강하게 스며들 수 있으니 주의하세요!','무를 절일 때 소금을 함께 넣어 삼투압 효과를 높이고, 요리에 간을 약간 더해줄 수 있어요!');
 
-insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
+insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_NAME , LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
+values(LAB_STEP_SEQ.nextval, 21, 3, 3, '양념하기', '무에 먼저 고춧가루를 넣어 빨갛게 색을 입힌 후, 나머지 모든 양념(연두순, 식초, 설탕, 다진마늘)과 썰어둔 실파를 넣어 버무려주면 완성!', '고춧가루를 먼저 무와 버무려주면 요리에 빨간 색감이 더 잘 올라올 수 있어요.'
+      , '고소한 맛을 느끼고 싶다면 마지막에 참기름을 살짝 둘러줘도 좋아요! ', '양념 재료가 부족하거나 다양한 양념을 준비하기 번거롭다면, 무생채에 새미네 보쌈김치양념을 활용하면 편해요!','');
+
+
+insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_NAME , LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
+values(LAB_STEP_SEQ.nextval, 21, 4, 1, '재료 썰기', '양배추는 0.5cm 두께로 채 썰고 꽈리고추는 0.5cm 두께로 어슷 썰어주세요.<br>참치통조림은 체에 걸러 기름기를 제거해주세요.', '통조림 참치 속 기름은 식물성 기름으로 먹어도 되는 기름이에요!<br>요리에 따라 제거하기도 활용하기도 한답니다.'
+      , '꽈리고추는 취향에 따라 가감해도 좋아요.', '','');
+
+insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_NAME , LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
+values(LAB_STEP_SEQ.nextval, 21, 4, 2, '양배추와 참치 볶기', '팬을 센불에서 1분간 예열한 후,  포도씨유를 두르고 약 1분간 양배추를 볶아주세요.<br>양배추 숨이 죽으면 참치, 꽈리고추, 연두순, 굴소스를 넣어 함께 센불에서 1분간 더 볶아주세요.', '굴소스가 없다면 연두순 1스푼을 더 넣어줘도 좋아요.'
+      , '', '','');
+
+insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_NAME , LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
+values(LAB_STEP_SEQ.nextval, 21, 4, 3, '완성하기', '밥 위에 볶은 재료를 담은 후, 들기름과 참깨를 뿌려 주세요!<br>중앙에 공간을 만들어 달걀 노른자를 올려주면 완성!', '현미밥을 활용하면 더 건강하게 즐길 수 있어요!'
+      , '달걀 노른자는 취향에 따라 가감해도 좋아요.', '','');
+
+insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_NAME , LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
 values(LAB_STEP_SEQ.nextval, 21, 5, 1, '재료 썰기', '소고기 등심은 사방 3~4cm 크기로 큼직하게 큐브 모양으로 썰어주고, 감자와 당근은 껍질을 제거한 뒤에 들쭉날쭉 마구 썰기로 8등분', '새송이버섯과 양파는 감자 사이즈와 동일하게 깍둑 썰어주세요. 3개 (150g)'
-      , '스튜에 사용하기 좋은 소고기 부위로는 등심 외에도 목심, 앞다리살, 양지머리, 사태, 갈비살 등이 있어요.', '소고기 부위에 따른 맛특징이 궁금하다면? 👉클릭');
+      , '스튜에 사용하기 좋은 소고기 부위로는 등심 외에도 목심, 앞다리살, 양지머리, 사태, 갈비살 등이 있어요.', '소고기 부위에 따른 맛특징이 궁금하다면? 👉클릭','');
 
-insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
+insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_NAME , LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
 values(LAB_STEP_SEQ.nextval, 21, 5, 2, '스튜 끓이기', '전기밥솥에 손질한 모든 재료와 물, 연두순과 토마토 파스타소스를 넣어주고 찜모드로 50분간 조리하면 완성!', '양지나 사태 등 질긴 부위를 사용했다면 조금 더 시간을 늘려 조리해주면 좋아요.'
-      , '완성된 스튜 위에 파슬리를 뿌려주면 더 예쁘게 담을 수 있어요!', '빵이나 바게트 등과 곁들여 먹어도 좋아요.');
+      , '완성된 스튜 위에 파슬리를 뿌려주면 더 예쁘게 담을 수 있어요!', '빵이나 바게트 등과 곁들여 먹어도 좋아요.','');
 
-insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
+insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_NAME , LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
 values(LAB_STEP_SEQ.nextval, 21, 6, 1, '재료 썰기', '소고기 등심은 사방 3~4cm 크기로 큼직하게 큐브 모양으로 썰어주고, 감자와 당근은 껍질을 제거한 뒤에 들쭉날쭉 마구 썰기로 8등분', '새송이버섯과 양파는 감자 사이즈와 동일하게 깍둑 썰어주세요. 3개 (150g)'
-      , '스튜에 사용하기 좋은 소고기 부위로는 등심 외에도 목심, 앞다리살, 양지머리, 사태, 갈비살 등이 있어요.', '소고기 부위에 따른 맛특징이 궁금하다면? 👉클릭');
+      , '스튜에 사용하기 좋은 소고기 부위로는 등심 외에도 목심, 앞다리살, 양지머리, 사태, 갈비살 등이 있어요.', '소고기 부위에 따른 맛특징이 궁금하다면? 👉클릭','');
 
-insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
+insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_NAME , LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
 values(LAB_STEP_SEQ.nextval, 21, 6, 2, '스튜 끓이기', '전기밥솥에 손질한 모든 재료와 물, 연두순과 토마토 파스타소스를 넣어주고 찜모드로 50분간 조리하면 완성!', '양지나 사태 등 질긴 부위를 사용했다면 조금 더 시간을 늘려 조리해주면 좋아요.'
-      , '완성된 스튜 위에 파슬리를 뿌려주면 더 예쁘게 담을 수 있어요!', '빵이나 바게트 등과 곁들여 먹어도 좋아요.');
+      , '완성된 스튜 위에 파슬리를 뿌려주면 더 예쁘게 담을 수 있어요!', '빵이나 바게트 등과 곁들여 먹어도 좋아요.','');
 
-insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
+insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_NAME , LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
 values(LAB_STEP_SEQ.nextval, 21, 7, 1, '재료 썰기', '소고기 등심은 사방 3~4cm 크기로 큼직하게 큐브 모양으로 썰어주고, 감자와 당근은 껍질을 제거한 뒤에 들쭉날쭉 마구 썰기로 8등분', '새송이버섯과 양파는 감자 사이즈와 동일하게 깍둑 썰어주세요. 3개 (150g)'
-      , '스튜에 사용하기 좋은 소고기 부위로는 등심 외에도 목심, 앞다리살, 양지머리, 사태, 갈비살 등이 있어요.', '소고기 부위에 따른 맛특징이 궁금하다면? 👉클릭');
+      , '스튜에 사용하기 좋은 소고기 부위로는 등심 외에도 목심, 앞다리살, 양지머리, 사태, 갈비살 등이 있어요.', '소고기 부위에 따른 맛특징이 궁금하다면? 👉클릭','');
 
-insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
+insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_NAME , LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
 values(LAB_STEP_SEQ.nextval, 21, 7, 2, '스튜 끓이기', '전기밥솥에 손질한 모든 재료와 물, 연두순과 토마토 파스타소스를 넣어주고 찜모드로 50분간 조리하면 완성!', '양지나 사태 등 질긴 부위를 사용했다면 조금 더 시간을 늘려 조리해주면 좋아요.'
-      , '완성된 스튜 위에 파슬리를 뿌려주면 더 예쁘게 담을 수 있어요!', '빵이나 바게트 등과 곁들여 먹어도 좋아요.');
+      , '완성된 스튜 위에 파슬리를 뿌려주면 더 예쁘게 담을 수 있어요!', '빵이나 바게트 등과 곁들여 먹어도 좋아요.','');
 
-insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
+insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_NAME , LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
 values(LAB_STEP_SEQ.nextval, 21, 8, 1, '재료 썰기', '소고기 등심은 사방 3~4cm 크기로 큼직하게 큐브 모양으로 썰어주고, 감자와 당근은 껍질을 제거한 뒤에 들쭉날쭉 마구 썰기로 8등분', '새송이버섯과 양파는 감자 사이즈와 동일하게 깍둑 썰어주세요. 3개 (150g)'
-      , '스튜에 사용하기 좋은 소고기 부위로는 등심 외에도 목심, 앞다리살, 양지머리, 사태, 갈비살 등이 있어요.', '소고기 부위에 따른 맛특징이 궁금하다면? 👉클릭');
+      , '스튜에 사용하기 좋은 소고기 부위로는 등심 외에도 목심, 앞다리살, 양지머리, 사태, 갈비살 등이 있어요.', '소고기 부위에 따른 맛특징이 궁금하다면? 👉클릭','');
 
-insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
+insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_NAME , LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
 values(LAB_STEP_SEQ.nextval, 21, 8, 2, '스튜 끓이기', '전기밥솥에 손질한 모든 재료와 물, 연두순과 토마토 파스타소스를 넣어주고 찜모드로 50분간 조리하면 완성!', '양지나 사태 등 질긴 부위를 사용했다면 조금 더 시간을 늘려 조리해주면 좋아요.'
-      , '완성된 스튜 위에 파슬리를 뿌려주면 더 예쁘게 담을 수 있어요!', '빵이나 바게트 등과 곁들여 먹어도 좋아요.');
+      , '완성된 스튜 위에 파슬리를 뿌려주면 더 예쁘게 담을 수 있어요!', '빵이나 바게트 등과 곁들여 먹어도 좋아요.','');
 
-insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
+insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_NAME , LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
 values(LAB_STEP_SEQ.nextval, 21, 9, 1, '재료 썰기', '소고기 등심은 사방 3~4cm 크기로 큼직하게 큐브 모양으로 썰어주고, 감자와 당근은 껍질을 제거한 뒤에 들쭉날쭉 마구 썰기로 8등분', '새송이버섯과 양파는 감자 사이즈와 동일하게 깍둑 썰어주세요. 3개 (150g)'
-      , '스튜에 사용하기 좋은 소고기 부위로는 등심 외에도 목심, 앞다리살, 양지머리, 사태, 갈비살 등이 있어요.', '소고기 부위에 따른 맛특징이 궁금하다면? 👉클릭');
+      , '스튜에 사용하기 좋은 소고기 부위로는 등심 외에도 목심, 앞다리살, 양지머리, 사태, 갈비살 등이 있어요.', '소고기 부위에 따른 맛특징이 궁금하다면? 👉클릭','');
 
-insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
+insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_NAME , LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
 values(LAB_STEP_SEQ.nextval, 21, 9, 2, '스튜 끓이기', '전기밥솥에 손질한 모든 재료와 물, 연두순과 토마토 파스타소스를 넣어주고 찜모드로 50분간 조리하면 완성!', '양지나 사태 등 질긴 부위를 사용했다면 조금 더 시간을 늘려 조리해주면 좋아요.'
-      , '완성된 스튜 위에 파슬리를 뿌려주면 더 예쁘게 담을 수 있어요!', '빵이나 바게트 등과 곁들여 먹어도 좋아요.');
+      , '완성된 스튜 위에 파슬리를 뿌려주면 더 예쁘게 담을 수 있어요!', '빵이나 바게트 등과 곁들여 먹어도 좋아요.','');
 
-insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
+insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_NAME , LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
 values(LAB_STEP_SEQ.nextval, 21, 10, 1, '재료 썰기', '소고기 등심은 사방 3~4cm 크기로 큼직하게 큐브 모양으로 썰어주고, 감자와 당근은 껍질을 제거한 뒤에 들쭉날쭉 마구 썰기로 8등분', '새송이버섯과 양파는 감자 사이즈와 동일하게 깍둑 썰어주세요. 3개 (150g)'
-      , '스튜에 사용하기 좋은 소고기 부위로는 등심 외에도 목심, 앞다리살, 양지머리, 사태, 갈비살 등이 있어요.', '소고기 부위에 따른 맛특징이 궁금하다면? 👉클릭');
+      , '스튜에 사용하기 좋은 소고기 부위로는 등심 외에도 목심, 앞다리살, 양지머리, 사태, 갈비살 등이 있어요.', '소고기 부위에 따른 맛특징이 궁금하다면? 👉클릭','');
 
-insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
+insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_NAME , LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
 values(LAB_STEP_SEQ.nextval, 21, 10, 2, '스튜 끓이기', '전기밥솥에 손질한 모든 재료와 물, 연두순과 토마토 파스타소스를 넣어주고 찜모드로 50분간 조리하면 완성!', '양지나 사태 등 질긴 부위를 사용했다면 조금 더 시간을 늘려 조리해주면 좋아요.'
-      , '완성된 스튜 위에 파슬리를 뿌려주면 더 예쁘게 담을 수 있어요!', '빵이나 바게트 등과 곁들여 먹어도 좋아요.');
+      , '완성된 스튜 위에 파슬리를 뿌려주면 더 예쁘게 담을 수 있어요!', '빵이나 바게트 등과 곁들여 먹어도 좋아요.','');
 
-insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
+insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_NAME , LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
 values(LAB_STEP_SEQ.nextval, 21, 11, 1, '재료 썰기', '소고기 등심은 사방 3~4cm 크기로 큼직하게 큐브 모양으로 썰어주고, 감자와 당근은 껍질을 제거한 뒤에 들쭉날쭉 마구 썰기로 8등분', '새송이버섯과 양파는 감자 사이즈와 동일하게 깍둑 썰어주세요. 3개 (150g)'
-      , '스튜에 사용하기 좋은 소고기 부위로는 등심 외에도 목심, 앞다리살, 양지머리, 사태, 갈비살 등이 있어요.', '소고기 부위에 따른 맛특징이 궁금하다면? 👉클릭');
+      , '스튜에 사용하기 좋은 소고기 부위로는 등심 외에도 목심, 앞다리살, 양지머리, 사태, 갈비살 등이 있어요.', '소고기 부위에 따른 맛특징이 궁금하다면? 👉클릭','');
 
-insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
+insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_NAME , LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
 values(LAB_STEP_SEQ.nextval, 21, 11, 2, '스튜 끓이기', '전기밥솥에 손질한 모든 재료와 물, 연두순과 토마토 파스타소스를 넣어주고 찜모드로 50분간 조리하면 완성!', '양지나 사태 등 질긴 부위를 사용했다면 조금 더 시간을 늘려 조리해주면 좋아요.'
-      , '완성된 스튜 위에 파슬리를 뿌려주면 더 예쁘게 담을 수 있어요!', '빵이나 바게트 등과 곁들여 먹어도 좋아요.');
+      , '완성된 스튜 위에 파슬리를 뿌려주면 더 예쁘게 담을 수 있어요!', '빵이나 바게트 등과 곁들여 먹어도 좋아요.','');
 
-insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
+insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_NAME , LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
 values(LAB_STEP_SEQ.nextval, 21, 12, 1, '재료 썰기', '소고기 등심은 사방 3~4cm 크기로 큼직하게 큐브 모양으로 썰어주고, 감자와 당근은 껍질을 제거한 뒤에 들쭉날쭉 마구 썰기로 8등분', '새송이버섯과 양파는 감자 사이즈와 동일하게 깍둑 썰어주세요. 3개 (150g)'
-      , '스튜에 사용하기 좋은 소고기 부위로는 등심 외에도 목심, 앞다리살, 양지머리, 사태, 갈비살 등이 있어요.', '소고기 부위에 따른 맛특징이 궁금하다면? 👉클릭');
+      , '스튜에 사용하기 좋은 소고기 부위로는 등심 외에도 목심, 앞다리살, 양지머리, 사태, 갈비살 등이 있어요.', '소고기 부위에 따른 맛특징이 궁금하다면? 👉클릭','');
 
-insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
+insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_NAME , LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
 values(LAB_STEP_SEQ.nextval, 21, 12, 2, '스튜 끓이기', '전기밥솥에 손질한 모든 재료와 물, 연두순과 토마토 파스타소스를 넣어주고 찜모드로 50분간 조리하면 완성!', '양지나 사태 등 질긴 부위를 사용했다면 조금 더 시간을 늘려 조리해주면 좋아요.'
-      , '완성된 스튜 위에 파슬리를 뿌려주면 더 예쁘게 담을 수 있어요!', '빵이나 바게트 등과 곁들여 먹어도 좋아요.');
+      , '완성된 스튜 위에 파슬리를 뿌려주면 더 예쁘게 담을 수 있어요!', '빵이나 바게트 등과 곁들여 먹어도 좋아요.','');
 
-insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
+insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_NAME , LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
 values(LAB_STEP_SEQ.nextval, 21, 13, 1, '재료 썰기', '소고기 등심은 사방 3~4cm 크기로 큼직하게 큐브 모양으로 썰어주고, 감자와 당근은 껍질을 제거한 뒤에 들쭉날쭉 마구 썰기로 8등분', '새송이버섯과 양파는 감자 사이즈와 동일하게 깍둑 썰어주세요. 3개 (150g)'
-      , '스튜에 사용하기 좋은 소고기 부위로는 등심 외에도 목심, 앞다리살, 양지머리, 사태, 갈비살 등이 있어요.', '소고기 부위에 따른 맛특징이 궁금하다면? 👉클릭');
+      , '스튜에 사용하기 좋은 소고기 부위로는 등심 외에도 목심, 앞다리살, 양지머리, 사태, 갈비살 등이 있어요.', '소고기 부위에 따른 맛특징이 궁금하다면? 👉클릭','');
 
-insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
+insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_NAME , LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
 values(LAB_STEP_SEQ.nextval, 21, 13, 2, '스튜 끓이기', '전기밥솥에 손질한 모든 재료와 물, 연두순과 토마토 파스타소스를 넣어주고 찜모드로 50분간 조리하면 완성!', '양지나 사태 등 질긴 부위를 사용했다면 조금 더 시간을 늘려 조리해주면 좋아요.'
-      , '완성된 스튜 위에 파슬리를 뿌려주면 더 예쁘게 담을 수 있어요!', '빵이나 바게트 등과 곁들여 먹어도 좋아요.');
+      , '완성된 스튜 위에 파슬리를 뿌려주면 더 예쁘게 담을 수 있어요!', '빵이나 바게트 등과 곁들여 먹어도 좋아요.','');
 
-insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
+insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_NAME , LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
 values(LAB_STEP_SEQ.nextval, 21, 14, 1, '재료 썰기', '소고기 등심은 사방 3~4cm 크기로 큼직하게 큐브 모양으로 썰어주고, 감자와 당근은 껍질을 제거한 뒤에 들쭉날쭉 마구 썰기로 8등분', '새송이버섯과 양파는 감자 사이즈와 동일하게 깍둑 썰어주세요. 3개 (150g)'
-      , '스튜에 사용하기 좋은 소고기 부위로는 등심 외에도 목심, 앞다리살, 양지머리, 사태, 갈비살 등이 있어요.', '소고기 부위에 따른 맛특징이 궁금하다면? 👉클릭');
+      , '스튜에 사용하기 좋은 소고기 부위로는 등심 외에도 목심, 앞다리살, 양지머리, 사태, 갈비살 등이 있어요.', '소고기 부위에 따른 맛특징이 궁금하다면? 👉클릭','');
 
-insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
+insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_NAME , LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
 values(LAB_STEP_SEQ.nextval, 21, 14, 2, '스튜 끓이기', '전기밥솥에 손질한 모든 재료와 물, 연두순과 토마토 파스타소스를 넣어주고 찜모드로 50분간 조리하면 완성!', '양지나 사태 등 질긴 부위를 사용했다면 조금 더 시간을 늘려 조리해주면 좋아요.'
-      , '완성된 스튜 위에 파슬리를 뿌려주면 더 예쁘게 담을 수 있어요!', '빵이나 바게트 등과 곁들여 먹어도 좋아요.');
+      , '완성된 스튜 위에 파슬리를 뿌려주면 더 예쁘게 담을 수 있어요!', '빵이나 바게트 등과 곁들여 먹어도 좋아요.','');
 
-insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
+insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_NAME , LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
 values(LAB_STEP_SEQ.nextval, 21, 15, 1, '재료 썰기', '소고기 등심은 사방 3~4cm 크기로 큼직하게 큐브 모양으로 썰어주고, 감자와 당근은 껍질을 제거한 뒤에 들쭉날쭉 마구 썰기로 8등분', '새송이버섯과 양파는 감자 사이즈와 동일하게 깍둑 썰어주세요. 3개 (150g)'
-      , '스튜에 사용하기 좋은 소고기 부위로는 등심 외에도 목심, 앞다리살, 양지머리, 사태, 갈비살 등이 있어요.', '소고기 부위에 따른 맛특징이 궁금하다면? 👉클릭');
+      , '스튜에 사용하기 좋은 소고기 부위로는 등심 외에도 목심, 앞다리살, 양지머리, 사태, 갈비살 등이 있어요.', '소고기 부위에 따른 맛특징이 궁금하다면? 👉클릭','');
 
-insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
+insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_NAME , LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
 values(LAB_STEP_SEQ.nextval, 21, 15, 2, '스튜 끓이기', '전기밥솥에 손질한 모든 재료와 물, 연두순과 토마토 파스타소스를 넣어주고 찜모드로 50분간 조리하면 완성!', '양지나 사태 등 질긴 부위를 사용했다면 조금 더 시간을 늘려 조리해주면 좋아요.'
-      , '완성된 스튜 위에 파슬리를 뿌려주면 더 예쁘게 담을 수 있어요!', '빵이나 바게트 등과 곁들여 먹어도 좋아요.');
+      , '완성된 스튜 위에 파슬리를 뿌려주면 더 예쁘게 담을 수 있어요!', '빵이나 바게트 등과 곁들여 먹어도 좋아요.','');
 
-insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
+insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_NAME , LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
 values(LAB_STEP_SEQ.nextval, 21, 16, 1, '재료 썰기', '소고기 등심은 사방 3~4cm 크기로 큼직하게 큐브 모양으로 썰어주고, 감자와 당근은 껍질을 제거한 뒤에 들쭉날쭉 마구 썰기로 8등분', '새송이버섯과 양파는 감자 사이즈와 동일하게 깍둑 썰어주세요. 3개 (150g)'
-      , '스튜에 사용하기 좋은 소고기 부위로는 등심 외에도 목심, 앞다리살, 양지머리, 사태, 갈비살 등이 있어요.', '소고기 부위에 따른 맛특징이 궁금하다면? 👉클릭');
+      , '스튜에 사용하기 좋은 소고기 부위로는 등심 외에도 목심, 앞다리살, 양지머리, 사태, 갈비살 등이 있어요.', '소고기 부위에 따른 맛특징이 궁금하다면? 👉클릭','');
 
-insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
+insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_NAME , LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
 values(LAB_STEP_SEQ.nextval, 21, 16, 2, '스튜 끓이기', '전기밥솥에 손질한 모든 재료와 물, 연두순과 토마토 파스타소스를 넣어주고 찜모드로 50분간 조리하면 완성!', '양지나 사태 등 질긴 부위를 사용했다면 조금 더 시간을 늘려 조리해주면 좋아요.'
-      , '완성된 스튜 위에 파슬리를 뿌려주면 더 예쁘게 담을 수 있어요!', '빵이나 바게트 등과 곁들여 먹어도 좋아요.');
+      , '완성된 스튜 위에 파슬리를 뿌려주면 더 예쁘게 담을 수 있어요!', '빵이나 바게트 등과 곁들여 먹어도 좋아요.','');
 
-insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
+insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_NAME , LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
 values(LAB_STEP_SEQ.nextval, 21, 17, 1, '재료 썰기', '소고기 등심은 사방 3~4cm 크기로 큼직하게 큐브 모양으로 썰어주고, 감자와 당근은 껍질을 제거한 뒤에 들쭉날쭉 마구 썰기로 8등분', '새송이버섯과 양파는 감자 사이즈와 동일하게 깍둑 썰어주세요. 3개 (150g)'
-      , '스튜에 사용하기 좋은 소고기 부위로는 등심 외에도 목심, 앞다리살, 양지머리, 사태, 갈비살 등이 있어요.', '소고기 부위에 따른 맛특징이 궁금하다면? 👉클릭');
+      , '스튜에 사용하기 좋은 소고기 부위로는 등심 외에도 목심, 앞다리살, 양지머리, 사태, 갈비살 등이 있어요.', '소고기 부위에 따른 맛특징이 궁금하다면? 👉클릭','');
 
-insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
+insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_NAME , LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
 values(LAB_STEP_SEQ.nextval, 21, 17, 2, '스튜 끓이기', '전기밥솥에 손질한 모든 재료와 물, 연두순과 토마토 파스타소스를 넣어주고 찜모드로 50분간 조리하면 완성!', '양지나 사태 등 질긴 부위를 사용했다면 조금 더 시간을 늘려 조리해주면 좋아요.'
-      , '완성된 스튜 위에 파슬리를 뿌려주면 더 예쁘게 담을 수 있어요!', '빵이나 바게트 등과 곁들여 먹어도 좋아요.');
+      , '완성된 스튜 위에 파슬리를 뿌려주면 더 예쁘게 담을 수 있어요!', '빵이나 바게트 등과 곁들여 먹어도 좋아요.','');
 
-insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
+insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_NAME , LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
 values(LAB_STEP_SEQ.nextval, 21, 18, 1, '재료 썰기', '소고기 등심은 사방 3~4cm 크기로 큼직하게 큐브 모양으로 썰어주고, 감자와 당근은 껍질을 제거한 뒤에 들쭉날쭉 마구 썰기로 8등분', '새송이버섯과 양파는 감자 사이즈와 동일하게 깍둑 썰어주세요. 3개 (150g)'
-      , '스튜에 사용하기 좋은 소고기 부위로는 등심 외에도 목심, 앞다리살, 양지머리, 사태, 갈비살 등이 있어요.', '소고기 부위에 따른 맛특징이 궁금하다면? 👉클릭');
+      , '스튜에 사용하기 좋은 소고기 부위로는 등심 외에도 목심, 앞다리살, 양지머리, 사태, 갈비살 등이 있어요.', '소고기 부위에 따른 맛특징이 궁금하다면? 👉클릭','');
 
-insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
+insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_NAME , LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
 values(LAB_STEP_SEQ.nextval, 21, 18, 2, '스튜 끓이기', '전기밥솥에 손질한 모든 재료와 물, 연두순과 토마토 파스타소스를 넣어주고 찜모드로 50분간 조리하면 완성!', '양지나 사태 등 질긴 부위를 사용했다면 조금 더 시간을 늘려 조리해주면 좋아요.'
-      , '완성된 스튜 위에 파슬리를 뿌려주면 더 예쁘게 담을 수 있어요!', '빵이나 바게트 등과 곁들여 먹어도 좋아요.');
+      , '완성된 스튜 위에 파슬리를 뿌려주면 더 예쁘게 담을 수 있어요!', '빵이나 바게트 등과 곁들여 먹어도 좋아요.','');
 
-insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
+insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_NAME , LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
 values(LAB_STEP_SEQ.nextval, 21, 19, 1, '재료 썰기', '소고기 등심은 사방 3~4cm 크기로 큼직하게 큐브 모양으로 썰어주고, 감자와 당근은 껍질을 제거한 뒤에 들쭉날쭉 마구 썰기로 8등분', '새송이버섯과 양파는 감자 사이즈와 동일하게 깍둑 썰어주세요. 3개 (150g)'
-      , '스튜에 사용하기 좋은 소고기 부위로는 등심 외에도 목심, 앞다리살, 양지머리, 사태, 갈비살 등이 있어요.', '소고기 부위에 따른 맛특징이 궁금하다면? 👉클릭');
+      , '스튜에 사용하기 좋은 소고기 부위로는 등심 외에도 목심, 앞다리살, 양지머리, 사태, 갈비살 등이 있어요.', '소고기 부위에 따른 맛특징이 궁금하다면? 👉클릭','');
 
-insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
+insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_NAME , LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
 values(LAB_STEP_SEQ.nextval, 21, 19, 2, '스튜 끓이기', '전기밥솥에 손질한 모든 재료와 물, 연두순과 토마토 파스타소스를 넣어주고 찜모드로 50분간 조리하면 완성!', '양지나 사태 등 질긴 부위를 사용했다면 조금 더 시간을 늘려 조리해주면 좋아요.'
-      , '완성된 스튜 위에 파슬리를 뿌려주면 더 예쁘게 담을 수 있어요!', '빵이나 바게트 등과 곁들여 먹어도 좋아요.');
+      , '완성된 스튜 위에 파슬리를 뿌려주면 더 예쁘게 담을 수 있어요!', '빵이나 바게트 등과 곁들여 먹어도 좋아요.','');
 
-insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
+insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_NAME , LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
 values(LAB_STEP_SEQ.nextval, 21, 20, 1, '재료 썰기', '소고기 등심은 사방 3~4cm 크기로 큼직하게 큐브 모양으로 썰어주고, 감자와 당근은 껍질을 제거한 뒤에 들쭉날쭉 마구 썰기로 8등분', '새송이버섯과 양파는 감자 사이즈와 동일하게 깍둑 썰어주세요. 3개 (150g)'
-      , '스튜에 사용하기 좋은 소고기 부위로는 등심 외에도 목심, 앞다리살, 양지머리, 사태, 갈비살 등이 있어요.', '소고기 부위에 따른 맛특징이 궁금하다면? 👉클릭');
+      , '스튜에 사용하기 좋은 소고기 부위로는 등심 외에도 목심, 앞다리살, 양지머리, 사태, 갈비살 등이 있어요.', '소고기 부위에 따른 맛특징이 궁금하다면? 👉클릭','');
 
-insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
+insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_NAME , LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
 values(LAB_STEP_SEQ.nextval, 21, 20, 2, '스튜 끓이기', '전기밥솥에 손질한 모든 재료와 물, 연두순과 토마토 파스타소스를 넣어주고 찜모드로 50분간 조리하면 완성!', '양지나 사태 등 질긴 부위를 사용했다면 조금 더 시간을 늘려 조리해주면 좋아요.'
-      , '완성된 스튜 위에 파슬리를 뿌려주면 더 예쁘게 담을 수 있어요!', '빵이나 바게트 등과 곁들여 먹어도 좋아요.');
+      , '완성된 스튜 위에 파슬리를 뿌려주면 더 예쁘게 담을 수 있어요!', '빵이나 바게트 등과 곁들여 먹어도 좋아요.','');
 
-insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
+insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_NAME , LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
 values(LAB_STEP_SEQ.nextval, 21, 21, 1, '재료 썰기', '소고기 등심은 사방 3~4cm 크기로 큼직하게 큐브 모양으로 썰어주고, 감자와 당근은 껍질을 제거한 뒤에 들쭉날쭉 마구 썰기로 8등분', '새송이버섯과 양파는 감자 사이즈와 동일하게 깍둑 썰어주세요. 3개 (150g)'
-      , '스튜에 사용하기 좋은 소고기 부위로는 등심 외에도 목심, 앞다리살, 양지머리, 사태, 갈비살 등이 있어요.', '소고기 부위에 따른 맛특징이 궁금하다면? 👉클릭');
+      , '스튜에 사용하기 좋은 소고기 부위로는 등심 외에도 목심, 앞다리살, 양지머리, 사태, 갈비살 등이 있어요.', '소고기 부위에 따른 맛특징이 궁금하다면? 👉클릭','');
 
-insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
+insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_NAME , LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
 values(LAB_STEP_SEQ.nextval, 21, 21, 2, '스튜 끓이기', '전기밥솥에 손질한 모든 재료와 물, 연두순과 토마토 파스타소스를 넣어주고 찜모드로 50분간 조리하면 완성!', '양지나 사태 등 질긴 부위를 사용했다면 조금 더 시간을 늘려 조리해주면 좋아요.'
-      , '완성된 스튜 위에 파슬리를 뿌려주면 더 예쁘게 담을 수 있어요!', '빵이나 바게트 등과 곁들여 먹어도 좋아요.');
+      , '완성된 스튜 위에 파슬리를 뿌려주면 더 예쁘게 담을 수 있어요!', '빵이나 바게트 등과 곁들여 먹어도 좋아요.','');
 
-insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
+insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_NAME , LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
 values(LAB_STEP_SEQ.nextval, 21, 22, 1, '재료 썰기', '소고기 등심은 사방 3~4cm 크기로 큼직하게 큐브 모양으로 썰어주고, 감자와 당근은 껍질을 제거한 뒤에 들쭉날쭉 마구 썰기로 8등분', '새송이버섯과 양파는 감자 사이즈와 동일하게 깍둑 썰어주세요. 3개 (150g)'
-      , '스튜에 사용하기 좋은 소고기 부위로는 등심 외에도 목심, 앞다리살, 양지머리, 사태, 갈비살 등이 있어요.', '소고기 부위에 따른 맛특징이 궁금하다면? 👉클릭');
+      , '스튜에 사용하기 좋은 소고기 부위로는 등심 외에도 목심, 앞다리살, 양지머리, 사태, 갈비살 등이 있어요.', '소고기 부위에 따른 맛특징이 궁금하다면? 👉클릭','');
 
-insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
+insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_NAME , LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
 values(LAB_STEP_SEQ.nextval, 21, 22, 2, '스튜 끓이기', '전기밥솥에 손질한 모든 재료와 물, 연두순과 토마토 파스타소스를 넣어주고 찜모드로 50분간 조리하면 완성!', '양지나 사태 등 질긴 부위를 사용했다면 조금 더 시간을 늘려 조리해주면 좋아요.'
-      , '완성된 스튜 위에 파슬리를 뿌려주면 더 예쁘게 담을 수 있어요!', '빵이나 바게트 등과 곁들여 먹어도 좋아요.');
+      , '완성된 스튜 위에 파슬리를 뿌려주면 더 예쁘게 담을 수 있어요!', '빵이나 바게트 등과 곁들여 먹어도 좋아요.','');
 
-insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
+insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_NAME , LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
 values(LAB_STEP_SEQ.nextval, 21, 23, 1, '재료 썰기', '소고기 등심은 사방 3~4cm 크기로 큼직하게 큐브 모양으로 썰어주고, 감자와 당근은 껍질을 제거한 뒤에 들쭉날쭉 마구 썰기로 8등분', '새송이버섯과 양파는 감자 사이즈와 동일하게 깍둑 썰어주세요. 3개 (150g)'
-      , '스튜에 사용하기 좋은 소고기 부위로는 등심 외에도 목심, 앞다리살, 양지머리, 사태, 갈비살 등이 있어요.', '소고기 부위에 따른 맛특징이 궁금하다면? 👉클릭');
+      , '스튜에 사용하기 좋은 소고기 부위로는 등심 외에도 목심, 앞다리살, 양지머리, 사태, 갈비살 등이 있어요.', '소고기 부위에 따른 맛특징이 궁금하다면? 👉클릭','');
 
-insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
+insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_NAME , LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
 values(LAB_STEP_SEQ.nextval, 21, 23, 2, '스튜 끓이기', '전기밥솥에 손질한 모든 재료와 물, 연두순과 토마토 파스타소스를 넣어주고 찜모드로 50분간 조리하면 완성!', '양지나 사태 등 질긴 부위를 사용했다면 조금 더 시간을 늘려 조리해주면 좋아요.'
-      , '완성된 스튜 위에 파슬리를 뿌려주면 더 예쁘게 담을 수 있어요!', '빵이나 바게트 등과 곁들여 먹어도 좋아요.');
+      , '완성된 스튜 위에 파슬리를 뿌려주면 더 예쁘게 담을 수 있어요!', '빵이나 바게트 등과 곁들여 먹어도 좋아요.','');
 
-insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
+insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_NAME , LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
 values(LAB_STEP_SEQ.nextval, 21, 24, 1, '재료 썰기', '소고기 등심은 사방 3~4cm 크기로 큼직하게 큐브 모양으로 썰어주고, 감자와 당근은 껍질을 제거한 뒤에 들쭉날쭉 마구 썰기로 8등분', '새송이버섯과 양파는 감자 사이즈와 동일하게 깍둑 썰어주세요. 3개 (150g)'
-      , '스튜에 사용하기 좋은 소고기 부위로는 등심 외에도 목심, 앞다리살, 양지머리, 사태, 갈비살 등이 있어요.', '소고기 부위에 따른 맛특징이 궁금하다면? 👉클릭');
+      , '스튜에 사용하기 좋은 소고기 부위로는 등심 외에도 목심, 앞다리살, 양지머리, 사태, 갈비살 등이 있어요.', '소고기 부위에 따른 맛특징이 궁금하다면? 👉클릭','');
 
-insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
+insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_NAME , LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
 values(LAB_STEP_SEQ.nextval, 21, 24, 2, '스튜 끓이기', '전기밥솥에 손질한 모든 재료와 물, 연두순과 토마토 파스타소스를 넣어주고 찜모드로 50분간 조리하면 완성!', '양지나 사태 등 질긴 부위를 사용했다면 조금 더 시간을 늘려 조리해주면 좋아요.'
-      , '완성된 스튜 위에 파슬리를 뿌려주면 더 예쁘게 담을 수 있어요!', '빵이나 바게트 등과 곁들여 먹어도 좋아요.');
+      , '완성된 스튜 위에 파슬리를 뿌려주면 더 예쁘게 담을 수 있어요!', '빵이나 바게트 등과 곁들여 먹어도 좋아요.','');
 
-insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
+insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_NAME , LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
 values(LAB_STEP_SEQ.nextval, 21, 25, 1, '재료 썰기', '소고기 등심은 사방 3~4cm 크기로 큼직하게 큐브 모양으로 썰어주고, 감자와 당근은 껍질을 제거한 뒤에 들쭉날쭉 마구 썰기로 8등분', '새송이버섯과 양파는 감자 사이즈와 동일하게 깍둑 썰어주세요. 3개 (150g)'
-      , '스튜에 사용하기 좋은 소고기 부위로는 등심 외에도 목심, 앞다리살, 양지머리, 사태, 갈비살 등이 있어요.', '소고기 부위에 따른 맛특징이 궁금하다면? 👉클릭');
+      , '스튜에 사용하기 좋은 소고기 부위로는 등심 외에도 목심, 앞다리살, 양지머리, 사태, 갈비살 등이 있어요.', '소고기 부위에 따른 맛특징이 궁금하다면? 👉클릭','');
 
-insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
+insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_NAME , LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
 values(LAB_STEP_SEQ.nextval, 21, 25, 2, '스튜 끓이기', '전기밥솥에 손질한 모든 재료와 물, 연두순과 토마토 파스타소스를 넣어주고 찜모드로 50분간 조리하면 완성!', '양지나 사태 등 질긴 부위를 사용했다면 조금 더 시간을 늘려 조리해주면 좋아요.'
-      , '완성된 스튜 위에 파슬리를 뿌려주면 더 예쁘게 담을 수 있어요!', '빵이나 바게트 등과 곁들여 먹어도 좋아요.');
+      , '완성된 스튜 위에 파슬리를 뿌려주면 더 예쁘게 담을 수 있어요!', '빵이나 바게트 등과 곁들여 먹어도 좋아요.','');
 
-insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
+insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_NAME , LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
 values(LAB_STEP_SEQ.nextval, 21, 26, 1, '재료 썰기', '소고기 등심은 사방 3~4cm 크기로 큼직하게 큐브 모양으로 썰어주고, 감자와 당근은 껍질을 제거한 뒤에 들쭉날쭉 마구 썰기로 8등분', '새송이버섯과 양파는 감자 사이즈와 동일하게 깍둑 썰어주세요. 3개 (150g)'
-      , '스튜에 사용하기 좋은 소고기 부위로는 등심 외에도 목심, 앞다리살, 양지머리, 사태, 갈비살 등이 있어요.', '소고기 부위에 따른 맛특징이 궁금하다면? 👉클릭');
+      , '스튜에 사용하기 좋은 소고기 부위로는 등심 외에도 목심, 앞다리살, 양지머리, 사태, 갈비살 등이 있어요.', '소고기 부위에 따른 맛특징이 궁금하다면? 👉클릭','');
 
-insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
+insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_NAME , LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
 values(LAB_STEP_SEQ.nextval, 21, 26, 2, '스튜 끓이기', '전기밥솥에 손질한 모든 재료와 물, 연두순과 토마토 파스타소스를 넣어주고 찜모드로 50분간 조리하면 완성!', '양지나 사태 등 질긴 부위를 사용했다면 조금 더 시간을 늘려 조리해주면 좋아요.'
-      , '완성된 스튜 위에 파슬리를 뿌려주면 더 예쁘게 담을 수 있어요!', '빵이나 바게트 등과 곁들여 먹어도 좋아요.');
+      , '완성된 스튜 위에 파슬리를 뿌려주면 더 예쁘게 담을 수 있어요!', '빵이나 바게트 등과 곁들여 먹어도 좋아요.','');
 
-insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
+insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_NAME , LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
 values(LAB_STEP_SEQ.nextval, 21, 27, 1, '재료 썰기', '소고기 등심은 사방 3~4cm 크기로 큼직하게 큐브 모양으로 썰어주고, 감자와 당근은 껍질을 제거한 뒤에 들쭉날쭉 마구 썰기로 8등분', '새송이버섯과 양파는 감자 사이즈와 동일하게 깍둑 썰어주세요. 3개 (150g)'
-      , '스튜에 사용하기 좋은 소고기 부위로는 등심 외에도 목심, 앞다리살, 양지머리, 사태, 갈비살 등이 있어요.', '소고기 부위에 따른 맛특징이 궁금하다면? 👉클릭');
+      , '스튜에 사용하기 좋은 소고기 부위로는 등심 외에도 목심, 앞다리살, 양지머리, 사태, 갈비살 등이 있어요.', '소고기 부위에 따른 맛특징이 궁금하다면? 👉클릭','');
 
-insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
+insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_NAME , LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
 values(LAB_STEP_SEQ.nextval, 21, 27, 2, '스튜 끓이기', '전기밥솥에 손질한 모든 재료와 물, 연두순과 토마토 파스타소스를 넣어주고 찜모드로 50분간 조리하면 완성!', '양지나 사태 등 질긴 부위를 사용했다면 조금 더 시간을 늘려 조리해주면 좋아요.'
-      , '완성된 스튜 위에 파슬리를 뿌려주면 더 예쁘게 담을 수 있어요!', '빵이나 바게트 등과 곁들여 먹어도 좋아요.');
+      , '완성된 스튜 위에 파슬리를 뿌려주면 더 예쁘게 담을 수 있어요!', '빵이나 바게트 등과 곁들여 먹어도 좋아요.','');
 
-insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
+insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_NAME , LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
 values(LAB_STEP_SEQ.nextval, 21, 28, 1, '재료 썰기', '소고기 등심은 사방 3~4cm 크기로 큼직하게 큐브 모양으로 썰어주고, 감자와 당근은 껍질을 제거한 뒤에 들쭉날쭉 마구 썰기로 8등분', '새송이버섯과 양파는 감자 사이즈와 동일하게 깍둑 썰어주세요. 3개 (150g)'
-      , '스튜에 사용하기 좋은 소고기 부위로는 등심 외에도 목심, 앞다리살, 양지머리, 사태, 갈비살 등이 있어요.', '소고기 부위에 따른 맛특징이 궁금하다면? 👉클릭');
+      , '스튜에 사용하기 좋은 소고기 부위로는 등심 외에도 목심, 앞다리살, 양지머리, 사태, 갈비살 등이 있어요.', '소고기 부위에 따른 맛특징이 궁금하다면? 👉클릭','');
 
-insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
+insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_NAME , LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
 values(LAB_STEP_SEQ.nextval, 21, 28, 2, '스튜 끓이기', '전기밥솥에 손질한 모든 재료와 물, 연두순과 토마토 파스타소스를 넣어주고 찜모드로 50분간 조리하면 완성!', '양지나 사태 등 질긴 부위를 사용했다면 조금 더 시간을 늘려 조리해주면 좋아요.'
-      , '완성된 스튜 위에 파슬리를 뿌려주면 더 예쁘게 담을 수 있어요!', '빵이나 바게트 등과 곁들여 먹어도 좋아요.');
+      , '완성된 스튜 위에 파슬리를 뿌려주면 더 예쁘게 담을 수 있어요!', '빵이나 바게트 등과 곁들여 먹어도 좋아요.','');
 
-insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
+insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_NAME , LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
 values(LAB_STEP_SEQ.nextval, 21, 29, 1, '재료 썰기', '소고기 등심은 사방 3~4cm 크기로 큼직하게 큐브 모양으로 썰어주고, 감자와 당근은 껍질을 제거한 뒤에 들쭉날쭉 마구 썰기로 8등분', '새송이버섯과 양파는 감자 사이즈와 동일하게 깍둑 썰어주세요. 3개 (150g)'
-      , '스튜에 사용하기 좋은 소고기 부위로는 등심 외에도 목심, 앞다리살, 양지머리, 사태, 갈비살 등이 있어요.', '소고기 부위에 따른 맛특징이 궁금하다면? 👉클릭');
+      , '스튜에 사용하기 좋은 소고기 부위로는 등심 외에도 목심, 앞다리살, 양지머리, 사태, 갈비살 등이 있어요.', '소고기 부위에 따른 맛특징이 궁금하다면? 👉클릭','');
 
-insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
+insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_NAME , LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
 values(LAB_STEP_SEQ.nextval, 21, 29, 2, '스튜 끓이기', '전기밥솥에 손질한 모든 재료와 물, 연두순과 토마토 파스타소스를 넣어주고 찜모드로 50분간 조리하면 완성!', '양지나 사태 등 질긴 부위를 사용했다면 조금 더 시간을 늘려 조리해주면 좋아요.'
-      , '완성된 스튜 위에 파슬리를 뿌려주면 더 예쁘게 담을 수 있어요!', '빵이나 바게트 등과 곁들여 먹어도 좋아요.');
+      , '완성된 스튜 위에 파슬리를 뿌려주면 더 예쁘게 담을 수 있어요!', '빵이나 바게트 등과 곁들여 먹어도 좋아요.','');
 
-insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
+insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_NAME , LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
 values(LAB_STEP_SEQ.nextval, 21, 30, 1, '재료 썰기', '소고기 등심은 사방 3~4cm 크기로 큼직하게 큐브 모양으로 썰어주고, 감자와 당근은 껍질을 제거한 뒤에 들쭉날쭉 마구 썰기로 8등분', '새송이버섯과 양파는 감자 사이즈와 동일하게 깍둑 썰어주세요. 3개 (150g)'
-      , '스튜에 사용하기 좋은 소고기 부위로는 등심 외에도 목심, 앞다리살, 양지머리, 사태, 갈비살 등이 있어요.', '소고기 부위에 따른 맛특징이 궁금하다면? 👉클릭');
+      , '스튜에 사용하기 좋은 소고기 부위로는 등심 외에도 목심, 앞다리살, 양지머리, 사태, 갈비살 등이 있어요.', '소고기 부위에 따른 맛특징이 궁금하다면? 👉클릭','');
 
-insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
+insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_NAME , LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
 values(LAB_STEP_SEQ.nextval, 21, 30, 2, '스튜 끓이기', '전기밥솥에 손질한 모든 재료와 물, 연두순과 토마토 파스타소스를 넣어주고 찜모드로 50분간 조리하면 완성!', '양지나 사태 등 질긴 부위를 사용했다면 조금 더 시간을 늘려 조리해주면 좋아요.'
-      , '완성된 스튜 위에 파슬리를 뿌려주면 더 예쁘게 담을 수 있어요!', '빵이나 바게트 등과 곁들여 먹어도 좋아요.');
+      , '완성된 스튜 위에 파슬리를 뿌려주면 더 예쁘게 담을 수 있어요!', '빵이나 바게트 등과 곁들여 먹어도 좋아요.','');
 
-insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
+insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_NAME , LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
 values(LAB_STEP_SEQ.nextval, 21, 31, 1, '재료 썰기', '소고기 등심은 사방 3~4cm 크기로 큼직하게 큐브 모양으로 썰어주고, 감자와 당근은 껍질을 제거한 뒤에 들쭉날쭉 마구 썰기로 8등분', '새송이버섯과 양파는 감자 사이즈와 동일하게 깍둑 썰어주세요. 3개 (150g)'
-      , '스튜에 사용하기 좋은 소고기 부위로는 등심 외에도 목심, 앞다리살, 양지머리, 사태, 갈비살 등이 있어요.', '소고기 부위에 따른 맛특징이 궁금하다면? 👉클릭');
+      , '스튜에 사용하기 좋은 소고기 부위로는 등심 외에도 목심, 앞다리살, 양지머리, 사태, 갈비살 등이 있어요.', '소고기 부위에 따른 맛특징이 궁금하다면? 👉클릭','');
 
-insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
+insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_NAME , LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
 values(LAB_STEP_SEQ.nextval, 21, 31, 2, '스튜 끓이기', '전기밥솥에 손질한 모든 재료와 물, 연두순과 토마토 파스타소스를 넣어주고 찜모드로 50분간 조리하면 완성!', '양지나 사태 등 질긴 부위를 사용했다면 조금 더 시간을 늘려 조리해주면 좋아요.'
-      , '완성된 스튜 위에 파슬리를 뿌려주면 더 예쁘게 담을 수 있어요!', '빵이나 바게트 등과 곁들여 먹어도 좋아요.');
+      , '완성된 스튜 위에 파슬리를 뿌려주면 더 예쁘게 담을 수 있어요!', '빵이나 바게트 등과 곁들여 먹어도 좋아요.','');
 
-insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
+insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_NAME , LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
 values(LAB_STEP_SEQ.nextval, 21, 32, 1, '재료 썰기', '소고기 등심은 사방 3~4cm 크기로 큼직하게 큐브 모양으로 썰어주고, 감자와 당근은 껍질을 제거한 뒤에 들쭉날쭉 마구 썰기로 8등분', '새송이버섯과 양파는 감자 사이즈와 동일하게 깍둑 썰어주세요. 3개 (150g)'
-      , '스튜에 사용하기 좋은 소고기 부위로는 등심 외에도 목심, 앞다리살, 양지머리, 사태, 갈비살 등이 있어요.', '소고기 부위에 따른 맛특징이 궁금하다면? 👉클릭');
+      , '스튜에 사용하기 좋은 소고기 부위로는 등심 외에도 목심, 앞다리살, 양지머리, 사태, 갈비살 등이 있어요.', '소고기 부위에 따른 맛특징이 궁금하다면? 👉클릭','');
 
-insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
+insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_NAME , LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
 values(LAB_STEP_SEQ.nextval, 21, 32, 2, '스튜 끓이기', '전기밥솥에 손질한 모든 재료와 물, 연두순과 토마토 파스타소스를 넣어주고 찜모드로 50분간 조리하면 완성!', '양지나 사태 등 질긴 부위를 사용했다면 조금 더 시간을 늘려 조리해주면 좋아요.'
-      , '완성된 스튜 위에 파슬리를 뿌려주면 더 예쁘게 담을 수 있어요!', '빵이나 바게트 등과 곁들여 먹어도 좋아요.');
+      , '완성된 스튜 위에 파슬리를 뿌려주면 더 예쁘게 담을 수 있어요!', '빵이나 바게트 등과 곁들여 먹어도 좋아요.','');
 
-insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
+insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_NAME , LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
 values(LAB_STEP_SEQ.nextval, 21, 33, 1, '재료 썰기', '소고기 등심은 사방 3~4cm 크기로 큼직하게 큐브 모양으로 썰어주고, 감자와 당근은 껍질을 제거한 뒤에 들쭉날쭉 마구 썰기로 8등분', '새송이버섯과 양파는 감자 사이즈와 동일하게 깍둑 썰어주세요. 3개 (150g)'
-      , '스튜에 사용하기 좋은 소고기 부위로는 등심 외에도 목심, 앞다리살, 양지머리, 사태, 갈비살 등이 있어요.', '소고기 부위에 따른 맛특징이 궁금하다면? 👉클릭');
+      , '스튜에 사용하기 좋은 소고기 부위로는 등심 외에도 목심, 앞다리살, 양지머리, 사태, 갈비살 등이 있어요.', '소고기 부위에 따른 맛특징이 궁금하다면? 👉클릭','');
 
-insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
+insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_NAME , LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
 values(LAB_STEP_SEQ.nextval, 21, 33, 2, '스튜 끓이기', '전기밥솥에 손질한 모든 재료와 물, 연두순과 토마토 파스타소스를 넣어주고 찜모드로 50분간 조리하면 완성!', '양지나 사태 등 질긴 부위를 사용했다면 조금 더 시간을 늘려 조리해주면 좋아요.'
-      , '완성된 스튜 위에 파슬리를 뿌려주면 더 예쁘게 담을 수 있어요!', '빵이나 바게트 등과 곁들여 먹어도 좋아요.');
+      , '완성된 스튜 위에 파슬리를 뿌려주면 더 예쁘게 담을 수 있어요!', '빵이나 바게트 등과 곁들여 먹어도 좋아요.','');
 
-insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
+insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_NAME , LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
 values(LAB_STEP_SEQ.nextval, 21, 34, 1, '재료 썰기', '소고기 등심은 사방 3~4cm 크기로 큼직하게 큐브 모양으로 썰어주고, 감자와 당근은 껍질을 제거한 뒤에 들쭉날쭉 마구 썰기로 8등분', '새송이버섯과 양파는 감자 사이즈와 동일하게 깍둑 썰어주세요. 3개 (150g)'
-      , '스튜에 사용하기 좋은 소고기 부위로는 등심 외에도 목심, 앞다리살, 양지머리, 사태, 갈비살 등이 있어요.', '소고기 부위에 따른 맛특징이 궁금하다면? 👉클릭');
+      , '스튜에 사용하기 좋은 소고기 부위로는 등심 외에도 목심, 앞다리살, 양지머리, 사태, 갈비살 등이 있어요.', '소고기 부위에 따른 맛특징이 궁금하다면? 👉클릭','');
 
-insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
+insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_NAME , LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
 values(LAB_STEP_SEQ.nextval, 21, 34, 2, '스튜 끓이기', '전기밥솥에 손질한 모든 재료와 물, 연두순과 토마토 파스타소스를 넣어주고 찜모드로 50분간 조리하면 완성!', '양지나 사태 등 질긴 부위를 사용했다면 조금 더 시간을 늘려 조리해주면 좋아요.'
-      , '완성된 스튜 위에 파슬리를 뿌려주면 더 예쁘게 담을 수 있어요!', '빵이나 바게트 등과 곁들여 먹어도 좋아요.');
+      , '완성된 스튜 위에 파슬리를 뿌려주면 더 예쁘게 담을 수 있어요!', '빵이나 바게트 등과 곁들여 먹어도 좋아요.','');
 
-insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
+insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_NAME , LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
 values(LAB_STEP_SEQ.nextval, 21, 35, 1, '재료 썰기', '소고기 등심은 사방 3~4cm 크기로 큼직하게 큐브 모양으로 썰어주고, 감자와 당근은 껍질을 제거한 뒤에 들쭉날쭉 마구 썰기로 8등분', '새송이버섯과 양파는 감자 사이즈와 동일하게 깍둑 썰어주세요. 3개 (150g)'
-      , '스튜에 사용하기 좋은 소고기 부위로는 등심 외에도 목심, 앞다리살, 양지머리, 사태, 갈비살 등이 있어요.', '소고기 부위에 따른 맛특징이 궁금하다면? 👉클릭');
+      , '스튜에 사용하기 좋은 소고기 부위로는 등심 외에도 목심, 앞다리살, 양지머리, 사태, 갈비살 등이 있어요.', '소고기 부위에 따른 맛특징이 궁금하다면? 👉클릭','');
 
-insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
+insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_NAME , LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
 values(LAB_STEP_SEQ.nextval, 21, 35, 2, '스튜 끓이기', '전기밥솥에 손질한 모든 재료와 물, 연두순과 토마토 파스타소스를 넣어주고 찜모드로 50분간 조리하면 완성!', '양지나 사태 등 질긴 부위를 사용했다면 조금 더 시간을 늘려 조리해주면 좋아요.'
-      , '완성된 스튜 위에 파슬리를 뿌려주면 더 예쁘게 담을 수 있어요!', '빵이나 바게트 등과 곁들여 먹어도 좋아요.');
+      , '완성된 스튜 위에 파슬리를 뿌려주면 더 예쁘게 담을 수 있어요!', '빵이나 바게트 등과 곁들여 먹어도 좋아요.','');
 
-insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
+insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_NAME , LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
 values(LAB_STEP_SEQ.nextval, 21, 36, 1, '재료 썰기', '소고기 등심은 사방 3~4cm 크기로 큼직하게 큐브 모양으로 썰어주고, 감자와 당근은 껍질을 제거한 뒤에 들쭉날쭉 마구 썰기로 8등분', '새송이버섯과 양파는 감자 사이즈와 동일하게 깍둑 썰어주세요. 3개 (150g)'
-      , '스튜에 사용하기 좋은 소고기 부위로는 등심 외에도 목심, 앞다리살, 양지머리, 사태, 갈비살 등이 있어요.', '소고기 부위에 따른 맛특징이 궁금하다면? 👉클릭');
+      , '스튜에 사용하기 좋은 소고기 부위로는 등심 외에도 목심, 앞다리살, 양지머리, 사태, 갈비살 등이 있어요.', '소고기 부위에 따른 맛특징이 궁금하다면? 👉클릭','');
 
-insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
+insert into LAB_DETAIL_STEP (LAB_STEP_ID, BOARD_ID, LAB_ID, LAB_STEP, LAB_STEP_NAME , LAB_STEP_DESC, LAB_STEP_TIP1, LAB_STEP_TIP2, LAB_STEP_TIP3, LAB_STEP_TIP4)
 values(LAB_STEP_SEQ.nextval, 21, 36, 2, '스튜 끓이기', '전기밥솥에 손질한 모든 재료와 물, 연두순과 토마토 파스타소스를 넣어주고 찜모드로 50분간 조리하면 완성!', '양지나 사태 등 질긴 부위를 사용했다면 조금 더 시간을 늘려 조리해주면 좋아요.'
-      , '완성된 스튜 위에 파슬리를 뿌려주면 더 예쁘게 담을 수 있어요!', '빵이나 바게트 등과 곁들여 먹어도 좋아요.');
+      , '완성된 스튜 위에 파슬리를 뿌려주면 더 예쁘게 담을 수 있어요!', '빵이나 바게트 등과 곁들여 먹어도 좋아요.','');
 
 
 -- img_list (guide)
@@ -1162,146 +1191,30 @@ insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DAT
 insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_1.jpg'  ,1,SYSDATE,'2024.12.16',2);
 insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_2.jpg'  ,2,SYSDATE,'2024.12.16',2);
 insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_3.jpg'  ,3,SYSDATE,'2024.12.16',2);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step1.jpg'  ,1,SYSDATE,'2024.12.16',3);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_1.jpg'  ,1,SYSDATE,'2024.12.16',4);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_2.jpg'  ,2,SYSDATE,'2024.12.16',4);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_3.jpg'  ,3,SYSDATE,'2024.12.16',4);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step1.jpg'  ,1,SYSDATE,'2024.12.16',5);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_1.jpg'  ,1,SYSDATE,'2024.12.16',6);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_2.jpg'  ,2,SYSDATE,'2024.12.16',6);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_3.jpg'  ,3,SYSDATE,'2024.12.16',6);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step1.jpg'  ,1,SYSDATE,'2024.12.16',7);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_1.jpg'  ,1,SYSDATE,'2024.12.16',8);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_2.jpg'  ,2,SYSDATE,'2024.12.16',8);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_3.jpg'  ,3,SYSDATE,'2024.12.16',8);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step1.jpg'  ,1,SYSDATE,'2024.12.16',9);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_1.jpg'  ,1,SYSDATE,'2024.12.16',10);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_2.jpg'  ,2,SYSDATE,'2024.12.16',10);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_3.jpg'  ,3,SYSDATE,'2024.12.16',10);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step1.jpg'  ,1,SYSDATE,'2024.12.16',11);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_1.jpg'  ,1,SYSDATE,'2024.12.16',12);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_2.jpg'  ,2,SYSDATE,'2024.12.16',12);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_3.jpg'  ,3,SYSDATE,'2024.12.16',12);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step1.jpg'  ,1,SYSDATE,'2024.12.16',13);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_1.jpg'  ,1,SYSDATE,'2024.12.16',14);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_2.jpg'  ,2,SYSDATE,'2024.12.16',14);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_3.jpg'  ,3,SYSDATE,'2024.12.16',14);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step1.jpg'  ,1,SYSDATE,'2024.12.16',15);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_1.jpg'  ,1,SYSDATE,'2024.12.16',16);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_2.jpg'  ,2,SYSDATE,'2024.12.16',16);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_3.jpg'  ,3,SYSDATE,'2024.12.16',16);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step1.jpg'  ,1,SYSDATE,'2024.12.16',17);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_1.jpg'  ,1,SYSDATE,'2024.12.16',18);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_2.jpg'  ,2,SYSDATE,'2024.12.16',18);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_3.jpg'  ,3,SYSDATE,'2024.12.16',18);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step1.jpg'  ,1,SYSDATE,'2024.12.16',19);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_1.jpg'  ,1,SYSDATE,'2024.12.16',20);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_2.jpg'  ,2,SYSDATE,'2024.12.16',20);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_3.jpg'  ,3,SYSDATE,'2024.12.16',20);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step1.jpg'  ,1,SYSDATE,'2024.12.16',21);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_1.jpg'  ,1,SYSDATE,'2024.12.16',22);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_2.jpg'  ,2,SYSDATE,'2024.12.16',22);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_3.jpg'  ,3,SYSDATE,'2024.12.16',22);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step1.jpg'  ,1,SYSDATE,'2024.12.16',23);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_1.jpg'  ,1,SYSDATE,'2024.12.16',24);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_2.jpg'  ,2,SYSDATE,'2024.12.16',24);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_3.jpg'  ,3,SYSDATE,'2024.12.16',24);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step1.jpg'  ,1,SYSDATE,'2024.12.16',25);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_1.jpg'  ,1,SYSDATE,'2024.12.16',26);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_2.jpg'  ,2,SYSDATE,'2024.12.16',26);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_3.jpg'  ,3,SYSDATE,'2024.12.16',26);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step1.jpg'  ,1,SYSDATE,'2024.12.16',27);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_1.jpg'  ,1,SYSDATE,'2024.12.16',28);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_2.jpg'  ,2,SYSDATE,'2024.12.16',28);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_3.jpg'  ,3,SYSDATE,'2024.12.16',28);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step1.jpg'  ,1,SYSDATE,'2024.12.16',29);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_1.jpg'  ,1,SYSDATE,'2024.12.16',30);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_2.jpg'  ,2,SYSDATE,'2024.12.16',30);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_3.jpg'  ,3,SYSDATE,'2024.12.16',30);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step1.jpg'  ,1,SYSDATE,'2024.12.16',31);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_1.jpg'  ,1,SYSDATE,'2024.12.16',32);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_2.jpg'  ,2,SYSDATE,'2024.12.16',32);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_3.jpg'  ,3,SYSDATE,'2024.12.16',32);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step1.jpg'  ,1,SYSDATE,'2024.12.16',33);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_1.jpg'  ,1,SYSDATE,'2024.12.16',34);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_2.jpg'  ,2,SYSDATE,'2024.12.16',34);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_3.jpg'  ,3,SYSDATE,'2024.12.16',34);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step1.jpg'  ,1,SYSDATE,'2024.12.16',35);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_1.jpg'  ,1,SYSDATE,'2024.12.16',36);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_2.jpg'  ,2,SYSDATE,'2024.12.16',36);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_3.jpg'  ,3,SYSDATE,'2024.12.16',36);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step1.jpg'  ,1,SYSDATE,'2024.12.16',37);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_1.jpg'  ,1,SYSDATE,'2024.12.16',38);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_2.jpg'  ,2,SYSDATE,'2024.12.16',38);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_3.jpg'  ,3,SYSDATE,'2024.12.16',38);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step1.jpg'  ,1,SYSDATE,'2024.12.16',39);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_1.jpg'  ,1,SYSDATE,'2024.12.16',40);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_2.jpg'  ,2,SYSDATE,'2024.12.16',40);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_3.jpg'  ,3,SYSDATE,'2024.12.16',40);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step1.jpg'  ,1,SYSDATE,'2024.12.16',41);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_1.jpg'  ,1,SYSDATE,'2024.12.16',42);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_2.jpg'  ,2,SYSDATE,'2024.12.16',42);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_3.jpg'  ,3,SYSDATE,'2024.12.16',42);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step1.jpg'  ,1,SYSDATE,'2024.12.16',43);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_1.jpg'  ,1,SYSDATE,'2024.12.16',44);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_2.jpg'  ,2,SYSDATE,'2024.12.16',44);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_3.jpg'  ,3,SYSDATE,'2024.12.16',44);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step1.jpg'  ,1,SYSDATE,'2024.12.16',45);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_1.jpg'  ,1,SYSDATE,'2024.12.16',46);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_2.jpg'  ,2,SYSDATE,'2024.12.16',46);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_3.jpg'  ,3,SYSDATE,'2024.12.16',46);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step1.jpg'  ,1,SYSDATE,'2024.12.16',47);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_1.jpg'  ,1,SYSDATE,'2024.12.16',48);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_2.jpg'  ,2,SYSDATE,'2024.12.16',48);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_3.jpg'  ,3,SYSDATE,'2024.12.16',48);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step1.jpg'  ,1,SYSDATE,'2024.12.16',49);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_1.jpg'  ,1,SYSDATE,'2024.12.16',50);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_2.jpg'  ,2,SYSDATE,'2024.12.16',50);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_3.jpg'  ,3,SYSDATE,'2024.12.16',50);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step1.jpg'  ,1,SYSDATE,'2024.12.16',51);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_1.jpg'  ,1,SYSDATE,'2024.12.16',52);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_2.jpg'  ,2,SYSDATE,'2024.12.16',52);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_3.jpg'  ,3,SYSDATE,'2024.12.16',52);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step1.jpg'  ,1,SYSDATE,'2024.12.16',53);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_1.jpg'  ,1,SYSDATE,'2024.12.16',54);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_2.jpg'  ,2,SYSDATE,'2024.12.16',54);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_3.jpg'  ,3,SYSDATE,'2024.12.16',54);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step1.jpg'  ,1,SYSDATE,'2024.12.16',55);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_1.jpg'  ,1,SYSDATE,'2024.12.16',56);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_2.jpg'  ,2,SYSDATE,'2024.12.16',56);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_3.jpg'  ,3,SYSDATE,'2024.12.16',56);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step1.jpg'  ,1,SYSDATE,'2024.12.16',57);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_1.jpg'  ,1,SYSDATE,'2024.12.16',58);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_2.jpg'  ,2,SYSDATE,'2024.12.16',58);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_3.jpg'  ,3,SYSDATE,'2024.12.16',58);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step1.jpg'  ,1,SYSDATE,'2024.12.16',59);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_1.jpg'  ,1,SYSDATE,'2024.12.16',60);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_2.jpg'  ,2,SYSDATE,'2024.12.16',60);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_3.jpg'  ,3,SYSDATE,'2024.12.16',60);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step1.jpg'  ,1,SYSDATE,'2024.12.16',61);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_1.jpg'  ,1,SYSDATE,'2024.12.16',62);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_2.jpg'  ,2,SYSDATE,'2024.12.16',62);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_3.jpg'  ,3,SYSDATE,'2024.12.16',62);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step1.jpg'  ,1,SYSDATE,'2024.12.16',63);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_1.jpg'  ,1,SYSDATE,'2024.12.16',64);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_2.jpg'  ,2,SYSDATE,'2024.12.16',64);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_3.jpg'  ,3,SYSDATE,'2024.12.16',64);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step1.jpg'  ,1,SYSDATE,'2024.12.16',65);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_1.jpg'  ,1,SYSDATE,'2024.12.16',66);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_2.jpg'  ,2,SYSDATE,'2024.12.16',66);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_3.jpg'  ,3,SYSDATE,'2024.12.16',66);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step1.jpg'  ,1,SYSDATE,'2024.12.16',67);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_1.jpg'  ,1,SYSDATE,'2024.12.16',68);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_2.jpg'  ,2,SYSDATE,'2024.12.16',68);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_3.jpg'  ,3,SYSDATE,'2024.12.16',68);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step1.jpg'  ,1,SYSDATE,'2024.12.16',69);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_1.jpg'  ,1,SYSDATE,'2024.12.16',70);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_2.jpg'  ,2,SYSDATE,'2024.12.16',70);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_3.jpg'  ,3,SYSDATE,'2024.12.16',70);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step1.jpg'  ,1,SYSDATE,'2024.12.16',71);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_1.jpg'  ,1,SYSDATE,'2024.12.16',72);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_2.jpg'  ,2,SYSDATE,'2024.12.16',72);
-insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_3.jpg'  ,3,SYSDATE,'2024.12.16',72);
+insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2.jpg'  ,1,SYSDATE,'2024.12.16',3);
+insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_1_1.jpg'  ,1,SYSDATE,'2024.12.16',4);
+insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_1_2.jpg'  ,2,SYSDATE,'2024.12.16',4);
+insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_2_1.jpg'  ,1,SYSDATE,'2024.12.16',5);
+insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_2_2.jpg'  ,2,SYSDATE,'2024.12.16',5);
+insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_3_1.jpg'  ,1,SYSDATE,'2024.12.16',6);
+insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_3_2.jpg'  ,2,SYSDATE,'2024.12.16',6);
+insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_3_3.jpg'  ,3,SYSDATE,'2024.12.16',6);
+insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step2_3_4.jpg'  ,4,SYSDATE,'2024.12.16',6);
+insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step3_1.jpg'  ,1,SYSDATE,'2024.12.16',7);
+insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step3_2.jpg'  ,1,SYSDATE,'2024.12.16',8);
+insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step3_2_1.jpg'  ,2,SYSDATE,'2024.12.16',8);
+insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step3_2_2.jpg'  ,3,SYSDATE,'2024.12.16',8);
+insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step3_3.jpg'  ,1,SYSDATE,'2024.12.16',9);
+insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step3_3_1.jpg'  ,2,SYSDATE,'2024.12.16',9);
+insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step3_3_2.jpg'  ,3,SYSDATE,'2024.12.16',9);
+insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step3_3_3.jpg'  ,4,SYSDATE,'2024.12.16',9);
+insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step4.jpg'  ,1,SYSDATE,'2024.12.16',10);
+insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step4_1.jpg'  ,1,SYSDATE,'2024.12.16',11);
+insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step4_2.jpg'  ,2,SYSDATE,'2024.12.16',11);
+insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step4_3.jpg'  ,3,SYSDATE,'2024.12.16',11);
+insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step4_4.jpg'  ,1,SYSDATE,'2024.12.16',12);
+insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step4_5.jpg'  ,2,SYSDATE,'2024.12.16',12);
+insert into IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, IMG_PRIORITY, CREATE_DATE, MODIFY_DATE, POST_ID) values(IMG_LIST_SEQ.NEXTVAL,21,'step4_6.jpg'  ,3,SYSDATE,'2024.12.16',12);
 
 
 
