@@ -10,32 +10,36 @@
     <link rel="stylesheet" href="/css/event/event.css">
 </head>
 <body>
-    <main style="margin: 200px" class="main_event">
+    <main class="main_event">
         <form name="write" action="/event/write" method="post" enctype="multipart/form-data">
             <fieldset>
                 <legend></legend>
-                <div>
+                <div class="form">
                     <label>제목</label>
-                    <input name="event_name" type="text"/>
+                    <input name="event_name" type="text" placeholder="제목을 입력해 주세요" />
                 </div>
-                <div>
+                <div class="form poster">
                     <label>메인 포스터</label>
                     <input type="file" name="file_main_poster">
                 </div>
-                <div>
+                <div class="form poster">
                     <label>포스터</label>
                     <input type="file" name="file_poster">
                 </div>
                 <textarea name="desc_detail" id="eventEditor" data-editor></textarea>
-                <div>
-                    <label>이벤트 시작일</label>
-                    <input name="event_start" type="date"/>
+                <div class="form event_date">
+                    <div class="start">
+                        <label>이벤트 시작일</label>
+                        <input name="event_start" type="date"/>
+                    </div>
+                    <div class="end">
+                        <label>이벤트 종료일</label>
+                        <input name="event_end" type="date"/>
+                    </div>
                 </div>
-                <div>
-                    <label>이벤트 종료일</label>
-                    <input name="event_end" type="date"/>
+                <div class="form submit">
+                    <button type="submit">등록하기</button>
                 </div>
-                <button type="submit">submit</button>
             </fieldset>
         </form>
     </main>

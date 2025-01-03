@@ -45,7 +45,7 @@
                                         <img src="/images/il_samie_1-1.svg" alt="">
                                         요리초보가이드
                                     </h3>
-                                    <a href="#" class="guidebtn">
+                                    <a href="/guide/list" class="guidebtn">
                                         전체보기
                                         <img src="/images/common/ic_right.png" alt="">
                                     </a>
@@ -60,14 +60,11 @@
                                         <li th:each="guide: ${list}">
                                             <a th:href="@{'/guide/guide_archive/' + ${guide.guide_id}}">
                                                 <div class="img_wrap">
-<!--                                                    <img src="/images/mainpage1.jpg" alt="">-->
                                                     <img th:src="${'/images/' + guide.poster}" alt="이미지">
                                                     <span class="more">8</span>
                                                 </div>
                                                 <div class="txt_wrap">
-<!--                                                    <p>식비 지출 막는 요리법</p>-->
                                                     <p th:utext="${guide.guide_name}"></p>
-<!--                                                    <span>치솟는 물가, 식비 절약을 위한 방법<br>요리초보도, 고수도 모두 집중!</span>-->
                                                     <span th:utext="${guide.guide_desc}"></span>
                                                 </div>
                                             </a>
@@ -82,7 +79,7 @@
                             <div class="swiper-slide" th:each="guide: ${list}">
                                 <a th:href="@{'/guide/guide_archive/' + ${guide.guide_id}}">
                                     <div class="wrap">
-                                        <img th:src="${'/images/' + guide.poster}" alt="이미지">
+                                        <img class="img" th:src="${'/images/' + guide.poster}" alt="이미지">
                                         <button class="scrap" type="button">스크랩</button>
                                         <h2 th:utext="${guide.guide_name}"></h2>
                                         <div class="txt_bt">
@@ -114,7 +111,7 @@
                     <div class="swiper_txt">
                         <div class="title_top">
                             <h3>요리연구소</h3>
-                            <button type="button" class="btn" onclick="">더보기</button>
+                            <button type="button" class="btn" onclick="window.location.href='/recipeLab/list'">더보기</button>
                         </div>
                         <div class="filter">
                             <ul>
@@ -136,15 +133,12 @@
                         <div class="swiper-slide" th:each="lab : ${list1}">
                             <a href="#">
                                 <div class="img_wrap">
-<!--                                    <img src="/images/mainpage4.jpg" alt="">-->
                                     <img th:src="${'/images/' + lab.poster}" th:alt="${lab.lab_name}">
                                 </div>
-                                <div class="scrap">스크랩</div>
+                                <div class="scrap"></div>
                                 <div class="txt_wrap">
                                     <span class="label">레시피</span>
-<!--                                    <em>부들쫀떡 감자호떡</em>-->
                                     <em th:utext="${lab.lab_name_desc}"></em>
-<!--                                    <p>으깬 감자에 찹쌀과 전분넣어 부드럽고 쫀득하게</p>-->
                                     <p th:utext="${lab.desc_detail}"></p>
                                     <ul class="time_wrap">
                                         <li>
@@ -162,15 +156,12 @@
                         <div class="swiper-slide" th:each="sol : ${list2}">
                             <a href="#">
                                 <div class="img_wrap">
-<!--                                <img src="/images/mainpage3.jpg" alt="">-->
                                     <img th:src="${'/images/' + sol.poster}" alt="">
                                 </div>
-                                <div class="scrap">스크랩</div>
+                                <div class="scrap"></div>
                                 <div class="txt_wrap">
                                     <span class="label or">솔루션</span>
-<!--                                    <em>새우 고르기 & 손질하기</em>-->
                                     <em th:utext="${sol.solution_name}"></em>
-<!--                                    <p>새우, 어떻게 고르고 어떻게 손질하면 좋을까?</p>-->
                                     <p th:utext="${sol.solution_desc}"></p>
                                     <ul class="hash_wrap" th:each="hash : ${sol.hashnames}">
                                         <li th:each="ha : ${#strings.setSplit(sol.hashnames,',')}" th:text="${ha}"></li>
@@ -194,7 +185,7 @@
                 <div class="swiper_title">
                     <div class="swiper_txt">
                         <h4>요리해요</h4>
-                        <button type="button" class="btn">더보기</button>
+                        <button type="button" class="btn" onclick="window.location.href='/recipeLab/cooking'">더보기</button>
                     </div>
                 </div>
                 <div class="swiper_bg">
@@ -434,7 +425,7 @@
                     <img src="/images/il_samie_2.png" alt="">
                     <div class="writebtn_wrap">
                         <p>나만의 요리를 올려주세요!</p>
-                        <a href="#">
+                        <a href="/cooking/cooking_write">
                             작성하기
                             <img class="write_img" src="/images/common/ic_write.png" alt="">
                         </a>
@@ -452,7 +443,7 @@
                         <img src="/images/il_txt.png" alt="">
                         <p>이벤트</p>
                     </div>
-                    <button type="button" class="btn" onclick="">더보기</button>
+                    <button type="button" class="btn" onclick="window.location.href='/event/list'">더보기</button>
                 </div>
                 <div class="swiper">
                     <div class="swiper-wrapper">
