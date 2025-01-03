@@ -2,30 +2,35 @@
   font-family: 'SUIT';
   font-style: normal;
   font-weight: 200;
+  font-display: swap;
   src: url(../fonts/SUITVariable-Regular.eot);
   src: url(../fonts/SUITVariable-Regular.eot?#iefix) format('embedded-opentype'),
-    url(../fonts/SUITVariable-Regular.woff) format('woff'),
-    url(../fonts/SUITVariable-Regular.ttf) format('truetype');
+       url(../fonts/SUITVariable-Regular.woff) format('woff'),
+       url(../fonts/SUITVariable-Regular.ttf) format('truetype');
 }
+
 @font-face {
   font-family: 'SUIT';
   font-style: normal;
   font-weight: 500;
+  font-display: swap;
   src: url(../fonts/SUIT-Medium.eot);
   src: url(../fonts/SUIT-Medium.eot?#iefix) format('embedded-opentype'),
-    url(../fonts/SUIT-Medium.woff) format('woff'),
-    url(../fonts/SUIT-Medium.ttf) format('truetype');
+       url(../fonts/SUIT-Medium.woff) format('woff'),
+       url(../fonts/SUIT-Medium.ttf) format('truetype');
 }
 
 @font-face {
   font-family: 'SUIT';
   font-style: normal;
   font-weight: 900;
+  font-display: swap;
   src: url(../fonts/SUIT-Bold.eot);
   src: url(../fonts/SUIT-Bold.eot?#iefix) format('embedded-opentype'),
-    url(../fonts/SUIT-Bold.woff) format('woff'),
-    url(../fonts/SUIT-Bold.ttf) format('truetype');
+       url(../fonts/SUIT-Bold.woff) format('woff'),
+       url(../fonts/SUIT-Bold.ttf) format('truetype');
 }
+
 
 /* 반응형, 모바일에서 모든요소의 패딩,선을 크기안에 포함시킴 */
 *,

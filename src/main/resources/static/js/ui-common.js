@@ -19,14 +19,6 @@ window.addEventListener('DOMContentLoaded', function () {
         window.scrollTo({top: 0, behavior: 'smooth'});
     });
 
-    // 스크랩버튼 on
-    // const scrapButton = document.querySelector(".scrap");
-    // if (scrapButton) {
-    //     scrapButton.addEventListener("click", function () {
-    //         scrapButton.classList.toggle("on");
-    //     });
-    // }
-
     const scrapButtons = document.querySelectorAll(".scrap");
 
     // 각각의 버튼에 이벤트 리스너 추가
@@ -43,7 +35,6 @@ window.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // URL복사버튼 on
     // 공유 버튼
     const shareButton = document.querySelector(".share");
     // 공유 버튼 목록
@@ -197,35 +188,39 @@ window.addEventListener('DOMContentLoaded', function () {
     var h_op_btn = document.querySelector('.btn_wrap .selectWrap button');
     var h_op_Wrap =  document.querySelector('.btn_wrap .selectWrap');
 
-
     document.getElementById('header').addEventListener('click', function (e) {
         if (!h_op_Wrap.classList.contains('on') && !h_op_btn.classList.contains('act')) {
             h_op_btn.classList.toggle('on');
         }
     });
 
-    h_op_btn.addEventListener('click', function () {
-        h_op_btn.classList.remove('act');
-        h_op_btn.classList.toggle('on')
-        h_op_Wrap.classList.toggle('on')
-    });
+    if (h_op_btn) {
+        h_op_btn.addEventListener('click', function () {
+            h_op_btn.classList.remove('act');
+            h_op_btn.classList.toggle('on')
+            h_op_Wrap.classList.toggle('on')
+        });
 
-    h_op_btn.addEventListener('mouseover', function () {
-        h_op_btn.classList.add('act');
-    });
+        h_op_btn.addEventListener('mouseover', function () {
+            h_op_btn.classList.add('act');
+        });
 
-    h_op_btn.addEventListener('mouseout', function () {
-        if (h_op_btn.querySelector('act')) h_op_btn.removeClass('act');
-    });
+        h_op_btn.addEventListener('mouseout', function () {
+            if (h_op_btn.querySelector('act')) h_op_btn.removeClass('act');
+        });
+    }
 
-    document.querySelector('.selectWrap').addEventListener('click',  function (e) {
-        const button = e.target.parentElement.parentElement;
-        console.log(e.target);
-        const siblingOption = button.querySelector('.option'); // 버튼의 형제 요소 중 .option 선택
-        if (siblingOption && siblingOption.classList.contains('option')) {
-            siblingOption.style.display = siblingOption.style.display === 'none' ? 'block' : 'none';
-        }
-    });
+    const selectWrapEl = document.querySelector('#header .selectWrap');
+    if (selectWrapEl) {
+        document.querySelector('#header .selectWrap').addEventListener('click',  function (e) {
+            const button = e.target.parentElement.parentElement;
+            console.log(e.target);
+            const siblingOption = button.querySelector('.option'); // 버튼의 형제 요소 중 .option 선택
+            if (siblingOption && siblingOption.classList.contains('option')) {
+                siblingOption.style.display = siblingOption.style.display === 'none' ? 'block' : 'none';
+            }
+        });
+    }
 }); // DOMContentLoaded
 
 // 웹 에디터 생성 함수

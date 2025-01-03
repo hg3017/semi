@@ -158,41 +158,60 @@ window.addEventListener('DOMContentLoaded', function () {
 
 
     // 기본 요소들 선택
-    const wrapper = document.querySelector('.input_wrap');  // 입력 필드를 포함하는 컨테이너 선택
-    const addButton = document.querySelector('.btn-wrap .add'); // 추가 버튼 선택
+    const wrapper = '';  // 입력 필드를 포함하는 컨테이너 선택
+    const addButtons = document.querySelectorAll('.btn-wrap .add'); // 추가 버튼 선택
     const maxFields = 10; // 최대 입력 필드 수 설정
     let fieldCount = 1; // 현재 입력 필드 수
 
 // '추가하기' 버튼 클릭 시 이벤트
-    addButton.addEventListener('click', function(e) {
-        e.preventDefault(); // 페이지 리로드 방지
-        if (fieldCount < maxFields) { // 최대 필드 수 체크
-            fieldCount++; // 필드 수 증가
-            // 새 입력 필드 추가
-            const newField = document.createElement('div');
-            newField.classList.add('input_list');
+    if (addButtons) {
+        addButtons.forEach(addButton => {
+            addButton.addEventListener('click', function(e) {
+                e.preventDefault(); // 페이지 리로드 방지
+                if (fieldCount <= maxFields) { // 최대 필드 수 체크
+                    fieldCount++; // 필드 수 증가
+                    // 새 입력 필드 추가
+                    const newField = document.createElement('div');
+                    newField.classList.add('input_list');
 
-            newField.innerHTML = `
-            <input type="text" class="form_box" name="main_mat[]" placeholder="예) 생닭 1마리(600g)" required />
-            <a href="javascript:void(0);" class="remove_field">-</a>
-        `;
+                    newField.innerHTML = `
+                        <input type="text" class="form_box" name="main_mat[]" placeholder="예) 생닭 1마리(600g)" required />
+                        <a href="javascript:void(0);" class="remove_field">-</a>
+                    `;
 
-            // 새 필드를 wrapper에 추가
-            wrapper.appendChild(newField);
-        } else {
-            alert('최대 입력 필드를 초과할 수 없습니다.');
-        }
-    });
+                    // 새 필드를 wrapper에 추가
+                    const wrapper = this.closest('.form-list').querySelector('.input_wrap');
+                    wrapper.appendChild(newField);
+                } else {
+                    alert('최대 입력 필드를 초과할 수 없습니다.');
+                }
+            });
+        });
+    }
+
+    const removeFields = document.querySelectorAll('.input_wrap');
+    if (removeFields) {
+        removeFields.forEach(field => {
+            field.addEventListener('click', function(e) {
+                if (e.target && e.target.classList.contains('remove_field')) {
+                    e.preventDefault();
+                    fieldCount--;
+                    // 타겟 찾아서 삭제하면 됨!!
+                }
+            });
+        });
+    }
+
 
 // '삭제' 링크 클릭 시 이벤트
-    wrapper.addEventListener('click', function(e) {
-        if (e.target && e.target.classList.contains('remove_field')) {
-            e.preventDefault(); // 페이지 리로드 방지
-            const field = e.target.closest('.input_list'); // 클릭된 삭제 버튼의 부모 div 선택
-            field.remove(); // 필드 제거
-            fieldCount--; // 필드 수 감소
-        }
-    });
+//    wrapper.addEventListener('click', function(e) {
+//        if (e.target && e.target.classList.contains('remove_field')) {
+//            e.preventDefault(); // 페이지 리로드 방지
+//            const field = e.target.closest('.input_list'); // 클릭된 삭제 버튼의 부모 div 선택
+//            field.remove(); // 필드 제거
+//            fieldCount--; // 필드 수 감소
+//        }
+//    });
 
 
 // // 최대 입력 필드 수 설정

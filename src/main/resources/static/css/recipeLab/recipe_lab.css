@@ -210,6 +210,7 @@
     font-size: 14px;
     border-radius: 20px;
     background: #f3f3f3;
+    display: inline-flex;
 }
 
 .main_rep .rep_area .time_wrap span {
@@ -239,4 +240,8 @@
     height: 36px;
     text-indent: -9999px;
     background: url(/images/common/ic_scrap.png) no-repeat 100% / 100%;
+}
+
+.main_rep .rep_item .scrap.on {
+    background-image: url(/images/common/ic_scrap_fill.png);
 }

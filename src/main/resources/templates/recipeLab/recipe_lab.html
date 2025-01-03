@@ -9,6 +9,7 @@
 <head layout:fragment="config">
     <title>RecipeLab</title>
     <link rel="stylesheet" href="/css/recipeLab/recipe_lab.css">
+    <script src="/js/recipe.js"></script>
 </head>
 
     <body>
@@ -83,11 +84,13 @@
                                         </div>
                                     </a>
                                     <ul class="time_wrap">
-                                        <li th:text="${'준비시간' + lab.preparation}">
-<!--                                            <span>준비시간</span>-->
+                                        <li>
+                                            <span>준비시간</span>
+                                            <p th:text="${lab.preparation + '분'}"></p>
                                         </li>
                                         <li>
-                                            <span th:text="${'조리시간' + lab.cookingtime}"></span>
+                                            <span>조리시간</span>
+                                            <p th:text="${lab.cookingtime + '분'}"></p>
                                         </li>
                                     </ul>
                                     <a href="#" class="scrap">스크랩</a>
