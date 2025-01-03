@@ -939,24 +939,24 @@ caption.nohead {
   border: 1px solid red;
 }  */
 
-.board_pagination .num {
+.board_pagination .page_num {
   height: 32px;
   width: 32px;
   line-height: 32px;
   text-align: center;
   font-size: 17px;
-  /* border-radius: 50%; */
-  color: #999;
+  color: #BCBCBC;
   font-weight: 600;
 }
-.board_pagination .num.active {
-  /* background: var(--point-color1);
-  border-color: var(--point-color1); */
+.board_pagination .page_num.active {
   color: var(--point-color1);
   text-decoration: underline;
   text-decoration-thickness: 2px;
   text-underline-offset: 3px;
+  background-color: rgba(0, 0, 0, 0);
+  border-radius: 0;
 }
+
 .board_pagination .next_paging {
   margin-left: 20px;
 }
