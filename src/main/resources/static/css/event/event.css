@@ -445,3 +445,49 @@
 .event_archive .eventbt {
     right: 0;
 }
+
+.main_event form {
+    margin: 150px 210px;
+}
+.main_event .form {
+    padding: 10px 0;
+}
+.main_event label {
+    font-size: 18px;
+    font-weight: bold;
+}
+.main_event input[type="text"] {
+    display: flex;
+    width: 100%;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+}
+.main_event .poster {
+    display: flex;
+    justify-content: space-between;
+}
+.main_event .event_date {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 50px;
+}
+.main_event .start, .main_event .end {
+    display: flex;
+    gap: 50px;
+}
+.main_event .submit {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    padding-top: 35px;
+}
+.main_event .submit button {
+    padding: 20px 30px;
+    font-size: 20px;
+    border: 1px solid #15a775;
+    color: #15a775;
+    font-weight: 500;
+    background: #fff;
+    border-radius: 38px;
+}
