@@ -24,13 +24,19 @@
           activeIndexChange: function () {
             const cIdx = this.realIndex + 1;
             // realIndex는 0부터 시작
-            // current-num 클래스에 해당하는 요소 텍스트 업데이트
-            document.querySelector('.current-num').textContent = '0' + cIdx;
+            // // current-num 클래스에 해당하는 요소 텍스트 업데이트
+            // document.querySelector('.current-num').textContent = '0' + cIdx;
+            // 10 이상의 번호에는 0을 붙이지 않음
+            const formattedIndex = cIdx < 10 ? '0' + cIdx : cIdx;
+            document.querySelector('.current-num').textContent = formattedIndex;
           },
           init: function () {
             // 페이지 로드 시 전체 슬라이드 수 업데이트
             const totalSlides = this.slides.length;
-            document.querySelector('.all-num').textContent = '0' + totalSlides;
+            // document.querySelector('.all-num').textContent = '0' + totalSlides;
+            // 10 이상의 슬라이드 수에는 0을 붙이지 않음
+            const formattedTotalSlides = totalSlides < 10 ? '0' + totalSlides : totalSlides;
+            document.querySelector('.all-num').textContent = formattedTotalSlides;
           },
         },
       });

@@ -10,34 +10,55 @@
     <link rel="stylesheet" href="/css/event/event.css">
 </head>
 <body>
-    <main style="margin: 200px" class="main_event">
+    <main class="main_event">
         <form action="/event/edit" method="post" enctype="multipart/form-data">
             <input type="hidden" name="event_id" th:value="${event.event_id}">
             <fieldset>
                 <legend></legend>
-                <div>
+                <div class="form">
                     <label>제목</label>
                     <input name="event_name" type="text" th:value="${event.event_name}"/>
                 </div>
-                <div>
+                <div class="form">
                     <label>메인 포스터</label>
-                    <input type="file" name="file_main_poster"  th:value="${event.main_poster}" multiple />
+                    <div class="image">
+                        <input type="file" name="file_main_poster" multiple />
+                        <!-- 기존 포스터가 없으면 빈 파일 선택 필드만 표시 -->
+                        <span th:if="${event.main_poster != null}">
+                            이전 파일 :
+                            <a th:href="@{'/event/uploads/' + ${event.main_poster}}" target="_blank">
+                                <span th:text="${event.main_poster}"></span>
+                            </a>
+                        </span>
+                    </div>
                 </div>
-                <div>
+                <div class="form">
                     <label>포스터</label>
-                    <input type="file" name="file_poster" th:value="${event.poster}" multiple />
-
+                    <div class="image">
+                        <input type="file" name="file_poster" multiple />
+                        <!-- 기존 포스터가 없으면 빈 파일 선택 필드만 표시 -->
+                        <span th:if="${event.poster != null}">
+                            이전 파일 :
+                            <a th:href="@{'/event/uploads/' + ${event.poster}}" target="_blank">
+                            <span th:text="${event.poster}"></span>
+                            </a>
+                        </span>
+                    </div>
                 </div>
                 <textarea name="desc_detail" id="eventEditor" th:attr="data-editor=${#strings.defaultString(event.desc_detail, ' ')}" th:utext="${event.desc_detail}"></textarea>
-                <div>
-                    <label>이벤트 시작일</label>
-                    <input name="event_start" type="date" th:value="${event.event_start}"/>
+                <div class="form event_date">
+                    <div class="start">
+                        <label>이벤트 시작일</label>
+                        <input name="event_start" type="date" th:value="${event.event_start}"/>
+                    </div>
+                    <div class="end">
+                        <label>이벤트 종료일</label>
+                        <input name="event_end" type="date" th:value="${event.event_end}"/>
+                    </div>
                 </div>
-                <div>
-                    <label>이벤트 종료일</label>
-                    <input name="event_end" type="date" th:value="${event.event_end}"/>
+                <div class="form submit">
+                    <button type="submit">수정하기</button>
                 </div>
-                <button type="submit">submit</button>
             </fieldset>
         </form>
     </main>
