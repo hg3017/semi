@@ -106,7 +106,6 @@ public class EventController {
             // 메인 포스터가 수정되지 않으면 기존 파일 경로를 그대로 사용
             event.setMain_poster(dto.getMain_poster());
         }
-
         // 포스터 수정이 있는 경우
         if (poster != null && poster.length > 0 && !poster[0].isEmpty()) {
             // 새로운 포스터가 업로드 되었을 경우
