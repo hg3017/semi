@@ -29,29 +29,41 @@
     </select>
 
     <select id="selectById" resultType="eventDTO">
-SELECT a.*
-     ,(SELECT desc_detail FROM EVENT e WHERE event_id = a.event_id) AS desc_detail
-FROM (
-         WITH HASHTABLES AS (
-             SELECT
-                 hc.CONN_ID,
-                 hc.BOARD_ID,
-                 h.HASH_ID,
-                 h.HASH_NAME
-             FROM
-                 HASHTAGS_CONN hc
-                     INNER JOIN
-                 HASHTAGS h
-                 ON hc.HASH_ID = h.HASH_ID
-         )
-         SELECT DISTINCT EVENT_ID, e.BOARD_ID, EVENT_NAME, MAIN_POSTER, POSTER, TO_CHAR(EVENT_START, 'yyyy-MM-dd') EVENT_START, TO_CHAR(EVENT_END, 'yyyy-MM-dd') EVENT_END
-                       , LISTAGG(DISTINCT h.HASH_NAME, ',') WITHIN GROUP (ORDER BY e.event_ID) OVER (PARTITION BY e.event_ID) AS hashnames
-         FROM EVENT e
-                  INNER JOIN
-              HASHTABLES h
-              ON e.event_id = h.CONN_ID
-                  AND e.BOARD_ID = h.BOARD_ID
-         WHERE EVENT_ID = #{event_id}
+        SELECT a.*
+        ,(SELECT desc_detail
+        FROM EVENT e
+        WHERE event_id = a.event_id) AS desc_detail
+        FROM (
+            WITH HASHTABLES AS (
+                SELECT
+                hc.CONN_ID,
+                hc.BOARD_ID,
+                h.HASH_ID,
+                h.HASH_NAME
+                FROM
+                HASHTAGS_CONN hc
+                INNER JOIN
+                HASHTAGS h
+                ON hc.HASH_ID = h.HASH_ID
+            )
+        SELECT DISTINCT
+        EVENT_ID,
+        e.BOARD_ID,
+        EVENT_NAME,
+        MAIN_POSTER,
+        POSTER,
+        TO_CHAR(EVENT_START, 'yyyy-MM-dd') EVENT_START,
+        TO_CHAR(EVENT_END, 'yyyy-MM-dd') EVENT_END,
+        LISTAGG(
+        DISTINCT h.HASH_NAME, ',')
+        WITHIN GROUP (ORDER BY e.event_ID)
+        OVER (PARTITION BY e.event_ID) AS hashnames
+        FROM EVENT e
+        INNER JOIN
+        HASHTABLES h
+        ON e.event_id = h.CONN_ID
+        AND e.BOARD_ID = h.BOARD_ID
+        WHERE EVENT_ID = #{event_id}
      ) a
     </select>
 
