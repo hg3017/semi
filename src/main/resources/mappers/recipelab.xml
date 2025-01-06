@@ -9,7 +9,7 @@
         )
         SELECT xx.*
         FROM (
-                 SELECT /*+ALL_ROWS*/ ROW_NUMBER() OVER(ORDER BY yy.lab_id DESC) rn
+                 SELECT /*+ALL_ROWS*/ ROW_NUMBER() OVER(ORDER BY yy.lab_id ASC) rn
                       , yy.*
                  FROM QDATA yy
              ) xx

@@ -159,7 +159,6 @@ window.addEventListener('DOMContentLoaded', function () {
             }
         });
 
-
         // 기본 요소들 선택
         const wrapper = '';  // 입력 필드를 포함하는 컨테이너 선택
         const addButtons = document.querySelectorAll('.btn-wrap .add'); // 추가 버튼 선택
@@ -208,7 +207,6 @@ window.addEventListener('DOMContentLoaded', function () {
                 });
             });
         }
-
 
 // '삭제' 링크 클릭 시 이벤트
 //    wrapper.addEventListener('click', function(e) {

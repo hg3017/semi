@@ -230,6 +230,11 @@
     text-indent: -9999px;
     background: url(/images/common/ic_scrap.png) no-repeat 100% / 100%;
 }
+
+.main_sol .scrap.on {
+    background-image: url(/images/common/ic_scrap_fill.png);
+}
+
 .S_tagList .sol_time_wrap {
     display: flex;
 }

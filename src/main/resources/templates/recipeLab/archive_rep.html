@@ -1,254 +1,20 @@
-<!--<!DOCTYPE html>-->
-<!--<html lang="ko"-->
-<!--      xmlns:th="http://www.thymeleaf.org"-->
-<!--      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"-->
-<!--      layout:decorate="~{layout}"-->
-<!--      layout:fragment="content">-->
-
-<!--<head layout:fragment="config">-->
-<!--    <title>RecipeLab</title>-->
-<!--    <link rel="stylesheet" href="/css/recipeLab/archive_rep.css">-->
-<!--</head>-->
-<!--<body>-->
-<!--<main id="rep_container" class="container">-->
-<!--    <th:block th:replace="~{fragments :: loading}" />-->
-<!--    <loading></loading>-->
-<!--    <div th:replace="~{fragments :: scroll}"></div>-->
-<!--    <section class="sub_view_wrap">-->
-<!--        <div class="view_title">-->
-<!--            <div class="inner">-->
-<!--                <span class="label">레시피</span>-->
-<!--                <h3 th:text="${lab.lab_name}"></h3>-->
-<!--                <p th:text="${lab.create_date}" class="date"></p>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </section>-->
-<!--    <section class="sub_view_cont">-->
-<!--        <div class="inner">-->
-<!--            <div class="view_cont_title">-->
-<!--                <h4 th:text="${lab.lab_name_desc}"></h4>-->
-<!--                <p th:utext="${lab.desc_detail}"></p>-->
-<!--            </div>-->
-<!--            <div class="view_intro">-->
-<!--                <div class="editor">-->
-<!--                </div>-->
-<!--            </div>-->
-<!--            <div class="main_swiper_wrap">-->
-<!--                <div class="swiper-wrapper">-->
-<!--                    <div class="swiper-slide" th:if="${lab.files != null}"-->
-<!--                         th:each="item : ${#strings.setSplit(lab.files, ',')}">-->
-<!--                        <img th:src="@{'/images/' + ${item}}" alt="에그인리얼헬"/>-->
-<!--                    </div>-->
-<!--                    <div class="swiper-slide" th:if="${lab.files != null}"-->
-<!--                         th:each="item : ${#strings.setSplit(lab.files, ',')}">-->
-<!--                        <img th:src="@{'/images/' + ${item}}" alt="에그인리얼헬"/>-->
-<!--                    </div>-->
-<!--                    <div class="swiper-slide" th:if="${lab.files != null}"-->
-<!--                         th:each="item : ${#strings.setSplit(lab.files, ',')}">-->
-<!--                        <img th:src="@{'/images/' + ${item}}" alt="에그인리얼헬"/>-->
-<!--                    </div>-->
-<!--                    <div class="swiper-slide" th:if="${lab.files != null}"-->
-<!--                         th:each="item : ${#strings.setSplit(lab.files, ',')}">-->
-<!--                        <img th:src="@{'/images/' + ${item}}" alt="에그인리얼헬"/>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--            <div class="thumb_swiper_wrap">-->
-<!--                <div class="swiper-wrapper">-->
-<!--                    <div class="swiper-slide" th:if="${lab.files != null}"-->
-<!--                         th:each="item : ${#strings.setSplit(lab.files, ',')}">-->
-<!--                        <img th:src="@{'/images/' + ${item}}" alt="에그인리얼헬"/>-->
-<!--                    </div>-->
-<!--                    <div class="con_swiper_wrap">-->
-<!--                        <div class="swiper-button-next"></div>-->
-<!--                        <div class="swiper-button-prev"></div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--            <div class="recipe_intro">-->
-<!--                <div class="recipe_time">-->
-<!--                    <ul th:each="item, state : ${ldi}" th:if="${state.index == 0}">-->
-<!--                        <li>-->
-<!--                            <p class="serv">인분 수</p>-->
-<!--                            <span th:text="${item['SERVINGS'] + '인분'}"></span>-->
-<!--                        </li>-->
-<!--                        <li>-->
-<!--                            <p class="prep">준비시간</p>-->
-<!--                            <span th:text="${item['PREPARATION'] + '분'}"></span>-->
-<!--                        </li>-->
-<!--                        <li>-->
-<!--                            <p class="cook">조리시간</p>-->
-<!--                            <span th:text="${item['COOKINGTIME'] + '분'}"></span>-->
-<!--                        </li>-->
-<!--                    </ul>-->
-<!--                </div>-->
-<!--                <div class="ingred_wrap">-->
-<!--                    <div class="ingred_inner">-->
-<!--                        <div class="ingred" th:each="item : ${ldi}">-->
-<!--                            <div class="text_wrap">-->
-<!--                                <p class="ingred_h" th:text="${item['LAB_INGREDIENT_NAME']}"></p>-->
-<!--                                <span></span>-->
-<!--                            </div>-->
-<!--                            <ul class="ingred_item">-->
-<!--                                <li th:each="cook : ${#strings.setSplit(item['COOKS'], ',')}" th:text="${cook}"></li>-->
-<!--                            </ul>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </section>-->
-<!--&lt;!&ndash;    <section class="sub_sw_wrap">&ndash;&gt;-->
-<!--&lt;!&ndash;        <div class="inner">&ndash;&gt;-->
-<!--&lt;!&ndash;            <div class="step_wrap">&ndash;&gt;-->
-<!--&lt;!&ndash;                 <div class="step_tit">&ndash;&gt;-->
-<!--&lt;!&ndash;                    <h4>한 단계씩 따라해 보세요😄</h4>&ndash;&gt;-->
-<!--&lt;!&ndash;                </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                <div class="step_head">&ndash;&gt;-->
-<!--&lt;!&ndash;                    <div class="step-button-prev"></div>&ndash;&gt;-->
-<!--&lt;!&ndash;                    <span>Step.1</span>&ndash;&gt;-->
-<!--&lt;!&ndash;                    <div class="step-button-next"></div>&ndash;&gt;-->
-<!--&lt;!&ndash;                </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                <div class="step_body">&ndash;&gt;-->
-<!--&lt;!&ndash;                    <div class="step_swiper_wrap">&ndash;&gt;-->
-<!--&lt;!&ndash;                        <div class="swiper-container">&ndash;&gt;-->
-<!--&lt;!&ndash;                            <div class="swiper-pagination"></div>&ndash;&gt;-->
-<!--&lt;!&ndash;                            <div class="swiper-wrapper">&ndash;&gt;-->
-<!--&lt;!&ndash;                                <div class="swiper-slide" th:each="lds, state : ${lds}">&ndash;&gt;-->
-<!--&lt;!&ndash;                                    <div class="step_thumb">&ndash;&gt;-->
-<!--&lt;!&ndash;                                        <img th:src="${'/images/' + lds.poster}" alt=""/>&ndash;&gt;-->
-<!--&lt;!&ndash;                                    </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                    <ul class="step_thumb_list">&ndash;&gt;-->
-<!--&lt;!&ndash;                                        <li class="on">&ndash;&gt;-->
-<!--&lt;!&ndash;                                            <img th:src="${'/images/' + lds.poster}" alt=""/>&ndash;&gt;-->
-<!--&lt;!&ndash;                                        </li>&ndash;&gt;-->
-
-<!--                                        <li th:each="items : ${#strings.setSplit(lds.files, ',')}">-->
-<!--                                            <img th:src="${'/images/' + items}" alt=""/>-->
-<!--                                        </li>-->
-<!--                                    </ul>-->
-<!--                                    <div class="step_cont">-->
-<!--                                        <div class="steph_wrap">-->
-<!--                                            <p class="step_h">-->
-<!--                                                <span th:text="${'Step.' + lds.lab_step}"></span>-->
-<!--                                                <span th:text="${lds.lab_step_name}"></span>-->
-<!--                                            </p>-->
-<!--                                            <p class="step_desc" th:text="${lds.lab_step_desc}">-->
-<!--                                            </p>-->
-<!--                                            <ol class="tip_list">-->
-<!--                                                <li class="tip" th:text="${lds.lab_step_tip1}">-->
-<!--                                                    <span></span>-->
-<!--                                                </li>-->
-<!--                                                <li class="tip" th:text="${lds.lab_step_tip2}">-->
-<!--                                                    <span><a href="#">👉보관 솔루션 보러가기</a></span>-->
-<!--                                                </li>-->
-<!--                                            </ol>-->
-<!--                                        </div>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="step_tag_wrap">-->
-<!--                        <th:block th:each="hash, state : ${lds}" th:if="${state.first}">-->
-<!--                            <a href="#" th:class="${state.first ? 's_tag' : ''}" th:each="ha, state : ${#strings.setSplit(hash.hashnames, ',')}" th:text="${ha}"></a>-->
-<!--                        </th:block>-->
-<!--                    </div>-->
-<!--                    <div class="k_comment_wrap">-->
-<!--                        <div class="total">-->
-<!--                            <h4>댓글 </h4>-->
-<!--                            <span>0</span>-->
-<!--                        </div>-->
-<!--                      <div th:if="${session.get('user') == null}" class="com_login">-->
-<!--                        <div class="profile">-->
-<!--                          <img src="/images/common/profile.png" alt="">-->
-<!--                        </div>-->
-<!--                        <div class="loginFirst">-->
-<!--                          <a href="#">로그인</a>-->
-<!--                          하시고 댓글을 남겨보세요.-->
-<!--                        </div>-->
-<!--                      </div>-->
-
-<!--                      <div th:if="${session.get('user') != null}" class="cmt_box">-->
-<!--                        <div class="profile"><img src="/assets/images/common/profile.png" alt=""></div>-->
-<!--                        <div class="cmt">-->
-<!--                          <div class="name" th:text="${session.user.getMember_name()}"></div>-->
-<!--                          <div class="text">-->
-<!--                            <form id="replyForm" onsubmit="return false;" method="post">-->
-<!--                              <input type="hidden" id="comment_board_id" th:value="${lab.board_id}">-->
-<!--                              <input type="hidden" id="comment_post_id" th:value="${lab.lab_id}">-->
-<!--                              <input type="hidden" id="creater" th:value="${session.user.member_id}">-->
-<!--                              <input type="hidden" id="parent_comment_id" value="">-->
-
-<!--                              <div class="txtArea">-->
-<!--                                <textarea id="textBox" name="content" maxlength="1000" placeholder="내용을 입력하세요."></textarea>-->
-<!--                                <ul class="imgList">-->
-<!--                                </ul>-->
-<!--                                <p class="wordCount">-->
-<!--                                  <span>0</span>/1,000-->
-<!--                                </p>-->
-<!--                                <div class="files">-->
-<!--                                  <input type="file" name="file" id="addFile" data-url="/comment/presign" accept=".jpg, .jpeg, .png, .gif, image/*">-->
-<!--                                  <label onclick="$(this).prev().click()">사진첨부</label>-->
-<!--                                  <span class="fileName"></span>-->
-<!--                                  <button id="replyButton" type="button" onclick="submitComment();">등록</button>-->
-<!--                                </div>-->
-<!--                              </div>-->
-<!--                              &lt;!&ndash;                                        <div class="warning">내용을 입력해주세요.</div>&ndash;&gt;-->
-<!--                            </form>-->
-<!--                          </div>-->
-<!--                        </div>-->
-<!--                      </div>-->
-
-<!--                      <div th:if="${postCommentlist.size() > 0}" class="com_box" th:each="comment : ${postCommentlist}">-->
-<!--                        <div class="profile">-->
-<!--                          <img th:src="|/images/${comment.profile_img}|" alt="">-->
-<!--                        </div>-->
-<!--                        <div class="cmt">-->
-<!--                          <div class="name">-->
-<!--                            <p th:text="${comment.member_name}"> </p>-->
-<!--                            <span class="date" th:text="${comment.create_date}"> </span>-->
-<!--                          </div>-->
-<!--                          <div class="text" th:text="${comment.desc_detail}">-->
-<!--                            건강하고 간편하게 먹기 딱인걸요!-->
-<!--                          </div>-->
-<!--                            <a href="javascript:void(0)" class="re rep">답글 달기</a>-->
-<!--                            <div class="modify editActive">-->
-<!--                                <button class="replyModify" onclick="activeModify(this)" type="button">수정</button>-->
-<!--                                <button class="replyDelete" onclick="deleteComment(20655, this)" type="button">삭제</button>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                      </div>-->
-<!--                      <div th:if="${postCommentlist.size() == 0}" class="com_blank">-->
-<!--                        <p>여러분의 댓글을 기다리고 있어요 :)</p>-->
-<!--                      </div>-->
-<!--                    </div>-->
-<!--    <div class="hr_line"></div>-->
-<!--    <div th:replace="~{fragments :: tagList}"></div>-->
-<!--    <section class="back_wrap">-->
-<!--        <div class="inner">-->
-<!--            <div class="btn_box">-->
-<!--                <a href="#" class="list_back">목록으로</a>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </section>-->
-<!--</main>-->
-<!--</body>-->
-<!--</html>-->
-
 <!DOCTYPE html>
 <html lang="ko"
       xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{layout}"
-      layout:fragment="content">
+      >
 
 <head layout:fragment="config">
     <title>RecipeLab</title>
     <link rel="stylesheet" href="/css/recipeLab/archive_rep.css">
+    <script src="/js/recipe.js"></script>
+
 </head>
 <body>
-<main id="rep_container" class="container">
+<main id="rep_container" class="container" layout:fragment="content">
+    <th:block th:replace="~{fragments :: loading}" />
+    <loading></loading>
     <div th:replace="~{fragments :: scroll}"></div>
     <section class="sub_view_wrap">
         <div class="view_title">
@@ -420,45 +186,70 @@
                                     <span class="date">2024-11-08 21:29</span>
                                 </div>
                                 <div class="text">
-                                    <form id="replyForm" onsubmit="return false;" method="post">
-                                      <input type="hidden" id="comment_board_id" th:value="${lab.board_id}">
-                                      <input type="hidden" id="comment_post_id" th:value="${lab.lab_id}">
-                                      <input type="hidden" id="creater" th:value="${session.user.member_id}">
-                                      <input type="hidden" id="parent_comment_id" value="">
+                                    <form class="replyForm" onsubmit="return false;" method="post">
+                                      <input type="hidden" class="comment_board_id" th:value="${lab.board_id}">
+                                      <input type="hidden" class="comment_post_id" th:value="${lab.lab_id}">
+                                      <input type="hidden" class="creater" th:value="${session.user != null ? session.user.member_id : ''}">
+                                      <input type="hidden" class="parent_comment_id" value="">
                                         <div class="txtArea">
-                                            <textarea id="textBox" name="content" maxlength="1000" placeholder="내용을 입력하세요."></textarea>
+                                            <textarea class="textBox" name="content" maxlength="1000" placeholder="내용을 입력하세요."></textarea>
                                             <ul class="imgList">
                                             </ul>
                                             <p class="wordCount">
                                               <span>0</span>/1,000
                                             </p>
                                             <div class="files">
-                                              <input type="file" name="file" id="addFile" data-url="/comment/presign" accept=".jpg, .jpeg, .png, .gif, image/*">
+                                              <input type="file" name="file" class="addFile" data-url="/comment/presign" accept=".jpg, .jpeg, .png, .gif, image/*">
                                               <label onclick="$(this).prev().click()">사진첨부</label>
                                               <span class="fileName"></span>
-                                              <button id="replyButton" type="button" onclick="submitComment();">등록</button>
+                                              <button class="replyButton" type="button" onclick="submitComment(this);">등록</button>
                                             </div>
                                           </div>
                                     </form>
                                 </div>
                             </div>
                         </div>
-                        <div th:if="${postCommentlist.size() > 0}" class="com_box" th:each="comment : ${postCommentlist}">
+                        <div th:if="${postCommentlist.size() > 0}" class="com_box" th:each="comment : ${postCommentlist}" th:id="${comment.comment_id}">
                             <div class="profile">
                               <img th:src="|/images/${comment.profile_img}|" alt="">
                             </div>
                             <div class="cmt">
-                              <div class="name">
-                                <p th:text="${comment.member_name}"> </p>
-                                <span class="date" th:text="${comment.create_date}"> </span>
-                              </div>
+                                <div class="name">
+                                  <p th:text="${comment.member_name}"> </p>
+                                  <span class="date" th:text="${comment.create_date}"> </span>
+                                </div>
+
+                                <div class="modify editAction" style="display: none">
+                                  <button class="replyDelete" onclick="cancelModify(this)" type="button">닫기</button>
+                                </div>
+
+                                <div class="text" style="display: none">
+                                    <form class="replyForm" onsubmit="return false;" method="post">
+                                        <input type="hidden" class="parent_comment_id" value="">
+                                        <div class="txtArea">
+                                            <textarea id="textBox" name="content" maxlength="1000" placeholder="내용을 입력하세요." th:text="${comment.desc_detail}"> </textarea>
+                                            <ul class="imgList">
+                                            </ul>
+                                            <p class="wordCount">
+                                                <span>0</span>/1,000
+                                            </p>
+                                            <div class="files">
+                                                <input type="file" name="file" class="addFile" data-url="/comment/presign" accept=".jpg, .jpeg, .png, .gif, image/*">
+                                                <label onclick="$(this).prev().click()">사진첨부</label>
+                                                <span class="fileName"></span>
+                                                <button class="replyButton" type="button" th:onclick="|modifyComment(${comment.comment_id}, this)|"> 수정 </button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+
                               <div class="text" th:text="${comment.desc_detail}">
                                 건강하고 간편하게 먹기 딱인걸요!
                               </div>
                                 <a href="javascript:void(0)" class="re rep">답글 달기</a>
                                 <div class="modify editActive">
                                     <button class="replyModify" onclick="activeModify(this)" type="button">수정</button>
-                                    <button class="replyDelete" onclick="deleteComment(20655, this)" type="button">삭제</button>
+                                    <button class="replyDelete" th:onclick="|deleteComment(${comment.comment_id}, this)|" type="button">삭제</button>
                                 </div>
                             </div>
                           </div>
