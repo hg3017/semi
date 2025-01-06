@@ -2,8 +2,7 @@
 <html lang="ko"
       xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{layout}"
-      layout:fragment="content">
+      layout:decorate="~{layout}">
 
 <head layout:fragment="config">
     <title>Event</title>
@@ -11,7 +10,7 @@
     <script src="/js/event.js"></script>
 </head>
 <body>
-    <main class="main_event">
+    <main class="main_event" layout:fragment="content">
         <form action="/event/edit" method="post" enctype="multipart/form-data">
             <input type="hidden" name="event_id" th:value="${event.event_id}">
             <fieldset>

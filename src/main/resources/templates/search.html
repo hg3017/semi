@@ -2,33 +2,29 @@
 <html lang="ko"
       xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{/layout}"
-      layout:fragment="content">
+      layout:decorate="~{/layout}">
 <head layout:fragment="config">
   <title>Search</title>
   <link rel="stylesheet" href="/css/search.css">
 </head>
 <body>
-<main id="container_search">
+<main id="container_search" layout:fragment="content">
   <section class="main_search">
     <div class="inner">
-      <form id="sFrm" method="POST" onsubmit="return false;">
+      <form id="sFrm" method="GET" onsubmit="return false;">
         <fieldset>
           <legend>게시물 검색</legend>
           <div class="search-box">
             <input type="hidden" name="t" value="">
-            <div class="select">
-              <p>전체</p>
-              <ul>
-                <li class="" data-type="a"><a href="javascript:void(0)">전체</a></li>
-                <li class="" data-type="t"><a href="javascript:void(0)">제목&amp;내용만</a></li>
-                <li class="" data-type="m"><a href="javascript:void(0)">재료만</a></li>
-                <li class="" data-type="h"><a href="javascript:void(0)">해시태그만</a></li>
-              </ul>
-            </div>
+            <select name="nameKeyword" class="select" aria-label="Default select example">
+              <option selected>전체</option>
+              <option value="1">제목&amp;내용만</option>
+              <option value="2">재료만</option>
+              <option value="3">해시태그만</option>
+            </select>
             <div class="search">
-              <input type="text" name="q" value="" placeholder="어떤 요리가 궁금하신가요?">
-              <button id="btnSearch" type="submit">검색</button>
+              <input type="text" name="descriptionKeyword" value="" placeholder="어떤 요리가 궁금하신가요?">
+              <button id="btnSearch" type="button">검색</button>
             </div>
           </div>
         </fieldset>

@@ -1,7 +1,5 @@
  window.addEventListener('DOMContentLoaded', function () {
- // 메인 요리가이드
-//     let progressLine = document.querySelector('.progress-line .progress');
-
+     // 메인 요리가이드
       let mainslider = new Swiper('.main_slider .swiper', {
         loop: true,
         speed: 3000,
@@ -24,17 +22,12 @@
           activeIndexChange: function () {
             const cIdx = this.realIndex + 1;
             // realIndex는 0부터 시작
-            // // current-num 클래스에 해당하는 요소 텍스트 업데이트
-            // document.querySelector('.current-num').textContent = '0' + cIdx;
-            // 10 이상의 번호에는 0을 붙이지 않음
             const formattedIndex = cIdx < 10 ? '0' + cIdx : cIdx;
             document.querySelector('.current-num').textContent = formattedIndex;
           },
           init: function () {
             // 페이지 로드 시 전체 슬라이드 수 업데이트
             const totalSlides = this.slides.length;
-            // document.querySelector('.all-num').textContent = '0' + totalSlides;
-            // 10 이상의 슬라이드 수에는 0을 붙이지 않음
             const formattedTotalSlides = totalSlides < 10 ? '0' + totalSlides : totalSlides;
             document.querySelector('.all-num').textContent = formattedTotalSlides;
           },
@@ -42,38 +35,36 @@
       });
 
       // 메인 요리가이드 pause 버튼 클릭 이벤트
-                 const pauseButton = document.querySelector('.main_slider .pause');
-                 if (pauseButton) {
-                   pauseButton.addEventListener('click', function () {
-                     if (mainslider.autoplay.running) {
-                       mainslider.autoplay.stop();
-                     } else {
-                       mainslider.autoplay.start();
-                     }
-                     this.classList.toggle('on');
-                   });
-                 }
+     const pauseButton = document.querySelector('.main_slider .pause');
+     if (pauseButton) {
+         pauseButton.addEventListener('click', function () {
+             if (mainslider.autoplay.running) {
+                 mainslider.autoplay.stop();
+             } else {
+                 mainslider.autoplay.start();
+             }
+             this.classList.toggle('on');
+         });
+     }
 
-             // 메인 요리가이드 더보기 버튼
-             window.onload = function () {
-              const button = document.querySelector('.main_slider .button');
-              if (button) {
-                button.addEventListener('click', function () {
-                  this.classList.toggle('on');
-                  document.querySelector('.main_slider .guide_wrap').classList.toggle('on');
-                });
-              }
+     // 메인 요리가이드 더보기 버튼
+     window.onload = function () {
+         const button = document.querySelector('.main_slider .button');
+         if (button) {
+             button.addEventListener('click', function () {
+                 this.classList.toggle('on');
+                 document.querySelector('.main_slider .guide_wrap').classList.toggle('on');
+             });
+         }
 
-              const closeButton = document.querySelector('.main_slider .closebtn');
-              if (closeButton) {
-                closeButton.addEventListener('click', function () {
-                  document.querySelector('.main_slider .guide_wrap').classList.remove('on');
-                  document.body.classList.remove('on');
-                });
-              }
-            };
-
-
+         const closeButton = document.querySelector('.main_slider .closebtn');
+         if (closeButton) {
+             closeButton.addEventListener('click', function () {
+                 document.querySelector('.main_slider .guide_wrap').classList.remove('on');
+                 document.body.classList.remove('on');
+             });
+         }
+     };
 
       // 메인 요리연구소
       let mainlab = new Swiper('.main_lab .swiper', {

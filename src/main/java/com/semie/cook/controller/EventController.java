@@ -13,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.io.File;
 import java.util.List;
@@ -32,7 +33,6 @@ public class EventController {
         pg.setPageNum(pageNum);
         model.addAttribute("list", eventService.findAll(pg));
         model.addAttribute("paging", pg.paging(request));
-//        System.out.println("selectById" + eventService.findAll(pg));
         System.out.println("event/list---------------------------------------------");
         return "/event/list";
     }
@@ -55,11 +55,11 @@ public class EventController {
 
         //메인포스터 업로드
         List<FileVO> mainPosterList = fileStorage.uploadFiles(main_poster,"upload/");
-        event.setMain_poster(mainPosterList.get(0).getNfile());
+        event.setMain_poster(mainPosterList.get(0).getNfile()); //업로드된 메인 포스터 파일 경로 저장
 
         //포스터 업로드
         List<FileVO> posterList = fileStorage.uploadFiles(poster,"upload/");
-        event.setPoster(posterList.get(0).getNfile());
+        event.setPoster(posterList.get(0).getNfile()); //업로드된 포스터 파일 경로 저장
 
         //글쓰기
         int re = eventService.insertEvent(event);
@@ -68,7 +68,6 @@ public class EventController {
         }else {
             return "redirect:/event/write";
         }
-
     }
 
     //파일명
@@ -98,7 +97,7 @@ public class EventController {
         if (!mainPosterList.isEmpty()) {
             //파일 삭제
             fileStorage.deleteFile(dto.getMain_poster());
-            //업로드
+            //업로드된 메인 포스터 파일 경로 저장
             event.setMain_poster(mainPosterList.get(0).getNfile());
         }
 
@@ -107,7 +106,7 @@ public class EventController {
         if (!posterList.isEmpty()) {
             //파일 삭제
             fileStorage.deleteFile(dto.getPoster());
-            //업로드
+            //업로드된 포스터
             event.setPoster(posterList.get(0).getNfile());
         }
 
@@ -121,7 +120,7 @@ public class EventController {
     }
 
     @GetMapping("/delete/{eventId}")
-    public String delete(@PathVariable int eventId) {
+    public String delete(@PathVariable int eventId, RedirectAttributes redirectAttributes) {
 
         EventDTO dto = eventService.selectById(eventId);
 
@@ -134,6 +133,7 @@ public class EventController {
         }
 
         eventService.deleteEvent(eventId);
+
         return "redirect:/event/list";
     }
 

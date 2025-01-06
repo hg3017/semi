@@ -2,17 +2,21 @@
 <html lang="ko"
       xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{layout}"
-      layout:fragment="content">
+      layout:decorate="~{layout}">
 
 <head layout:fragment="config">
     <title>Event</title>
     <link rel="stylesheet" href="/css/event/event.css">
     <link rel="stylesheet" href="/css/recipeLab/archive_rep.css">
     <script src="/js/event.js"></script>
+    <script>
+        function confirmDelete() {
+            return confirm('정말로 삭제하시겠습니까?');
+        }
+    </script>
 </head>
 <body>
-<main id="container_event" class="container">
+<main id="container_event" class="container" layout:fragment="content">
     <section class="event_archive">
         <div th:replace="~{fragments :: scroll}"></div>
         <div class="inner">
@@ -28,7 +32,7 @@
                     <span th:utext="${event.event_end}"></span>
                 </p>
                 <a th:href="@{'/event/edit/' + ${event.event_id}}">수정하기</a>
-                <a th:href="@{'/event/delete/' + ${event.event_id}}">삭제하기</a>
+                <a th:href="@{'/event/delete/' + ${event.event_id}}" onclick="return confirmDelete();">삭제하기</a>
             </div>
             <div class="img">
                 <img th:src="@{/event/uploads/{fileName}(fileName=${event.poster})}" alt="이미지" />
