@@ -2,6 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.semie.cook.mapper.RecipeLabMapper">
+<!--    페이징-->
     <sql id="page1">
         WITH QDATA AS (
     </sql>
@@ -15,8 +16,7 @@
              ) xx
         WHERE rn BETWEEN #{start} AND #{end}
     </sql>
-
-
+<!--    리스트-->
     <select id="selectAll" parameterType="com.semie.cook.common.Pagination" resultType="RecipeLabDTO">
         <include refid="page1" />
         SELECT DISTINCT
@@ -49,7 +49,7 @@
     <select id="totalLab" resultType="int">
         select count(*) from lab
     </select>
-
+<!--    레시피 상세-->
     <select id="selectById" resultType="RecipeLabDTO">
         SELECT a.*
         FROM (
@@ -83,6 +83,7 @@
         WHERE LAB_ID = #{lab_id}
         order by lab_priority
     </select>
+<!--    스탭 스와이퍼(요리 설명부분)-->
     <select id="selectStepById" resultType="RecipeLabStepDTO">
         WITH HASHTABLES AS (
             SELECT hc.CONN_ID
