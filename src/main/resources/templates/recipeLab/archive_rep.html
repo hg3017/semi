@@ -168,7 +168,7 @@
                     <div class="k_comment_wrap">
                         <div class="total">
                             <h4>댓글 </h4>
-                            <span>0</span>
+                            <span th:text="${postCommentlist.size()}">0</span>
                         </div>
                         <div class="com_login" th:if="${session.get('user') == null}">
                             <div class="profile">
