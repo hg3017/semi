@@ -2,8 +2,7 @@
 <html lang="ko"
       xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{layout}"
-      layout:fragment="content">
+      layout:decorate="~{layout}">
 
 <head layout:fragment="config">
     <title>Event</title>
@@ -11,7 +10,7 @@
     <script src="/js/event.js"></script>
 </head>
 <body>
-<main id="container_event" class="container">
+<main id="container_event" class="container" layout:fragment="content">
     <section class="main_event">
         <div class="inner">
             <h2><img src="/images/il_txt.png" alt="">이벤트</h2>
