@@ -56,7 +56,7 @@
     padding-left: 19px;
     color: var(--gray-500);
     font-weight: 500;
-    background: url(/images/common/ckeck.svg) no-repeat 0 50%;
+    background: url(/images/common/check.svg) no-repeat 0 50%;
 }
 .main_event .filter li a {
     color: #c4c4c4;

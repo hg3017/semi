@@ -106,7 +106,7 @@ public class EventController {
         if (!posterList.isEmpty()) {
             //파일 삭제
             fileStorage.deleteFile(dto.getPoster());
-            //업로드된 포스터
+            //업로드된 포스터 파일 경로 저장
             event.setPoster(posterList.get(0).getNfile());
         }
 
