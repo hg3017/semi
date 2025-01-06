@@ -161,4 +161,36 @@ public class MemberController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
         }
     }
+
+
+
+    @PostMapping("/modifyComment")
+    public ResponseEntity<Map<String, Object>> modifyComment(@RequestBody CommentDTO commentDTO, Model model) {
+        System.out.println("member/modifyComment--------------------------------------------");
+        try {
+            // 댓글 저장 로직
+            memberService.modifyComment(commentDTO);
+            response.put("success", true);
+            return ResponseEntity.ok(response);
+        } catch (Exception e) {
+            e.printStackTrace();
+            response.put("success", false);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
+        }
+    }
+
+    @PostMapping("/deleteComment")
+    public ResponseEntity<Map<String, Object>> deleteComment(@RequestBody CommentDTO commentDTO, Model model) {
+        System.out.println("member/deleteComment--------------------------------------------");
+        try {
+            // 댓글 저장 로직
+            memberService.deleteComment(commentDTO);
+            response.put("success", true);
+            return ResponseEntity.ok(response);
+        } catch (Exception e) {
+            e.printStackTrace();
+            response.put("success", false);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
+        }
+    }
 }
