@@ -8,5 +8,5 @@ import java.util.List;
 
 @Mapper
 public interface SearchMapper {
-    List<SearchDTO> findByCont(String nameKeyword, String descriptionKeyword);
+    List<SearchDTO> findByCont(String SearchKeyword);
 }

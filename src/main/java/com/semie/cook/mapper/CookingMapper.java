@@ -11,5 +11,7 @@ import java.util.Map;
 
 @Mapper
 public interface CookingMapper {
-    void insertCounsel(CounselingDTO dto);
+    List<CounselingDTO> selectAll(Pagination pg);
+    int totalLab(Pagination pg);
+    int insertCounsel(CounselingDTO dto);
 }
