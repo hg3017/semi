@@ -92,22 +92,34 @@ public class EventController {
 
         EventDTO dto = eventService.selectById(event.getEvent_id());
 
-        //메인포스터 이전 파일 삭제 후 업로드
-        List<FileVO> mainPosterList = fileStorage.uploadFiles(main_poster,"upload/");
-        if (!mainPosterList.isEmpty()) {
-            //파일 삭제
-            fileStorage.deleteFile(dto.getMain_poster());
-            //업로드된 메인 포스터 파일 경로 저장
-            event.setMain_poster(mainPosterList.get(0).getNfile());
+        // 메인 포스터 수정이 있는 경우
+        if (main_poster != null && main_poster.length > 0 && !main_poster[0].isEmpty()) {
+            // 새로운 메인 포스터가 업로드 되었을 경우
+            List<FileVO> mainPosterList = fileStorage.uploadFiles(main_poster, "upload/");
+            if (!mainPosterList.isEmpty()) {
+                // 기존 파일 삭제
+                fileStorage.deleteFile(dto.getMain_poster());
+                // 업로드된 메인 포스터 파일 경로 저장
+                event.setMain_poster(mainPosterList.get(0).getNfile());
+            }
+        } else {
+            // 메인 포스터가 수정되지 않으면 기존 파일 경로를 그대로 사용
+            event.setMain_poster(dto.getMain_poster());
         }
 
-        //포스터 이전 파일 삭제 후 업로드
-        List<FileVO> posterList = fileStorage.uploadFiles(poster,"upload/");
-        if (!posterList.isEmpty()) {
-            //파일 삭제
-            fileStorage.deleteFile(dto.getPoster());
-            //업로드된 포스터 파일 경로 저장
-            event.setPoster(posterList.get(0).getNfile());
+        // 포스터 수정이 있는 경우
+        if (poster != null && poster.length > 0 && !poster[0].isEmpty()) {
+            // 새로운 포스터가 업로드 되었을 경우
+            List<FileVO> posterList = fileStorage.uploadFiles(poster, "upload/");
+            if (!posterList.isEmpty()) {
+                // 기존 파일 삭제
+                fileStorage.deleteFile(dto.getPoster());
+                // 업로드된 포스터 파일 경로 저장
+                event.setPoster(posterList.get(0).getNfile());
+            }
+        } else {
+            // 포스터가 수정되지 않으면 기존 파일 경로를 그대로 사용
+            event.setPoster(dto.getPoster());
         }
 
         //내용 업데이트
