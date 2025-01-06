@@ -84,13 +84,11 @@
                                         </div>
                                     </a>
                                     <ul class="time_wrap">
-                                        <li>
+                                        <li th:text="${lab.preparation + '분'}">
                                             <span>준비시간</span>
-                                            <p th:text="${lab.preparation + '분'}"></p>
                                         </li>
-                                        <li>
+                                        <li th:text="${lab.cookingtime + '분'}">
                                             <span>조리시간</span>
-                                            <p th:text="${lab.cookingtime + '분'}"></p>
                                         </li>
                                     </ul>
                                     <a href="#" class="scrap">스크랩</a>
