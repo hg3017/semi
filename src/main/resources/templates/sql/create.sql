@@ -179,7 +179,7 @@ CREATE TABLE EVENT
 (
     EVENT_ID    NUMBER,                        -- 이벤트 게시글 구분용 키.
     BOARD_ID    NUMBER,                        -- 각 게시판 별 구분코드.
-    EVENT_NAME  VARCHAR2(50),                  -- 이벤트 게시글 제목.
+    EVENT_NAME  VARCHAR2(100),                  -- 이벤트 게시글 제목.
     MAIN_POSTER VARCHAR2(300),                 -- 이벤트 썸네일 이미지
     POSTER      VARCHAR2(300),                 -- 상세내용 이미지
     DESC_DETAIL CLOB,                          -- 이벤트 게시판 내용

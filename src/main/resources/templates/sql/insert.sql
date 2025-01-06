@@ -297,9 +297,9 @@ INSERT INTO guide (GUIDE_ID, BOARD_ID, GUIDE_NAME, GUIDE_DESC, GUIDE_DETAIL, CRE
 -- event
 insert into event (EVENT_ID, BOARD_ID, MAIN_POSTER, POSTER, EVENT_NAME, DESC_DETAIL, CREATE_DATE, MODIFY_DATE, EVENT_START, EVENT_END) values(EVENT_ID_SEQ.NEXTVAL,60,'e-images1.jpg','e-images1-1.jpg','두근두근 낭만 파티요리','내용',sysdate,'2024.10.29','2024.10.29','2024.10.30');
 insert into event (EVENT_ID, BOARD_ID, MAIN_POSTER, POSTER, EVENT_NAME, DESC_DETAIL, CREATE_DATE, MODIFY_DATE, EVENT_START, EVENT_END) values(EVENT_ID_SEQ.NEXTVAL,60,'e-images2.jpg','e-images2-1.jpg','재료의 방 오픈! 집밥요리사','내용',sysdate,'2024.10.29','2024.10.29','2024.10.30');
-insert into event (EVENT_ID, BOARD_ID, MAIN_POSTER, POSTER, EVENT_NAME, DESC_DETAIL, CREATE_DATE, MODIFY_DATE, EVENT_START, EVENT_END) values(EVENT_ID_SEQ.NEXTVAL,60,'e-images3.jpg','e-images3-1.jpg','재료의 방 오픈! 집밥요리사','내용',sysdate,'2024.10.29','2024.10.29','2024.10.30');
-insert into event (EVENT_ID, BOARD_ID, MAIN_POSTER, POSTER, EVENT_NAME, DESC_DETAIL, CREATE_DATE, MODIFY_DATE, EVENT_START, EVENT_END) values(EVENT_ID_SEQ.NEXTVAL,60,'e-images4.jpg','e-images4-1.jpg','재료의 방 오픈! 집밥요리사','내용',sysdate,'2024.10.29','2024.10.29','2024.10.30');
-insert into event (EVENT_ID, BOARD_ID, MAIN_POSTER, POSTER, EVENT_NAME, DESC_DETAIL, CREATE_DATE, MODIFY_DATE, EVENT_START, EVENT_END) values(EVENT_ID_SEQ.NEXTVAL,60,'e-images5.jpg','e-images5-1.jpg','재료의 방 오픈! 집밥요리사','내용',sysdate,'2024.10.29','2024.10.29','2024.10.30');
+insert into event (EVENT_ID, BOARD_ID, MAIN_POSTER, POSTER, EVENT_NAME, DESC_DETAIL, CREATE_DATE, MODIFY_DATE, EVENT_START, EVENT_END) values(EVENT_ID_SEQ.NEXTVAL,60,'e-images3.jpg','e-images3-1.jpg','우리, 즐겁게 요리해요 쿠킹클래스','내용',sysdate,'2024.10.29','2024.10.29','2024.10.30');
+insert into event (EVENT_ID, BOARD_ID, MAIN_POSTER, POSTER, EVENT_NAME, DESC_DETAIL, CREATE_DATE, MODIFY_DATE, EVENT_START, EVENT_END) values(EVENT_ID_SEQ.NEXTVAL,60,'e-images4.jpg','e-images4-1.jpg','망하든 성공하든 즐겨라! 요리 똥손대회','내용',sysdate,'2024.10.29','2024.10.29','2024.10.30');
+insert into event (EVENT_ID, BOARD_ID, MAIN_POSTER, POSTER, EVENT_NAME, DESC_DETAIL, CREATE_DATE, MODIFY_DATE, EVENT_START, EVENT_END) values(EVENT_ID_SEQ.NEXTVAL,60,'e-images5.jpg','e-images5-1.jpg','즐요클럽','내용',sysdate,'2024.10.29','2024.10.29','2024.10.30');
 
 
 
