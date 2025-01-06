@@ -282,11 +282,6 @@ function submitComment(button) {
     const creater = commentBox.querySelector('.creater').value;
     let parent_comment_id = commentBox.querySelector('.parent_comment_id').value;
 
-    console.log(comment_board_id);
-    console.log(comment_post_id);
-    console.log(desc_detail);
-    console.log(creater);
-    console.log(parent_comment_id);
     if(parent_comment_id === 0) {
         parent_comment_id = null;
     }
