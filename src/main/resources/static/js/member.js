@@ -52,6 +52,8 @@
 //         });
 // }
 
+// login
+// 제대로 입력한 경우 로그인
 function emailLogin() {
     const email =  document.querySelector('#member_email').value;
     const password = document.querySelector('#password').value;
