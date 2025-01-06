@@ -193,6 +193,11 @@
     border-radius: 20px;
 }
 
+.main_sol .sol_area .img_wrap img {
+   aspect-ratio : 1 / 1;
+   object-fit : cover;
+}
+
 .main_sol .sol_area .txt_wrap {
     padding: 20px 0 32px;
 }
