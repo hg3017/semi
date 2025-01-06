@@ -2,15 +2,14 @@
 <html lang="ko"
       xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{layout}"
-      layout:fragment="content">
+      layout:decorate="~{layout}">
 
 <head layout:fragment="config">
     <title>Guide</title>
     <link rel="stylesheet" href="/css/guide/guide.css">
 </head>
 <body>
-<main id="guide_container" class="container">
+<main id="guide_container" class="container" layout:fragment="content">
     <div id="guide" class="section">
         <div class="guide_inner">
             <div class="guide_title">

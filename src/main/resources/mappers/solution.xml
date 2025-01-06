@@ -28,7 +28,7 @@
         , DBMS_LOB.SUBSTR(s.DESC_DETAIL, 4000) AS DESC_DETAIL
         , s.CREATE_DATE
         , s.MODIFY_DATE
-        , LISTAGG(DISTINCT h.HASH_NAME, ',') WITHIN GROUP (ORDER BY s.solution_id) OVER (PARTITION BY s.solution_id) AS hashnames
+        , LISTAGG(h.HASH_NAME, ',') WITHIN GROUP (ORDER BY s.solution_id) OVER (PARTITION BY s.solution_id) AS hashnames
         , (
         SELECT FILE_PATH
         FROM IMG_LIST il

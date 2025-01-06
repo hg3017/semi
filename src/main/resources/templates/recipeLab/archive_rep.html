@@ -8,11 +8,13 @@
 <head layout:fragment="config">
     <title>RecipeLab</title>
     <link rel="stylesheet" href="/css/recipeLab/archive_rep.css">
+    <link rel="stylesheet" href="/css/guide/archive_guide.css">
     <script src="/js/recipe.js"></script>
 
 </head>
 <body>
 <main id="rep_container" class="container" layout:fragment="content">
+    <div th:replace="~{fragments :: shareControl}"></div>
     <th:block th:replace="~{fragments :: loading}" />
     <loading></loading>
     <div th:replace="~{fragments :: scroll}"></div>
@@ -139,17 +141,17 @@
                                             <p class="step_desc" th:utext="${lds.lab_step_desc}">
                                             </p>
                                             <ol class="tip_list">
-                                                <li class="tip">
-                                                    <span th:if="${lds.lab_step_tip1 != null and lds.lab_step_tip1 != ''}" th:utext="${lds.lab_step_tip1}"></span>
+                                                <li class="tip" th:if="${lds.lab_step_tip1 != null and lds.lab_step_tip1 != ''}">
+                                                    <span th:utext="${lds.lab_step_tip1}"></span>
                                                 </li>
-                                                <li class="tip">
-                                                    <span th:if="${lds.lab_step_tip2 != null and lds.lab_step_tip2 != ''}" th:utext="${lds.lab_step_tip2}"></span>
+                                                <li class="tip" th:if="${lds.lab_step_tip2 != null and lds.lab_step_tip2 != ''}" >
+                                                    <span th:utext="${lds.lab_step_tip2}"></span>
                                                 </li>
-                                                <li class="tip">
-                                                    <span th:if="${lds.lab_step_tip3 != null and lds.lab_step_tip3 != ''}" th:utext="${lds.lab_step_tip3}"></span>
+                                                <li class="tip" th:if="${lds.lab_step_tip3 != null and lds.lab_step_tip3 != ''}">
+                                                    <span th:utext="${lds.lab_step_tip3}"></span>
                                                 </li>
-                                                <li class="tip">
-                                                    <span th:if="${lds.lab_step_tip4 != null and lds.lab_step_tip4 != ''}" th:utext="${lds.lab_step_tip4}"></span>
+                                                <li class="tip" th:if="${lds.lab_step_tip4 != null and lds.lab_step_tip4 != ''}">
+                                                    <span th:utext="${lds.lab_step_tip4}"></span>
                                                 </li>
                                             </ol>
                                         </div>
