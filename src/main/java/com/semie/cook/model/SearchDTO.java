@@ -8,8 +8,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class SearchDTO {
+    private String SearchKeyword;
     private String nameKeyword;
     private String descriptionKeyword;
+    private String searchType;
 //    private String title;
 //    private String ingredient;
 }

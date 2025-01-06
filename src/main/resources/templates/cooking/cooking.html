@@ -3,8 +3,7 @@
 <html lang="ko"
       xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{layout}"
-      layout:fragment="content">
+      layout:decorate="~{layout}">
 
 <head layout:fragment="config">
   <title>Cooking</title>
@@ -17,305 +16,316 @@
 <!--    <a href="#container">본문바로가기</a>-->
 <!--  </div>-->
 <!--  <div id="wrap">-->
-    <main id="lab_container" class="container">
-      <div class="lab_inner">
-        <div class="tit_sec">
-          <h3>요리해요</h3>
-        </div>
-        <div class="tap_wrap">
+<main id="lab_container" class="container" layout:fragment="content">
+  <div class="lab_inner">
+    <div class="tit_sec">
+      <h3>요리해요</h3>
+    </div>
+    <div class="tap_wrap">
+      <ul>
+        <li th:class="${#strings.equals(state, 'cooking') ? 'on' : ''}">
+          <a href="/cooking/cooking" class="rec_btn">요리해요</a>
+        </li>
+        <li th:class="${#strings.equals(state, 'counseling') ? 'on' : ''}">
+          <a href="/cooking/counseling" class="solu_btn">고민있어요</a>
+        </li>
+      </ul>
+    </div>
+    <div class="cook_food_wrap">
+      <img src="/images/il_samie_3.png" alt="">
+      <div class="foodBtn_wrap">
+        <p>
+          나만의 요리를 올려주세요!<br>
+          <span>나만의 요리법, 재밌는 플레이팅, 요리 꿀팁 등 다양한 이야기를 새미네부엌에서 함께 나눠 주세요!</span>
+        </p>
+        <a href="/cooking/cooking_write">
+          작성하기
+          <img src="/images/common/ic_write.png">
+        </a>
+      </div>
+    </div>
+    <section class="main_cook_detail">
+      <div class="inner">
+        <div class="filter">
           <ul>
-            <li th:class="${#strings.equals(state, 'cooking') ? 'on' : ''}">
-              <a href="cooking.html" class="rec_btn">요리해요</a>
+            <li class="on">
+              <a href="#">최신순</a>
             </li>
-            <li th:class="${#strings.equals(state, 'counseling') ? 'on' : ''}">
-              <a href="counseling.html" class="solu_btn">고민있어요</a>
+            <li>
+              <a href="#">조회순</a>
+            </li>
+            <li>
+              <a href="#">스크랩순</a>
             </li>
           </ul>
         </div>
-        <div class="food_wrap">
-          <img src="/images/il_samie_3.png" alt="">
-          <div class="foodBtn_wrap">
-            <p>
-              나만의 요리를 올려주세요!<br>
-              <span>나만의 요리법, 재밌는 플레이팅, 요리 꿀팁 등 다양한 이야기를 새미네부엌에서 함께 나눠 주세요!</span>
-            </p>
+        <div class="tag_wrap">
+          <ul class="cook_area">
+            <li class="cook_item">
+              <a href="#">
+                <div class="img_wrap">
+                  <img src="/images/cook4.jpg" alt="">
+                </div>
+                <div class="info_wrap">
+                  <span class="name">요리가좋아</span>
+                  <span class="date">2024.12.01 10:31</span>
+                </div>
+                <div class="txt_wrap">
+                  <h4>된장찌개</h4>
+                </div>
+              </a>
+              <a href="#" class="scrap">스크랩</a>
+            </li>
+            <li class="cook_item">
+              <a href="#">
+                <div class="img_wrap">
+                  <img src="/images/cook4.jpg" alt="">
+                </div>
+                <div class="info_wrap">
+                  <span class="name">요리가좋아</span>
+                  <span class="date">2024.12.01 10:31</span>
+                </div>
+                <div class="txt_wrap">
+                  <h4>된장찌개</h4>
+                </div>
+              </a>
+              <a href="#" class="scrap">스크랩</a>
+            </li>
+            <li class="cook_item">
+              <a href="#">
+                <div class="img_wrap">
+                  <img src="/images/cook4.jpg" alt="">
+                </div>
+                <div class="info_wrap">
+                  <span class="name">요리가좋아</span>
+                  <span class="date">2024.12.01 10:31</span>
+                </div>
+                <div class="txt_wrap">
+                  <h4>된장찌개</h4>
+                </div>
+              </a>
+              <a href="#" class="scrap">스크랩</a>
+            </li>
+            <li class="cook_item">
+              <a href="#">
+                <div class="img_wrap">
+                  <img src="/images/cook4.jpg" alt="">
+                </div>
+                <div class="info_wrap">
+                  <span class="name">요리가좋아</span>
+                  <span class="date">2024.12.01 10:31</span>
+                </div>
+                <div class="txt_wrap">
+                  <h4>된장찌개</h4>
+                </div>
+              </a>
+              <a href="#" class="scrap">스크랩</a>
+            </li>
+            <li class="cook_item">
+              <a href="#">
+                <div class="img_wrap">
+                  <img src="/images/cook4.jpg" alt="">
+                </div>
+                <div class="info_wrap">
+                  <span class="name">요리가좋아</span>
+                  <span class="date">2024.12.01 10:31</span>
+                </div>
+                <div class="txt_wrap">
+                  <h4>된장찌개</h4>
+                </div>
+              </a>
+            </li>
+            <li class="cook_item">
+              <a href="#">
+                <div class="img_wrap">
+                  <img src="/images/cook4.jpg" alt="">
+                </div>
+                <div class="info_wrap">
+                  <span class="name">요리가좋아</span>
+                  <span class="date">2024.12.01 10:31</span>
+                </div>
+                <div class="txt_wrap">
+                  <h4>된장찌개</h4>
+                </div>
+              </a>
+              <a href="#" class="scrap">스크랩</a>
+            </li>
+            <li class="cook_item">
+              <a href="#">
+                <div class="img_wrap">
+                  <img src="/images/cook4.jpg" alt="">
+                </div>
+                <div class="info_wrap">
+                  <span class="name">요리가좋아</span>
+                  <span class="date">2024.12.01 10:31</span>
+                </div>
+                <div class="txt_wrap">
+                  <h4>된장찌개</h4>
+                </div>
+              </a>
+              <a href="#" class="scrap">스크랩</a>
+            </li>
+            <li class="cook_item">
+              <a href="#">
+                <div class="img_wrap">
+                  <img src="/images/cook4.jpg" alt="">
+                </div>
+                <div class="info_wrap">
+                  <span class="name">요리가좋아</span>
+                  <span class="date">2024.12.01 10:31</span>
+                </div>
+                <div class="txt_wrap">
+                  <h4>된장찌개</h4>
+                </div>
+              </a>
+              <a href="#" class="scrap">스크랩</a>
+            </li>
+          </ul>
+          <div class="middle_wrap">
             <a href="#">
-              작성하기
-              <img src="images/common/ic_write.png">
+              <img src="/images/mainbanner1.jpg" class="bimg">
             </a>
           </div>
+          <ul class="cook_area">
+            <li class="cook_item">
+              <a href="#">
+                <div class="img_wrap">
+                  <img src="/images/cook4.jpg" alt="">
+                </div>
+                <div class="info_wrap">
+                  <span class="name">요리가좋아</span>
+                  <span class="date">2024.12.01 10:31</span>
+                </div>
+                <div class="txt_wrap">
+                  <h4>된장찌개</h4>
+                </div>
+              </a>
+              <a href="#" class="scrap">스크랩</a>
+            </li>
+            <li class="cook_item">
+              <a href="#">
+                <div class="img_wrap">
+                  <img src="/images/cook4.jpg" alt="">
+                </div>
+                <div class="info_wrap">
+                  <span class="name">요리가좋아</span>
+                  <span class="date">2024.12.01 10:31</span>
+                </div>
+                <div class="txt_wrap">
+                  <h4>된장찌개</h4>
+                </div>
+              </a>
+              <a href="#" class="scrap">스크랩</a>
+            </li>
+            <li class="cook_item">
+              <a href="#">
+                <div class="img_wrap">
+                  <img src="/images/cook4.jpg" alt="">
+                </div>
+                <div class="info_wrap">
+                  <span class="name">요리가좋아</span>
+                  <span class="date">2024.12.01 10:31</span>
+                </div>
+                <div class="txt_wrap">
+                  <h4>된장찌개</h4>
+                </div>
+              </a>
+              <a href="#" class="scrap">스크랩</a>
+            </li>
+            <li class="cook_item">
+              <a href="#">
+                <div class="img_wrap">
+                  <img src="/images/cook4.jpg" alt="">
+                </div>
+                <div class="info_wrap">
+                  <span class="name">요리가좋아</span>
+                  <span class="date">2024.12.01 10:31</span>
+                </div>
+                <div class="txt_wrap">
+                  <h4>된장찌개</h4>
+                </div>
+              </a>
+              <a href="#" class="scrap">스크랩</a>
+            </li>
+            <li class="cook_item">
+              <a href="#">
+                <div class="img_wrap">
+                  <img src="/images/cook4.jpg" alt="">
+                </div>
+                <div class="info_wrap">
+                  <span class="name">요리가좋아</span>
+                  <span class="date">2024.12.01 10:31</span>
+                </div>
+                <div class="txt_wrap">
+                  <h4>된장찌개</h4>
+                </div>
+              </a>
+              <a href="#" class="scrap">스크랩</a>
+            </li>
+            <li class="cook_item">
+              <a href="#">
+                <div class="img_wrap">
+                  <img src="/images/cook4.jpg" alt="">
+                </div>
+                <div class="info_wrap">
+                  <span class="name">요리가좋아</span>
+                  <span class="date">2024.12.01 10:31</span>
+                </div>
+                <div class="txt_wrap">
+                  <h4>된장찌개</h4>
+                </div>
+              </a>
+              <a href="#" class="scrap">스크랩</a>
+            </li>
+            <li class="cook_item">
+              <a href="#">
+                <div class="img_wrap">
+                  <img src="/images/cook4.jpg" alt="">
+                </div>
+                <div class="info_wrap">
+                  <span class="name">요리가좋아</span>
+                  <span class="date">2024.12.01 10:31</span>
+                </div>
+                <div class="txt_wrap">
+                  <h4>된장찌개</h4>
+                </div>
+              </a>
+              <a href="#" class="scrap">스크랩</a>
+            </li>
+            <li class="cook_item">
+              <a href="#">
+                <div class="img_wrap">
+                  <img src="/images/cook4.jpg" alt="">
+                </div>
+                <div class="info_wrap">
+                  <span class="name">요리가좋아</span>
+                  <span class="date">2024.12.01 10:31</span>
+                </div>
+                <div class="txt_wrap">
+                  <h4>된장찌개</h4>
+                </div>
+              </a>
+              <a href="#" class="scrap">스크랩</a>
+            </li>
+          </ul>
         </div>
-        <section class="main_detail">
-          <div class="inner">
-            <div class="filter">
-              <ul>
-                <li class="on">
-                  <a href="#">최신순</a>
-                </li>
-                <li>
-                  <a href="#">조회순</a>
-                </li>
-                <li>
-                  <a href="#">스크랩순</a>
-                </li>
-              </ul>
-            </div>
-            <div class="tag_wrap">
-              <ul class="tag_area">
-                <li class="tag_item">
-                  <a href="#">
-                    <div class="img_wrap">
-                      <img src="/images/cook4.jpg" alt="">
-                    </div>
-                    <div class="info_wrap">
-                      <span class="name">요리가좋아</span>
-                      <span class="date">2024.12.01 10:31</span>
-                    </div>
-                    <div class="txt_wrap">
-                      <h4>된장찌개</h4>
-                    </div>
-                  </a>
-                  <a href="#" class="scrap">스크랩</a>
-                </li>
-                <li class="tag_item">
-                  <a href="#">
-                    <div class="img_wrap">
-                      <img src="/images/cook4.jpg" alt="">
-                    </div>
-                    <div class="info_wrap">
-                      <span class="name">요리가좋아</span>
-                      <span class="date">2024.12.01 10:31</span>
-                    </div>
-                    <div class="txt_wrap">
-                      <h4>된장찌개</h4>
-                    </div>
-                    </a>
-                  <a href="#" class="scrap">스크랩</a>
-                </li>
-                <li class="tag_item">
-                  <a href="#">
-                    <div class="img_wrap">
-                      <img src="/images/cook4.jpg" alt="">
-                    </div>
-                    <div class="info_wrap">
-                      <span class="name">요리가좋아</span>
-                      <span class="date">2024.12.01 10:31</span>
-                    </div>
-                    <div class="txt_wrap">
-                      <h4>된장찌개</h4>
-                    </div>
-                    </a>
-                  <a href="#" class="scrap">스크랩</a>
-                </li>
-                <li class="tag_item">
-                  <a href="#">
-                    <div class="img_wrap">
-                      <img src="/images/cook4.jpg" alt="">
-                    </div>
-                    <div class="info_wrap">
-                      <span class="name">요리가좋아</span>
-                      <span class="date">2024.12.01 10:31</span>
-                    </div>
-                    <div class="txt_wrap">
-                      <h4>된장찌개</h4>
-                    </div>
-                    </a>
-                  <a href="#" class="scrap">스크랩</a>
-                </li>
-                <li class="tag_item">
-                  <a href="#">
-                    <div class="img_wrap">
-                      <img src="/images/cook4.jpg" alt="">
-                    </div>
-                    <div class="info_wrap">
-                      <span class="name">요리가좋아</span>
-                      <span class="date">2024.12.01 10:31</span>
-                    </div>
-                    <div class="txt_wrap">
-                      <h4>된장찌개</h4>
-                    </div>
-                    </a>
-                </li>
-                <li class="tag_item">
-                  <a href="#">
-                    <div class="img_wrap">
-                      <img src="/images/cook4.jpg" alt="">
-                    </div>
-                    <div class="info_wrap">
-                      <span class="name">요리가좋아</span>
-                      <span class="date">2024.12.01 10:31</span>
-                    </div>
-                    <div class="txt_wrap">
-                      <h4>된장찌개</h4>
-                    </div>
-                    </a>
-                  <a href="#" class="scrap">스크랩</a>
-                </li>
-                <li class="tag_item">
-                  <a href="#">
-                    <div class="img_wrap">
-                      <img src="/images/cook4.jpg" alt="">
-                    </div>
-                    <div class="info_wrap">
-                      <span class="name">요리가좋아</span>
-                      <span class="date">2024.12.01 10:31</span>
-                    </div>
-                    <div class="txt_wrap">
-                      <h4>된장찌개</h4>
-                    </div>
-                    </a>
-                  <a href="#" class="scrap">스크랩</a>
-                </li>
-                <li class="tag_item">
-                  <a href="#">
-                    <div class="img_wrap">
-                      <img src="/images/cook4.jpg" alt="">
-                    </div>
-                    <div class="info_wrap">
-                      <span class="name">요리가좋아</span>
-                      <span class="date">2024.12.01 10:31</span>
-                    </div>
-                    <div class="txt_wrap">
-                      <h4>된장찌개</h4>
-                    </div>
-                    </a>
-                  <a href="#" class="scrap">스크랩</a>
-                </li>
-              </ul>
-              <div class="middle_wrap">
-                <a href="#">
-                  <img src="/images/mainbanner1.jpg" class="bimg">
-                </a>
-              </div>
-              <ul class="tag_area">
-                <li class="tag_item">
-                  <a href="#">
-                    <div class="img_wrap">
-                      <img src="/images/cook4.jpg" alt="">
-                    </div>
-                    <div class="info_wrap">
-                      <span class="name">요리가좋아</span>
-                      <span class="date">2024.12.01 10:31</span>
-                    </div>
-                    <div class="txt_wrap">
-                      <h4>된장찌개</h4>
-                    </div>
-                    </a>
-                  <a href="#" class="scrap">스크랩</a>
-                </li>
-                <li class="tag_item">
-                  <a href="#">
-                    <div class="img_wrap">
-                      <img src="/images/cook4.jpg" alt="">
-                    </div>
-                    <div class="info_wrap">
-                      <span class="name">요리가좋아</span>
-                      <span class="date">2024.12.01 10:31</span>
-                    </div>
-                    <div class="txt_wrap">
-                      <h4>된장찌개</h4>
-                    </div>
-                    </a>
-                  <a href="#" class="scrap">스크랩</a>
-                </li>
-                <li class="tag_item">
-                  <a href="#">
-                    <div class="img_wrap">
-                      <img src="/images/cook4.jpg" alt="">
-                    </div>
-                    <div class="info_wrap">
-                      <span class="name">요리가좋아</span>
-                      <span class="date">2024.12.01 10:31</span>
-                    </div>
-                    <div class="txt_wrap">
-                      <h4>된장찌개</h4>
-                    </div>
-                    </a>
-                  <a href="#" class="scrap">스크랩</a>
-                </li>
-                <li class="tag_item">
-                  <a href="#">
-                    <div class="img_wrap">
-                      <img src="/images/cook4.jpg" alt="">
-                    </div>
-                    <div class="info_wrap">
-                      <span class="name">요리가좋아</span>
-                      <span class="date">2024.12.01 10:31</span>
-                    </div>
-                    <div class="txt_wrap">
-                      <h4>된장찌개</h4>
-                    </div>
-                    </a>
-                  <a href="#" class="scrap">스크랩</a>
-                </li>
-                <li class="tag_item">
-                  <a href="#">
-                    <div class="img_wrap">
-                      <img src="/images/cook4.jpg" alt="">
-                    </div>
-                    <div class="info_wrap">
-                      <span class="name">요리가좋아</span>
-                      <span class="date">2024.12.01 10:31</span>
-                    </div>
-                    <div class="txt_wrap">
-                      <h4>된장찌개</h4>
-                    </div>
-                    </a>
-                    <a href="#" class="scrap">스크랩</a>
-                </li>
-                <li class="tag_item">
-                  <a href="#">
-                    <div class="img_wrap">
-                      <img src="/images/cook4.jpg" alt="">
-                    </div>
-                    <div class="info_wrap">
-                      <span class="name">요리가좋아</span>
-                      <span class="date">2024.12.01 10:31</span>
-                    </div>
-                    <div class="txt_wrap">
-                      <h4>된장찌개</h4>
-                    </div>
-                    </a>
-                  <a href="#" class="scrap">스크랩</a>
-                </li>
-                <li class="tag_item">
-                  <a href="#">
-                    <div class="img_wrap">
-                      <img src="/images/cook4.jpg" alt="">
-                    </div>
-                    <div class="info_wrap">
-                      <span class="name">요리가좋아</span>
-                      <span class="date">2024.12.01 10:31</span>
-                    </div>
-                    <div class="txt_wrap">
-                      <h4>된장찌개</h4>
-                    </div>
-                    </a>
-                  <a href="#" class="scrap">스크랩</a>
-                </li>
-                <li class="tag_item">
-                  <a href="#">
-                    <div class="img_wrap">
-                      <img src="/images/cook4.jpg" alt="">
-                    </div>
-                    <div class="info_wrap">
-                      <span class="name">요리가좋아</span>
-                      <span class="date">2024.12.01 10:31</span>
-                    </div>
-                    <div class="txt_wrap">
-                      <h4>된장찌개</h4>
-                    </div>
-                    </a>
-                  <a href="#" class="scrap">스크랩</a>
-                </li>
-              </ul>
-            </div>
-            <th:block th:utext="${paging}"></th:block>
+        <div class="board_pagination_wrap">
+          <div class="board_pagination">
+            <a href="#" class="prev_paging"><span class="blind">이전</span></a>
+            <span class="num active">1</span>
+            <a href="#" class="num">2</a>
+            <a href="#" class="num">3</a>
+            <a href="#" class="num">4</a>
+            <a href="#" class="num">5</a>
+            <a href="#" class="next_paging"><span class="blind">다음</span></a>
           </div>
-        </section>
-  
+        </div>
+        <!--        <th:block th:utext="${paging}"></th:block>-->
       </div>
-    </main>
+    </section>
+
+  </div>
+</main>
 <!--  </div>-->
 
 

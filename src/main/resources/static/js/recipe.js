@@ -15,24 +15,24 @@ window.addEventListener('DOMContentLoaded', function () {
     });
 
     // 레시피 스와이퍼
-        var swiper = new Swiper(".sub_view_cont .thumb_swiper_wrap", {
-          spaceBetween: 10,
-          slidesPerView: 4,
-          freeMode: true,
-          watchSlidesProgress: true,
-        });
-        var swiper2 = new Swiper(".sub_view_cont .main_swiper_wrap", {
-          spaceBetween: 50,
-          navigation: {
+    var swiper = new Swiper(".sub_view_cont .thumb_swiper_wrap", {
+        spaceBetween: 10,
+        slidesPerView: 4,
+        freeMode: true,
+        watchSlidesProgress: true,
+    });
+    var swiper2 = new Swiper(".sub_view_cont .main_swiper_wrap", {
+        spaceBetween: 50,
+        navigation: {
             nextEl: ".sub_view_cont .swiper-button-next",
             prevEl: ".sub_view_cont .swiper-button-prev",
-          },
-          thumbs: {
+        },
+        thumbs: {
             swiper: swiper,
-          },
-        });
+        },
+    });
 
-      // 스탭 스와이퍼
+    // 스탭 스와이퍼
     var stepSwiper2 = new Swiper(".step_swiper_wrap .swiper-container", {
         slidesPerView: 1,  // 한 번에 한 슬라이드만 보이게 설정
         spaceBetween: 20,  // 슬라이드 간 간격
@@ -101,12 +101,12 @@ window.addEventListener('DOMContentLoaded', function () {
     });
 
     //레시피 상세
-      let CtagList = new Swiper('.C_tagList .swiper', {
-      slidesPerView: '4',
-      navigation: {
-          nextEl: '.C_tagList .swiper-button-next',
-          prevEl: '.C_tagList .swiper-button-prev',
-      },
+    let CtagList = new Swiper('.C_tagList .swiper', {
+        slidesPerView: '4',
+        navigation: {
+            nextEl: '.C_tagList .swiper-button-next',
+            prevEl: '.C_tagList .swiper-button-prev',
+        },
     });
 
     // 요리해요(작성하기)
@@ -115,93 +115,98 @@ window.addEventListener('DOMContentLoaded', function () {
     const detailedButton = document.querySelector('.btn_check_lg:not(.on)');
     const detailForm = document.querySelector('.detail-form');
     //기본 상태
-    detailForm.style.display = 'none';
-
-    // 버튼 클릭 시 detail-form 보이기/숨기기
-    simpleButton.addEventListener('click', () => {
+    // detailForm.style.display = 'none';
+    if (detailForm) {  // detailForm이 존재하는지 확인
+        // 기본 상태
         detailForm.style.display = 'none';
-        simpleButton.classList.add('on');
-        detailedButton.classList.remove('on');
-    });
 
-    detailedButton.addEventListener('click', () => {
-        detailForm.style.display = 'block';
-        simpleButton.classList.remove('on');
-        detailedButton.classList.add('on');
-    });
+        // 버튼 클릭 시 detail-form 보이기/숨기기
+        simpleButton.addEventListener('click', () => {
+            detailForm.style.display = 'none';
+            simpleButton.classList.add('on');
+            detailedButton.classList.remove('on');
+        });
 
-    // 이미지 클릭 시 툴팁 보이기
-    document.querySelector('.qa img').addEventListener('click', function() {
-        this.classList.remove('on'); // 이미지를 숨기기
-        this.nextElementSibling.classList.add('on'); // 툴팁 보이기
-    });
+        detailedButton.addEventListener('click', () => {
+            detailForm.style.display = 'block';
+            simpleButton.classList.remove('on');
+            detailedButton.classList.add('on');
+        });
 
-    // close 버튼 클릭 시 툴팁 숨기기
-    document.querySelector('.qa .close_btn').addEventListener('click', function() {
-        this.closest('.tooltip').classList.remove('on'); // 툴팁 숨기기
-        this.closest('.qa').querySelector('img').classList.add('on'); // 이미지 보이기
-    });
+        // 이미지 클릭 시 툴팁 보이기
+        document.querySelector('.qa img').addEventListener('click', function() {
+            this.classList.remove('on'); // 이미지를 숨기기
+            this.nextElementSibling.classList.add('on'); // 툴팁 보이기
+        });
 
-    document.querySelector('.form-list').addEventListener('click', function(e) {
-        if (e.target.classList.contains('add')) {
-            if (e.target.textContent === '+') {
-                var newInput = document.createElement('div');
-                newInput.classList.add('input_wrap');
-                newInput.innerHTML = '<input type="text" class="form_box" name="main_mat" placeholder="예) 생닭 1마리(600g)" required=""><button type="button" class="add">-</button>';
-                e.target.closest('.input_wrap').after(newInput);
-            } else {
-                e.target.closest('.input_wrap').remove();
+        // close 버튼 클릭 시 툴팁 숨기기
+        document.querySelector('.qa .close_btn').addEventListener('click', function() {
+            this.closest('.tooltip').classList.remove('on'); // 툴팁 숨기기
+            this.closest('.qa').querySelector('img').classList.add('on'); // 이미지 보이기
+        });
+
+        document.querySelector('.form-list').addEventListener('click', function(e) {
+            if (e.target.classList.contains('add')) {
+                if (e.target.textContent === '+') {
+                    var newInput = document.createElement('div');
+                    newInput.classList.add('input_wrap');
+                    newInput.innerHTML = '<input type="text" class="form_box" name="main_mat" placeholder="예) 생닭 1마리(600g)" required=""><button type="button" class="add">-</button>';
+                    e.target.closest('.input_wrap').after(newInput);
+                } else {
+                    e.target.closest('.input_wrap').remove();
+                }
+                e.target.textContent = e.target.textContent === '+' ? '-' : '+';
             }
-            e.target.textContent = e.target.textContent === '+' ? '-' : '+';
-        }
-    });
+        });
 
-
-    // 기본 요소들 선택
-    const wrapper = '';  // 입력 필드를 포함하는 컨테이너 선택
-    const addButtons = document.querySelectorAll('.btn-wrap .add'); // 추가 버튼 선택
-    const maxFields = 10; // 최대 입력 필드 수 설정
-    let fieldCount = 1; // 현재 입력 필드 수
+        // 기본 요소들 선택
+        const wrapper = '';  // 입력 필드를 포함하는 컨테이너 선택
+        const addButtons = document.querySelectorAll('.btn-wrap .add'); // 추가 버튼 선택
+        const maxFields = 10; // 최대 입력 필드 수 설정
+        let fieldCount = 1; // 현재 입력 필드 수
 
 // '추가하기' 버튼 클릭 시 이벤트
-    if (addButtons) {
-        addButtons.forEach(addButton => {
-            addButton.addEventListener('click', function(e) {
-                e.preventDefault(); // 페이지 리로드 방지
-                if (fieldCount <= maxFields) { // 최대 필드 수 체크
-                    fieldCount++; // 필드 수 증가
-                    // 새 입력 필드 추가
-                    const newField = document.createElement('div');
-                    newField.classList.add('input_list');
+        if (addButtons) {
+            addButtons.forEach(addButton => {
+                addButton.addEventListener('click', function(e) {
+                    e.preventDefault(); // 페이지 리로드 방지
+                    if (fieldCount <= maxFields) { // 최대 필드 수 체크
+                        fieldCount++; // 필드 수 증가
+                        // 새 입력 필드 추가
+                        const newField = document.createElement('div');
+                        newField.classList.add('input_list');
 
-                    newField.innerHTML = `
+                        newField.innerHTML = `
                         <input type="text" class="form_box" name="main_mat[]" placeholder="예) 생닭 1마리(600g)" required />
                         <a href="javascript:void(0);" class="remove_field">-</a>
                     `;
 
-                    // 새 필드를 wrapper에 추가
-                    const wrapper = this.closest('.form-list').querySelector('.input_wrap');
-                    wrapper.appendChild(newField);
-                } else {
-                    alert('최대 입력 필드를 초과할 수 없습니다.');
-                }
+                        // 새 필드를 wrapper에 추가
+                        const wrapper = this.closest('.form-list').querySelector('.input_wrap');
+                        wrapper.appendChild(newField);
+                    } else {
+                        alert('최대 입력 필드를 초과할 수 없습니다.');
+                    }
+                });
             });
-        });
-    }
+        }
 
-    const removeFields = document.querySelectorAll('.input_wrap');
-    if (removeFields) {
-        removeFields.forEach(field => {
-            field.addEventListener('click', function(e) {
-                if (e.target && e.target.classList.contains('remove_field')) {
-                    e.preventDefault();
-                    fieldCount--;
-                    // 타겟 찾아서 삭제하면 됨!!
-                }
+        const removeFields = document.querySelectorAll('.input_wrap');
+        if (removeFields) {
+            removeFields.forEach(field => {
+                field.addEventListener('click', function(e) {
+                    if (e.target && e.target.classList.contains('remove_field')) {
+                        e.preventDefault();
+                        fieldCount--;
+                        // 타겟 찾아서 삭제하면 됨!!
+                        const fieldToRemove = e.target.closest('.input_list');
+                        if (fieldToRemove) {
+                            fieldToRemove.remove(); // 해당 필드 삭제
+                        }
+                    }
+                });
             });
-        });
-    }
-
+        }
 
 // '삭제' 링크 클릭 시 이벤트
 //    wrapper.addEventListener('click', function(e) {
@@ -266,11 +271,11 @@ window.addEventListener('DOMContentLoaded', function () {
 
 
 
-    // // 기본 요소들 선택
-    // const wrapper = document.querySelector('.input_wrap');  // 입력 필드를 포함하는 컨테이너 선택
-    // const addButton = document.querySelector('.btn-wrap .add'); // 추가 버튼 선택
-    // const maxFields = 10; // 최대 입력 필드 수 설정
-    // let fieldCount = 1; // 현재 입력 필드 수
+        // // 기본 요소들 선택
+        // const wrapper = document.querySelector('.input_wrap');  // 입력 필드를 포함하는 컨테이너 선택
+        // const addButton = document.querySelector('.btn-wrap .add'); // 추가 버튼 선택
+        // const maxFields = 10; // 최대 입력 필드 수 설정
+        // let fieldCount = 1; // 현재 입력 필드 수
 
 // // 기본 요소들 선택
 //     const wrapper = document.querySelector('.input_wrap');  // 입력 필드를 포함하는 컨테이너 선택
@@ -369,16 +374,16 @@ window.addEventListener('DOMContentLoaded', function () {
 //         });
 //     });
 
-    //요리해요(상세페이지 step)
-    //단계 카운터 초기화
-    let stepCount = 1;
+        //요리해요(상세페이지 step)
+        //단계 카운터 초기화
+        let stepCount = 1;
 // 단계 추가
-    document.getElementById("addStep").addEventListener("click", function() {
-        stepCount++;
-        const newStep = document.createElement("div");
-        newStep.classList.add("form-step");
-        newStep.id = "step" + stepCount;
-        newStep.innerHTML = `
+        document.getElementById("addStep").addEventListener("click", function() {
+            stepCount++;
+            const newStep = document.createElement("div");
+            newStep.classList.add("form-step");
+            newStep.id = "step" + stepCount;
+            newStep.innerHTML = `
         <p class="label text-point">Step.${stepCount}</p>
          <div class="form-box line">
             <div class="form">
@@ -411,15 +416,15 @@ window.addEventListener('DOMContentLoaded', function () {
             </div>
         </div>
     `;
-        document.querySelector(".btn_step_wrap").parentNode.insertBefore(newStep, document.querySelector(".btn_step_wrap"));
-    });
+            document.querySelector(".btn_step_wrap").parentNode.insertBefore(newStep, document.querySelector(".btn_step_wrap"));
+        });
 
 // 단계 삭제
-    document.getElementById("removeStep").addEventListener("click", function() {
-        if (stepCount > 1) {
-            document.getElementById("step" + stepCount).remove();
-            stepCount--;
-        }
-    });
-
+        document.getElementById("removeStep").addEventListener("click", function() {
+            if (stepCount > 1) {
+                document.getElementById("step" + stepCount).remove();
+                stepCount--;
+            }
+        });
+    }
 });

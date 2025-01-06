@@ -18,6 +18,4 @@ public class CounselingDTO {
     private Date create_date;
     private Date modify_date;
     private String poster;
-    private String file_path;
-    private String files;
 }

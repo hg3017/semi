@@ -54,20 +54,20 @@ public class RecipeLabController {
 
 
 
-    @GetMapping("/counseling")
-    public String counseling(Model model) {
-        System.out.println("recipeLab/counseling---------------------------------------------");
-        model.addAttribute("state", "counseling");
-        return "/recipeLab/counseling";
-    }
-
-    @GetMapping("/cooking")
-    public String cooking(Model model) {
-
-        System.out.println("recipeLab/cooking---------------------------------------------");
-        model.addAttribute("state", "cooking");
-        return "/recipeLab/cooking";
-    }
+//    @GetMapping("/counseling")
+//    public String counseling(Model model) {
+//        System.out.println("recipeLab/counseling---------------------------------------------");
+//        model.addAttribute("state", "counseling");
+//        return "/recipeLab/counseling";
+//    }
+//
+//    @GetMapping("/cooking")
+//    public String cooking(Model model) {
+//
+//        System.out.println("recipeLab/cooking---------------------------------------------");
+//        model.addAttribute("state", "cooking");
+//        return "/recipeLab/cooking";
+//    }
 
     @GetMapping("/archive_rep/{labId}")
     public String archive(@PathVariable int labId, Model model) {
