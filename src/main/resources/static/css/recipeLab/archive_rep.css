@@ -543,11 +543,13 @@
 }
 .step_h span {
   font-size: 24px;
+  padding-left: 5px;
 }
 .step_desc {
-  font-size: 18px;
+  font-size: 17px;
   margin-top: 14px;
-  font-weight: 100;
+  font-weight: 400;
+  padding-left: 5px;
 }
 .tip_list {
   font-size: 16px;
@@ -559,7 +561,8 @@
 }
 .tip_list li {
   padding-top: 30px;
-  /* align-items: flex-start; */
+  display: flex;
+   align-items: flex-start;
 }
 .tip_list li::before {
   display: inline-block;
@@ -580,7 +583,7 @@
 }
 .tip_list li span {
   color: #666;
-  font-size: 16px;
+  font-size: 15px;
 }
 .tip_list strong {
   color: #555;
