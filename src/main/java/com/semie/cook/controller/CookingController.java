@@ -27,7 +27,7 @@ public class CookingController {
     private CookingService cookingService;
         private final FileStorage fileStorage;
 
-
+    // 요리해요 리스트
     @GetMapping("/cooking")
     public String list(Model model) {
         System.out.println("/cooking/list---------------------------------------------");
@@ -35,6 +35,7 @@ public class CookingController {
         return "/cooking/cooking";
     }
 
+    // 고민있어요 리스트
     @GetMapping("/counseling")
     public String counseling(HttpServletRequest request, @RequestParam(defaultValue = "1") int pageNum, Model model) {
         Pagination pg = new Pagination();
@@ -45,6 +46,7 @@ public class CookingController {
         return "/cooking/counseling";
     }
 
+    //요리해요 작성하기
     @GetMapping("/cooking_write")
     public String archiveWrite() {
         return "/cooking/cooking_write";
@@ -56,7 +58,7 @@ public class CookingController {
         System.out.println("recipeLab/archive_write-----------------------------------------------");
         return "redirect:/cooking/cooking_write";
     }
-
+    //고민있어요 작성하기
     @GetMapping("/counseling_write")
     public void counselingWrite() {
     }

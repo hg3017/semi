@@ -30,11 +30,14 @@ public class RecipeLabController {
 
     @GetMapping("/list")
     public String list(HttpServletRequest request, @RequestParam(defaultValue = "1") int pageNum, Model model) {
+        // 페이지네이션
         Pagination pg = new Pagination();
         pg.setPageNum(pageNum);
 
+        // 리스트
         model.addAttribute("list", recipeLabService.findAll(pg));
         model.addAttribute("paging", pg.paging(request));
+        // 탭 클릭
         model.addAttribute("state","list");
         System.out.println("recipeLab/list---------------------------------------------");
         System.out.println(" recipeLabService.findAll(pg)" +  recipeLabService.findAll(pg));
@@ -52,26 +55,11 @@ public class RecipeLabController {
         return "/recipeLab/solution";
     }
 
-
-
-//    @GetMapping("/counseling")
-//    public String counseling(Model model) {
-//        System.out.println("recipeLab/counseling---------------------------------------------");
-//        model.addAttribute("state", "counseling");
-//        return "/recipeLab/counseling";
-//    }
-//
-//    @GetMapping("/cooking")
-//    public String cooking(Model model) {
-//
-//        System.out.println("recipeLab/cooking---------------------------------------------");
-//        model.addAttribute("state", "cooking");
-//        return "/recipeLab/cooking";
-//    }
-
     @GetMapping("/archive_rep/{labId}")
     public String archive(@PathVariable int labId, Model model) {
+        // 레시피(리스트)
         model.addAttribute("lab", recipeLabService.selectById(labId));
+        // 레시피 상세
         model.addAttribute("ldi", recipeLabService.selectIngredientById(labId));
         model.addAttribute("lds", recipeLabService.selectStepById(labId));
 
@@ -80,6 +68,7 @@ public class RecipeLabController {
         Map<String, String> map = Collections.singletonMap("labId", String.valueOf(labId));
         pg.setSearchMap(map);
 
+        // 스탭별 재료 설명
         model.addAttribute("list", recipeLabService.findAll(pg));
         model.addAttribute("postCommentlist", memberService.findPostComment(20, labId));
 
@@ -103,12 +92,14 @@ public class RecipeLabController {
         System.out.println("recipeLab/archive_sol-----------------------------------------------");
         return "/recipeLab/archive_sol";
     }
+
+    // 요리해요 상세페이지
     @GetMapping("/archive_cook")
     public String archive_cook(Model model) {
         System.out.println("recipeLab/archive_cook-----------------------------------------------");
         return "/recipeLab/archive_cook";
     }
-
+    // 고민있어요 상세페이지
     @GetMapping("/archive_counsel")
     public String archive_counsel(Model model) {
         System.out.println("recipeLab/archive_counsel-----------------------------------------------");

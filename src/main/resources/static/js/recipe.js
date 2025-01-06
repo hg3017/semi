@@ -77,7 +77,7 @@ window.addEventListener('DOMContentLoaded', function () {
             if (thumbImg) {
                 const thumbImgSrc = thumbImg.src;
 
-                // Add 'on' class to clicked li, remove 'on' from others
+                // 클릭된 li에 'on' 클래스를 추가하고, 다른 항목에서 'on' 클래스를 제거
                 i.classList.add("on");
 
                 Array.from(i.parentElement.children).forEach(sibling => {
@@ -89,10 +89,10 @@ window.addEventListener('DOMContentLoaded', function () {
                     const stepThumbImgs = swiperSlide.querySelectorAll(".step_swiper_wrap .step_thumb img");
                     stepThumbImgs.forEach(stepThumbImg => {
                         if (stepThumbImg) {
-                            // Remove the src and reassign it to force reloading the image
+                            // 이미지의 src를 제거한 후, 새로운 이미지를 다시 설정하여 이미지를 강제로 새로 고침
                             const currentSrc = stepThumbImg.src;
-                            stepThumbImg.src = '';  // Temporarily clear the src
-                            stepThumbImg.src = thumbImgSrc; // Set the new src
+                            stepThumbImg.src = '';   // src를 일시적으로 지움
+                            stepThumbImg.src = thumbImgSrc; // 새로운 src를 설정
                         }
                     });
                 }
@@ -166,7 +166,7 @@ window.addEventListener('DOMContentLoaded', function () {
         const maxFields = 10; // 최대 입력 필드 수 설정
         let fieldCount = 1; // 현재 입력 필드 수
 
-// '추가하기' 버튼 클릭 시 이벤트
+    // '추가하기' 버튼 클릭 시 이벤트
         if (addButtons) {
             addButtons.forEach(addButton => {
                 addButton.addEventListener('click', function(e) {
