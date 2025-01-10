@@ -28,19 +28,25 @@ public class CookingController {
         private final FileStorage fileStorage;
 
     // 요리해요 리스트
-    @GetMapping("/cooking")
-    public String list(Model model) {
-        System.out.println("/cooking/list---------------------------------------------");
-        model.addAttribute("state", "cooking");
-        return "/cooking/cooking";
-    }
+//    @GetMapping("/cooking")
+//    public String list(HttpServletRequest request, @RequestParam(defaultValue = "1") int pageNum,Model model) {
+//        Pagination pg = new Pagination();
+//        pg.setPageNum(pageNum);
+//
+//        model.addAttribute("list", cookingService.findAll(pg));
+//        model.addAttribute("paging", pg.paging(request));
+//        model.addAttribute("state", "cooking");
+//        return "/cooking/cooking";
+//    }
 
     // 고민있어요 리스트
     @GetMapping("/counseling")
     public String counseling(HttpServletRequest request, @RequestParam(defaultValue = "1") int pageNum, Model model) {
         Pagination pg = new Pagination();
         pg.setPageNum(pageNum);
+
         model.addAttribute("list", cookingService.findAll(pg));
+        model.addAttribute("paging", pg.paging(request));
         model.addAttribute("state", "counseling");
         System.out.println("/cooking/counseling---------------------------------------------");
         return "/cooking/counseling";
