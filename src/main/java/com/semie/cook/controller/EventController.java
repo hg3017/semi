@@ -54,12 +54,16 @@ public class EventController {
                         @RequestParam("file_poster") MultipartFile[] poster) {
 
         //메인포스터 업로드
-        List<FileVO> mainPosterList = fileStorage.uploadFiles(main_poster,"upload/");
-        event.setMain_poster(mainPosterList.get(0).getNfile()); //업로드된 메인 포스터 파일 경로 저장
+        if (main_poster != null && main_poster.length > 0 && !main_poster[0].isEmpty()) {
+            List<FileVO> mainPosterList = fileStorage.uploadFiles(main_poster, "upload/");
+            event.setMain_poster(mainPosterList.get(0).getNfile()); //업로드된 메인 포스터 파일 경로 저장
+        }
 
         //포스터 업로드
-        List<FileVO> posterList = fileStorage.uploadFiles(poster,"upload/");
-        event.setPoster(posterList.get(0).getNfile()); //업로드된 포스터 파일 경로 저장
+        if (poster != null && poster.length > 0 && !poster[0].isEmpty()) {
+            List<FileVO> posterList = fileStorage.uploadFiles(poster, "upload/");
+            event.setPoster(posterList.get(0).getNfile()); //업로드된 포스터 파일 경로 저장
+        }
 
         //글쓰기
         int re = eventService.insertEvent(event);
