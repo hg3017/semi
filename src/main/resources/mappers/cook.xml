@@ -2,6 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.semie.cook.mapper.CookMapper">
+<!--    페이징-->
     <sql id="page1">
         WITH QDATA AS (
     </sql>
@@ -25,6 +26,16 @@
         select * from cook
         <include refid="page2" />
     </select>
+    <insert id="insertCook" parameterType="CookDTO">
+        INSERT INTO COOK (COOK_ID, BOARD_ID, COOK_NAME, COOK_NAME_DESC, DESC_DETAIL)
+        VALUES(
+            COOK_ID_SEQ.NEXTVAL,
+            40,
+            #{cook_name, jdbcType=VARCHAR},
+            #{cook_name_desc, jdbcType=VARCHAR},
+            #{desc_detail, jdbcType=VARCHAR}
+        )
+    </insert>
 
 
 

@@ -9,4 +9,5 @@ import java.util.List;
 public interface CookMapper {
     List<CookDTO> selectAll(Pagination pg);
     int totalCook(Pagination pg);
+    int insertCook(CookDTO cdto);
 }

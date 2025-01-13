@@ -26,6 +26,10 @@ public class CookService {
         return counselingMapper.selectAll1(pg);
     }
 
+    public int insertCook(CookDTO cookDTO) {
+        return cookMapper.insertCook(cookDTO);
+    }
+
     public int insertCounsel(CounselingDTO counselingDTO) {
         return counselingMapper.insertCounsel(counselingDTO);
     }

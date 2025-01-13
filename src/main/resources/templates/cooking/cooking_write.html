@@ -9,6 +9,10 @@
     <title>RecipeLab</title>
     <link rel="stylesheet" href="/css/cooking/cooking_write.css">
     <script src="/js/recipe.js"></script>
+    <!--    tagify-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@yaireo/tagify/dist/tagify.css">
+    <script src="https://cdn.jsdelivr.net/npm/@yaireo/tagify"></script>
+
 </head>
 <body>
 <main id="cooking_write_container" class="container" layout:fragment="content">
@@ -22,7 +26,7 @@
                     나만의 요리법, 재밌는 플레이팅, <br>요리 꿀팁 등 다양한 이야기를<br>
                     새미네부엌에서 함께 나눠 주세요!
                 </p>
-<!--                <img src="/images/il_samie_pink.png">-->
+                <!--                <img src="/images/il_samie_pink.png">-->
             </div>
         </div>
     </section>
@@ -91,7 +95,7 @@
                                     <input type="text" class="form_box" name="main_mat" placeholder="예) 생닭 1마리(600g)" required="">
                                 </div>
                                 <div class="btn-wrap">
-                                    <button type="button" class="add" onclick="addStepTipList(event, this)">+</button>
+                                    <button type="button" class="add">+</button>
                                 </div>
                             </div>
                         </div>
@@ -104,7 +108,7 @@
                                     <input type="text" class="form_box" name="sub_mat" placeholder="예) 감자 1개(100g)">
                                 </div>
                                 <div class="btn-wrap">
-                                    <button type="button" class="add" onclick="addStepTipList(event, this)">+</button>
+                                    <button type="button" class="add">+</button>
                                 </div>
                             </div>
                         </div>
@@ -117,7 +121,7 @@
                                     <input type="text" class="form_box" name="sauce" placeholder="예) 새미네부엌 진간장(10ml)">
                                 </div>
                                 <div class="btn-wrap">
-                                    <button type="button" class="add" onclick="addStepTipList(event, this)">+</button>
+                                    <button type="button" class="add">+</button>
                                 </div>
                             </div>
                         </div>
@@ -162,11 +166,11 @@
                                 <p class="label">요리팁</p>
                                 <div class="form-list">
                                     <div class="input_wrap">
-                                    <input type="text" class="form_box" name="stepTips1" placeholder="예) 입맞에 따라 청양고추를 추가하세요">
-                                        </div>
+                                        <input type="text" class="form_box" name="stepTips1" placeholder="예) 입맞에 따라 청양고추를 추가하세요">
+                                    </div>
                                     <div class="btn-wrap">
-                                        <button type="button" class="add" onclick="addStepTipList(event, this)">+</button>
-                                        <button type="button" class="del" onclick="removeStepTipList(event, this)">-</button>
+                                        <button type="button" class="add">+</button>
+                                        <button type="button" class="del">-</button>
                                     </div>
                                 </div>
                             </div>
@@ -197,11 +201,7 @@
                     태그 (선택입력)
                 </p>
                 <span>* 한글, 영문, 숫자만 입력 가능해요</span>
-<!--                <tags class="tagify form_box tags tagify&#45;&#45;noTags tagify&#45;&#45;empty" tabindex="-1">-->
-<!--                    <span contenteditable="" tabindex="0" data-placeholder="태그를 입력하고 쉼표(,) 또는 enter 키를 입력 해주세요" aria-placeholder="태그를 입력하고 쉼표(,) 또는 enter 키를 입력 해주세요" class="tagify__input" role="textbox" aria-autocomplete="both" aria-multiline="false"></span>-->
-<!--                    ​-->
-<!--                </tags>-->
-                <input type="text" class="form_box tags" name="tags" placeholder="태그를 입력하고 쉼표(,) 또는 enter 키를 입력 해주세요" tabindex="-1">
+                <input class="tag_input" placeholder="태그를 입력하고 쉼표(,) 또는 enter 키를 입력 해주세요">
             </div>
             <div id="box_wrap" class="btn_box">
                 <a href="#" class="clear_btn">취소</a>
