@@ -21,9 +21,14 @@ window.addEventListener('DOMContentLoaded', function () {
 
     const scrapButtons = document.querySelectorAll(".scrap");
 
+    const isLoggedIn = true;
     // 각각의 버튼에 이벤트 리스너 추가
     scrapButtons.forEach((button) => {
         button.addEventListener("click", function () {
+            if (!isLoggedIn) {
+                alert("로그인 후 실행할 수 있습니다.");
+                return;
+            }
             // 클릭된 버튼에만 .on 클래스 토글
             button.classList.toggle("on");
 
@@ -33,6 +38,15 @@ window.addEventListener('DOMContentLoaded', function () {
                 alert("삭제되었습니다."); // 클래스가 제거되었을 때
             }
         });
+    });
+
+    shareButton.addEventListener("click", function () {
+        if (!isLoggedIn) {
+            alert("로그인 후 실행할 수 있습니다.");
+            return;
+        }
+
+        shareList.classList.toggle("on");
     });
 
     // 공유 버튼

@@ -336,8 +336,8 @@
     </div>
 </div>
 <div class="share_control" th:fragment="shareControl">
-    <button type="button" class="scrap" th:if="${isLoggedIn}"><i></i><span>스크랩</span></button>
-    <div class="share_wrap" th:if="${isLoggedIn}">
+    <button type="button" class="scrap"><i></i><span>스크랩</span></button>
+    <div class="share_wrap">
         <button type="button" class="share"><i></i><span>공유하기</span></button>
         <ul class="share_btn">
             <li class="close">
@@ -358,7 +358,6 @@
             </li>
         </ul>
     </div>
-<!--    <p th:if="${!isLoggedIn}">로그인 후 이용 가능합니다.</p>-->
 </div>
 
 <section class="main_lab" th:fragment="mainlab(list)">
