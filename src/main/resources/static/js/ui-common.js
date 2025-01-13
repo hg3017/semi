@@ -21,57 +21,204 @@ window.addEventListener('DOMContentLoaded', function () {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
-  window.isLoggedIn = false; // 초기값 설정
 
+//const scrapButtons = document.querySelectorAll(".scrap");
+//
+//  // 각각의 버튼에 이벤트 리스너 추가
+//  scrapButtons.forEach((button) => {
+//    button.addEventListener('click', function () {
+//      if (!window.isLoggedIn) {
+//        alert('로그인 후 실행할 수 있습니다.');
+//        window.location.href = '/member/login';
+//        return;
+//      }
+//
+//      // 클릭된 버튼에만 .on 클래스 토글
+//      button.classList.toggle('on');
+//
+//      // 로그인 상태일 때만 메시지 출력
+//      if (button.classList.contains('on')) {
+//        alert('스크랩되었습니다.'); // 클래스가 추가되었을 때
+//      } else {
+//        alert('삭제되었습니다.'); // 클래스가 제거되었을 때
+//      }
+//    });
+//  });
+//
+//  // 공유 버튼
+//  const shareButton = document.querySelector('.share');
+//  // 공유 버튼 목록
+//  const shareList = document.querySelector('.share_btn');
+//  // 닫기 버튼
+//  const closeButton = document.querySelector('.close button');
+//
+//  // 공유 버튼 클릭 시 공유 창 열기/닫기
+//  if (shareButton && shareList) {
+//    shareButton.addEventListener('click', function () {
+//      if (!window.isLoggedIn) {
+//        alert('로그인 후 실행할 수 있습니다.');
+//        window.location.href = '/member/login';
+//        return;
+//      }
+//      shareList.classList.toggle('on');
+//    });
+//
+//    // 닫기 버튼 클릭 시 공유 창 닫기
+//    if (closeButton && shareList) {
+//      closeButton.addEventListener('click', function () {
+//        shareList.classList.remove('on');
+//      });
+//    }
+//  }
+//
+//  // 모든 스크랩 버튼에 이벤트 리스너 추가
+//  const scrapButtons = document.querySelectorAll(".scrap");
+//  const shareButton = document.querySelector(".share");
+//  const shareList = document.querySelector(".share_btn");
+//  const closeButton = document.querySelector(".close button");
+//
+//  // 유틸리티 함수: 로그인 확인
+//  const checkLogin = () => {
+//    if (!window.isLoggedIn) {
+//      alert("로그인 후 실행할 수 있습니다."); // 경고 메시지
+//      window.location.href = "/member/login"; // 로그인 페이지로 이동
+//      return false; // 실행 중단
+//    }
+//    return true; // 로그인 상태면 true 반환
+//  };
+//
+//  // 페이지 로드 시 로그인 상태 확인
+//  fetch('/member/checkLoginStatus')
+//    .then(response => response.json())
+//    .then(data => {
+//      console.log("로그인 상태 확인:", data.isLoggedIn);
+//      window.isLoggedIn = data.isLoggedIn;
+//
+//      // 로그인 상태에 따라 스크랩 버튼 초기화
+//      scrapButtons.forEach((button) => {
+//        if (!data.isLoggedIn) {
+//          button.disabled = false; // 비활성화하지 않고, 로그인 확인 메시지만 출력
+//        }
+//      });
+//    })
+//    .catch(error => console.error("로그인 상태 확인 실패:", error));
+//
+//  // 스크랩 버튼 클릭 이벤트 추가
+//  scrapButtons.forEach((button) => {
+//    button.addEventListener("click", function () {
+//      if (!checkLogin()) return; // 로그인 확인 후 미로그인 시 실행 중단
+//
+//      // 클릭된 버튼에만 .on 클래스 토글
+//      button.classList.toggle("on");
+//
+//      // 메시지 출력
+//      alert(
+//        button.classList.contains("on")
+//          ? "스크랩되었습니다." // 클래스가 추가되었을 때
+//          : "삭제되었습니다." // 클래스가 제거되었을 때
+//      );
+//    });
+//  });
+//
+//  // 공유 버튼 클릭 시 공유 창 열기/닫기
+//  if (shareButton && shareList) {
+//    shareButton.addEventListener("click", function () {
+//      if (!checkLogin()) return; // 로그인 확인 후 미로그인 시 실행 중단
+//
+//      shareList.classList.toggle("on");
+//    });
+//  }
+//
+//  // 닫기 버튼 클릭 시 공유 창 닫기
+//  if (closeButton && shareList) {
+//    closeButton.addEventListener("click", function () {
+//      shareList.classList.remove("on");
+//    });
+//  }
 
+// 페이지 로드 시 스크랩 상태 복원
+document.addEventListener("DOMContentLoaded", function () {
+  const scrapButtons = document.querySelectorAll(".scrap");
+  scrapButtons.forEach((button, index) => {
+    // 로컬 스토리지에서 스크랩 상태 가져오기
+    const scrapState = localStorage.getItem(`scrapState_${index}`);
+    if (scrapState === "true") {
+      button.classList.add("on"); // 스크랩 상태가 true면 클래스 추가
+    }
+  });
+});
+
+// 스크랩 버튼 클릭 이벤트 추가
 const scrapButtons = document.querySelectorAll(".scrap");
+scrapButtons.forEach((button, index) => {
+  button.addEventListener("click", function () {
+    // 로그인 상태 확인
+    fetch('/member/checkLoginStatus')
+      .then(response => response.json())
+      .then(data => {
+        console.log("로그인 상태 확인:", data.isLoggedIn);
+        window.isLoggedIn = data.isLoggedIn;
 
-  // 각각의 버튼에 이벤트 리스너 추가
-  scrapButtons.forEach((button) => {
-    button.addEventListener('click', function () {
-      if (!window.isLoggedIn) {
-        alert('로그인 후 실행할 수 있습니다.');
-        window.location.href = '/member/login';
-        return;
-      }
+        if (!data.isLoggedIn) {
+          alert("로그인 후 실행할 수 있습니다.");
+          window.location.href = "/member/login";
+          return;
+        }
 
-      // 클릭된 버튼에만 .on 클래스 토글
-      button.classList.toggle('on');
+        // 클릭된 버튼에만 .on 클래스 토글
+        button.classList.toggle("on");
 
-      // 로그인 상태일 때만 메시지 출력
-      if (button.classList.contains('on')) {
-        alert('스크랩되었습니다.'); // 클래스가 추가되었을 때
-      } else {
-        alert('삭제되었습니다.'); // 클래스가 제거되었을 때
-      }
-    });
+        // 스크랩 상태를 로컬 스토리지에 저장
+        localStorage.setItem(`scrapState_${index}`, button.classList.contains("on"));
+
+        // 메시지 출력
+        alert(
+          button.classList.contains("on")
+            ? "스크랩되었습니다." // 클래스가 추가되었을 때
+            : "삭제되었습니다." // 클래스가 제거되었을 때
+        );
+      })
+      .catch(error => console.error("로그인 상태 확인 실패:", error));
+  });
+});
+
+// 공유 버튼
+const shareButton = document.querySelector('.share');
+const shareList = document.querySelector('.share_btn');
+const closeButton = document.querySelector('.close button');
+
+// 공유 버튼 클릭 시 공유 창 열기/닫기
+if (shareButton && shareList) {
+  shareButton.addEventListener("click", function () {
+    // 로그인 상태 확인
+    fetch('/member/checkLoginStatus')
+      .then(response => response.json())
+      .then(data => {
+        console.log("로그인 상태 확인:", data.isLoggedIn);
+        window.isLoggedIn = data.isLoggedIn;
+
+        if (!data.isLoggedIn) {
+          alert("로그인 후 실행할 수 있습니다.");
+          window.location.href = "/member/login";
+          return;
+        }
+
+        shareList.classList.toggle("on");
+      })
+      .catch(error => console.error("로그인 상태 확인 실패:", error));
   });
 
-  // 공유 버튼
-  const shareButton = document.querySelector('.share');
-  // 공유 버튼 목록
-  const shareList = document.querySelector('.share_btn');
-  // 닫기 버튼
-  const closeButton = document.querySelector('.close button');
-
-  // 공유 버튼 클릭 시 공유 창 열기/닫기
-  if (shareButton && shareList) {
-    shareButton.addEventListener('click', function () {
-      if (!window.isLoggedIn) {
-        alert('로그인 후 실행할 수 있습니다.');
-        window.location.href = '/member/login';
-        return;
-      }
-      shareList.classList.toggle('on');
+  // 닫기 버튼 클릭 시 공유 창 닫기
+  if (closeButton && shareList) {
+    closeButton.addEventListener("click", function () {
+      shareList.classList.remove("on");
     });
-
-    // 닫기 버튼 클릭 시 공유 창 닫기
-    if (closeButton && shareList) {
-      closeButton.addEventListener('click', function () {
-        shareList.classList.remove('on');
-      });
-    }
   }
+}
+
+
+
+
 
   // 스크랩,공유 스크롤 감지 조건부 숨김/보임
   const shareControl = document.querySelector('.share_control');

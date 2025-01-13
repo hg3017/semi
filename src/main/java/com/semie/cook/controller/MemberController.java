@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.*;
 
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
@@ -73,12 +72,24 @@ public class MemberController {
             response.put("user", user);
 
             model.addAttribute("user", user);
-//            return ResponseEntity.ok(response);
             return ResponseEntity.ok(response);
         } else {
             response.put("success", false);
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(response);
         }
+    }
+
+    @GetMapping("/checkLoginStatus")
+    public ResponseEntity<Map<String, Boolean>> checkLoginStatus(HttpSession session) {
+        Map<String, Boolean> response = new HashMap<>();
+        response.put("isLoggedIn", session.getAttribute("user") != null); // 세션에 'user'가 있는지 확인
+        return ResponseEntity.ok(response);
+    }
+
+    @GetMapping("/somePage")
+    public String somePage(Model model, HttpSession session) {
+        model.addAttribute("isLoggedIn", session.getAttribute("user") != null);
+        return "somePage"; // 뷰 이름
     }
 
     @GetMapping("/logout")
