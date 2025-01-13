@@ -16,6 +16,7 @@
             <h2><img src="/images/il_txt.png" alt="">이벤트</h2>
             <div class="event_page">
                 <div class="filter">
+<!--                    <span th:if="${}"-->
                     <button type="button" onclick="location.href='/event/write'" class="eventbt">글쓰기</button>
                     <ul>
                         <li class="li on"><a href="#">전체</a></li>
@@ -28,17 +29,15 @@
                     <li class="event_item" th:each="event : ${list}">
                         <a th:href="@{'/event/event_archive/' + ${event.event_id}}">
                             <div class="img_wrap">
-                                <img th:src="@{/event/uploads/{fileName}(fileName=${event.main_poster})}" alt="메인이미지" />
+                                <img class="e_img" th:src="@{/event/uploads/{fileName}(fileName=${event.main_poster})}" alt="메인이미지" />
                             </div>
                             <div class="txt_wrap">
                                 <p class="tit" th:text="${event.event_name}"></p>
                                 <p class="date">
-                                    <span class="green">진행중</span>
-                                    <span>
-                                        <span th:utext="${event.event_start}"></span>
-                                        ~
-                                        <span th:utext="${event.event_end}"></span>
-                                    </span>
+                                    <span th:data-start="${event.event_start}" th:data-end="${event.event_end}"
+                                          th:data-announce="${event.event_announce}"></span>
+                                    <span th:utext="${event.event_start}"></span>~
+                                    <span th:utext="${event.event_end}"></span>
                                 </p>
                             </div>
                         </a>
