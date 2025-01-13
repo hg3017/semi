@@ -51,11 +51,11 @@
 //             hideLoading();
 //         });
 // }
-
+window.isLoggedIn = false;
 // login
 // 제대로 입력한 경우 로그인
 function emailLogin() {
-    const email =  document.querySelector('#member_email').value;
+    const email = document.querySelector('#member_email').value;
     const password = document.querySelector('#password').value;
 
     const memberDTO = {
@@ -75,7 +75,6 @@ function emailLogin() {
     })
         .then(response => {
             if (response.status === 200) {
-
                 return response.json(); // 성공 응답 처리
             } else if (response.status === 401) {
                 return response.json().then(data => {
@@ -87,7 +86,8 @@ function emailLogin() {
         })
         .then(data => {
             if (data.success) {
-                window.location.href = '/';
+                window.isLoggedIn = true; // 로그인 성공 시 로그인 상태 업데이트
+                window.location.href = '/'; // 로그인 후 리다이렉션
             }
         })
         .catch(error => {
@@ -99,7 +99,7 @@ function emailLogin() {
                 alert("서버와 연결 중 에러 발생.");
             }
         })
-        .finally(()=> {
+        .finally(() => {
             hideLoading();
         });
 }
@@ -116,11 +116,10 @@ function emailJoinHref() {
     window.location.href = '/member/emailJoin';
 }
 
-
 // emailJoin
 // 실행 시 이메일 정합성을 확인한 후 작성된 이메일을 가지고 /member/emailJoinDetail 로 이동합니다.
 function emailJoinDetailHref() {
-    const email = document.querySelector('.email-form .form-g .input-block')
+    const email = document.querySelector('.email-form .form-g .input-block');
     const item = email.closest('.form-g');
     // 이메일 정규식 패턴.
     const pattern = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-za-z0-9\-]+/;
@@ -156,7 +155,7 @@ function emailJoinDetailHref() {
                 alert("중복된 이메일 입니다. 다른 이메일을 입력해주세요.")
             } else {
                 item.classList.remove("is-error");
-                item.parentElement.querySelector('.messages').setAttribute('hidden','');
+                item.parentElement.querySelector('.messages').setAttribute('hidden', '');
                 window.location.href = `/member/emailJoinDetail?email=${encodeURIComponent(email.value.trim())}`;
             }
         })
@@ -164,10 +163,9 @@ function emailJoinDetailHref() {
             console.error('Error:', error);
             alert("서버와 연결 중 에러 발생.")
         })
-        .finally(()=> {
+        .finally(() => {
             hideLoading();
-        })
-    ;
+        });
     return false; // 폼 제출 중단
 }
     // item.classList.remove("is-error");
