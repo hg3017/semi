@@ -20,8 +20,6 @@ window.addEventListener('DOMContentLoaded', function () {
     });
 
 
-window.isLoggedIn = false; // 초기값 설정
-
 const scrapButtons = document.querySelectorAll(".scrap");
 
 // 각각의 버튼에 이벤트 리스너 추가
