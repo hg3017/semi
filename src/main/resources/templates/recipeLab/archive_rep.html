@@ -189,10 +189,10 @@
                                 </div>
                                 <div class="text">
                                     <form class="replyForm" onsubmit="return false;" method="post">
-                                      <input type="hidden" class="comment_board_id" th:value="${lab.board_id}">
-                                      <input type="hidden" class="comment_post_id" th:value="${lab.lab_id}">
-                                      <input type="hidden" class="creater" th:value="${session.user != null ? session.user.member_id : ''}">
-                                      <input type="hidden" class="parent_comment_id" value="">
+                                        <input type="hidden" class="comment_board_id" th:value="${lab.board_id}">
+                                        <input type="hidden" class="comment_post_id" th:value="${lab.lab_id}">
+                                        <input type="hidden" class="creater" th:value="${session.user != null ? session.user.member_id : ''}">
+                                        <input type="hidden" class="parent_comment_id" value="">
                                         <div class="txtArea">
                                             <textarea class="textBox" name="content" maxlength="1000" placeholder="내용을 입력하세요."></textarea>
                                             <ul class="imgList">
@@ -253,6 +253,45 @@
                                     <button class="replyModify" onclick="activeModify(this)" type="button">수정</button>
                                     <button class="replyDelete" th:onclick="|deleteComment(${comment.comment_id}, this)|" type="button">삭제</button>
                                 </div>
+
+                                <!-- 대댓글 작성. -->
+                                <div class="cmt_box reply" style="display: none;">
+                                  <div class="profile">
+                                    <img src="/assets/images/common/profile.png" alt="">
+                                  </div>
+                                  <div class="cmt">
+                                    <div class="name">이름뭐로하지</div>
+                                    <div class="text">
+                                      <form method="post">
+                                        <input type="hidden" name="threadId" value="20498">
+                                        <input type="hidden" name="groupKey" value="/worry/id/6212">
+                                        <input type="hidden" name="type" value="board.worry">
+                                        <input type="hidden" name="refId" value="6212">
+                                        <input type="hidden" name="image">
+                                        <div class="txtArea">
+                                          <textarea name="content" maxlength="1000" placeholder="내용을 입력하세요."></textarea>
+                                          <ul class="imgList">
+                                          </ul>
+                                          <p class="wordCount">
+                                            <span>0</span>/1,000
+                                          </p>
+                                          <div class="files">
+                                            <input type="file" name="file" id="addFile" data-url="/comment/presign" accept=".jpg, .jpeg, .png, .gif, image/*" "="">
+                                            <label onclick="$(this).prev().click()">사진첨부</label>
+                                            <span class="fileName"></span>
+                                            <button name="reReplyButton" type="button"> 
+                                              등록
+                                            </button>
+                                          </div>
+                                        </div>
+                                      </form>
+                                      <div class="warning">내용을 입력해주세요.</div>
+                                    </div>
+                                  </div>
+                                </div>
+
+
+
                             </div>
                           </div>
                           <div th:if="${postCommentlist.size() == 0}" class="com_blank">
