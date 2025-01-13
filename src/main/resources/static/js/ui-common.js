@@ -19,35 +19,32 @@ window.addEventListener('DOMContentLoaded', function () {
         window.scrollTo({top: 0, behavior: 'smooth'});
     });
 
-    const scrapButtons = document.querySelectorAll(".scrap");
 
-    const isLoggedIn = true;
-    // 각각의 버튼에 이벤트 리스너 추가
-    scrapButtons.forEach((button) => {
-        button.addEventListener("click", function () {
-            if (!isLoggedIn) {
-                alert("로그인 후 실행할 수 있습니다.");
-                return;
-            }
-            // 클릭된 버튼에만 .on 클래스 토글
-            button.classList.toggle("on");
+window.isLoggedIn = false; // 초기값 설정
 
-            if (button.classList.contains("on")) {
-                alert("스크랩되었습니다."); // 클래스가 추가되었을 때
-            } else {
-                alert("삭제되었습니다."); // 클래스가 제거되었을 때
-            }
-        });
-    });
+const scrapButtons = document.querySelectorAll(".scrap");
 
-    shareButton.addEventListener("click", function () {
-        if (!isLoggedIn) {
+// 각각의 버튼에 이벤트 리스너 추가
+scrapButtons.forEach((button) => {
+    button.addEventListener("click", function () {
+        if (!window.isLoggedIn) {
             alert("로그인 후 실행할 수 있습니다.");
+            window.location.href = "/member/login";
             return;
         }
 
-        shareList.classList.toggle("on");
+        // 클릭된 버튼에만 .on 클래스 토글
+        button.classList.toggle("on");
+
+        // 로그인 상태일 때만 메시지 출력
+        if (button.classList.contains("on")) {
+            alert("스크랩되었습니다."); // 클래스가 추가되었을 때
+        } else {
+            alert("삭제되었습니다."); // 클래스가 제거되었을 때
+        }
     });
+});
+
 
     // 공유 버튼
     const shareButton = document.querySelector(".share");
@@ -59,6 +56,11 @@ window.addEventListener('DOMContentLoaded', function () {
     // 공유 버튼 클릭 시 공유 창 열기/닫기
     if (shareButton && shareList) {
         shareButton.addEventListener("click", function () {
+            if (!window.isLoggedIn) {
+                alert("로그인 후 실행할 수 있습니다.");
+                window.location.href = "/member/login";
+                return;
+            }
             shareList.classList.toggle("on");
         });
 
