@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.semie.cook.mapper.CounselingMapper">
+    <sql id="page1">
+        WITH QDATA AS (
+    </sql>
+    <sql id="page2">
+        )
+        SELECT xx.*
+        FROM (
+                 SELECT /*+ALL_ROWS*/ ROW_NUMBER() OVER(ORDER BY yy.counseling_id DESC) rn
+                      , yy.*
+                 FROM QDATA yy
+             ) xx
+        WHERE rn BETWEEN #{start} AND #{end}
+    </sql>
+
+    <select id="totalLab" resultType="int">
+        select count(*) from counseling
+    </select>
+
+    <select id="selectAll1" resultType="CounselingDTO">
+        <include refid="page1" />
+        select * from counseling
+        <include refid="page2" />
+    </select>
+    <insert id="insertCounsel" parameterType="CounselingDTO">
+        INSERT INTO counseling (counseling_id,board_id,counseling_name,desc_detail)
+        values (
+                   COUNSELING_ID_SEQ.NEXTVAL,
+                   50,
+                   #{counseling_name, jdbcType=VARCHAR},
+                   #{desc_detail, jdbcType=VARCHAR}
+        )
+
+    </insert>
+
+
+</mapper>

@@ -25,16 +25,7 @@
         select * from cook
         <include refid="page2" />
     </select>
-<!--<insert id="insertCounsel" parameterType="CounselingDTO">-->
-<!--    INSERT INTO counseling (counseling_id,board_id,counseling_name,desc_detail)-->
-<!--    values (-->
-<!--               COUNSELING_ID_SEQ.NEXTVAL,-->
-<!--               50,-->
-<!--               #{counseling_name, jdbcType=VARCHAR},-->
-<!--               #{desc_detail, jdbcType=VARCHAR}-->
-<!--    )-->
 
-<!--</insert>-->
 
 
 </mapper>
