@@ -1337,3 +1337,8 @@ INSERT INTO GUIDE_SOLUTION_CONN (GUIDE_ID, SOLUTION_ID) VALUES (10,23);
 INSERT INTO GUIDE_SOLUTION_CONN (GUIDE_ID, SOLUTION_ID) VALUES (10,24);
 
 
+INSERT INTO MEMBER VALUES (member_id_seq.nextval,70,'admin@naver.com',1,'admin',01033332222,'');
+
+INSERT INTO cook VALUES (COOK_ID_SEQ.nextval,40,'김치찌개','찌개가짜다.',1,sysdate,'');
+
+INSERT INTO counseling VALUES (COUNSELING_ID_SEQ.nextval,50,'낭만그자체','낭만이넘쳐흘러',1,sysdate,'');
