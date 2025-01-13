@@ -95,6 +95,11 @@
     margin-top: 12px;
     color: #666;
 }
+.main_event .txt_wrap p {
+    padding:4px 6px;
+    font-size: 14px;
+    font-weight: 500;
+}
 .main_event .txt_wrap span {
     display: inline-block;
     padding:4px 6px;
@@ -131,7 +136,7 @@
     justify-content: center;
     margin-bottom: 17px;
 }
-.event_archive .label_list p {
+.event_archive .label_list .event {
     margin: 0 5px;
     padding: 5px 9px;
     font-size: 14px;
@@ -142,10 +147,28 @@
     color: #fff;
     background: #15a775;
 }
-.event_archive .label_list .green {
+.event_archive .label_list .event_date {
+    margin: 0 5px;
+    padding: 5px 9px;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 5px;
+}
+.event_archive .label_list .event_date {
+    color: #fff;
+    background: #15a775;
+}
+
+.event_date span.green {
     color: #15a775;
     background: #eff9ef;
 }
+.event_date span.gray {
+    color: #666;
+    background: #e5e5e5;
+}
+
+
 .event_archive .title h2 {
     margin-bottom: 12px;
     font-size: 48px;

@@ -22,6 +22,5 @@ public class EventDTO {
     private Date modify_date;
     private String event_start;
     private String event_end;
-    private String event_announce;
     private String hashnames;
 }
