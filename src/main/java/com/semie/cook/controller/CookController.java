@@ -3,6 +3,7 @@ package com.semie.cook.controller;
 import com.semie.cook.common.FileStorage;
 import com.semie.cook.common.FileVO;
 import com.semie.cook.common.Pagination;
+import com.semie.cook.model.CookDTO;
 import com.semie.cook.model.CounselingDTO;
 import com.semie.cook.service.CookService;
 import com.semie.cook.service.MemberService;
@@ -48,21 +49,21 @@ public class CookController {
         model.addAttribute("paging", pg.paging(request));
         model.addAttribute("state", "counseling");
         System.out.println("/cooking/counseling---------------------------------------------");
-        return "/cooking/counseling";
+        return "/cook/counseling";
     }
 
     //요리해요 작성하기
     @GetMapping("/cooking_write")
-    public String archiveWrite() {
+    public String cooking_write() {
         return "/cooking/cooking_write";
     }
-
     @PostMapping("/cooking_write")
-    public String archive_write(@ModelAttribute CounselingDTO dto) {
-        cookService.insertCounsel(dto);
-        System.out.println("recipeLab/archive_write-----------------------------------------------");
+    public String cooking_write(@ModelAttribute CookDTO cdto) {
+        cookService.insertCook(cdto);
+        System.out.println("recipeLab/cooking_write-----------------------------------------------");
         return "redirect:/cooking/cooking_write";
     }
+
     //고민있어요 작성하기
     @GetMapping("/counseling_write")
     public void counselingWrite() {
@@ -71,18 +72,19 @@ public class CookController {
     public String counselingWrite(@ModelAttribute CounselingDTO dto, @RequestParam("poster") MultipartFile[] poster) {
 //        cookService.insertCounsel(dto);
         System.out.println("cooking/counseling_write-----------------------------------------------");
-
-        //포스터 업로드
-        List<FileVO> posterList = fileStorage.uploadFiles(poster,"upload/");
-        dto.setPoster(posterList.get(0).getNfile());
-
-        //글쓰기
-        int re = cookService.insertCounsel(dto);
-        if(re > 0) {
-            return "redirect:/recipeLab/archive_counsel";
-        }else {
-            return "redirect:/cooking/counseling_write";
-        }
+//
+//        //포스터 업로드
+//        List<FileVO> posterList = fileStorage.uploadFiles(poster,"upload/");
+//        dto.setPoster(posterList.get(0).getNfile());
+//
+//        //글쓰기
+//        int re = cookService.insertCounsel(dto);
+//        if(re > 0) {
+//            return "redirect:/recipeLab/archive_counsel";
+//        }else {
+//            return "redirect:/cooking/counseling_write";
+//        }
+        return "/cooking/counseling_write";
     }
 
     //파일명

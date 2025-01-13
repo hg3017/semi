@@ -314,3 +314,135 @@ function removeStepTipList(event, button) {
     inputWrap.remove();
   }
 }
+
+// // 태그 입력 필드 선택 및 Tagify 초기화
+//    const input = document.querySelector('.form_box.tags');
+//    const tagify = new Tagify(input, {
+//        delimiters: ",| ",  // 쉼표와 스페이스로 구분
+//        pattern: /^[가-힣a-zA-Z0-9]+$/,  // 한글, 영문, 숫자만 허용
+//        placeholder: "태그를 입력하고 쉼표(,) 또는 enter 키를 입력 해주세요"
+//    });
+//
+//    // 이벤트 핸들링 (태그 추가 시)
+//    tagify.on('add', function(e){
+//        console.log("추가된 태그:", e.detail.data.value);
+//    });
+//
+//    // 태그 삭제 이벤트
+//    tagify.on('remove', function(e){
+//        console.log("삭제된 태그:", e.detail.data.value);
+//    });
+
+
+
+//    const tagInput = document.getElementById('tagInput');
+//    const tagContainer = document.getElementById('tagContainer');
+//
+//    tagInput.addEventListener('keypress', function (event) {
+//        if (event.key === 'Enter') {
+//            event.preventDefault();
+//            const tagText = tagInput.value.trim();
+//            if (tagText && /^[가-힣a-zA-Z0-9]+$/.test(tagText)) {
+//                addTag(tagText);
+//                tagInput.value = '';
+//            } else {
+//                alert('한글, 영문, 숫자만 입력 가능합니다.');
+//            }
+//        }
+//    });
+//
+//    function addTag(tagText) {
+//        const tagElement = document.createElement('div');
+//        tagElement.classList.add('tag');
+//        tagElement.textContent = `#${tagText}`;
+//
+//        const removeButton = document.createElement('span');
+//        removeButton.textContent = '✖';
+//        removeButton.classList.add('remove-tag');
+//        removeButton.onclick = () => tagElement.remove();
+//
+//        tagElement.appendChild(removeButton);
+//        tagContainer.insertBefore(tagElement, tagInput);
+//    }
+
+
+//    const hashtagsInput = document.getElementById("hashtags");
+//            const hashtagsContainer = document.getElementById("hashtags-container");
+//            const hiddenHashtagsInput = document.getElementById("hashtags-hidden");
+//
+//            let hashtags = [];
+//
+//            function addHashtag(tag) {
+//                tag = tag.replace(/[\[\]]/g, '').trim();
+//                if(tag && !hashtags.includes(tag)) {
+//                    const span = document.createElement("span");
+//                    span.innerText = "#" + tag + " ";
+//                    span.classList.add("hashtag");
+//
+//                    const removeButton = document.createElement("button");
+//                    removeButton.innerText = "x";
+//                    removeButton.classList.add("remove-button");
+//                    removeButton.addEventListener("click", () => {
+//                        hashtagsContainer.removeChild(span);
+//                        hashtags = hashtags.filter((hashtag) => hashtag !== tag);
+//                        hiddenHashtagsInput.value = hashtags.join(",");
+//                    });
+//
+//                    span.appendChild(removeButton);
+//                    hashtagsContainer.appendChild(span);
+//                    hashtags.push(tag);
+//                    hiddenHashtagsInput.value = hashtags.join(",");
+//                }
+//            }
+//
+//            hashtagsInput.addEventListener("keydown", (event) => {
+//                if (event.key === 'Enter') {
+//                    event.preventDefault();
+//                    const tag = hashtagsInput.value.trim();
+//                    if (tag) {
+//                        addHashtag(tag);
+//                        hashtagsInput.value = "";
+//                    }
+//                }
+//            });
+//tagify 부분
+ document.addEventListener('DOMContentLoaded', function () {
+ // # 추가 안했을때
+//            var input = document.querySelector('.tag_input');
+//            var tagify = new Tagify(input);
+//
+//            // 태그 추가 이벤트
+//            tagify.on('add', function(event) {
+//                console.log('추가된 태그:', event.detail.data.value);
+//            });
+ // # 추가 후
+        var input = document.querySelector('.tag_input');
+
+            // Tagify 초기화 및 # 자동 추가 설정
+            var tagify = new Tagify(input, {
+                transformTag: function(tagData) {
+                    // 이미 #이 있으면 추가하지 않고, 없으면 # 추가
+                    if (!tagData.value.startsWith('#')) {
+                        tagData.value = '#' + tagData.value;
+                    }
+                    return tagData;
+                }
+            });
+
+            // 태그 추가 이벤트 확인
+            tagify.on('add', function(event) {
+                console.log('추가된 태그:', event.detail.data.value);
+            });
+        });
+
+//    var input = document.querySelector('.tag_input');
+//
+//    // 포커스 이벤트
+//    input.addEventListener('focus', function() {
+//        input.style.borderColor = '#15a775';
+//    });
+//
+//    // 포커스 해제 이벤트
+//    input.addEventListener('blur', function() {
+//        input.style.borderColor = '#e5e5e5';
+//    });
