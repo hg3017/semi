@@ -50,8 +50,6 @@
 //         .finally(()=> {
 //             hideLoading();
 //         });
-// }
-window.isLoggedIn = false;
 // login
 // 제대로 입력한 경우 로그인
 function emailLogin() {
