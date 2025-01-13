@@ -10,39 +10,39 @@
     <script src="/js/event.js"></script>
 </head>
 <body>
-    <main class="main_event" layout:fragment="content">
-        <form name="write" action="/event/write" method="post" enctype="multipart/form-data">
-            <fieldset>
-                <legend></legend>
-                <div class="form">
-                    <label>제목</label>
-                    <input name="event_name" type="text" placeholder="제목을 입력해 주세요" />
-                </div>
-                <div class="form poster">
-                    <label>메인 포스터</label>
-                    <input type="file" name="file_main_poster">
-                </div>
-                <div class="form poster">
-                    <label>포스터</label>
-                    <input type="file" name="file_poster">
-                </div>
+<main class="main_event" layout:fragment="content">
+    <form name="write" action="/event/write" method="post" enctype="multipart/form-data">
+        <fieldset>
+            <legend></legend>
+            <div class="form">
+                <label>제목</label>
+                <input name="event_name" type="text" placeholder="제목을 입력해 주세요" />
+            </div>
+            <div class="form poster">
+                <label>메인 포스터</label>
+                <input type="file" name="file_main_poster">
+            </div>
+            <div class="form poster">
+                <label>포스터</label>
+                <input type="file" name="file_poster">
+            </div>
 
-                <textarea name="desc_detail" id="eventEditor" data-editor></textarea>
-                <div class="form event_date">
-                    <div class="start">
-                        <label>이벤트 시작일</label>
-                        <input name="event_start" type="date"/>
-                    </div>
-                    <div class="end">
-                        <label>이벤트 종료일</label>
-                        <input name="event_end" type="date"/>
-                    </div>
+            <textarea name="desc_detail" id="eventEditor" data-editor></textarea>
+            <div class="form event_date">
+                <div class="start">
+                    <label>이벤트 시작일</label>
+                    <input name="event_start" type="date"/>
                 </div>
-                <div class="form submit">
-                    <button type="submit">등록하기</button>
+                <div class="end">
+                    <label>이벤트 종료일</label>
+                    <input name="event_end" type="date"/>
                 </div>
-            </fieldset>
-        </form>
-    </main>
+            </div>
+            <div class="form submit">
+                <button type="submit">등록하기</button>
+            </div>
+        </fieldset>
+    </form>
+</main>
 </body>
 </html>

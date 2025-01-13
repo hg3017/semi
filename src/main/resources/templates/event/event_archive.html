@@ -9,11 +9,13 @@
     <link rel="stylesheet" href="/css/event/event.css">
     <link rel="stylesheet" href="/css/recipeLab/archive_rep.css">
     <script src="/js/event.js"></script>
-    <script>
-        function confirmDelete() {
-            return confirm('정말로 삭제하시겠습니까?');
-        }
-    </script>
+<!--    <script>-->
+<!--        function confirmDelete() {-->
+<!--            return confirm('정말로 삭제하시겠습니까?');-->
+<!--        }-->
+
+<!--        console.log(document.querySelectorAll('.event_date'));-->
+<!--    </script>-->
 </head>
 <body>
 <main id="container_event" class="container" layout:fragment="content">
@@ -23,7 +25,9 @@
             <div class="title">
                 <div class="label_list">
                     <p class="event">이벤트</p>
-                    <p class="green">진헹중</p>
+                    <p class="event_date">
+                        <span data-start="2024-10-29" data-end="2024-10-30"></span>
+                    </p>
                 </div>
                 <h2 th:utext="${event.event_name}"></h2>
                 <p class="date">
