@@ -12,9 +12,9 @@ import java.util.Date;
 public class CookDTO {
     private int cook_id;
     private int board_id;
-    private String creater;
     private String cook_name;
-    private String cook_desc;
+    private String desc_detail;
+    private String creater;
     private Date CREATE_DATE;
     private Date MODIFY_DATE;
 }

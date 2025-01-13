@@ -18,10 +18,10 @@
     <div class="tap_wrap">
       <ul>
         <li th:class="${#strings.equals(state, 'cooking') ? 'on' : ''}">
-          <a href="/cooking/cooking" class="rec_btn">요리해요</a>
+          <a href="/cook/list" class="rec_btn">요리해요</a>
         </li>
         <li th:class="${#strings.equals(state, 'counseling') ? 'on' : ''}">
-          <a href="/cooking/counseling" class="solu_btn">고민있어요</a>
+          <a href="/cook/counseling" class="solu_btn">고민있어요</a>
         </li>
       </ul>
     </div>
