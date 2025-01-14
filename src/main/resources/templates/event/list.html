@@ -16,7 +16,10 @@
             <h2><img src="/images/il_txt.png" alt="">이벤트</h2>
             <div class="event_page">
                 <div class="filter">
-                    <button type="button" onclick="location.href='/event/write'" class="eventbt">글쓰기</button>
+                    <button type="button" th:if="${session.get('member_id') == 1}" class="eventbt"
+                            onclick="location.href='/event/write'">글쓰기</button>
+<!--                    <button type="button" class="eventbt"-->
+<!--                            onclick="location.href='/event/write'">글쓰기</button>-->
                     <ul>
                         <li class="li on"><a href="#">전체</a></li>
                         <li class="li"><a href="#">진행중</a></li>

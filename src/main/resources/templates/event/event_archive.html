@@ -9,13 +9,11 @@
     <link rel="stylesheet" href="/css/event/event.css">
     <link rel="stylesheet" href="/css/recipeLab/archive_rep.css">
     <script src="/js/event.js"></script>
-<!--    <script>-->
-<!--        function confirmDelete() {-->
-<!--            return confirm('정말로 삭제하시겠습니까?');-->
-<!--        }-->
-
-<!--        console.log(document.querySelectorAll('.event_date'));-->
-<!--    </script>-->
+    <script>
+        function confirmDelete() {
+            return confirm('정말로 삭제하시겠습니까?');
+        }
+    </script>
 </head>
 <body>
 <main id="container_event" class="container" layout:fragment="content">
@@ -26,7 +24,7 @@
                 <div class="label_list">
                     <p class="event">이벤트</p>
                     <p class="event_date">
-                        <span data-start="2024-10-29" data-end="2024-10-30"></span>
+                        <span th:data-start="${event.event_start}" th:data-end="${event.event_end}"></span>
                     </p>
                 </div>
                 <h2 th:utext="${event.event_name}"></h2>
@@ -35,8 +33,9 @@
                     ~
                     <span th:utext="${event.event_end}"></span>
                 </p>
-                <a th:href="@{'/event/edit/' + ${event.event_id}}">수정하기</a>
-                <a th:href="@{'/event/delete/' + ${event.event_id}}" onclick="return confirmDelete();">삭제하기</a>
+                <a th:href="@{'/event/edit/' + ${event.event_id}}" th:if="${session.get('member_id') == 1}">수정하기</a>
+                <a th:href="@{'/event/delete/' + ${event.event_id}}" onclick="return confirmDelete();"
+                   th:if="${session.get('member_id') == 1}">삭제하기</a>
             </div>
             <div class="img">
                 <img th:src="@{/event/uploads/{fileName}(fileName=${event.poster})}" alt="이미지" />
