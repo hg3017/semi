@@ -136,8 +136,8 @@
     justify-content: center;
     margin-bottom: 17px;
 }
-.event_archive .label_list .event {
-    margin: 0 5px;
+.event_archive .label_list p, .event_archive .label_list span {
+    /*margin: 0 5px;*/
     padding: 5px 9px;
     font-size: 14px;
     font-weight: 500;
@@ -147,18 +147,6 @@
     color: #fff;
     background: #15a775;
 }
-.event_archive .label_list .event_date {
-    margin: 0 5px;
-    padding: 5px 9px;
-    font-size: 14px;
-    font-weight: 500;
-    border-radius: 5px;
-}
-.event_archive .label_list .event_date {
-    color: #fff;
-    background: #15a775;
-}
-
 .event_date span.green {
     color: #15a775;
     background: #eff9ef;
