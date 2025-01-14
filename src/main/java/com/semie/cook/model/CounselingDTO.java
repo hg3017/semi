@@ -13,7 +13,6 @@ public class CounselingDTO {
     private int counseling_id;
     private int board_id;
     private String counseling_name;
-    private String desc_detail;
     private int creater;
     private Date create_date;
     private Date modify_date;

@@ -23,17 +23,26 @@
 
     <select id="selectAll" resultType="CookDTO">
         <include refid="page1" />
-        select * from cook
+        SELECT
+        co.COOK_ID
+        , co.BOARD_ID
+        , co.COOK_NAME
+        , co.DESC_DETAIL
+        , m.MEMBER_NAME AS CREATER_NAME
+        , co.CREATE_DATE
+        from cook co
+        INNER JOIN MEMBER m ON m.MEMBER_id=co.CREATER
         <include refid="page2" />
     </select>
     <insert id="insertCook" parameterType="CookDTO">
-        INSERT INTO COOK (COOK_ID, BOARD_ID, COOK_NAME, COOK_NAME_DESC, DESC_DETAIL)
+        INSERT INTO COOK (COOK_ID, BOARD_ID, COOK_NAME, DESC_DETAIL, CREATER, CREATE_DATE)
         VALUES(
             COOK_ID_SEQ.NEXTVAL,
             40,
             #{cook_name, jdbcType=VARCHAR},
-            #{cook_name_desc, jdbcType=VARCHAR},
-            #{desc_detail, jdbcType=VARCHAR}
+            #{desc_detail, jdbcType=VARCHAR},
+            #{creater, jdbcType=INTEGER},
+            SYSDATE
         )
     </insert>
 
