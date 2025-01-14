@@ -23,6 +23,13 @@
     border: solid 3px #e5e5e5;
     cursor: pointer;
 }
+.main_search .search-box .select::after {
+    content: "";
+    background-image: url(/images/common/ic_down.png);
+    background-repeat: no-repeat;
+    background-size: 1.5rem 1.5rem;
+    background-position: 100% 50%;
+}
 
 .main_search .search-box .select option {
     display: block;
@@ -361,9 +368,6 @@
     height: 10px;
     background: #b8b8b8;
     transform: translateY(-50%);
-}
-.sr_recipe .rep_area .time_wrap span:last-of-type::after {
-    display: none;
 }
 
 .sr_recipe .rep_item .scrap {

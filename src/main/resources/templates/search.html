@@ -93,11 +93,11 @@
             <ul class="time_wrap">
               <li>
                 <span>준비시간</span>
-                <span th:with="txt=${lab.preparation != null ? lab.preparation : '0'}" th:text="${txt + '분'}"></span>
+                <p th:with="txt=${lab.preparation != null ? lab.preparation : '0'}" th:text="${txt + '분'}"></p>
               </li>
               <li>
                 <span>조리시간</span>
-                <span th:with="txt=${lab.cookingtime != null ? lab.cookingtime : '0'}" th:text="${txt + '분'}"></span>
+                <p th:with="txt=${lab.cookingtime != null ? lab.cookingtime : '0'}" th:text="${txt + '분'}"></p>
               </li>
             </ul>
             <div class="scrap">스크랩</div>

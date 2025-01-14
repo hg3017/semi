@@ -23,7 +23,8 @@
             <div class="inner">
                 <span class="label">레시피</span>
                 <h3 th:text="${lab.lab_name}"></h3>
-                <p th:text="${lab.create_date}" class="date"></p>
+<!--                <p th:text="${lab.create_date}" class="date"></p>-->
+                <p th:text="${#dates.format(lab.create_date, 'yyyy.MM.dd')}" class="date"></p>
             </div>
         </div>
     </section>
