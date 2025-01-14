@@ -15,8 +15,9 @@ public class CookDTO {
     private String cook_name;
     private String desc_detail;
     private int creater;
-    private Date CREATE_DATE;
-    private Date MODIFY_DATE;
+    private String creater_name;
+    private String create_date;
+    private Date modify_date;
     private int cook_detail_id;
     private int cook_priority;
     private String cook_ingredient_name;

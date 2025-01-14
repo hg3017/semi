@@ -69,6 +69,7 @@ public class MemberController {
         if (user != null) {
             session.setAttribute("user", user); // 세션에 사용자 정보 저장
             session.setAttribute("member_id", user.getMember_id());
+            session.setAttribute("member_name", user.getMember_name());
             response.put("success", true);
             response.put("user", user);
 

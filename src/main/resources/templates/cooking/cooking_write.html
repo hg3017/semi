@@ -26,187 +26,186 @@
                     나만의 요리법, 재밌는 플레이팅, <br>요리 꿀팁 등 다양한 이야기를<br>
                     새미네부엌에서 함께 나눠 주세요!
                 </p>
-                <!--                <img src="/images/il_samie_pink.png">-->
             </div>
         </div>
     </section>
     <section class="cook_write_cont">
         <div class="inner">
-            <div class="write_txt_wrap">
-
-            </div>
-            <div class="form">
-                <p class="label">제목</p>
-                <input type="text" class="form_box" placeholder="제목을 입력해 주세요">
-                <div class="warning">제목을 입력해주세요.</div>
-            </div>
-            <div class="form">
-                <p class="label">작성방법</p>
-                <div class="detail_btn_box">
-                    <button type="button" class="btn_check_lg on">
-                        <i></i> 간단하게
-                    </button>
-                    <button type="button" class="btn_check_lg">
-                        <i></i> 자세하게
-                    </button>
-                </div>
-            </div>
-            <div class="form">
-                <p class="label">내용</p>
-                <textarea class="form_box" placeholder="내용을 입력해 주세요"></textarea>
-                <div class="warning">내용을 입력해주세요.</div>
-            </div>
-            <div class="form">
-                <p class="label">완성 이미지 (필수항목)</p>
-                <div class="file">
-                    <input type="text" class="form_box" placeholder="10MB 미만의 이미지를 업로드 해주세요" disabled="">
-                    <input type="hidden" name="imagesArr">
-                    <input type="file" id="formFile" name="images" required="" aria-required="true" accept="image/jpg,image/jpeg,image/gif,image/png" data-max-limit="10485760" aria-describedby="file-desc" data-url="/cooking/write/upload" class="a11y" style="display: none;">
-                    <label for="formFile1">파일첨부</label>
-                </div>
-                <ul class="file-list" id="done_img_list" style="display: none;">
-                </ul>
-            </div>
-            <div class="detail-form">
+            <form action="/cook/cooking_write" method="POST" enctype="multipart/form-data">
+                <input type="hidden" name="creater" th:value="${session.user.getMember_id()}">
                 <div class="form">
-                    <p class="label">인분 수/준비시간/조리시간</p>
-                    <div class="form-list">
-                        <div class="form-custom">
-                            <input type="number" class="form_box" name="inbun" placeholder="인분 수">
-                            <span class="unit">인분</span>
-                        </div>
-                        <div class="form-custom">
-                            <input type="number" class="form_box" name="readytime" placeholder="준비시간" >
-                            <span class="unit">분</span>
-                        </div>
-                        <div class="form-custom">
-                            <input type="number" class="form_box" name="cooktime" placeholder="조리시간">
-                            <span class="unit">분</span>
-                        </div>
+                    <p class="label">제목</p>
+                    <input name="cook_name" type="text" class="form_box" placeholder="제목을 입력해 주세요">
+                    <div class="warning">제목을 입력해주세요.</div>
+                </div>
+                <div class="form">
+                    <p class="label">작성방법</p>
+                    <div class="detail_btn_box">
+                        <button type="button" class="btn_check_lg on">
+                            <i></i> 간단하게
+                        </button>
+                        <button type="button" class="btn_check_lg">
+                            <i></i> 자세하게
+                        </button>
                     </div>
                 </div>
                 <div class="form">
-                    <p class="label">재료</p>
-                    <div class="form-box">
-                        <div class="form">
-                            <p class="label">주재료</p>
-                            <div class="form-list">
-                                <div class="input_wrap">
-                                    <input type="text" class="form_box" name="main_mat" placeholder="예) 생닭 1마리(600g)" required="">
+                    <p class="label">내용</p>
+                    <textarea class="form_box" name="desc_detail" placeholder="내용을 입력해 주세요"></textarea>
+                    <div class="warning">내용을 입력해주세요.</div>
+                </div>
+<!--                <div class="form">-->
+<!--                    <p class="label">완성 이미지 (필수항목)</p>-->
+<!--                    <div class="file">-->
+<!--                        <input type="text" class="form_box" placeholder="10MB 미만의 이미지를 업로드 해주세요" disabled="">-->
+<!--                        <input type="hidden" name="imagesArr">-->
+<!--                        <input type="file poster" id="formFile" name="file_poster" required="" aria-required="true" accept="image/jpg,image/jpeg,image/gif,image/png" data-max-limit="10485760" aria-describedby="file-desc" data-url="/cooking/write/upload" class="a11y" style="display: none;">-->
+<!--                        <label for="formFile1">파일첨부</label>-->
+<!--                    </div>-->
+<!--                    <ul class="file-list" id="done_img_list" style="display: none;">-->
+<!--                    </ul>-->
+<!--                </div>-->
+                <div class="detail-form">
+                    <div class="form">
+                        <p class="label">인분 수/준비시간/조리시간</p>
+                        <div class="form-list">
+                            <div class="form-custom">
+                                <input type="number" class="form_box" name="inbun" placeholder="인분 수">
+                                <span class="unit">인분</span>
+                            </div>
+                            <div class="form-custom">
+                                <input type="number" class="form_box" name="readytime" placeholder="준비시간" >
+                                <span class="unit">분</span>
+                            </div>
+                            <div class="form-custom">
+                                <input type="number" class="form_box" name="cooktime" placeholder="조리시간">
+                                <span class="unit">분</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form">
+                        <p class="label">재료</p>
+                        <div class="form-box">
+                            <div class="form">
+                                <p class="label">주재료</p>
+                                <div class="form-list">
+                                    <div class="input_wrap">
+                                        <input type="text" class="form_box" name="main_mat" placeholder="예) 생닭 1마리(600g)">
+                                    </div>
+                                    <div class="btn-wrap">
+                                        <button type="button" class="add">+</button>
+                                    </div>
                                 </div>
-                                <div class="btn-wrap">
-                                    <button type="button" class="add">+</button>
+                            </div>
+                        </div>
+                        <div class="form-box">
+                            <div class="form">
+                                <p class="label">부재료</p>
+                                <div class="form-list">
+                                    <div class="input_wrap">
+                                        <input type="text" class="form_box" name="sub_mat" placeholder="예) 감자 1개(100g)">
+                                    </div>
+                                    <div class="btn-wrap">
+                                        <button type="button" class="add">+</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-box">
+                            <div class="form">
+                                <p class="label">양념</p>
+                                <div class="form-list">
+                                    <div class="input_wrap">
+                                        <input type="text" class="form_box" name="sauce" placeholder="예) 새미네부엌 진간장(10ml)">
+                                    </div>
+                                    <div class="btn-wrap">
+                                        <button type="button" class="add">+</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="form-box">
-                        <div class="form">
-                            <p class="label">부재료</p>
-                            <div class="form-list">
-                                <div class="input_wrap">
-                                    <input type="text" class="form_box" name="sub_mat" placeholder="예) 감자 1개(100g)">
-                                </div>
-                                <div class="btn-wrap">
-                                    <button type="button" class="add">+</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-box">
-                        <div class="form">
-                            <p class="label">양념</p>
-                            <div class="form-list">
-                                <div class="input_wrap">
-                                    <input type="text" class="form_box" name="sauce" placeholder="예) 새미네부엌 진간장(10ml)">
-                                </div>
-                                <div class="btn-wrap">
-                                    <button type="button" class="add">+</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="form">
-                    <p class="qa">
-                        단계별 레시피
-                        <img src="/images/common/ic_qa.png" class="on">
-                        <span class="tooltip">
+                    <div class="form">
+                        <p class="qa">
+                            단계별 레시피
+                            <img src="/images/common/ic_qa.png" class="on">
+                            <span class="tooltip">
                         자세하게 작성 시 단계는 최소 1개 이상 작성해야 하며,<br>
                         이미지는 선택 항목입니다.
                         <button type="button" class="close_btn">×</button>
                         </span>
-                    </p>
-                    <input type="hidden" name="stepCnt" value="0">
-                    <div class="form-step">
-                        <p class="label text-point">
-                            Step.1
                         </p>
-                        <div class="form-box line">
-                            <div class="form">
-                                <p class="label">이미지</p>
-                                <div class="file">
-                                    <input type="text" class="form_box" placeholder="10MB 미만의 이미지를 업로드 해주세요" disabled="">
-                                    <input type="hidden" name="stepImage1Arr">
-                                    <input type="file" id="formFile1" name="stepImage1" required="" aria-required="true" accept="image/jpg,image/jpeg,image/gif,image/png" data-max-limit="10485760" aria-describedby="file-desc" data-url="/cooking/write/upload/step1" class="a11y" style="display: none;">
-                                    <label for="formFile1">파일첨부</label>
-                                </div>
-                                <ul class="file-list" style="display: none;">
-                                </ul>
-                            </div>
-                            <div class="form">
-                                <p class="label">제목</p>
-                                <input type="text" maxlength="250" class="form_box" name="stepTitle1" placeholder="제목을 입력해주세요" required="">
-                            </div>
-                            <div class="form">
-                                <p class="label">내용</p>
-                                <input type="text" maxlength="250" class="form_box" name="stepSubject1" placeholder="내용을 입력해주세요" required="">
-                            </div>
-                            <div class="form" id="stepTipList1">
-                                <p class="label">요리팁</p>
-                                <div class="form-list">
-                                    <div class="input_wrap">
-                                        <input type="text" class="form_box" name="stepTips1" placeholder="예) 입맞에 따라 청양고추를 추가하세요">
+                        <input type="hidden" name="stepCnt" value="0">
+                        <div class="form-step">
+                            <p class="label text-point">
+                                Step.1
+                            </p>
+                            <div class="form-box line">
+                                <div class="form">
+                                    <p class="label">이미지</p>
+                                    <div class="file">
+                                        <input type="text" class="form_box" placeholder="10MB 미만의 이미지를 업로드 해주세요" disabled="">
+                                        <input type="hidden" name="stepImage1Arr">
+                                        <input type="file" id="formFile1" name="stepImage1" accept="image/jpg,image/jpeg,image/gif,image/png" data-max-limit="10485760" aria-describedby="file-desc" data-url="/cooking/write/upload/step1" class="a11y">
+                                        <label for="formFile1">파일첨부</label>
                                     </div>
-                                    <div class="btn-wrap">
-                                        <button type="button" class="add">+</button>
-                                        <button type="button" class="del">-</button>
+                                    <ul class="file-list" style="display: none;">
+                                    </ul>
+                                </div>
+                                <div class="form">
+                                    <p class="label">제목</p>
+                                    <input type="text" maxlength="250" class="form_box" name="stepTitle1" placeholder="제목을 입력해주세요">
+                                </div>
+                                <div class="form">
+                                    <p class="label">내용</p>
+                                    <input type="text" maxlength="250" class="form_box" name="stepSubject1" placeholder="내용을 입력해주세요">
+                                </div>
+                                <div class="form" id="stepTipList1">
+                                    <p class="label">요리팁</p>
+                                    <div class="form-list">
+                                        <div class="input_wrap">
+                                            <input type="text" class="form_box" name="stepTips1" placeholder="예) 입맞에 따라 청양고추를 추가하세요">
+                                        </div>
+                                        <div class="btn-wrap">
+                                            <button type="button" class="add">+</button>
+                                            <button type="button" class="del">-</button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <div class="btn_step_wrap">
+                        <div class="btn_step" id="removeStep">단계삭제 ―</div>
+                        <div class="btn_step" id="addStep">단계추가 +</div>
+                    </div>
                 </div>
-                <div class="btn_step_wrap">
-                    <div class="btn_step" id="removeStep">단계삭제 ―</div>
-                    <div class="btn_step" id="addStep">단계추가 +</div>
-                </div>
-            </div>
-            <div class="form">
-                <p class="qa">
-                    핵심 키워드 (필수입력)
-                    <img src="/images/common/ic_qa.png" class="on">
-                    <span class="tooltip">
+                <div class="form">
+                    <p class="qa">
+                        핵심 키워드 (필수입력)
+                        <img src="/images/common/ic_qa.png" class="on">
+                        <span class="tooltip">
                         핵심 키워드와 유사한 해시태그를 가진 <br>
                         레시피/솔루션 콘텐츠를 추천해 드려요!
                         <button type="button" class="close_btn">×</button>
                     </span>
-                </p>
-                <span class="la">* 한글, 영문, 숫자만 입력 가능해요</span>
-                <input type="text" class="form_box" name="point_keyword" placeholder="핵심키워드를 입력해주세요">
-                <div class="warning">핵심키워드를 입력해주세요.</div>
-            </div>
-            <div class="form">
-                <p class="label">
-                    태그 (선택입력)
-                </p>
-                <span>* 한글, 영문, 숫자만 입력 가능해요</span>
-                <input class="tag_input" placeholder="태그를 입력하고 쉼표(,) 또는 enter 키를 입력 해주세요">
-            </div>
-            <div id="box_wrap" class="btn_box">
-                <a href="#" class="clear_btn">취소</a>
-                <button type="submit" class="write_btn">작성하기</button>
-            </div>
+                    </p>
+                    <span class="la">* 한글, 영문, 숫자만 입력 가능해요</span>
+                    <input type="text" class="form_box" name="point_keyword" placeholder="핵심키워드를 입력해주세요">
+                    <div class="warning">핵심키워드를 입력해주세요.</div>
+                </div>
+                <div class="form">
+                    <p class="label">
+                        태그 (선택입력)
+                    </p>
+                    <span>* 한글, 영문, 숫자만 입력 가능해요</span>
+                    <input class="tag_input" placeholder="태그를 입력하고 쉼표(,) 또는 enter 키를 입력 해주세요">
+                </div>
+                <div id="box_wrap" class="btn_box">
+                    <a href="/cook/list" class="clear_btn">취소</a>
+                    <button type="submit" class="write_btn">작성하기</button>
+                </div>
+            </form>
         </div>
     </section>
 </main>

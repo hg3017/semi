@@ -59,9 +59,20 @@ public class CookController {
     }
     @PostMapping("/cooking_write")
     public String cooking_write(@ModelAttribute CookDTO cdto) {
+        System.out.println(cdto);
         cookService.insertCook(cdto);
         System.out.println("recipeLab/cooking_write-----------------------------------------------");
-        return "redirect:/cooking/cooking_write";
+        //포스터 업로드
+//        List<FileVO> posterList = fileStorage.uploadFiles(poster,"upload/");
+//        cdto.setPoster(posterList.get(0).getNfile());
+
+        //글쓰기
+//        int re = cookService.insertCook(cdto);
+//        if(re > 0) {
+//        }else {
+//            return "redirect:/cook/cooking_write";
+//        }
+        return "redirect:/cook/list";
     }
 
     //고민있어요 작성하기
