@@ -66,12 +66,6 @@ public class CookController {
         System.out.println(cdto);
         System.out.println("recipeLab/cooking_write-----------------------------------------------");
 
-        // 2. 파일 업로드 처리: imageDto에 파일이 존재하면 파일을 업로드하고, 경로를 DTO에 저장
-//        if (imageDto.getFile() != null && !imageDto.getFile().isEmpty()) {
-//            // 파일 업로드 처리 (이미지 저장)
-////            fileStorage.uploadFiles( imageDto.getFiles(), "upload/");
-//            imageService.insertImage(imageDto);
-//        }
         List<FileVO> fileList =fileStorage.uploadFiles(file_path, "upload/");
         imageDto.setFile_path(fileList.get(0).getNfile());
 
@@ -87,12 +81,12 @@ public class CookController {
     }
     @PostMapping ("/counseling_write")
     public String counselingWrite(@ModelAttribute CounselingDTO dto, @RequestParam("poster") MultipartFile[] poster) {
-//        cookService.insertCounsel(dto);
+        cookService.insertCounsel(dto);
         System.out.println("cooking/counseling_write-----------------------------------------------");
 //
 //        //포스터 업로드
-//        List<FileVO> posterList = fileStorage.uploadFiles(poster,"upload/");
-//        dto.setPoster(posterList.get(0).getNfile());
+        List<FileVO> posterList = fileStorage.uploadFiles(poster,"upload/");
+        dto.setPoster(posterList.get(0).getNfile());
 //
 //        //글쓰기
 //        int re = cookService.insertCounsel(dto);
