@@ -97,6 +97,7 @@ loadPage();
 const shareButton = document.querySelector('.share');
 const shareList = document.querySelector('.share_btn');
 const closeButton = document.querySelector('.close button');
+const copyClipButton = document.querySelector('.copy_clip_btn'); // URL 복사 버튼
 
 if (shareButton && shareList) {
   shareButton.addEventListener("click", function () {
@@ -111,6 +112,35 @@ if (shareButton && shareList) {
     });
   }
 }
+
+// URL 복사 버튼 클릭 이벤트
+if (copyClipButton) {
+  copyClipButton.addEventListener("click", function () {
+    const currentUrl = window.location.href; // 현재 페이지의 URL
+
+    // navigator.clipboard가 존재하면 사용하고, 그렇지 않으면 execCommand를 사용
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(currentUrl).then(function() {
+        alert("URL이 복사되었습니다!");
+      }).catch(function(err) {
+        console.error("URL 복사 실패:", err);
+        alert("URL 복사에 실패했습니다.");
+      });
+    } else {
+      // execCommand를 사용한 대체 복사
+      const textArea = document.createElement("textarea");
+      textArea.value = currentUrl;
+      document.body.appendChild(textArea);
+      textArea.select();
+      document.execCommand("copy");
+      document.body.removeChild(textArea);
+      alert("URL이 복사되었습니다!");
+    }
+  });
+}
+
+
+
 
 // 로그아웃 버튼 이벤트 추가
 const logoutButton = document.querySelector('.logout'); // 로그아웃 버튼 선택자
