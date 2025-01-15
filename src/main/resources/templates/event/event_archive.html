@@ -33,9 +33,12 @@
                     ~
                     <span th:utext="${event.event_end}"></span>
                 </p>
-                <a th:href="@{'/event/edit/' + ${event.event_id}}" th:if="${session.get('member_id') == 1}">수정하기</a>
+                <!-- admin으로 로그인 시 수정 가능 -->
+                <a th:href="@{'/event/edit/' + ${event.event_id}}"
+                   th:if="${session.user != null and session.user.getMember_id() == 1}">수정하기</a>
+                <!-- admin으로 로그인 시 삭제 가능 -->
                 <a th:href="@{'/event/delete/' + ${event.event_id}}" onclick="return confirmDelete();"
-                   th:if="${session.get('member_id') == 1}">삭제하기</a>
+                   th:if="${session.user != null and session.user.getMember_id() == 1}">삭제하기</a>
             </div>
             <div class="img">
                 <img th:src="@{/event/uploads/{fileName}(fileName=${event.poster})}" alt="이미지" />
