@@ -118,7 +118,7 @@
     background: transparent;
 }
 
-.detail_control .share_wrap .share_btn li:not(.close) a {
+.detail_control .share_wrap .share_btn li:not(.close) button {
     display: inline-flex;
     flex-flow: column;
     justify-content: center;
@@ -128,11 +128,11 @@
     background-color: #f9f9f9;
 }
 
-.detail_control .share_wrap .share_btn li:not(.close) a img {
+.detail_control .share_wrap .share_btn li:not(.close) button img {
     max-width: 100%;
 }
 
-.detail_control .share_wrap .share_btn li:not(.close) a span {
+.detail_control .share_wrap .share_btn li:not(.close) button span {
     color: #666;
     font-size: 14px;
     font-weight: 500;
