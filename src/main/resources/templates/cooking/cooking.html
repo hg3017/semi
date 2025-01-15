@@ -8,6 +8,9 @@
   <title>Cooking</title>
   <link rel="stylesheet" href="/css/cooking/cooking.css">
   <script src="/js/recipe.js"></script>
+  <!--    tagify-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@yaireo/tagify/dist/tagify.css">
+  <script src="https://cdn.jsdelivr.net/npm/@yaireo/tagify"></script>
 </head>
 <body>
 <main id="lab_container" class="container" layout:fragment="content">
@@ -187,8 +190,8 @@
                   <img src="/images/cook4.jpg" alt="">
                 </div>
                 <div class="info_wrap">
-                  <span class="name">요리가좋아</span>
-                  <span class="date">2024.12.01 10:31</span>
+                  <span class="name" th:text="${cook.creater_name}"></span>
+                  <span class="date" th:text="${cook.create_date}"></span>
                 </div>
                 <div class="txt_wrap">
                   <h4 th:text="${cook.cook_name}"></h4>

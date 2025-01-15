@@ -168,56 +168,6 @@ window.addEventListener('DOMContentLoaded', function () {
         }
       });
 
-    // 기본 요소들 선택
-    // const wrapper = ''; // 입력 필드를 포함하는 컨테이너 선택
-    // const addButtons = document.querySelectorAll('.btn-wrap .add'); // 추가 버튼 선택
-    // const maxFields = 10; // 최대 입력 필드 수 설정
-    // let fieldCount = 1; // 현재 입력 필드 수
-
-    // '추가하기' 버튼 클릭 시 이벤트
-    // if (addButtons) {
-    //     addButtons.forEach(addButton => {
-    //         addButton.addEventListener('click', function(e) {
-    //             e.preventDefault(); // 페이지 리로드 방지
-    //             if (fieldCount <= maxFields) { // 최대 필드 수 체크
-    //                 fieldCount++; // 필드 수 증가
-    //                 // 새 입력 필드 추가
-    //                 const newField = document.createElement('div');
-    //                 newField.classList.add('input_list');
-
-    //                 newField.innerHTML = `
-    //                 <input type="text" class="form_box" name="main_mat[]" placeholder="예) 생닭 1마리(600g)" required />
-    //                 <a href="javascript:void(0);" class="remove_field">-</a>
-    //             `;
-
-    //                 // 필드를 wrapper에 추가
-    //                 const wrapper = this.closest('.form-list').querySelector('.input_wrap');
-    //                 wrapper.appendChild(newField);
-    //             } else {
-    //                 alert('최대 입력 필드를 초과할 수 없습니다.');
-    //             }
-    //         });
-    //     });
-    // }
-
-    // 추가한 필드 삭제하기
-    // const removeFields = document.querySelectorAll('.input_wrap');
-    // if (removeFields) {
-    //   removeFields.forEach((field) => {
-    //     field.addEventListener('click', function (e) {
-    //       if (e.target && e.target.classList.contains('remove_field')) {
-    //         e.preventDefault();
-    //         fieldCount--;
-    //         //해당 필드 삭제
-    //         const fieldToRemove = e.target.closest('.input_list');
-    //         if (fieldToRemove) {
-    //           fieldToRemove.remove(); // 해당 필드 삭제
-    //         }
-    //       }
-    //     });
-    //   });
-    // }
-
     //요리해요 (작성하기 step 카운트)
     //단계 카운터 초기화
     let stepCount = 1;
@@ -314,97 +264,6 @@ function removeStepTipList(event, button) {
     inputWrap.remove();
   }
 }
-
-// // 태그 입력 필드 선택 및 Tagify 초기화
-//    const input = document.querySelector('.form_box.tags');
-//    const tagify = new Tagify(input, {
-//        delimiters: ",| ",  // 쉼표와 스페이스로 구분
-//        pattern: /^[가-힣a-zA-Z0-9]+$/,  // 한글, 영문, 숫자만 허용
-//        placeholder: "태그를 입력하고 쉼표(,) 또는 enter 키를 입력 해주세요"
-//    });
-//
-//    // 이벤트 핸들링 (태그 추가 시)
-//    tagify.on('add', function(e){
-//        console.log("추가된 태그:", e.detail.data.value);
-//    });
-//
-//    // 태그 삭제 이벤트
-//    tagify.on('remove', function(e){
-//        console.log("삭제된 태그:", e.detail.data.value);
-//    });
-
-
-
-//    const tagInput = document.getElementById('tagInput');
-//    const tagContainer = document.getElementById('tagContainer');
-//
-//    tagInput.addEventListener('keypress', function (event) {
-//        if (event.key === 'Enter') {
-//            event.preventDefault();
-//            const tagText = tagInput.value.trim();
-//            if (tagText && /^[가-힣a-zA-Z0-9]+$/.test(tagText)) {
-//                addTag(tagText);
-//                tagInput.value = '';
-//            } else {
-//                alert('한글, 영문, 숫자만 입력 가능합니다.');
-//            }
-//        }
-//    });
-//
-//    function addTag(tagText) {
-//        const tagElement = document.createElement('div');
-//        tagElement.classList.add('tag');
-//        tagElement.textContent = `#${tagText}`;
-//
-//        const removeButton = document.createElement('span');
-//        removeButton.textContent = '✖';
-//        removeButton.classList.add('remove-tag');
-//        removeButton.onclick = () => tagElement.remove();
-//
-//        tagElement.appendChild(removeButton);
-//        tagContainer.insertBefore(tagElement, tagInput);
-//    }
-
-
-//    const hashtagsInput = document.getElementById("hashtags");
-//            const hashtagsContainer = document.getElementById("hashtags-container");
-//            const hiddenHashtagsInput = document.getElementById("hashtags-hidden");
-//
-//            let hashtags = [];
-//
-//            function addHashtag(tag) {
-//                tag = tag.replace(/[\[\]]/g, '').trim();
-//                if(tag && !hashtags.includes(tag)) {
-//                    const span = document.createElement("span");
-//                    span.innerText = "#" + tag + " ";
-//                    span.classList.add("hashtag");
-//
-//                    const removeButton = document.createElement("button");
-//                    removeButton.innerText = "x";
-//                    removeButton.classList.add("remove-button");
-//                    removeButton.addEventListener("click", () => {
-//                        hashtagsContainer.removeChild(span);
-//                        hashtags = hashtags.filter((hashtag) => hashtag !== tag);
-//                        hiddenHashtagsInput.value = hashtags.join(",");
-//                    });
-//
-//                    span.appendChild(removeButton);
-//                    hashtagsContainer.appendChild(span);
-//                    hashtags.push(tag);
-//                    hiddenHashtagsInput.value = hashtags.join(",");
-//                }
-//            }
-//
-//            hashtagsInput.addEventListener("keydown", (event) => {
-//                if (event.key === 'Enter') {
-//                    event.preventDefault();
-//                    const tag = hashtagsInput.value.trim();
-//                    if (tag) {
-//                        addHashtag(tag);
-//                        hashtagsInput.value = "";
-//                    }
-//                }
-//            });
 //tagify 부분
  document.addEventListener('DOMContentLoaded', function () {
  // # 추가 안했을때
@@ -434,7 +293,7 @@ function removeStepTipList(event, button) {
                 console.log('추가된 태그:', event.detail.data.value);
             });
         });
-
+// 클릭시 색상
 //    var input = document.querySelector('.tag_input');
 //
 //    // 포커스 이벤트
