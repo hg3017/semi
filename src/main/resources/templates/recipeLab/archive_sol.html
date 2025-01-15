@@ -23,7 +23,7 @@
                 <div class="inner">
                     <span class="label">솔루션</span>
                     <h3 th:text="${sol.solution_name}"></h3>
-<!--                    <p th:text="${sol.create_date}" class="date"></p>-->
+                    <!-- date 타입 날짜형식 포맷-->
                     <p th:text="${#dates.format(sol.create_date, 'yyyy.MM.dd')}" class="date"></p>
                 </div>
             </div>
