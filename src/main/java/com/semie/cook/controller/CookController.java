@@ -5,7 +5,9 @@ import com.semie.cook.common.FileVO;
 import com.semie.cook.common.Pagination;
 import com.semie.cook.model.CookDTO;
 import com.semie.cook.model.CounselingDTO;
+import com.semie.cook.model.ImageDTO;
 import com.semie.cook.service.CookService;
+import com.semie.cook.service.ImageService;
 import com.semie.cook.service.MemberService;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
@@ -26,6 +28,7 @@ public class CookController {
     private final CookService cookService;
     private final MemberService memberService;
     private final FileStorage fileStorage;
+    private final ImageService imageService;
 
     @GetMapping("/list")
     public String list(HttpServletRequest request, @RequestParam(defaultValue = "1") int pageNum, Model model) {
@@ -57,21 +60,24 @@ public class CookController {
     public String cooking_write() {
         return "/cooking/cooking_write";
     }
-    @PostMapping("/cooking_write")
-    public String cooking_write(@ModelAttribute CookDTO cdto) {
-        System.out.println(cdto);
-        cookService.insertCook(cdto);
-        System.out.println("recipeLab/cooking_write-----------------------------------------------");
-        //포스터 업로드
-//        List<FileVO> posterList = fileStorage.uploadFiles(poster,"upload/");
-//        cdto.setPoster(posterList.get(0).getNfile());
 
-        //글쓰기
-//        int re = cookService.insertCook(cdto);
-//        if(re > 0) {
-//        }else {
-//            return "redirect:/cook/cooking_write";
+    @PostMapping("/cooking_write")
+    public String cooking_write(@ModelAttribute CookDTO cdto, @ModelAttribute ImageDTO imageDto,@RequestParam("file") MultipartFile[] file_path, Model model) {
+        System.out.println(cdto);
+        System.out.println("recipeLab/cooking_write-----------------------------------------------");
+
+        // 2. 파일 업로드 처리: imageDto에 파일이 존재하면 파일을 업로드하고, 경로를 DTO에 저장
+//        if (imageDto.getFile() != null && !imageDto.getFile().isEmpty()) {
+//            // 파일 업로드 처리 (이미지 저장)
+////            fileStorage.uploadFiles( imageDto.getFiles(), "upload/");
+//            imageService.insertImage(imageDto);
 //        }
+        List<FileVO> fileList =fileStorage.uploadFiles(file_path, "upload/");
+        imageDto.setFile_path(fileList.get(0).getNfile());
+
+        cookService.insertCook(cdto);
+        imageService.insertImage(imageDto);
+
         return "redirect:/cook/list";
     }
 
