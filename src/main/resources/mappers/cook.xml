@@ -46,5 +46,13 @@
             #{post, jdbcType=VARCHAR}
         )
     </insert>
+    <insert id="insertImage" parameterType="ImageDTO">
+        INSERT INTO IMAGE (IMG_LIST_ID, BOARD_ID, FILE_PATH)
+        VALUES (
+        IMG_LIST_ID_SEQ.NEXTVAL, <!-- 이미지 ID 자동 생성 -->
+        #{board_id, jdbcType=INTEGER}, <!-- CookDTO와 동일한 BOARD_ID 사용 -->
+        #{file_path, jdbcType=VARCHAR}
+        )
+    </insert>
 
 </mapper>
