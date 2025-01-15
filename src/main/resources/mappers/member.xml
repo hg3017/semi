@@ -24,8 +24,8 @@
     </update>
 
     <insert id="createComment" parameterType="CommentDTO">
-        INSERT INTO MEMBER_COMMENT (COMMENT_ID, BOARD_ID, COMMENT_BOARD_ID, COMMENT_POST_ID, DESC_DETAIL, CREATER, CREATE_DATE)
-        VALUES (COMMENT_ID_SEQ.NEXTVAL, 91, #{comment_board_id, jdbcType=INTEGER}, #{comment_post_id, jdbcType=INTEGER}, #{desc_detail, jdbcType=VARCHAR}, #{creater, jdbcType=INTEGER}, SYSDATE)
+        INSERT INTO MEMBER_COMMENT (COMMENT_ID, BOARD_ID, COMMENT_BOARD_ID, COMMENT_POST_ID, DESC_DETAIL, CREATER, CREATE_DATE, PARENT_COMMENT_ID)
+        VALUES (COMMENT_ID_SEQ.NEXTVAL, 91, #{comment_board_id, jdbcType=INTEGER}, #{comment_post_id, jdbcType=INTEGER}, #{desc_detail, jdbcType=VARCHAR}, #{creater, jdbcType=INTEGER}, SYSDATE, #{parent_comment_id, jdbcType=INTEGER})
     </insert>
 
     <update id="modifyComment">
@@ -42,6 +42,7 @@
             MC.COMMENT_BOARD_ID,
             MC.COMMENT_POST_ID,
             MC.DESC_DETAIL,
+            MC.PARENT_COMMENT_ID,
             M.MEMBER_NAME ,
             il.FILE_PATH AS profile_img,
             MC.CREATE_DATE
