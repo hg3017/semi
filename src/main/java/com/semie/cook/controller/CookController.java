@@ -58,13 +58,13 @@ public class CookController {
         return "/cooking/cooking_write";
     }
     @PostMapping("/cooking_write")
-    public String cooking_write(@ModelAttribute CookDTO cdto) {
+    public String cooking_write(@ModelAttribute CookDTO cdto, @RequestParam("file_poster") MultipartFile[] poster) {
         System.out.println(cdto);
         cookService.insertCook(cdto);
         System.out.println("recipeLab/cooking_write-----------------------------------------------");
         //포스터 업로드
-//        List<FileVO> posterList = fileStorage.uploadFiles(poster,"upload/");
-//        cdto.setPoster(posterList.get(0).getNfile());
+        List<FileVO> posterList = fileStorage.uploadFiles(poster,"upload/");
+        cdto.setPoster(posterList.get(0).getNfile());
 
         //글쓰기
 //        int re = cookService.insertCook(cdto);
@@ -85,8 +85,8 @@ public class CookController {
         System.out.println("cooking/counseling_write-----------------------------------------------");
 //
 //        //포스터 업로드
-//        List<FileVO> posterList = fileStorage.uploadFiles(poster,"upload/");
-//        dto.setPoster(posterList.get(0).getNfile());
+        List<FileVO> posterList = fileStorage.uploadFiles(poster,"upload/");
+        dto.setPoster(posterList.get(0).getNfile());
 //
 //        //글쓰기
 //        int re = cookService.insertCounsel(dto);

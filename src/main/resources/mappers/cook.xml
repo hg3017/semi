@@ -35,7 +35,7 @@
         <include refid="page2" />
     </select>
     <insert id="insertCook" parameterType="CookDTO">
-        INSERT INTO COOK (COOK_ID, BOARD_ID, COOK_NAME, DESC_DETAIL, CREATER, CREATE_DATE)
+        INSERT INTO COOK (COOK_ID, BOARD_ID, COOK_NAME, DESC_DETAIL, CREATER, CREATE_DATE, POST)
         VALUES(
             COOK_ID_SEQ.NEXTVAL,
             40,
@@ -43,9 +43,8 @@
             #{desc_detail, jdbcType=VARCHAR},
             #{creater, jdbcType=INTEGER},
             SYSDATE
+            #{post, jdbcType=VARCHAR}
         )
     </insert>
-
-
 
 </mapper>
