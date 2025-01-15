@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.semie.cook.mapper.RecipeLabMapper">
-<!--    페이징-->
+    <!--    페이징-->
     <sql id="page1">
         WITH QDATA AS (
     </sql>
@@ -10,13 +10,13 @@
         )
         SELECT xx.*
         FROM (
-                 SELECT /*+ALL_ROWS*/ ROW_NUMBER() OVER(ORDER BY yy.lab_id ASC) rn
-                      , yy.*
-                 FROM QDATA yy
-             ) xx
+        SELECT /*+ALL_ROWS*/ ROW_NUMBER() OVER(ORDER BY yy.lab_id ASC) rn
+        , yy.*
+        FROM QDATA yy
+        ) xx
         WHERE rn BETWEEN #{start} AND #{end}
     </sql>
-<!--    리스트-->
+    <!--    리스트-->
     <select id="selectAll" parameterType="com.semie.cook.common.Pagination" resultType="RecipeLabDTO">
         <include refid="page1" />
         SELECT DISTINCT
@@ -49,74 +49,74 @@
     <select id="totalLab" resultType="int">
         select count(*) from lab
     </select>
-<!--    레시피 상세-->
+    <!--    레시피 상세-->
     <select id="selectById" resultType="RecipeLabDTO">
         SELECT a.*
         FROM (
-                 SELECT
-                     l.*,
-                     DECODE(i.img_priority, 1, i.file_path) AS poster,
-                     LISTAGG(distinct
-                             CASE
-                                 WHEN i.img_priority != 1
-                                     THEN i.file_path
-                                 END, ',') WITHIN GROUP (ORDER BY i.img_priority)
-                             OVER (PARTITION BY i.post_id) AS files
-                 FROM lab l
-                          inner JOIN img_list i
-                                     ON l.lab_id = i.post_ID
-                                         AND l.board_id = i.board_id
-                 where l.lab_id = #{lab_id}
-                 order by l.lab_id DESC
-             ) a
+        SELECT
+        l.*,
+        DECODE(i.img_priority, 1, i.file_path) AS poster,
+        LISTAGG(distinct
+        CASE
+        WHEN i.img_priority != 1
+        THEN i.file_path
+        END, ',') WITHIN GROUP (ORDER BY i.img_priority)
+        OVER (PARTITION BY i.post_id) AS files
+        FROM lab l
+        inner JOIN img_list i
+        ON l.lab_id = i.post_ID
+        AND l.board_id = i.board_id
+        where l.lab_id = #{lab_id}
+        order by l.lab_id DESC
+        ) a
         WHERE a.poster IS NOT NULL
     </select>
     <select id="selectIngredientById" resultType="hashMap">
         SELECT DISTINCT LAB_PRIORITY
-                      , LAB_INGREDIENT_NAME
-                      , SERVINGS
-                      , PREPARATION
-                      , COOKINGTIME
-                      , LISTAGG(LAB_INGREDIENT_DETAIL, ',') WITHIN GROUP (ORDER BY LAB_PRIORITY)
-                                OVER (PARTITION BY LAB_PRIORITY) AS COOKS
+        , LAB_INGREDIENT_NAME
+        , SERVINGS
+        , PREPARATION
+        , COOKINGTIME
+        , LISTAGG(LAB_INGREDIENT_DETAIL, ',') WITHIN GROUP (ORDER BY LAB_PRIORITY)
+        OVER (PARTITION BY LAB_PRIORITY) AS COOKS
         FROM LAB_DETAIL_INGREDIENT
         WHERE LAB_ID = #{lab_id}
         order by lab_priority
     </select>
-<!--    스탭 스와이퍼(요리 설명부분)-->
+    <!--    스탭 스와이퍼(요리 설명부분)-->
     <select id="selectStepById" resultType="RecipeLabStepDTO">
         WITH HASHTABLES AS (
-            SELECT hc.CONN_ID
-                 , hc.BOARD_ID
-                 , h.HASH_ID
-                 , h.HASH_NAME
-            FROM HASHTAGS_CONN hc
-                     INNER JOIN HASHTAGS h
-                                ON hc.HASH_ID = h.HASH_ID
+        SELECT hc.CONN_ID
+        , hc.BOARD_ID
+        , h.HASH_ID
+        , h.HASH_NAME
+        FROM HASHTAGS_CONN hc
+        INNER JOIN HASHTAGS h
+        ON hc.HASH_ID = h.HASH_ID
         )
         SELECT DISTINCT
-            l.*
-                      , LISTAGG(DISTINCT h.hash_name, ',') WITHIN GROUP (ORDER BY h.hash_id) OVER(PARTITION BY l.lab_id) AS hashnames
-                      , (
-            SELECT FILE_PATH
-            FROM IMG_LIST il
-            WHERE l.LAB_STEP_ID = il.POST_ID
-              AND l.BOARD_ID = il.BOARD_ID
-              AND il.IMG_PRIORITY = 1
+        l.*
+        , LISTAGG(DISTINCT h.hash_name, ',') WITHIN GROUP (ORDER BY h.hash_id) OVER(PARTITION BY l.lab_id) AS hashnames
+        , (
+        SELECT FILE_PATH
+        FROM IMG_LIST il
+        WHERE l.LAB_STEP_ID = il.POST_ID
+        AND l.BOARD_ID = il.BOARD_ID
+        AND il.IMG_PRIORITY = 1
         ) AS POSTER
-                      , (
-            SELECT DISTINCT
-                LISTAGG(FILE_PATH, ',') WITHIN GROUP(ORDER BY il.IMG_PRIORITY)
-                        OVER(PARTITION BY il.POST_ID)
-            FROM IMG_LIST il
-            WHERE l.LAB_STEP_ID = il.POST_ID
-              AND l.BOARD_ID = il.BOARD_ID
-              AND il.IMG_PRIORITY != 1
+        , (
+        SELECT DISTINCT
+        LISTAGG(FILE_PATH, ',') WITHIN GROUP(ORDER BY il.IMG_PRIORITY)
+        OVER(PARTITION BY il.POST_ID)
+        FROM IMG_LIST il
+        WHERE l.LAB_STEP_ID = il.POST_ID
+        AND l.BOARD_ID = il.BOARD_ID
+        AND il.IMG_PRIORITY != 1
         ) AS FILES
         FROM LAB_DETAIL_STEP l
-                 LEFT OUTER JOIN HASHTABLES h
-                                 ON l.LAB_ID = h.CONN_ID
-                                     AND h.BOARD_ID = 20
+        LEFT OUTER JOIN HASHTABLES h
+        ON l.LAB_ID = h.CONN_ID
+        AND h.BOARD_ID = 20
         WHERE l.LAB_ID = #{lab_id}
         ORDER BY l.LAB_STEP_ID
     </select>
