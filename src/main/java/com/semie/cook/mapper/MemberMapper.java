@@ -17,6 +17,7 @@ public interface MemberMapper {
     void resetPassword(String email, String password);
 
     void createComment(CommentDTO commentDTO);
+    void createReplyComment(CommentDTO commentDTO);    
     void modifyComment(CommentDTO commentDTO);
     void deleteComment(CommentDTO commentDTO);
     List<CommentDTO> findPostComment(int comment_board_id, int comment_post_id);

@@ -274,18 +274,51 @@
                                                     <p th:text="${reply.member_name}"></p>
                                                     <span class="date" th:text="${reply.create_date}"></span>
                                                 </div>
+
+                                                <div class="modify editAction" style="display: none">
+                                                    <button class="replyDelete" onclick="cancelModify(this)" type="button">닫기</button>
+                                                </div>
+
+                                                <!-- 대 댓글 수정 시작 -->
+                                                <div class="text" style="display: none">
+                                                    <form class="replyForm" onsubmit="return false;" method="post">
+                                                            <input type="hidden" class="parent_comment_id" value="">
+                                                            <div class="txtArea">
+                                                                    <textarea id="textBox" name="content" maxlength="1000" placeholder="내용을 입력하세요." th:text="${reply.desc_detail}"> </textarea>
+                                                                    <ul class="imgList">
+                                                                    </ul>
+                                                                    <p class="wordCount">
+                                                                            <span>0</span>/1,000
+                                                                    </p>
+                                                                    <div class="files">
+                                                                            <input type="file" name="file" class="addFile" data-url="/comment/presign" accept=".jpg, .jpeg, .png, .gif, image/*">
+                                                                            <label onclick="$(this).prev().click()">사진첨부</label>
+                                                                            <span class="fileName"></span>
+                                                                            <button class="replyButton" type="button" th:onclick="|modifyComment(${reply.comment_id}, this)|"> 수정 </button>
+                                                                    </div>
+                                                            </div>
+                                                    </form>
+                                                </div>
+                                                <!-- 대 댓글 수정 종료 -->
+
                                                 <div class="text" th:text="${reply.desc_detail}"></div>
                                                 <div class="modify editActive">
                                                     <button class="replyModify" onclick="activeModify(this)" type="button">수정</button>
                                                     <button class="replyDelete" th:onclick="|deleteComment(${reply.comment_id}, this)|" type="button">삭제</button>
                                                 </div>
+
+																								
                                             </div>
+
+																						
+
+
                                         </div>
                                     </div>
                                 </div>
 
                                 <!-- 대댓글 작성. -->
-                                <div class="cmt_box reply" style="display: none;">
+                                <div class="cmt_box reply create" style="display: none;">
                                     <div class="profile">
                                         <img src="/assets/images/common/profile.png" alt="">
                                     </div>
@@ -294,29 +327,29 @@
                                             <span class="date">2024-11-08 21:29</span>
                                         </div>
                                         <div class="text">
-                                            <form method="post">
-                                                <input type="hidden" class="comment_board_id" th:value="${lab.board_id}" />
-                                                <input type="hidden" class="comment_post_id" th:value="${lab.lab_id}" />
-                                                <input type="hidden" class="creater" th:value="${session.user != null ? session.user.member_id : ''}" />
-                                                <input type="hidden" class="parent_comment_id" th:value="${comment.comment_id}">
+																					<form method="post">
+																						<input type="hidden" class="comment_board_id" th:value="${lab.board_id}" />
+																						<input type="hidden" class="comment_post_id" th:value="${lab.lab_id}" />
+																						<input type="hidden" class="creater" th:value="${session.user != null ? session.user.member_id : ''}" />
+																						<input type="hidden" class="parent_comment_id" th:value="${comment.comment_id}">
 
-                                                <div class="txtArea">
-                                                    <textarea class="textBox" name="content" maxlength="1000" placeholder="내용을 입력하세요."></textarea>
-                                                    <ul class="imgList">
-                                                    </ul>
-                                                    <p class="wordCount">
-                                                        <span>0</span>/1,000
-                                                    </p>
-                                                    <div class="files">
-                                                        <input type="file" name="file" class="addFile" data-url="/comment/presign" accept=".jpg, .jpeg, .png, .gif, image/*">
-                                                        <label onclick="$(this).prev().click()">사진첨부</label>
-                                                        <span class="fileName"></span>
-                                                        <button name="reReplyButton" type="button" onclick="submitComment(this);">
-                                                            등록
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            </form>
+																						<div class="txtArea">
+																								<textarea class="textBox" name="content" maxlength="1000" placeholder="내용을 입력하세요."></textarea>
+																								<ul class="imgList">
+																								</ul>
+																								<p class="wordCount">
+																										<span>0</span>/1,000
+																								</p>
+																								<div class="files">
+																										<input type="file" name="file" class="addFile" data-url="/comment/presign" accept=".jpg, .jpeg, .png, .gif, image/*">
+																										<label onclick="$(this).prev().click()">사진첨부</label>
+																										<span class="fileName"></span>
+																										<button name="reReplyButton" type="button" onclick="submitReplyComment(this);">
+																												등록
+																										</button>
+																								</div>
+																						</div>
+																					</form>
                                         </div>
                                     </div>
                                 </div>
