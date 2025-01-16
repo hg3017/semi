@@ -1,16 +1,17 @@
 <!DOCTYPE html>
-<html lang="ko"
-      xmlns:th="http://www.thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{layout}"
-      layout:fragment="content">
+<html
+  lang="ko"
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorate="~{layout}"
+  layout:fragment="content"
+>
+  <head layout:fragment="config">
+    <title>Mypage</title>
+    <link rel="stylesheet" href="/css/mypage/writeList.css" />
+  </head>
 
-<head layout:fragment="config">
-  <title>Mypage</title>
-  <link rel="stylesheet" href="/css/mypage/writeList.css">
-</head>
-
-<main>
+  <main>
     <div id="container">
       <div id="wrap" data-menu="4">
         <div id="mypage">
@@ -34,12 +35,12 @@
           <div class="mypage-cont">
             <div class="mypage-tab">
               <ul>
-                <li class="on">
+                <li>
                   <a href="/mypage/scrap">
                     <span>스크랩한 글</span>
                   </a>
                 </li>
-                <li class="">
+                <li class="on">
                   <a href="/mypage/mypageWrite">
                     <span>내가 쓴 글</span>
                   </a>
@@ -77,7 +78,5 @@
         </div>
       </div>
     </div>
-</main>
-
-
+  </main>
 </html>
