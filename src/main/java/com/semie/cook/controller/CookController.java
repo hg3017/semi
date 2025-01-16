@@ -49,7 +49,7 @@ public class CookController {
         model.addAttribute("paging", pg.paging(request));
         model.addAttribute("state", "counseling");
         System.out.println("/cooking/counseling---------------------------------------------");
-        return "/cook/counseling";
+        return "/cooking/counseling";
     }
 
     //요리해요 작성하기
@@ -72,12 +72,13 @@ public class CookController {
 //        }else {
 //            return "redirect:/cook/cooking_write";
 //        }
-        return "redirect:/cooking/list";
+        return "redirect:/cook/list";
     }
 
     //고민있어요 작성하기
     @GetMapping("/counseling_write")
-    public void counselingWrite() {
+    public String counselingWrite() {
+        return "/cooking/counseling_write";
     }
     @PostMapping ("/counseling_write")
     public String counselingWrite(@ModelAttribute CounselingDTO dto, @RequestParam("poster") MultipartFile[] poster) {
