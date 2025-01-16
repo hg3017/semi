@@ -5,7 +5,9 @@ import com.semie.cook.common.FileVO;
 import com.semie.cook.common.Pagination;
 import com.semie.cook.model.CookDTO;
 import com.semie.cook.model.CounselingDTO;
+import com.semie.cook.model.ImageDTO;
 import com.semie.cook.service.CookService;
+import com.semie.cook.service.ImageService;
 import com.semie.cook.service.MemberService;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
@@ -26,6 +28,7 @@ public class CookController {
     private final CookService cookService;
     private final MemberService memberService;
     private final FileStorage fileStorage;
+    private final ImageService imageService;
 
     @GetMapping("/list")
     public String list(HttpServletRequest request, @RequestParam(defaultValue = "1") int pageNum, Model model) {
@@ -57,21 +60,20 @@ public class CookController {
     public String cooking_write() {
         return "/cooking/cooking_write";
     }
-    @PostMapping("/cooking_write")
-    public String cooking_write(@ModelAttribute CookDTO cookDTO, @RequestParam("file_poster") MultipartFile[] poster) {
-        System.out.println(cookDTO);
-        cookService.insertCook(cookDTO);
-        System.out.println("recipeLab/cooking_write-----------------------------------------------");
-        //포스터 업로드
-        List<FileVO> posterList = fileStorage.uploadFiles(poster,"upload/");
-        cookDTO.setPoster(posterList.get(0).getNfile());
 
-        //글쓰기
-//        int re = cookService.insertCook(cdto);
-//        if(re > 0) {
-//        }else {
-//            return "redirect:/cook/cooking_write";
-//        }
+    @PostMapping("/cooking_write")
+    public String cooking_write(@ModelAttribute CookDTO cdto, @ModelAttribute ImageDTO imageDto,@RequestParam("file") MultipartFile[] file_path, Model model) {
+        System.out.println(cdto);
+        System.out.println("recipeLab/cooking_write-----------------------------------------------");
+
+
+        List<FileVO> fileList =fileStorage.uploadFiles(file_path, "upload/");
+        imageDto.setFile_path(fileList.get(0).getNfile());
+
+        cookService.insertCook(cdto);
+        imageService.insertImage(imageDto);
+
+
         return "redirect:/cook/list";
     }
 
