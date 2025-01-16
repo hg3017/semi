@@ -164,6 +164,8 @@ public class MemberController {
     @PostMapping("/createComment")
     public ResponseEntity<Map<String, Object>> createComment(@RequestBody CommentDTO commentDTO, Model model) {
         System.out.println("member/createComment---------------------------------------------");
+        System.out.println(commentDTO);
+
         try {
             // 댓글 저장 로직
             memberService.createComment(commentDTO);
@@ -176,7 +178,21 @@ public class MemberController {
         }
     }
 
-
+    // 대댓글 작성
+    @PostMapping("/createReplyComment")
+    public ResponseEntity<Map<String, Object>> createReplyComment(@RequestBody CommentDTO commentDTO, Model model) {
+        System.out.println("member/createReplyComment---------------------------------------------");
+        try {
+            // 댓글 저장 로직
+            memberService.createReplyComment(commentDTO);
+            response.put("success", true);
+            return ResponseEntity.ok(response);
+        } catch (Exception e) {
+            e.printStackTrace();
+            response.put("success", false);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
+        }
+    }
 
     @PostMapping("/modifyComment")
     public ResponseEntity<Map<String, Object>> modifyComment(@RequestBody CommentDTO commentDTO, Model model) {

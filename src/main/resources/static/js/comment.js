@@ -6,20 +6,15 @@ function submitComment(button) {
   const comment_post_id = commentBox.querySelector('.comment_post_id').value;
   const desc_detail = commentBox.querySelector('.textBox').value;
   const creater = commentBox.querySelector('.creater').value;
-  let parent_comment_id = commentBox.querySelector('.parent_comment_id').value;
-
-  if (parent_comment_id === 0) {
-    parent_comment_id = null;
-  }
 
   const commentDTO = {
     comment_board_id: comment_board_id,
     comment_post_id: comment_post_id,
     desc_detail: desc_detail,
     creater: creater,
-    parent_comment_id: parent_comment_id,
   };
 
+  console.log(commentDTO);
   showLoading();
 
   // Fetch 요청 보내기
@@ -54,9 +49,63 @@ function submitComment(button) {
   return false; // 폼 제출 중단
 }
 
+// 대 댓글 작성
+function submitReplyComment(button) {
+  const commentBox = button.closest('.cmt');
+
+  const comment_board_id = commentBox.querySelector('.comment_board_id').value;
+  const comment_post_id = commentBox.querySelector('.comment_post_id').value;
+  const desc_detail = commentBox.querySelector('.textBox').value;
+  const creater = commentBox.querySelector('.creater').value;
+  const parent_comment_id =
+    commentBox.querySelector('.parent_comment_id').value;
+
+  const commentDTO = {
+    comment_board_id: comment_board_id,
+    comment_post_id: comment_post_id,
+    desc_detail: desc_detail,
+    creater: creater,
+    parent_comment_id: parent_comment_id,
+  };
+
+  console.log(commentDTO);
+  showLoading();
+
+  // Fetch 요청 보내기
+  fetch('/member/createReplyComment', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json', // 요청 데이터 형식
+    },
+    body: JSON.stringify(commentDTO), // 요청 본문 데이터
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json(); // JSON으로 응답 데이터 처리
+    })
+    .then((data) => {
+      if (data.success) {
+        alert('대 댓글이 저장되었습니다.');
+        location.reload();
+      } else {
+        alert('대 댓글 저장에 실패했습니다.');
+      }
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+      alert('서버와 연결 중 에러 발생.');
+    })
+    .finally(() => {
+      hideLoading();
+    });
+  return false; // 폼 제출 중단
+}
+
 // 댓글 수정
 function modifyComment(commentId, button) {
-  const commentBox = button.closest('.com_box');
+  const commentBox = button.closest('.txtArea');
   const textBox = commentBox.querySelector('#textBox');
 
   const updatedContent = textBox.value;
@@ -139,7 +188,7 @@ function activeModify(button) {
   if (textActive) textActive.style.display = 'block';
 }
 
-// 댓글 수정
+// 댓글 삭제
 function deleteComment(commentId, button) {
   const commentDTO = {
     comment_id: commentId,
@@ -177,4 +226,19 @@ function deleteComment(commentId, button) {
       hideLoading();
     });
   return false; // 폼 제출 중단
+}
+
+//대댓글 작성 누른 경우 디스플레이 활성화
+function visibleReply(event) {
+  event.preventDefault();
+  // 클릭된 버튼의 부모 요소에서 대댓글 박스를 찾음
+  const replyBox = event.target
+    .closest('.cmt')
+    .querySelector('.cmt_box.reply.create');
+
+  if (replyBox.style.display === 'none' || replyBox.style.display === '') {
+    replyBox.style.display = 'block'; // 대댓글 창 표시
+  } else {
+    replyBox.style.display = 'none'; // 대댓글 창 숨기기
+  }
 }

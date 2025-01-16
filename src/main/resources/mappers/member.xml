@@ -24,9 +24,15 @@
     </update>
 
     <insert id="createComment" parameterType="CommentDTO">
+        INSERT INTO MEMBER_COMMENT (COMMENT_ID, BOARD_ID, COMMENT_BOARD_ID, COMMENT_POST_ID, DESC_DETAIL, CREATER, CREATE_DATE)
+        VALUES (COMMENT_ID_SEQ.NEXTVAL, 91, #{comment_board_id, jdbcType=INTEGER}, #{comment_post_id, jdbcType=INTEGER}, #{desc_detail, jdbcType=VARCHAR}, #{creater, jdbcType=INTEGER}, SYSDATE)
+    </insert>
+
+    <insert id="createReplyComment" parameterType="CommentDTO">
         INSERT INTO MEMBER_COMMENT (COMMENT_ID, BOARD_ID, COMMENT_BOARD_ID, COMMENT_POST_ID, DESC_DETAIL, CREATER, CREATE_DATE, PARENT_COMMENT_ID)
         VALUES (COMMENT_ID_SEQ.NEXTVAL, 91, #{comment_board_id, jdbcType=INTEGER}, #{comment_post_id, jdbcType=INTEGER}, #{desc_detail, jdbcType=VARCHAR}, #{creater, jdbcType=INTEGER}, SYSDATE, #{parent_comment_id, jdbcType=INTEGER})
     </insert>
+
 
     <update id="modifyComment">
         UPDATE MEMBER_COMMENT SET DESC_DETAIL = #{desc_detail, jdbcType=VARCHAR} , MODIFY_DATE = SYSDATE WHERE COMMENT_ID = #{comment_id, jdbcType=INTEGER}
@@ -52,7 +58,7 @@
                 LEFT OUTER JOIN IMG_LIST il ON m.MEMBER_ID = IL.POST_ID AND m.BOARD_ID = il.BOARD_ID
         WHERE
             1=1
-          AND MC.COMMENT_BOARD_ID = #{comment_board_id, jdbcType=INTEGER}
-          AND MC.COMMENT_POST_ID =  #{comment_post_id, jdbcType=INTEGER}
+						AND MC.COMMENT_BOARD_ID = #{comment_board_id, jdbcType=INTEGER}
+						AND MC.COMMENT_POST_ID =  #{comment_post_id, jdbcType=INTEGER}
     </select>
 </mapper>

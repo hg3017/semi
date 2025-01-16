@@ -36,6 +36,11 @@ public class MemberService {
         memberMapper.createComment(commentDTO);
     }
 
+    public void createReplyComment(CommentDTO commentDTO) {
+        memberMapper.createReplyComment(commentDTO);
+    }
+    
+
     public void modifyComment(CommentDTO commentDTO) {
         memberMapper.modifyComment(commentDTO);
     }
