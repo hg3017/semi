@@ -30,8 +30,12 @@
         , co.DESC_DETAIL
         , m.MEMBER_NAME AS CREATER_NAME
         , co.CREATE_DATE
+        ,il.FILE_PATH
         from cook co
         INNER JOIN MEMBER m ON m.MEMBER_id=co.CREATER
+        LEFT OUTER JOIN IMG_LIST il
+        ON co.cook_id = il.POST_ID
+        AND co.BOARD_ID = il.BOARD_ID
         <include refid="page2" />
     </select>
     <insert id="insertCook" parameterType="CookDTO">
@@ -45,14 +49,15 @@
             SYSDATE
             #{post, jdbcType=VARCHAR}
         )
+
+        INSERT INTO IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, POST_ID)
+        SELECT
+        IMG_LIST_SEQ.NEXTVAL,
+        40,
+        #{FILE_PATH, jdbcType=VARCHAR},
+        #{POST_ID, jdbcType=VARCHAR}
+        FROM DUAL
     </insert>
-    <insert id="insertImage" parameterType="ImageDTO">
-        INSERT INTO IMAGE (IMG_LIST_ID, BOARD_ID, FILE_PATH)
-        VALUES (
-        IMG_LIST_ID_SEQ.NEXTVAL, <!-- 이미지 ID 자동 생성 -->
-        #{board_id, jdbcType=INTEGER}, <!-- CookDTO와 동일한 BOARD_ID 사용 -->
-        #{file_path, jdbcType=VARCHAR}
-        )
-    </insert>
+
 
 </mapper>

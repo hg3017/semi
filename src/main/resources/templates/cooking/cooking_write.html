@@ -32,7 +32,9 @@
     <section class="cook_write_cont">
         <div class="inner">
             <form action="/cook/cooking_write" method="POST" enctype="multipart/form-data">
-                <input type="hidden" name="creater" th:value="${session.user.getMember_id()}">
+                <input type="hidden" name="creater"
+                       th:value="${session.user != null ? session.user.getMember_id() : ''}">
+                <input type="hidden" name="creater" value="1">
                 <div class="form">
                     <p class="label">제목</p>
                     <input name="cook_name" type="text" class="form_box" placeholder="제목을 입력해 주세요">
@@ -60,7 +62,7 @@
                         <input type="text" class="form_box" placeholder="10MB 미만의 이미지를 업로드 해주세요" disabled="">
                         <input type="hidden" name="imagesArr">
 <!--                        <input type="file" id="formFile" name="file_path" required="" aria-required="true" accept="image/jpg,image/jpeg,image/gif,image/png" data-max-limit="10485760" aria-describedby="file-desc" data-url="/cooking/write/upload" class="a11y" style="display: none;">-->
-                        <input type="file" name="file_path">
+                        <input type="file" name="file_path" multiple>
                         <label for="formFile1">파일첨부</label>
                     </div>
                     <ul class="file-list" id="done_img_list" style="display: none;">

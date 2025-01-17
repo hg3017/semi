@@ -62,20 +62,51 @@ public class CookController {
     }
 
     @PostMapping("/cooking_write")
-    public String cooking_write(@ModelAttribute CookDTO cdto, @ModelAttribute ImageDTO imageDto,@RequestParam("file") MultipartFile[] file_path, Model model) {
-        System.out.println(cdto);
-        System.out.println("recipeLab/cooking_write-----------------------------------------------");
+    public String cooking_write(@ModelAttribute CookDTO cookDTO,
+                                @ModelAttribute ImageDTO imageDto,
+                                @RequestParam("file_path") MultipartFile[] file_path,
+                                Model model) {
+        try {
+            System.out.println(cookDTO);
+            System.out.println("recipeLab/cooking_write-----------------------------------------------");
 
+            // 파일 업로드 처리
+            List<FileVO> fileList = fileStorage.uploadFiles(file_path, "upload/");
 
-        List<FileVO> fileList =fileStorage.uploadFiles(file_path, "upload/");
-        imageDto.setFile_path(fileList.get(0).getNfile());
+            // 파일이 있는 경우, 첫 번째 파일 경로 설정
+            if (!fileList.isEmpty()) {
+                imageDto.setFile_path(fileList.get(0).getNfile());
+            }
 
-        cookService.insertCook(cdto);
-        imageService.insertImage(imageDto);
+            // 데이터 저장
+            cookService.insertCook(cookDTO);
+//            imageService.insertImage(imageDto);
 
-
-        return "redirect:/cook/list";
+            return "redirect:/cook/list";
+        } catch (Exception e) {
+            e.printStackTrace();  // 예외를 로그로 출력
+            model.addAttribute("error", "파일 업로드 중 오류가 발생했습니다.");
+            return "errorPage";  // 오류 페이지로 리다이렉트 또는 포워드
+        }
     }
+
+
+//    @PostMapping("/cooking_write")
+//    public String cooking_write(@ModelAttribute CookDTO cookDTO, @ModelAttribute ImageDTO imageDto, @RequestParam("file_path") MultipartFile[] file_path, Model model) {
+//        System.out.println(cookDTO);
+//        System.out.println("recipeLab/cooking_write-----------------------------------------------");
+//
+//
+//        List<FileVO> fileList =fileStorage.uploadFiles(file_path, "upload/");
+//        imageDto.setFile_path(fileList.get(0).getNfile());
+//
+//        cookService.insertCook(cookDTO);
+//        imageService.insertImage(imageDto);
+//
+//
+//
+//        return "redirect:/cook/list";
+//    }
 
     //고민있어요 작성하기
     @GetMapping("/counseling_write")

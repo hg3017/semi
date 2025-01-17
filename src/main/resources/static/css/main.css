@@ -815,13 +815,13 @@ display: block;
     overflow: hidden;
     position: relative;
     width: 100%;
-    height: 100%;...
-    border-radius: 20px;...........................................................................................++
-    aspect-ratio: 1 / 1;.........
+    height: 100%;
+    border-radius: 20px;
+    aspect-ratio: 1 / 1;
     object-fit: cover;
 }
 
-.main_lab .swiper-slide .txt_wrap {................................................
+.main_lab .swiper-slide .txt_wrap {
   padding: 20px 0 48px;
 }
 .main_lab .swiper-slide .label {
@@ -1245,9 +1245,6 @@ display: block;
   margin-left: 8px;
 }
 
-.main_bnlist .swiper-wrapper {
-  margin-left: 95px;
-}
 .main_bnlist .swiper-slide img {
   max-width: 100%;
 }
