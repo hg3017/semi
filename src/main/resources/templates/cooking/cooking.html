@@ -61,7 +61,7 @@
             <li class="cook_item" th:each="cook : ${list}">
               <a href="#">
                 <div class="img_wrap">
-                  <img th:src="@{/cook/uploads/{fileName}(fileName=${cook.file_path})}" alt="">
+                  <img th:src="@{/cook/uploads/{fileName}(fileName=${cook.poster})}" alt="">
                 </div>
                 <div class="info_wrap">
                   <span class="name" th:text="${cook.creater_name}"></span>
