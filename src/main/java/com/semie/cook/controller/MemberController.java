@@ -209,6 +209,7 @@ public class MemberController {
         }
     }
 
+    // 댓글 삭제 
     @PostMapping("/deleteComment")
     public ResponseEntity<Map<String, Object>> deleteComment(@RequestBody CommentDTO commentDTO, Model model) {
         System.out.println("member/deleteComment--------------------------------------------");
@@ -223,5 +224,6 @@ public class MemberController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
         }
     }
+
 
 }

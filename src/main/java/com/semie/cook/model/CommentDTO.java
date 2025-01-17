@@ -21,4 +21,6 @@ public class CommentDTO {
     private int parent_comment_id;
     private Date create_date;
     private Date modify_date;
+    private String board_name;
+    private String origin_name;
 }

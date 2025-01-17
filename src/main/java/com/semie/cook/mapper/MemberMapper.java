@@ -20,5 +20,8 @@ public interface MemberMapper {
     void createReplyComment(CommentDTO commentDTO);    
     void modifyComment(CommentDTO commentDTO);
     void deleteComment(CommentDTO commentDTO);
+
     List<CommentDTO> findPostComment(int comment_board_id, int comment_post_id);
+
+    List<CommentDTO> findUserComment(int member_id);
 }

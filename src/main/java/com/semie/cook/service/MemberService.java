@@ -53,4 +53,8 @@ public class MemberService {
     public List<CommentDTO> findPostComment(int comment_board_id, int comment_post_id) {
         return memberMapper.findPostComment(comment_board_id, comment_post_id);
     }
+
+    public List<CommentDTO> findUserComment(int member_id) {
+        return memberMapper.findUserComment(member_id);
+    }
 }

@@ -1,16 +1,17 @@
 <!DOCTYPE html>
-<html lang="ko"
-      xmlns:th="http://www.thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{layout}"
-      layout:fragment="content">
+<html
+  lang="ko"
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorate="~{layout}"
+  layout:fragment="content"
+>
+  <head layout:fragment="config">
+    <title>Mypage</title>
+    <link rel="stylesheet" href="/css/mypage/mypageCommon.css" />
+  </head>
 
-<head layout:fragment="config">
-  <title>Mypage</title>
-  <link rel="stylesheet" href="/css/mypage/mypageCommon.css">
-</head>
-
-<main>
+  <main>
     <div id="container">
       <div id="wrap" data-menu="4">
         <div id="mypage">
@@ -34,7 +35,7 @@
           <div class="mypage-cont">
             <div class="mypage-tab">
               <ul>
-                <li class="on">
+                <li>
                   <a href="/mypage/scrap">
                     <span>스크랩한 글</span>
                   </a>
@@ -49,7 +50,7 @@
                     <span>나의 댓글</span>
                   </a>
                 </li>
-                <li>
+                <li class="on">
                   <a href="/mypage/mypageEvent">
                     <span>이벤트 참여내역</span>
                   </a>
@@ -131,5 +132,4 @@
       </div>
     </div>
   </main>
-
 </html>

@@ -2,6 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.semie.cook.mapper.MemberMapper">
+
+
     <select id="selectAll" resultType="memberDTO">
         select * from member
     </select>
@@ -60,5 +62,133 @@
             1=1
 						AND MC.COMMENT_BOARD_ID = #{comment_board_id, jdbcType=INTEGER}
 						AND MC.COMMENT_POST_ID =  #{comment_post_id, jdbcType=INTEGER}
+    </select>
+
+    <select id="findUserComment" resultType="commentDTO">
+    SELECT 
+        mc.COMMENT_ID ,
+        l.BOARD_ID,
+        CASE
+            WHEN l.BOARD_ID = 20 THEN '레시피'
+            WHEN l.BOARD_ID = 30 THEN '솔루션'
+            WHEN l.BOARD_ID = 40 THEN '요리해요'
+            WHEN l.BOARD_ID = 50 THEN '고민있어요'
+            WHEN l.BOARD_ID = 60 THEN '이벤트'
+            ELSE '????'
+        END AS BOARD_NAME,
+        l.lab_name AS origin_name ,
+        mc.DESC_DETAIL,
+        mc.CREATE_DATE 
+    FROM 
+        MEMBER_COMMENT mc 
+        INNER JOIN LAB l ON mc.COMMENT_BOARD_ID = l.board_id AND mc.COMMENT_POST_ID = l.lab_id
+    WHERE 
+        1=1
+        AND mc.CREATER = #{member_id, jdbcType=INTEGER}
+    UNION ALL
+    SELECT 
+        mc.COMMENT_ID ,
+        s.BOARD_ID ,
+        CASE
+            WHEN s.BOARD_ID = 20 THEN '레시피'
+            WHEN s.BOARD_ID = 30 THEN '솔루션'
+            WHEN s.BOARD_ID = 40 THEN '요리해요'
+            WHEN s.BOARD_ID = 50 THEN '고민있어요'
+            WHEN s.BOARD_ID = 60 THEN '이벤트'
+            ELSE '????'
+        END AS BOARD_NAME,
+        s.solution_name AS origin_name ,
+        mc.DESC_DETAIL,
+        mc.CREATE_DATE 
+    FROM 
+        MEMBER_COMMENT mc 
+        INNER JOIN SOLUTION s ON mc.COMMENT_BOARD_ID = s.board_id AND mc.COMMENT_POST_ID = s.solution_id
+    WHERE 
+        1=1
+        AND mc.CREATER = #{member_id, jdbcType=INTEGER}
+    UNION ALL
+    SELECT 
+        mc.COMMENT_ID ,
+        s.BOARD_ID ,
+        CASE
+            WHEN s.BOARD_ID = 20 THEN '레시피'
+            WHEN s.BOARD_ID = 30 THEN '솔루션'
+            WHEN s.BOARD_ID = 40 THEN '요리해요'
+            WHEN s.BOARD_ID = 50 THEN '고민있어요'
+            WHEN s.BOARD_ID = 60 THEN '이벤트'
+            ELSE '????'
+        END AS BOARD_NAME,
+        s.solution_name AS origin_name ,
+        mc.DESC_DETAIL,
+        mc.CREATE_DATE 
+    FROM 
+        MEMBER_COMMENT mc 
+        INNER JOIN SOLUTION s ON mc.COMMENT_BOARD_ID = s.board_id AND mc.COMMENT_POST_ID = s.solution_id
+    WHERE 
+        1=1
+        AND mc.CREATER = #{member_id, jdbcType=INTEGER}
+    UNION ALL
+    SELECT 
+        mc.COMMENT_ID ,
+        c.BOARD_ID ,
+        CASE
+            WHEN c.BOARD_ID = 20 THEN '레시피'
+            WHEN c.BOARD_ID = 30 THEN '솔루션'
+            WHEN c.BOARD_ID = 40 THEN '요리해요'
+            WHEN c.BOARD_ID = 50 THEN '고민있어요'
+            WHEN c.BOARD_ID = 60 THEN '이벤트'
+            ELSE '????'
+        END AS BOARD_NAME,
+        c.cook_name AS origin_name ,
+        mc.DESC_DETAIL,
+        mc.CREATE_DATE 
+    FROM 
+        MEMBER_COMMENT mc 
+        INNER JOIN COOK c ON mc.COMMENT_BOARD_ID = c.board_id AND mc.COMMENT_POST_ID = c.cook_id
+    WHERE 
+        1=1
+        AND mc.CREATER = #{member_id, jdbcType=INTEGER}
+    UNION ALL
+    SELECT 
+        mc.COMMENT_ID ,
+        c.BOARD_ID ,
+        CASE
+            WHEN c.BOARD_ID = 20 THEN '레시피'
+            WHEN c.BOARD_ID = 30 THEN '솔루션'
+            WHEN c.BOARD_ID = 40 THEN '요리해요'
+            WHEN c.BOARD_ID = 50 THEN '고민있어요'
+            WHEN c.BOARD_ID = 60 THEN '이벤트'
+            ELSE '????'
+        END AS BOARD_NAME,
+        c.counseling_name AS origin_name ,
+        mc.DESC_DETAIL,
+        mc.CREATE_DATE 
+    FROM 
+        MEMBER_COMMENT mc 
+        INNER JOIN COUNSELING c ON mc.COMMENT_BOARD_ID = c.board_id AND mc.COMMENT_POST_ID = c.counseling_id
+    WHERE 
+        1=1
+        AND mc.CREATER = #{member_id, jdbcType=INTEGER}
+    UNION ALL
+    SELECT 
+        mc.COMMENT_ID ,
+        e.BOARD_ID ,
+        CASE
+            WHEN e.BOARD_ID = 20 THEN '레시피'
+            WHEN e.BOARD_ID = 30 THEN '솔루션'
+            WHEN e.BOARD_ID = 40 THEN '요리해요'
+            WHEN e.BOARD_ID = 50 THEN '고민있어요'
+            WHEN e.BOARD_ID = 60 THEN '이벤트'
+            ELSE '????'
+        END AS BOARD_NAME,
+        e.event_name AS origin_name ,
+        mc.DESC_DETAIL,
+        mc.CREATE_DATE 
+    FROM 
+        MEMBER_COMMENT mc 
+        INNER JOIN EVENT e ON mc.COMMENT_BOARD_ID = e.board_id AND mc.COMMENT_POST_ID = e.event_id
+    WHERE 
+        1=1
+        AND mc.CREATER = #{member_id, jdbcType=INTEGER}
     </select>
 </mapper>
