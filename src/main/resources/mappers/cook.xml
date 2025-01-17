@@ -30,6 +30,7 @@
         , co.DESC_DETAIL
         , m.MEMBER_NAME AS CREATER_NAME
         , co.CREATE_DATE
+        , co.POSTER
         ,il.FILE_PATH
         from cook co
         INNER JOIN MEMBER m ON m.MEMBER_id=co.CREATER
@@ -39,24 +40,16 @@
         <include refid="page2" />
     </select>
     <insert id="insertCook" parameterType="CookDTO">
-        INSERT INTO COOK (COOK_ID, BOARD_ID, COOK_NAME, DESC_DETAIL, CREATER, CREATE_DATE, POST)
+        INSERT INTO COOK (COOK_ID, BOARD_ID, COOK_NAME, DESC_DETAIL, CREATER, CREATE_DATE, POSTER)
         VALUES(
             COOK_ID_SEQ.NEXTVAL,
             40,
             #{cook_name, jdbcType=VARCHAR},
             #{desc_detail, jdbcType=VARCHAR},
             #{creater, jdbcType=INTEGER},
-            SYSDATE
-            #{post, jdbcType=VARCHAR}
+            SYSDATE,
+            #{poster, jdbcType=VARCHAR}
         )
-
-        INSERT INTO IMG_LIST (IMG_LIST_ID, BOARD_ID, FILE_PATH, POST_ID)
-        SELECT
-        IMG_LIST_SEQ.NEXTVAL,
-        40,
-        #{FILE_PATH, jdbcType=VARCHAR},
-        #{POST_ID, jdbcType=VARCHAR}
-        FROM DUAL
     </insert>
 
 
