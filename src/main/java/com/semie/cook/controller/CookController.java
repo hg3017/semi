@@ -66,15 +66,40 @@ public class CookController {
                                 @RequestParam("file_poster") MultipartFile[] poster,
                                 Model model) {
 
-        //포스터 업로드
-        if (poster != null && poster.length > 0 && !poster[0].isEmpty()) {
-            List<FileVO> PosterList = fileStorage.uploadFiles(poster, "upload/");
-            cookDTO.setPoster(PosterList.get(0).getNfile());
-        }
+//        //포스터 업로드
+//        if (poster != null && poster.length > 0 && !poster[0].isEmpty()) {
+//            List<FileVO> PosterList = fileStorage.uploadFiles(poster, "upload/");
+//            cookDTO.setPoster(PosterList.get(0).getNfile());
+//        }
+//            cookService.insertCook(cookDTO);
+//            return "/cooking/cooking";
+
+        try {
+            // 포스터 업로드
+            if (poster != null && poster.length > 0) {
+                // 파일 업로드 처리
+                List<FileVO> PosterList = fileStorage.uploadFiles(poster, "upload/");
+
+                // 업로드된 파일들의 경로를 cookDTO에 추가
+                for (FileVO file : PosterList) {
+                    cookDTO.setPoster(file.getNfile());
+                }
+            }
+
+            // 데이터 저장
             cookService.insertCook(cookDTO);
-            return "/cooking/cooking";
+
+            // 성공적인 처리 후 리다이렉트
+            return "/cooking/cooking"; // 적절한 리다이렉트 URL로 수정
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            model.addAttribute("error", "파일 업로드 중 오류가 발생했습니다.");
+            return "errorPage"; // 오류 페이지로 이동
+        }
 
     }
+
 
 
 

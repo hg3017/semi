@@ -5,6 +5,7 @@ import com.semie.cook.mapper.CookMapper;
 import com.semie.cook.mapper.CounselingMapper;
 import com.semie.cook.model.CookDTO;
 import com.semie.cook.model.CounselingDTO;
+import com.semie.cook.model.RecipeLabDTO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -24,6 +25,10 @@ public class CookService {
     public List<CounselingDTO> findAll1(Pagination pg) {
         pg.setTotalRecord(counselingMapper.totalLab(pg));
         return counselingMapper.selectAll1(pg);
+    }
+
+    public CookDTO selectById(int cook_id) {
+        return cookMapper.selectById(cook_id);
     }
 
     public int insertCook(CookDTO cookDTO) {
