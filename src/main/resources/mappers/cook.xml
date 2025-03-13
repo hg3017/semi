@@ -51,6 +51,12 @@
             #{poster, jdbcType=VARCHAR}
         )
     </insert>
-
+    <select id="selectById" resultType="CookDTO">
+        SELECT co.COOK_ID, co.BOARD_ID, co.COOK_NAME, co.DESC_DETAIL,
+        m.MEMBER_NAME AS CREATER_NAME, co.CREATE_DATE, co.POSTER
+        FROM cook co
+        INNER JOIN MEMBER m ON m.MEMBER_ID = co.CREATER
+        WHERE co.COOK_ID = {#cook_id}
+    </select>
 
 </mapper>

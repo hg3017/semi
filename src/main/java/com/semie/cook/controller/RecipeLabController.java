@@ -2,6 +2,7 @@ package com.semie.cook.controller;
 
 import com.semie.cook.common.Pagination;
 import com.semie.cook.model.Lab_detail_ingredientDTO;
+import com.semie.cook.service.CookService;
 import com.semie.cook.service.GuideService;
 import com.semie.cook.service.MemberService;
 import com.semie.cook.service.RecipeLabService;
@@ -27,6 +28,7 @@ public class RecipeLabController {
 
    private final RecipeLabService recipeLabService;
    private final MemberService memberService;
+   private final CookService cookService;
 
     @GetMapping("/list")
     public String list(HttpServletRequest request, @RequestParam(defaultValue = "1") int pageNum, Model model) {
@@ -94,8 +96,9 @@ public class RecipeLabController {
     }
 
     // 요리해요 상세페이지
-    @GetMapping("/archive_cook")
-    public String archive_cook(Model model) {
+    @GetMapping("/archive_cook/{cookId}")
+    public String archive_cook(@PathVariable int cookId, Model model) {
+        model.addAttribute("cook", cookService.selectById(cookId));
         System.out.println("recipeLab/archive_cook-----------------------------------------------");
         return "/recipeLab/archive_cook";
     }

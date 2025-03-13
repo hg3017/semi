@@ -59,7 +59,8 @@
         <div class="tag_wrap">
           <ul class="cook_area">
             <li class="cook_item" th:each="cook : ${list}">
-              <a href="#">
+<!--              <a href="#">-->
+              <a th:href="@{'/recipeLab/archive_cook/' + ${cook.cook_id}}">
                 <div class="img_wrap">
                   <img th:src="@{/cook/uploads/{fileName}(fileName=${cook.poster})}" alt="">
                 </div>

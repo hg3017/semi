@@ -10,4 +10,5 @@ public interface CookMapper {
     List<CookDTO> selectAll(Pagination pg);
     int totalCook(Pagination pg);
     int insertCook(CookDTO cookDTO);
+    CookDTO selectById(int cook_id);
 }
